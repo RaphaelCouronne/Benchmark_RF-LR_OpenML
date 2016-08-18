@@ -16,4 +16,4 @@ load(file = file.path(githubdir,"Data_BenchmarkOpenMl/Final/DataMining/clas.RDat
 
 # performance meqsures
 #source(file = file.path(githubdir,"MulticlassAUC/AUCmlr.R"))
-MEASURES = list(acc, ber, mmce, brier, timetrain)
+MEASURES = list(acc, ber, mmce, brier, timetrain, auc)

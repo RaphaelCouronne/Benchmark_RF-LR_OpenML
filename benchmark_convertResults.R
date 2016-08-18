@@ -1,6 +1,11 @@
 rm(list = ls())
 library(mlr)
+library(gridExtra)
+library(ggplot2)
+library(cowplot)
 library(reshape2)
+setwd("C:/Users/couronne/Desktop/GitHub/BenchmarkOpenMl")
+load(file = "../Data_BenchmarkOpenMl/ResultatsInterpretabilite/tiny/weightedPdpDiff_rfImportance.RData")
 
 
 ## Load and convert the reasults to a data frame ----
@@ -62,8 +67,6 @@ convertModifiedBMRToRankMatrix <- function(bmr.all, measure = NULL, ties.method 
   colnames(mat) = task.id.names
   return(mat)
 }
-
-matrixRanks = convertModifiedBMRToRankMatrix(res.perfs.df, measure = measure.chosen)
 
 
 
@@ -136,5 +139,137 @@ plotLinearModelandCor("lograpportMajorityMinorityClass","acc.test.mean")
 
 
 
+## Anne Laure visualization
+
+# with ggplot
+boxplot.threshold.ggplot <- function(df, measure, feature, threshold) {
+  names = names(df)
+  
+  if (!(measure %in% names) | !(feature %in% names) ) {
+    print("Error, measure or feature was not found")
+  }
+  
+  thresh = df[[feature]]>threshold
+  df$thresh = thresh
+  p <- ggplot(df, aes_string("thresh", "acc.test.mean"))
+  p = p + geom_boxplot(aes_string(fill = "thresh"))
+  return(p)
+}
+
+feature.boxplot <- function(df, measure, feature, threshold.vect) {
+  n = length(threshold.vect)
+  
+  v = lapply(threshold.vect, function(x) boxplot.threshold.ggplot(df, measure, feature, x))
+  labels = sapply(threshold.vect, function(x) return(paste(">",x, sep = "")))
+  plot_grid(plotlist = v,  labels=labels, ncol = 3, nrow = 1)
+}
+
+
+
+measure.chosen = "brier.test.mean"
+
+# logp
+feature.chosen = "logp"
+feature.boxplot(df.bmr.diff, measure.chosen, feature.chosen,c(1.5,2.5,3.5))
+
+# logn
+feature.chosen = "logn"
+feature.boxplot(df.bmr.diff, measure.chosen, feature.chosen,c(4.5,5.5,6.5))
+
+#logdimension
+feature.chosen = "logdimension"
+feature.boxplot(df.bmr.diff, measure.chosen, feature.chosen,c(1.5,2.5,3.5))
+
+#logdimension
+feature.chosen = "logpsurn"
+feature.boxplot(df.bmr.diff, measure.chosen, feature.chosen,c(-4,-3,-2))
+
+#logdimension
+feature.chosen = "logdimensionsurn"
+feature.boxplot(df.bmr.diff, measure.chosen, feature.chosen,c(-5,-4,-2))
+
+#logdimension
+feature.chosen = "lograpportMajorityMinorityClass"
+feature.boxplot(df.bmr.diff, measure.chosen, feature.chosen,c(0.2,0.6,1,2))
+
+
+
 
 ## Partial dependance plots analysis
+
+## Classification
+
+measure.chosen = acc
+matrixRanks = convertModifiedBMRToRankMatrix(res.perfs.df, measure = measure.chosen)
+
+lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob")
+
+
+df.classif = data.frame(rankrf = matrixRanks[2,], df.bmr.diff)
+index.egalite = which(df.classif$rankrf==1.5)
+df.classif = df.classif[-index.egalite,]
+df.classif$rankrf = as.factor(df.classif$rankrf)
+
+task.classif = makeClassifTask(data = df.classif, target = "rankrf")
+task.classif$env$data$logn = as.numeric(task.classif$env$data$logn)
+
+fit.classif.rf = train(lrn.classif.rf, task.classif)
+
+# 1D partial dependance plots
+pd.classif = generatePartialDependenceData(fit.classif.rf, task.classif, "logn")
+plotPartialDependence(pd.classif)
+
+pd.classif = generatePartialDependenceData(fit.classif.rf, task.classif, "logp")
+plotPartialDependence(pd.classif)
+
+pd.classif = generatePartialDependenceData(fit.classif.rf, task.classif, "logdimension")
+plotPartialDependence(pd.classif)
+
+pd.classif = generatePartialDependenceData(fit.classif.rf, task.classif, "logpsurn")
+plotPartialDependence(pd.classif)
+
+pd.classif = generatePartialDependenceData(fit.classif.rf, task.classif, "logdimensionsurn")
+plotPartialDependence(pd.classif)
+
+pd.classif = generatePartialDependenceData(fit.classif.rf, task.classif, "lograpportMajorityMinorityClass")
+plotPartialDependence(pd.classif)
+
+
+# 2D Partial dependance plots
+pd.classif = generatePartialDependenceData(fit.classif.rf, task.classif, c("logn", "logp"), interaction = TRUE)
+plotPartialDependence(pd.classif, geom = "tile")
+
+
+
+## regression
+measure.chosen = "acc.test.mean"
+
+task.regr = makeRegrTask(data = df.bmr.diff, target = measure.chosen)
+lrn.regr = makeLearner("regr.randomForest")
+task.regr$env$data$logn=as.numeric(task.regr$env$data$logn)
+fit.regr.rf = train(lrn.regr, task.regr)
+
+# 1D partial dependance plots
+pd.regr.rf = generatePartialDependenceData(fit.regr.rf, task.regr,features = c("logn"), fun = function(x) quantile(x, c(.25, .5, .75)))
+plotPartialDependence(pd.regr.rf)
+
+pd.regr.rf = generatePartialDependenceData(fit.regr.rf, task.regr,features = c("logp"),fun = function(x) quantile(x, c(.25, .5, .75)))
+plotPartialDependence(pd.regr.rf)
+
+pd.regr.rf = generatePartialDependenceData(fit.regr.rf, task.regr,features = c("logdimension"), fun = function(x) quantile(x, c(.25, .5, .75)))
+plotPartialDependence(pd.regr.rf)
+
+pd.regr.rf = generatePartialDependenceData(fit.regr.rf, task.regr,features = c("logpsurn"),fun = function(x) quantile(x, c(.25, .5, .75)))
+plotPartialDependence(pd.regr.rf)
+
+pd.regr.rf = generatePartialDependenceData(fit.regr.rf, task.regr,features = c("logdimensionsurn"),fun = function(x) quantile(x, c(.25, .5, .75)))
+plotPartialDependence(pd.regr.rf)
+
+pd.regr.rf = generatePartialDependenceData(fit.regr.rf, task.regr,features = c("lograpportMajorityMinorityClass"),fun = function(x) quantile(x, c(.25, .5, .75)))
+plotPartialDependence(pd.regr.rf)
+
+
+
+# 2D Partial dependance plots
+pd.regr.rf = generatePartialDependenceData(fit.regr.rf, task.regr,features = c("logn", "logp"), interaction = TRUE)
+plotPartialDependence(pd.regr.rf, geom = "tile")

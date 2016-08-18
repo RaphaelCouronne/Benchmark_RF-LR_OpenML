@@ -12,13 +12,13 @@ if (OS == "OSX") {
   dir = file.path(githubdir, "BenchmarkOpenMl/FinalVersion/")
 } else {
   # windows
-  githubdir = "C:/Users/couronne/Desktop/GitHub"
-  dir = file.path(githubdir, "BenchmarkOpenMl/FinalVersion/")
+  githubdir = "Z:/Raphael/GiHub/"
+  dir = file.path(githubdir, "IBE_Benchmark-OpenML/")
 }
 
-setwd(file.path(githubdir, "BenchmarkOpenMl"))
+setwd(file.path(githubdir, "IBE_Benchmark-OpenML"))
 
-source("FinalVersion/benchmark_dataMiningOpenML_functions.R")
+source("benchmark_dataMiningOpenML_functions.R")
 
 
 # =============================
@@ -134,7 +134,7 @@ print("end of nas")
 
 
 # =============================
-# Part 3 : Get Additional features
+# Part 3 : Get the dimension as a feature
 # ============================= ----
 
 ## Dimension
@@ -192,11 +192,14 @@ plot(clas_medium$dimension)
 
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas.RData" )
 
+
 ## time train of a randomforest
 rf.timetrain = rep(NA, nrow(clas))
 
+load(file = "../Data_BenchmarkOpenMl/Final/DataMining/rf.timetrain.RData")
+
 # Begin loop
-for (j in c(1:nrow(clas)) ) {
+for (j in c(351:nrow(clas)) ) {
   print(paste("iteration ", j))
   try({
     omldataset = getOMLDataSet(did = clas$did[j], verbosity = 0)
@@ -209,22 +212,32 @@ for (j in c(1:nrow(clas)) ) {
     # get the time of training
     lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE)
     measures = list(timetrain)
-    rdesc = makeResampleDesc("CV", iters = 5, stratify = TRUE)
-    time.train = getTaskDimension(mlrtask)
+    rdesc = makeResampleDesc("Holdout", split = 0.2, stratify = TRUE)
     configureMlr(on.learner.error = "warn", show.learner.output = FALSE)
     bmr = benchmark(lrn.classif.rf, mlrtask, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = FALSE)
     perfs = getBMRPerformances(bmr, as.df = TRUE)
     time.train = sum(perfs$timetrain)
+    save(rf.timetrain, file = "../Data_BenchmarkOpenMl/Final/DataMining/rf.timetrain.RData" )
     
     print(time.train)
     rf.timetrain[j] = time.train
   })
 }
 
-clas$rf.tirf.timetrain
+clas_time = clas
+clas_time$rf.timetrain = rf.timetrain
 
-# remove the lines with na in training and dimension
+# reorder according to time and na
+clas_time = clas_time[order(clas_time$rf.timetrain), ]
 
-# reorder the dataset pool according to the estimated time of training
-save(clas, file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData" )
+# clas_time small medium big non supported
+clas_time_small = clas_time[which(clas_time$rf.timetrain < 1),]
+clas_time_medium = clas_time[which(clas_time$rf.timetrain > 1 &  clas_time$rf.timetrain<10 ) ,]
+clas_time_big = clas_time[which(clas_time$rf.timetrain >10),]
+clas_time_NA = clas_time[which(is.na(clas_time$rf.timetrain)),]
 
+# save it
+save(clas_time, clas_time_small, clas_time_medium, clas_time_big, clas_time_NA,  file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData" )
+
+rm(list = ls())
+load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#cluster.functions = makeClusterFunctionsSLURM(template.file = \"lmu_lrz.tmpl\", \n#                                              list.jobs.cmd = c(\"squeue\", \"-h\", \"-o %i\", \"-u $USER\", \n#                                              \"--clusters=serial\", \"| tail -n +2\"))\n#cluster.functions = makeClusterFunctionsMulticore()\n#debug = TRUE",
+    "created" : 1471510468803.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1180847003",
+    "id" : "4B99591B",
+    "lastKnownWriteTime" : 1470402701,
+    "last_content_update" : 1470402701,
+    "path" : "Z:/Raphael/GiHub/IBE_Benchmark-OpenML/.batchtools.conf.R",
+    "project_path" : ".batchtools.conf.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
