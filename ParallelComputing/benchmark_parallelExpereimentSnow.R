@@ -81,4 +81,4 @@ start <- Sys.time(); result_small <- sfLapply(OMLDATASETS, wrapper) ; Sys.time()
 sfStop() 
 
 save(result_small, file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_smallmedium_strat.RData")
-print("done with sma
+print("done with small-medium")
