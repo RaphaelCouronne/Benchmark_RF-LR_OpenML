@@ -1,11 +1,10 @@
 rm(list = ls())
-OS = "windows"
+OS = "OSX"
 library(mlr)
 library(gridExtra)
 library(ggplot2)
 library(cowplot)
 library(reshape2)
-setwd("Z:/Raphael/GiHub/IBE_Benchmark-OpenML")
 source(file = "benchmark_defs.R")
 
 ## Load and convert the reasults to a data frame ----
