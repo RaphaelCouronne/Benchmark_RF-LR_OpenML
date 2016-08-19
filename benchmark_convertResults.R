@@ -1,15 +1,16 @@
 rm(list = ls())
+OS = "windows"
 library(mlr)
 library(gridExtra)
 library(ggplot2)
 library(cowplot)
 library(reshape2)
-setwd("C:/Users/couronne/Desktop/GitHub/BenchmarkOpenMl")
-load(file = "../Data_BenchmarkOpenMl/ResultatsInterpretabilite/tiny/weightedPdpDiff_rfImportance.RData")
-
+setwd("Z:/Raphael/GiHub/IBE_Benchmark-OpenML")
+source(file = "benchmark_defs.R")
 
 ## Load and convert the reasults to a data frame ----
 load(file  = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_strat.RData")
+load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
 
 # aggregate the results
 res.perfs = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))
@@ -42,6 +43,9 @@ df.bmr.diff = data.frame(perfsAggr.RF[,c(3:ncol(perfsAggr.RF))]-perfsAggr.LR[,c(
 paste("Is there any nas ? :", any(is.na(df.bmr.diff)))
 
 
+measures.names = sapply(MEASURES, function(x) paste0(x$id,".test.mean"))
+features.names = names(df.bmr.diff)[which(!(names(df.bmr.diff) %in% measures.names))]
+
 ## Compute the ranks
 convertModifiedBMRToRankMatrix <- function(bmr.all, measure = NULL, ties.method = "average") {
   
@@ -70,10 +74,11 @@ convertModifiedBMRToRankMatrix <- function(bmr.all, measure = NULL, ties.method 
 
 
 
+
 ## General vizualisation -----
+
 measure.chosen = acc
-
-
+matrixRanks = convertModifiedBMRToRankMatrix(res.perfs.df, measure = measure.chosen)
 
 df = reshape2::melt(matrixRanks)
 colnames(df) = c("learner.id", "task.id", "rank")
@@ -137,7 +142,24 @@ plotLinearModelandCor("logpsurn","acc.test.mean")
 plotLinearModelandCor("logdimensionsurn","acc.test.mean")
 plotLinearModelandCor("lograpportMajorityMinorityClass","acc.test.mean")
 
+# Importance of the variables
 
+# With linear regression model
+fit.all = lm(df.bmr.diff$acc.test.mean~
+               df.bmr.diff$logp+
+               df.bmr.diff$logn+
+               df.bmr.diff$logdimension+
+               df.bmr.diff$logpsurn+
+               df.bmr.diff$logdimensionsurn+
+               df.bmr.diff$lograpportMajorityMinorityClass)
+
+summary(fit.all)
+
+# with a random forest
+measure.chosen = "acc.test.mean"
+df.regr = data.frame(subset(df.bmr.diff, select = measure.chosen), subset(df.bmr.diff, select = features.names))
+task.regr = makeRegrTask(data = df.regr, target = measure.chosen)
+fv = generateFilterValuesData(task.regr, method = "randomForestSRC.rfsrc")
 
 ## Anne Laure visualization
 
@@ -205,7 +227,7 @@ matrixRanks = convertModifiedBMRToRankMatrix(res.perfs.df, measure = measure.cho
 lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob")
 
 
-df.classif = data.frame(rankrf = matrixRanks[2,], df.bmr.diff)
+df.classif = data.frame(rankrf = matrixRanks[2,], subset(df.bmr.diff, select = features.names))
 index.egalite = which(df.classif$rankrf==1.5)
 df.classif = df.classif[-index.egalite,]
 df.classif$rankrf = as.factor(df.classif$rankrf)
@@ -243,8 +265,7 @@ plotPartialDependence(pd.classif, geom = "tile")
 
 ## regression
 measure.chosen = "acc.test.mean"
-
-task.regr = makeRegrTask(data = df.bmr.diff, target = measure.chosen)
+task.regr = makeRegrTask(data = df.regr, target = measure.chosen)
 lrn.regr = makeLearner("regr.randomForest")
 task.regr$env$data$logn=as.numeric(task.regr$env$data$logn)
 fit.regr.rf = train(lrn.regr, task.regr)
@@ -271,5 +292,5 @@ plotPartialDependence(pd.regr.rf)
 
 
 # 2D Partial dependance plots
-pd.regr.rf = generatePartialDependenceData(fit.regr.rf, task.regr,features = c("logn", "logp"), interaction = TRUE)
+pd.regr.rf = generatePartialDependenceData(fit.regr.rf, task.regr,features = c("logdimensionsurn", "lograpportMajorityMinorityClass"), interaction = TRUE)
 plotPartialDependence(pd.regr.rf, geom = "tile")

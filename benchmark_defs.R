@@ -3,17 +3,14 @@ library(mlr)
 if (OS == "OSX") {
   # OSX
   githubdir = "/Users/Shadok/Programmation/Github"
-  dir = file.path(githubdir, "BenchmarkOpenMl/FinalVersion/")
+  dir = file.path(githubdir, "IBE_Benchmark/")
 } else {
   # windows
-  githubdir = "C:/Users/couronne/Desktop/GitHub"
-  dir = file.path(githubdir, "BenchmarkOpenMl/FinalVersion/")
+  githubdir = "Z:/Raphael/GiHub/"
+  dir = file.path(githubdir, "IBE_Benchmark/")
 }
-
-# datasets
-load(file = file.path(githubdir,"Data_BenchmarkOpenMl/Final/DataMining/clas.RData"))
 
 
 # performance meqsures
 #source(file = file.path(githubdir,"MulticlassAUC/AUCmlr.R"))
-MEASURES = list(acc, ber, mmce, brier, timetrain, auc)
+MEASURES = list(acc, ber, mmce, brier, timetrain, auc, logloss)

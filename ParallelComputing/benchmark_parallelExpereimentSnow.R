@@ -1,12 +1,14 @@
+library(mlr)
 rm(list = ls())
 OS = "Windows"
 set.seed(1)
 
 # Load the environment
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
-clas_used = rbind(clas_time_small,clas_time_medium)
+clas_used = rbind(clas_time_small)
+clas_used = clas_used[c(1:185),]
 OMLDATASETS = clas_used$did
-source(file = "FinalVersion/benchmark_defs.R")
+source(file = "benchmark_defs.R")
 
 
 ## Example 1 - Multi-core on a single computer
@@ -38,6 +40,7 @@ runBenchmark <- function(data.index) {
     omldataset$desc$default.target.attribute="Class"
   }
   task = convertOMLDataSetToMlr(omldataset)
+  task$task.desc$id = paste("dataset", data.index)
   
   
   # learners
@@ -80,5 +83,5 @@ start <- Sys.time(); result_small <- sfLapply(OMLDATASETS, wrapper) ; Sys.time()
 # 7. Stop snowfall 
 sfStop() 
 
-save(result_small, file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_smallmedium_strat.RData")
-print("done with small-medium")
+save(result, file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small2_strat.RData")
+print("done with small")
