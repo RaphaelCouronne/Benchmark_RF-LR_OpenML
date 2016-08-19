@@ -188,7 +188,7 @@ feature.boxplot <- function(df, measure, feature, threshold.vect) {
 
 
 
-measure.chosen = "brier.test.mean"
+measure.chosen = "acc.test.mean"
 
 # logp
 feature.chosen = "logp"

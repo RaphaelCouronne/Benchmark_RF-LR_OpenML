@@ -5,8 +5,7 @@ set.seed(1)
 
 # Load the environment
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
-clas_used = rbind(clas_time_small)
-clas_used = clas_used[c(1:185),]
+clas_used = rbind(clas_time_small, clas_time_medium)
 OMLDATASETS = clas_used$did
 source(file = "benchmark_defs.R")
 
@@ -46,7 +45,9 @@ runBenchmark <- function(data.index) {
   # learners
   lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE)
   lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE)
-  lrn.list = list(lrn.classif.lr,lrn.classif.rf)
+  lrn.classif.lrl1 = makeLearner("classif.LiblineaRL1LogReg", predict.type = "prob", fix.factors.prediction = TRUE)
+  lrn.classif.lrl2 = makeLearner("classif.LiblineaRL2LogReg", predict.type = "prob", fix.factors.prediction = TRUE)
+  lrn.list = list(lrn.classif.lr,lrn.classif.rf, lrn.classif.lrl1, lrn.classif.lrl2)
   
   # measures
   measures = MEASURES
@@ -77,11 +78,11 @@ sfLibrary(cmprsk)
 sfClusterSetupRNG() 
 
 # 6. Distribute calculation
-start <- Sys.time(); result_small <- sfLapply(OMLDATASETS, wrapper) ; Sys.time()-start
+start <- Sys.time(); result <- sfLapply(OMLDATASETS, wrapper) ; Sys.time()-start
 
 
 # 7. Stop snowfall 
 sfStop() 
 
-save(result, file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small2_strat.RData")
+save(result, file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-l1L2_strat.RData")
 print("done with small")
