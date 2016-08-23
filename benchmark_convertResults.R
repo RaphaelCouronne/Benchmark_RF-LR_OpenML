@@ -1,5 +1,5 @@
 rm(list = ls())
-OS = "OSX"
+OS = "win"
 library(mlr)
 library(gridExtra)
 library(ggplot2)
@@ -8,8 +8,12 @@ library(reshape2)
 source(file = "benchmark_defs.R")
 
 ## Load and convert the reasults to a data frame ----
+load( file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-l1L2_strat.RData")
 load(file  = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_strat.RData")
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
+
+# remove the ones with error messages
+
 
 # aggregate the results
 res.perfs = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))
