@@ -43,11 +43,33 @@ runBenchmark <- function(data.index) {
   
   
   # learners
-  lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE)
-  lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE)
-  lrn.classif.lrl1 = makeLearner("classif.LiblineaRL1LogReg", predict.type = "prob", fix.factors.prediction = TRUE)
-  lrn.classif.lrl2 = makeLearner("classif.LiblineaRL2LogReg", predict.type = "prob", fix.factors.prediction = TRUE)
-  lrn.list = list(lrn.classif.lr,lrn.classif.rf, lrn.classif.lrl1, lrn.classif.lrl2)
+  lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE) #2class
+  lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE) #multiclass
+  
+  # liblinear
+  #lrn.classif.lrl1 = makeLearner("classif.LiblineaRL1LogReg", predict.type = "prob", fix.factors.prediction = TRUE) #multiclass #no factor
+  #lrn.classif.lrl2 = makeLearner("classif.LiblineaRL2LogReg", predict.type = "prob", fix.factors.prediction = TRUE) #multiclass #no factor
+  #We want the factors
+  
+  # regularized
+  lrn.classif.lrlasso = makeLearner("classif.penalized.lasso", predict.type = "prob", fix.factors.prediction = TRUE) #two class #no factor
+  lrn.classif.lrridge = makeLearner("classif.penalized.ridge", predict.type = "prob", fix.factors.prediction = TRUE) #two class #no factor
+  lrn.classif.lrfusedlasso = makeLearner("classif.penalized.fusedlasso", predict.type = "prob", fix.factors.prediction = TRUE)#two class 
+  
+  # nnet
+  lrn.classif.multinom = makeLearner("classif.multinom", predict.type = "prob", fix.factors.prediction = TRUE)
+  
+  # also use glmnet
+  lrn.classif.lr.glm.ridge = makeLearner("classif.cvglmnet", predict.type = "prob", fix.factors.prediction = TRUE, alpha = 0)
+  lrn.classif.lr.glm.lasso = makeLearner("classif.cvglmnet", predict.type = "prob", fix.factors.prediction = TRUE, alpha = 1)
+  lrn.classif.lr.glm.elasticnet = makeLearner("classif.cvglmnet", predict.type = "prob", fix.factors.prediction = TRUE)
+  
+  # list of learners
+  lrn.list = list(lrn.classif.lr, #stats package
+                  lrn.classif.rf, #randomForest package
+                  lrn.classif.lrlasso, lrn.classif.lrridge, #regularized package
+                  lrn.classif.multinom, #nnet package
+                  lrn.classif.lr.glm.ridge, lrn.classif.lr.glm.lasso, lrn.classif.lr.glm.elasticnet) #glmnet package
   
   # measures
   measures = MEASURES
@@ -84,5 +106,5 @@ start <- Sys.time(); result <- sfLapply(OMLDATASETS, wrapper) ; Sys.time()-start
 # 7. Stop snowfall 
 sfStop() 
 
-save(result, file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-l1L2_strat.RData")
-print("done with small")
+save(result, clas_used, file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-allLearnersFoctor_strat.RData")
+print("done with cluster")
