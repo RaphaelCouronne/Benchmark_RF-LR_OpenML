@@ -8,12 +8,16 @@ library(reshape2)
 source(file = "benchmark_defs.R")
 
 ## Load and convert the reasults to a data frame ----
-load( file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-l1L2_strat.RData")
+load( file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-allLearnersFoctor_strat_200first.RData")
 #load(file  = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_strat.RData")
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
+clas_used = clas_used[c(1:200),]
 
-leaner.id.lr = "classif.LiblineaRL1LogReg"
+
+leaner.id.lr = "classif.cvglmnet.ridge"
+leaner.id.lr = "classif.logreg"
 learner.id.randomForest = "classif.randomForest"
+unwantedLearners = c("classif.penalized.lasso", "classif.penalized.ridge")
 
 # remove the ones with error messages
 res.errorMessages = which(!sapply(result, function(x) typeof(x)=="list"))
@@ -22,6 +26,9 @@ clas_used = clas_used[-res.errorMessages,]
 
 # aggregate the results
 res.perfs = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))
+
+# remove unwanted learners
+res.perfs = lapply(res.perfs, function(x) subset(x,!(learner.id %in% unwantedLearners)))
 
 # detect and removes the nas
 res.perfs.nas = which(sapply(res.perfs, function(x) any(is.na(x))))

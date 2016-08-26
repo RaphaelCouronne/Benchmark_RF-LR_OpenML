@@ -61,8 +61,11 @@ runBenchmark <- function(data.index) {
   
   # also use glmnet
   lrn.classif.lr.glm.ridge = makeLearner("classif.cvglmnet", predict.type = "prob", fix.factors.prediction = TRUE, alpha = 0)
+  lrn.classif.lr.glm.ridge$id = "classif.cvglmnet.ridge"
   lrn.classif.lr.glm.lasso = makeLearner("classif.cvglmnet", predict.type = "prob", fix.factors.prediction = TRUE, alpha = 1)
+  lrn.classif.lr.glm.lasso$id = "classif.cvglmnet.lasso"
   lrn.classif.lr.glm.elasticnet = makeLearner("classif.cvglmnet", predict.type = "prob", fix.factors.prediction = TRUE)
+  lrn.classif.lr.glm.elasticnet$id = "classif.cvglmnet..elasticnet"
   
   # list of learners
   lrn.list = list(lrn.classif.lr, #stats package
@@ -106,5 +109,5 @@ start <- Sys.time(); result <- sfLapply(OMLDATASETS, wrapper) ; Sys.time()-start
 # 7. Stop snowfall 
 sfStop() 
 
-save(result, clas_used, file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-allLearnersFoctor_strat.RData")
+save(result, clas_used, file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-allLearnersFoctor_strat_All.RData")
 print("done with cluster")
