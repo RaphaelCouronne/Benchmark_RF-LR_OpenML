@@ -2,8 +2,10 @@
 library(mlr)
 library(ggplot2)
 library(scatterplot3d)
+library()
 
 scatterplot3d(x, y=NULL, z=NULL)
+set.seed(1)
 
 ## Generating the data ----
 n=5e3
@@ -14,12 +16,13 @@ X1<-runif(n, min = -2, max= 2)
 X2<-runif(n, min = -2, max= 2)
 X3<-runif(n, min = -2, max= 2) #dummy 
 
-product=2+X1^3+2*X2+X1*X2
+product=2+X1^3+2*X2+2*X1*X2+X1
 
 probabilities =  plogis(product)
 
 Y<-as.factor(rbinom(n,1,prob = probabilities))
 df<-data.frame(X1,X2,X3,Y)
+
 
 
 
@@ -29,6 +32,9 @@ plot.data <- plot.data + geom_point(size=3) # also geom_points
 plot.data <- plot.data + ggtitle("Simulated Dataset")
 print(plot.data)
 
+
+scatterplot3d(x=X1, y=X2, z=probabilities)
+image(x=X1, y=X2, z=probabilities) # a retrouver
 
 ## mlr partial prediction plots ----
 
