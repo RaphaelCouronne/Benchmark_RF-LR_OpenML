@@ -129,10 +129,6 @@ print("end of nas")
 
 
 
-
-# Remove the data with more than 53 categories and get the time of training for a RF
-
-
 # =============================
 # Part 3 : Get the dimension as a feature
 # ============================= ----

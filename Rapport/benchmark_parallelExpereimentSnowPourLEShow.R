@@ -4,10 +4,11 @@ OS = "Windows"
 set.seed(1)
 
 # Load the environment
+source(file = "benchmark_defs.R")
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium)
 OMLDATASETS = clas_used$did
-source(file = "benchmark_defs.R")
+
 
 
 ## Example 1 - Multi-core on a single computer
@@ -32,6 +33,7 @@ runBenchmark <- function(data.index) {
   
   print(paste("debut dataset ", data.index))
   print(Sys.time())
+  
   # get the dataset
   omldataset = getOMLDataSet(data.index)
   if (identical(omldataset$target.features, character(0))) {
@@ -68,8 +70,12 @@ runBenchmark <- function(data.index) {
                   lrn.classif.lr.glm.ridge, lrn.classif.lr.glm.lasso) #glmnet package
   
   # measures
-  measures = MEASURES
+  measures = list(acc, brier, timetrain, auc, logloss)
+  
+  # Resampling method
   rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
+  
+  # launch the benchmark
   configureMlr(on.learner.error = "warn", show.learner.output = FALSE)
   bmr = benchmark(lrn.list, task, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = FALSE)
   print(paste("fin dataset ", data.index))

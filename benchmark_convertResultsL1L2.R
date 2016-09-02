@@ -8,16 +8,19 @@ library(reshape2)
 source(file = "benchmark_defs.R")
 
 ## Load and convert the reasults to a data frame ----
-load( file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-allLearnersFoctor_strat_200first.RData")
-#load(file  = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_strat.RData")
+load( file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-allLearnersFoctor_strat_All.RData")
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
-clas_used = clas_used[c(1:200),]
 
-
-leaner.id.lr = "classif.cvglmnet.ridge"
 leaner.id.lr = "classif.logreg"
 learner.id.randomForest = "classif.randomForest"
-unwantedLearners = c("classif.penalized.lasso", "classif.penalized.ridge")
+unwantedLearners = c( "classif.cvglmnet..elasticnet", "classif.penalized.ridge", "classif.penalized.lasso")
+unwantedMeasures = c("mmce.test.mean")
+
+# remove n>p
+res.highdimension = which(clas_used$NumberOfFeatures>clas_used$NumberOfInstances)
+result = result[-res.errorMessages]
+clas_used = clas_used[-res.errorMessages,]
+
 
 # remove the ones with error messages
 res.errorMessages = which(!sapply(result, function(x) typeof(x)=="list"))
@@ -30,10 +33,15 @@ res.perfs = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))
 # remove unwanted learners
 res.perfs = lapply(res.perfs, function(x) subset(x,!(learner.id %in% unwantedLearners)))
 
+# remove unwanted measures
+if (length(unwantedMeasures)>0) {
+  index.unwantedMeasures = which(names(res.perfs[[1]]) %in% unwantedMeasures)
+  res.perfs = lapply(res.perfs, function(x) x[,-index.unwantedMeasures])
+}
+
 # detect and removes the nas
 res.perfs.nas = which(sapply(res.perfs, function(x) any(is.na(x))))
 if (!(identical(integer(0), res.perfs.nas))) {
-  print("coucou")
   res.perfs = res.perfs[-res.perfs.nas]
   clas_used = clas_used[-res.perfs.nas,]
 }
@@ -94,7 +102,17 @@ convertModifiedBMRToRankMatrix <- function(bmr.all, measure = NULL, ties.method 
 
 ## Measure correlation ----
 
-cor(perfsAggr.diff)
+correlationPearson = cor(perfsAggr.diff)
+correlationSpearman = cor(perfsAggr.diff, method = "spearman")
+
+
+correlationPearsonabs = 1-abs(correlationPearson)
+correlationSpearmanabs = 1-abs(correlationSpearman)
+
+plot(hclust(as.dist(correlationPearsonabs)))
+plot(hclust(as.dist(correlationSpearmanabs)))
+
+hclust(correlationPearsonabs)
 
 library(Hmisc)
 rcorr(perfsAggr.diff, type=" ") # type can be pearson or spearman
@@ -110,18 +128,38 @@ colnames(df) = c("learner.id", "task.id", "rank")
 
 p = ggplot(df, aes_string("rank", fill = "learner.id"))
 p = p + geom_bar(position = "dodge")
-p = p + ylab(NULL)
+p = p + ylab("Number")
 p = p + ggtitle(paste("mesure :",measure.chosen$id))
 print(p)
 
 
 # plots for the measures
-p <- ggplot(perfsAggr.diff.melted[-which(perfsAggr.diff.melted$variable %in% c("timetrain.test.mean", "logloss.test.mean")),], aes(variable, value))
-p + geom_boxplot(aes(colour = variable))
+names(perfsAggr.diff.melted)<-c("Measure","Performance")
+p <- ggplot(perfsAggr.diff.melted[-which(perfsAggr.diff.melted$Measure %in% c("timetrain.test.mean", "logloss.test.mean", "mmce.test.mean")),], aes(Measure, Performance))
+p + geom_boxplot(aes(colour = Measure))
 
-p <- ggplot(perfsAggr.diff.melted[-which(perfsAggr.diff.melted$variable %in% c("timetrain.test.mean", "logloss.test.mean")),], aes(variable, value))
+p <- ggplot(perfsAggr.diff.melted[-which(perfsAggr.diff.melted$variable %in% c("timetrain.test.mean", "logloss.test.mean",  "mmce.test.mean")),], aes(variable, value))
 p + geom_violin(aes(colour = variable))
 
+
+
+# plot of the mean of accuracy rank
+measure.chosen = brier
+measure.name = measure.chosen$id
+
+matrixRanks = convertModifiedBMRToRankMatrix(res.perfs.df, measure = measure.chosen)
+dim = dim(df.bmr.diff)
+n = dim[1]
+
+learners.meanrank = apply(matrixRanks, 1,mean)
+learners.meanrank = sort(learners.meanrank)
+learners.name = names(learners.meanrank)
+names(learners.meanrank) <- NULL
+learners.meanrank.df = data.frame(learners = factor(learners.name, levels = learners.name), average_rank = learners.meanrank)
+learners.meanrank.df = learners.meanrank.df[order(learners.meanrank.df$average_rank),]
+
+print(ggplot(learners.meanrank.df, aes(x = learners, y = average_rank)) + geom_bar(stat = "identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + coord_cartesian(ylim=c(1,4)) +
+        ggtitle(paste0("Comparison of ", measure.name, " of random forest and several logistic regression algorithms")) + ylab(paste("Mean of",measure.name, "rank on", n ,"classification datasets")) + xlab("learner"))
 
 
 
@@ -163,9 +201,12 @@ plotLinearModelandCor<-function(feature, measure) {
 
 plotLinearModelandCor("logn","acc.test.mean")
 plotLinearModelandCor("logdimension","acc.test.mean")
+plotLinearModelandCor("logp","acc.test.mean")
 plotLinearModelandCor("logpsurn","acc.test.mean")
 plotLinearModelandCor("logdimensionsurn","acc.test.mean")
 plotLinearModelandCor("lograpportMajorityMinorityClass","acc.test.mean")
+
+
 
 # Importance of the variables
 
@@ -237,7 +278,7 @@ feature.boxplot(df.bmr.diff, measure.chosen, feature.chosen,c(-4,-3,-2))
 feature.chosen = "logdimensionsurn"
 feature.boxplot(df.bmr.diff, measure.chosen, feature.chosen,c(-5,-4,-2))
 
-#logdimension
+#logMajorityClass MinorityClass
 feature.chosen = "lograpportMajorityMinorityClass"
 feature.boxplot(df.bmr.diff, measure.chosen, feature.chosen,c(0.2,0.6,1,2))
 

@@ -1,0 +1,31 @@
+---
+title: "MinimalExample Benchmark"
+author: "Raphael Couronne"
+date: "September 2, 2016"
+output: word_document
+---
+
+
+
+```{r cars}
+library(mlr)
+setwd("Z:/Raphael/GiHub/IBE_Benchmark-OpenML")
+load("Rapport/task.list.RData")
+
+# learners
+lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE) # stats package
+lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE) # randomForest package
+lrn.list = list(lrn.classif.lr, lrn.classif.rf) 
+
+# measures
+measures = list(acc, brier, timetrain, auc, logloss)
+
+# Resampling method
+rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
+
+# launch the benchmark
+configureMlr(on.learner.error = "warn", show.learner.output = FALSE)
+bmr = benchmark(lrn.list, task.list, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = FALSE)
+bmr
+```
+
