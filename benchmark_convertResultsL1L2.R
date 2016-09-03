@@ -18,8 +18,8 @@ unwantedMeasures = c("mmce.test.mean")
 
 # remove n>p
 res.highdimension = which(clas_used$NumberOfFeatures>clas_used$NumberOfInstances)
-result = result[-res.errorMessages]
-clas_used = clas_used[-res.errorMessages,]
+result = result[-res.highdimension]
+clas_used = clas_used[-res.highdimension,]
 
 
 # remove the ones with error messages
@@ -144,6 +144,8 @@ p + geom_violin(aes(colour = variable))
 
 
 # plot of the mean of accuracy rank
+
+# for one measure
 measure.chosen = brier
 measure.name = measure.chosen$id
 
@@ -162,6 +164,42 @@ print(ggplot(learners.meanrank.df, aes(x = learners, y = average_rank)) + geom_b
         ggtitle(paste0("Comparison of ", measure.name, " of random forest and several logistic regression algorithms")) + ylab(paste("Mean of",measure.name, "rank on", n ,"classification datasets")) + xlab("learner"))
 
 
+# compute the matrix of the means of ranks
+measures.list = list(acc, auc, brier, ber, logloss, timetrain)
+
+getmatrixRanks <- function(res.perfs.df, measure) {
+  matrixRanks = convertModifiedBMRToRankMatrix(res.perfs.df, measure = measure)
+  learners.meanrank = apply(matrixRanks, 1,mean)
+  return(learners.meanrank)
+}
+
+
+df.ranks = data.frame(sapply(measures.list, function(x) getmatrixRanks(res.perfs.df,x)))
+names(df.ranks) = sapply(measures.list, function(x) x$id)
+
+
+# compute matrix with mean on perfs
+res.perfs.df
+
+learner.list = levels(res.perfs.df$learner.id)[-c(3,4,8)]
+
+
+
+getmatrixPerfs = function(res.perfs.df, learner) {
+  a = subset(res.perfs.df, learner.id == learner)
+  res = apply(a[,c(3:dim(a)[2])],2,mean)
+  return(res)
+}
+
+df.values = sapply(learner.list, function(x) getmatrixPerfs(res.perfs.df, x))
+df.values = t(df.values)
+colnames(df.values) = c("acc", "ber", "brier", "timetrain", "auc", "logloss")
+df.values = df.values[,c(1,5,3,2,6,4)]
+df.values
+
+# get the difference of performances
+perfsAggr.LR = subset(res.perfs.df, learner.id == leaner.id.lr)
+perfsAggr.RF = subset(res.perfs.df, learner.id == learner.id.randomForest)
 
 ## Influence of parameters ----
 
@@ -196,6 +234,12 @@ plotLinearModelandCor<-function(feature, measure) {
   rho = cor(df.concordance, method="spearman", use="pairwise")# spearmann
   print(paste("tau", tau[1,2]))
   print(paste("rho", rho[1,2]))
+  
+  a = cor.test(x = df.concordance[,1], y = df.concordance[,2], method="kendall", use="pairwise")
+  b = cor.test(x = df.concordance[,1], y = df.concordance[,2], method="spearman", use="pairwise")
+  
+  print(a)
+  print(b)
 }
 
 cor.test()
@@ -242,7 +286,8 @@ boxplot.threshold.ggplot <- function(df, measure, feature, threshold) {
   thresh = df[[feature]]>threshold
   df$thresh = thresh
   p <- ggplot(df, aes_string("thresh", "acc.test.mean"))
-  p = p + geom_boxplot(aes_string(fill = "thresh"))
+  p = p + geom_boxplot(aes_string(fill = "thresh"), outlier.shape = NA, notch = FALSE)
+  p = p + scale_y_continuous(limits = c(-0.08, 0.15))
   return(p)
 }
 
@@ -252,6 +297,21 @@ feature.boxplot <- function(df, measure, feature, threshold.vect) {
   v = lapply(threshold.vect, function(x) boxplot.threshold.ggplot(df, measure, feature, x))
   labels = sapply(threshold.vect, function(x) return(paste(">",x, sep = "")))
   plot_grid(plotlist = v,  labels=labels, ncol = 3, nrow = 1)
+}
+
+
+# With one frame ggplot
+
+thresholdvect = c(2,3)
+df.all = data.frame()
+
+for (i in c(1:length(thresholdvect))) {
+  df.temp = df
+  threshold = thresholdvect[i]
+  df.temp$thresholdValue = threshold
+  df.temp$logical.threshold = df[[feature]]>threshold
+ 
+  df.all = rbind(df.all, df.temp) 
 }
 
 
