@@ -198,6 +198,7 @@ plotLinearModelandCor<-function(feature, measure) {
   print(paste("rho", rho[1,2]))
 }
 
+cor.test()
 
 plotLinearModelandCor("logn","acc.test.mean")
 plotLinearModelandCor("logdimension","acc.test.mean")
