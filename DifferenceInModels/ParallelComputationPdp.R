@@ -7,7 +7,7 @@ set.seed(1)
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
 source(file = "DifferenceInModels/pdpInterpretabilityFunction.R")
 clas_used = rbind(clas_time_small, clas_time_medium)
-OMLDATASETS = clas_used$did[1:10]
+OMLDATASETS = clas_used$did
 source(file = "benchmark_defs.R")
 
 
@@ -72,5 +72,5 @@ start <- Sys.time(); pdp.weigheddifference <- sfLapply(OMLDATASETS, wrapper) ; S
 # 7. Stop snowfall 
 sfStop() 
 
-save(pdp.weigheddifference, clas_used, file = "../Data_BenchmarkOpenMl/Final/pdp.weigheddifferencet.RData")
+save(pdp.weigheddifference, clas_used, file = "../Data_BenchmarkOpenMl/Final/pdp.weigheddifferenceAll.RData")
 print("done with cluster")

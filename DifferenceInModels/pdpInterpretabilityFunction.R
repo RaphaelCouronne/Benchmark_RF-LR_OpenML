@@ -56,9 +56,9 @@ weightedPdpInterpretability = function(task, gridsize) {
   if (nFeatures.numeric>0) {
     
     # create empty matrix to store the result of the difference of partial dependance datas between rf and lr
-    pd.diff.numeric.l1 = matrix(data = NA, nrow = gridsize, ncol = nFeatures.numeric)
-    pd.diff.numeric.l2 = matrix(data = NA, nrow = gridsize, ncol = nFeatures.numeric)
-    pd.diff.numeric.linf = matrix(data = NA, nrow = gridsize, ncol = nFeatures.numeric)
+    pd.diff.numeric.l1 = matrix(data = 0, nrow = gridsize, ncol = nFeatures.numeric)
+    pd.diff.numeric.l2 = matrix(data = 0, nrow = gridsize, ncol = nFeatures.numeric)
+    pd.diff.numeric.linf = matrix(data = 0, nrow = gridsize, ncol = nFeatures.numeric)
     
     # for each numeric feature
     for (i in c(1:nFeatures.numeric)) {
@@ -71,26 +71,31 @@ weightedPdpInterpretability = function(task, gridsize) {
       pd.rf = generatePartialDependenceData(fit.classif.rf, task, features.list[index.temp], gridsize = gridsize)
       pd.lr = generatePartialDependenceData(fit.classif.lr, task, features.list[index.temp], gridsize = gridsize)
       
-      # compute the difference of probability
-      difference = pd.rf$data$Probability-pd.lr$data$Probability
-      difference.l1 = abs(difference)
-      difference.l2 = (difference)^2
-      difference.linf = max(abs(difference))
-      
-      # compute the density of observation according to the chosen grid for the partial dependance datas
-      bins = c(-Inf,pd.rf$data[[feature.temp]],Inf)
-      empiricalFeature = task$env$data[[feature.temp]]
-      histo = hist(empiricalFeature, breaks = bins, plot = FALSE)
-      density = histo$counts/sum(histo$counts)
-      weights = rep(NA, gridsize)
-      for (j in c(1:gridsize)) {
-        weights[j] = 1/2*(density[j]+density[j+1])
+      if (length(pd.rf$data[[feature.temp]])==gridsize) {
+        
+        # compute the difference of probability
+        difference = pd.rf$data$Probability-pd.lr$data$Probability
+        difference.l1 = abs(difference)
+        difference.l2 = (difference)^2
+        difference.linf = max(abs(difference))
+        
+        # compute the density of observation according to the chosen grid for the partial dependance datas
+        bins = c(-Inf,pd.rf$data[[feature.temp]],Inf)
+        empiricalFeature = difference.l1
+        histo = hist(empiricalFeature, breaks = bins, plot = FALSE)
+        density = histo$counts/sum(histo$counts)
+        weights = rep(NA, gridsize)
+        for (j in c(1:gridsize)) {
+          weights[j] = 1/2*(density[j]+density[j+1])
+        }
+        
+        
+        # reweight the difference with the density
+        pd.diff.numeric.l1[,i] = difference.l1 * weights
+        pd.diff.numeric.l2[,i] = difference.l2 * weights
+        pd.diff.numeric.linf[,i] = difference.linf * weights
       }
       
-      # reweight the difference with the density
-      pd.diff.numeric.l1[,i] = difference.l1 * weights
-      pd.diff.numeric.l2[,i] = difference.l2 * weights
-      pd.diff.numeric.linf[,i] = difference.linf * weights
     }
     # sum the reweighted difference
     diff.abs.numeric.l1 = sum(apply(pd.diff.numeric.l1,2,function(x) sum(abs(x))))
@@ -158,7 +163,6 @@ weightedPdpInterpretability = function(task, gridsize) {
   
   return(out)
 }
-
 
 
 
