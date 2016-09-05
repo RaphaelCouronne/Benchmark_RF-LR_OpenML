@@ -16,16 +16,29 @@ learner.id.randomForest = "classif.randomForest"
 unwantedLearners = c( "classif.cvglmnet..elasticnet", "classif.penalized.ridge", "classif.penalized.lasso")
 unwantedMeasures = c("mmce.test.mean")
 
+load(file = "../Data_BenchmarkOpenMl/Final/Interpretability/ImportanceResults-all.RData")
+
+# create the importance.list
+importance.list.aggr.l1 = sapply(importance.list, function(x) sum(abs(x$rf.permutation.imp-x$lr.permutation.imp))/length(x$rf.permutation.imp))
+importance.list.aggr.l2 = sapply(importance.list, function(x) sqrt(sum((x$rf.permutation.imp-x$lr.permutation.imp)^2))/length(x$rf.permutation.imp))
+importance.list.aggr.rank = sapply(importance.list, function(x) sum(abs(rank(x$rf.permutation.imp)-rank(x$lr.permutation.imp)))/length(x$rf.permutation.imp))
+
+importance.df = data.frame(l1 =importance.list.aggr.l1,
+                           l2 = importance.list.aggr.l2, 
+                           rank = importance.list.aggr.rank)
+
 # remove n>p
 res.highdimension = which(clas_used$NumberOfFeatures>clas_used$NumberOfInstances)
 result = result[-res.highdimension]
 clas_used = clas_used[-res.highdimension,]
+importance.df = importance.df[-res.highdimension,]
 
 
 # remove the ones with error messages
 res.errorMessages = which(!sapply(result, function(x) typeof(x)=="list"))
 result = result[-res.errorMessages]
 clas_used = clas_used[-res.errorMessages,]
+importance.df = importance.df[-res.errorMessages,]
 
 # aggregate the results
 res.perfs = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))
@@ -44,6 +57,7 @@ res.perfs.nas = which(sapply(res.perfs, function(x) any(is.na(x))))
 if (!(identical(integer(0), res.perfs.nas))) {
   res.perfs = res.perfs[-res.perfs.nas]
   clas_used = clas_used[-res.perfs.nas,]
+  importance.df = importance.df[-res.perfs.nas,]
 }
 
 # convert to a data.frame
@@ -221,6 +235,54 @@ plot(df.bmr.diff$logpsurn, df.bmr.diff$acc.test.mean)
 plot(df.bmr.diff$logdimensionsurn, df.bmr.diff$acc.test.mean)
 plot(df.bmr.diff$lograpportMajorityMinorityClass, df.bmr.diff$acc.test.mean)
 
+# plot with the permutation measure
+plot(log(importance.df$l1), df.bmr.diff$acc.test.mean, xlim = c(-10,0))
+plot(log(importance.df$l2), df.bmr.diff$acc.test.mean, xlim = c(-10,0))
+plot(log(importance.df$rank), df.bmr.diff$acc.test.mean)
+
+x = (importance.df$l2)+1e-6
+y = df.bmr.diff$acc.test.mean
+
+index.x.remove = which(x<(1e-3))
+x = x[-index.x.remove]
+y = y[-index.x.remove]
+
+plot(x,y, ylab = "Difference in accuracy", log = "x", xlab = "Difference of variable importance")
+
+cor.test(x,y,method = "kendall")
+cor.test(x,y,method = "spearman")
+
+# plot the p with colors
+df.plot = df.bmr.diff
+logical = df.plot$acc.test.mean>0
+df.plot$positive = sapply(logical, function(x) if(x) {("Positive")} else {"Negative"})
+p <- ggplot(data = df.plot, aes(x = exp(r), y = acc.test.mean, colour = positive))
+p <- p + geom_point(size = 1)
+p = p + labs(x = "r (logaritmic scale)", y = "Difference in acc")
+p = p + labs(colour = "Difference in acc")
+p = p + scale_x_log10()
+print(p)
+
+# splines
+splines = smooth.spline(x = x, y = y)
+
+x = df.bmr.diff$logp
+y = df.bmr.diff$acc.test.mean
+lo <- loess(formula = y~x)
+plot(x,y)
+lines(predict(lo), col='red', lwd=1)
+
+smoothingSpline = smooth.spline(x, y, spar=0.9)
+plot(x,y)
+lines(smoothingSpline)
+
+scatter.smooth(x,y)
+
+require(graphics)
+plot(dist ~ speed, data = cars, main = "data(cars)  &  smoothing splines")
+cars.spl <- with(cars, smooth.spline(speed, dist))
+cars.spl
+
 # with the linear models
 plotLinearModelandCor<-function(feature, measure) {
   plot(df.bmr.diff[[feature]], df.bmr.diff[[measure]], xlab = feature, ylab = measure)
@@ -302,18 +364,45 @@ feature.boxplot <- function(df, measure, feature, threshold.vect) {
 
 # With one frame ggplot
 
+feature = "logp"
 thresholdvect = c(2,3)
-df.all = data.frame()
 
-for (i in c(1:length(thresholdvect))) {
-  df.temp = df
-  threshold = thresholdvect[i]
-  df.temp$thresholdValue = threshold
-  df.temp$logical.threshold = df[[feature]]>threshold
- 
-  df.all = rbind(df.all, df.temp) 
+feature.boxplot.oneplot <- function(df, measure, feature, thresholdvect) {
+  
+  df.all = data.frame()
+  
+  for (i in c(1:length(thresholdvect))) {
+    df.temp = df
+    threshold = thresholdvect[i]
+    logthreshold = log(threshold)
+    df.temp$thresholdValue = threshold
+    df.temp$logical.threshold = df[[feature]]>logthreshold
+    
+    df.all = rbind(df.all, df.temp) 
+  }
+  df.all$thresholdValue = as.factor(df.all$thresholdValue)
+  
+  p <- ggplot(df.all, aes_string("thresholdValue", measure))
+  print(p)
+  p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = FALSE)
+  p = p + scale_y_continuous(limits = c(-0.08, 0.2))
+  p = p + labs(x = "Value of the threshold", y = "Difference in acc ")
+  p = p + labs(fill = "Above threshold")
+  print(p)
 }
 
+measure.chosen = "acc.test.mean"
+feature.chosen = "logpsurn"
+feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(2e-3,1e-2,1e-1))
+
+
+measure.chosen = "acc.test.mean"
+feature.chosen = "logn"
+feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(50,500,1000))
+
+measure.chosen = "acc.test.mean"
+feature.chosen = "lograpportMajorityMinorityClass"
+feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(2,3,5))
 
 
 measure.chosen = "acc.test.mean"
