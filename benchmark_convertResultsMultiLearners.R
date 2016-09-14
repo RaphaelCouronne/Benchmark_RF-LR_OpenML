@@ -13,25 +13,41 @@ load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
 
 leaner.id.lr = "classif.logreg"
 learner.id.randomForest = "classif.randomForest"
-unwantedLearners = c( "classif.cvglmnet..elasticnet", "classif.penalized.ridge", "classif.penalized.lasso")
+unwantedLearners = c( "classif.cvglmnet..elasticnet", "classif.penalized.ridge", "classif.penalized.lasso",
+                      "classif.multinom", "classif.cvglmnet.ridge", "classif.cvglmnet.lasso")
 unwantedMeasures = c("mmce.test.mean")
 
+# models difference
 load(file = "../Data_BenchmarkOpenMl/Final/Interpretability/ImportanceResults-all.RData")
+load(file = "../Data_BenchmarkOpenMl/Final/pdp.weigheddifferenceAll.RData")
 
 # create the importance.list
 importance.list.aggr.l1 = sapply(importance.list, function(x) sum(abs(x$rf.permutation.imp-x$lr.permutation.imp))/length(x$rf.permutation.imp))
 importance.list.aggr.l2 = sapply(importance.list, function(x) sqrt(sum((x$rf.permutation.imp-x$lr.permutation.imp)^2))/length(x$rf.permutation.imp))
 importance.list.aggr.rank = sapply(importance.list, function(x) sum(abs(rank(x$rf.permutation.imp)-rank(x$lr.permutation.imp)))/length(x$rf.permutation.imp))
 
-importance.df = data.frame(l1 =importance.list.aggr.l1,
+importance.df = data.frame(l1 = importance.list.aggr.l1,
                            l2 = importance.list.aggr.l2, 
                            rank = importance.list.aggr.rank)
+
+
+# remove error message for pdp
+res.errorMessages.pdp = which(!sapply(pdp.weigheddifference, function(x) typeof(x)=="list"))
+result = result[-res.errorMessages.pdp]
+clas_used = clas_used[-res.errorMessages.pdp,]
+importance.df = importance.df[-res.errorMessages.pdp,]
+pdp.weigheddifference = pdp.weigheddifference[-res.errorMessages.pdp]
+
+# pdp.df
+pdp.df = do.call("rbind", pdp.weigheddifference) 
+
 
 # remove n>p
 res.highdimension = which(clas_used$NumberOfFeatures>clas_used$NumberOfInstances)
 result = result[-res.highdimension]
 clas_used = clas_used[-res.highdimension,]
 importance.df = importance.df[-res.highdimension,]
+pdp.df = pdp.df[-res.highdimension,]
 
 
 # remove the ones with error messages
@@ -39,6 +55,7 @@ res.errorMessages = which(!sapply(result, function(x) typeof(x)=="list"))
 result = result[-res.errorMessages]
 clas_used = clas_used[-res.errorMessages,]
 importance.df = importance.df[-res.errorMessages,]
+pdp.df = pdp.df[-res.errorMessages,]
 
 # aggregate the results
 res.perfs = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))
@@ -58,6 +75,7 @@ if (!(identical(integer(0), res.perfs.nas))) {
   res.perfs = res.perfs[-res.perfs.nas]
   clas_used = clas_used[-res.perfs.nas,]
   importance.df = importance.df[-res.perfs.nas,]
+  pdp.df = pdp.df[-res.perfs.nas,]
 }
 
 # convert to a data.frame
@@ -69,6 +87,8 @@ perfsAggr.RF = subset(res.perfs.df, learner.id == learner.id.randomForest)
 perfsAggr.diff = perfsAggr.RF[,3:ncol(perfsAggr.RF)]-perfsAggr.LR[,3:ncol(perfsAggr.LR)]
 perfsAggr.diff.melted = melt(perfsAggr.diff)
 detach(package:reshape2, unload = TRUE)
+
+
 
 ## Compute the dataset of difference
 df.bmr.diff = data.frame(perfsAggr.diff,
@@ -137,6 +157,7 @@ rcorr(perfsAggr.diff, type=" ") # type can be pearson or spearman
 measure.chosen = acc
 matrixRanks = convertModifiedBMRToRankMatrix(res.perfs.df, measure = measure.chosen)
 
+
 df = reshape2::melt(matrixRanks)
 colnames(df) = c("learner.id", "task.id", "rank")
 
@@ -145,6 +166,31 @@ p = p + geom_bar(position = "dodge")
 p = p + ylab("Number")
 p = p + ggtitle(paste("mesure :",measure.chosen$id))
 print(p)
+
+
+test = matrixRanks[,1]
+
+rank.shape = function(x) {
+  df = NA
+  if (x[1]==2) {
+    df=data.frame(rank = as.factor(1), learner = "Random forest")
+  } else if (x[1]==1.5) {
+    df=data.frame(rank = as.factor(c("Equal results","Equal results")), learner = c("Random forest","Logistic Regression"))
+  } else {
+    df=data.frame(rank = 1, learner = "Logistic Regression")
+  }
+  return(df)
+}
+
+list.shape = lapply(matrixRanks[1,], rank.shape)
+list.shape.df = do.call("rbind", list.shape) 
+
+p = ggplot(list.shape.df, aes_string("rank", fill = "learner"))
+p = p + geom_bar(position = "dodge")
+p = p + ylab("Number")
+p = p + ggtitle(paste("mesure :",measure.chosen$id))
+print(p)
+
 
 
 # plots for the measures
@@ -215,6 +261,33 @@ df.values
 perfsAggr.LR = subset(res.perfs.df, learner.id == leaner.id.lr)
 perfsAggr.RF = subset(res.perfs.df, learner.id == learner.id.randomForest)
 
+
+# Plot for log reg and rf 
+# boxplots
+lr.acc = perfsAggr.LR$acc.test.mean
+rf.acc = perfsAggr.RF$acc.test.mean
+df.acc = data.frame(lr.acc = lr.acc, rf.acc = rf.acc)
+names(df.acc) = c("Random forest", "Logistic regression")
+df.acc.melted = reshape2::melt(df.acc)
+diff.acc = perfsAggr.diff$acc.test.mean
+
+p <- ggplot(df.acc.melted, aes(variable, value))
+print(p)
+p = p + geom_boxplot(aes_string(fill = "variable"), outlier.shape = NA, notch = FALSE)
+print(p)
+
+
+diff.acc = perfsAggr.diff$acc.test.mean
+boxplot(diff.acc, outline = FALSE, ylab = "Difference in accuracy")
+lines(x =c(0.5,1.5), y=c(0,0), col="blue")
+
+df.dummy = data.frame(diff.acc,1)
+p <- ggplot(df.dummy, aes(X1,diff.acc))
+p = p+geom_boxplot()
+print(p)
+
+qplot(y=diff.acc, x= 1, geom = "boxplot")
+
 ## Influence of parameters ----
 
 ## Plots
@@ -251,6 +324,20 @@ plot(x,y, ylab = "Difference in accuracy", log = "x", xlab = "Difference of vari
 
 cor.test(x,y,method = "kendall")
 cor.test(x,y,method = "spearman")
+
+
+# plot with the pdp
+plot(log(pdp.df$l1), df.bmr.diff$acc.test.mean, xlab = "Log difference in partial dependance", ylab = "Difference in accuracy")
+cor.test(pdp.df$l1,df.bmr.diff$acc.test.mean,method = "kendall")
+
+plot(log(pdp.df$l2), df.bmr.diff$acc.test.mean, xlab = "Log difference in partial dependance", ylab = "Difference in accuracy")
+cor.test(pdp.df$l2,df.bmr.diff$acc.test.mean,method = "kendall")
+
+plot(pdp.df$linf, df.bmr.diff$acc.test.mean)
+cor.test(pdp.df$linf,df.bmr.diff$acc.test.mean,method = "kendall")
+
+
+
 
 # plot the p with colors
 df.plot = df.bmr.diff

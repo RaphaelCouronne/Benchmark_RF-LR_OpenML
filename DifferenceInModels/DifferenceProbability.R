@@ -5,14 +5,13 @@ set.seed(1)
 
 # Load the environment
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
-source(file = "DifferenceInModels/pdpInterpretabilityFunction.R")
 clas_used = rbind(clas_time_small, clas_time_medium)
 OMLDATASETS = clas_used$did
 source(file = "benchmark_defs.R")
 
 
 ## Example 1 - Multi-core on a single computer
-sink('../Data_BenchmarkOpenMl/Final/Results/Windows/SnowFall.computationPdpDifference.Rout', split=TRUE)
+sink('SnowFall.permutationImportance.Rout', split=TRUE)
 .Platform
 .Machine
 R.version
@@ -26,7 +25,7 @@ sfInit(parallel=TRUE, cpus=10)
 # 2. Loading data. 
 
 # 3. Wrapper, which can be parallelised. 
-runPDP <- function(data.index) {
+runProbability <- function(data.index) {
   
   library(OpenML)
   library(mlr)
@@ -42,16 +41,29 @@ runPDP <- function(data.index) {
   task = convertOMLDataSetToMlr(omldataset)
   task$task.desc$id = paste("dataset", data.index)
   
-  weightedPdpInterpretability = weightedPdpInterpretability(task,10)
+  # learners
+  lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE) #2class
+  lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE) #multiclass
   
-  return(weightedPdpInterpretability)
+  fit.rf = train(lrn.classif.rf, task)
+  fit.lr = train(lrn.classif.lr, task)
+  
+  pred.rf = predict(fit.rf, task)
+  pred.lr = predict(fit.lr, task)
+  
+  diff.l1 = sum(abs(pred.rf$data$prob.P-pred.lr$data$prob.P))/length(pred.lr$data$prob.P)
+  diff.l2 = sqrt(sum((pred.rf$data$prob.P-pred.lr$data$prob.P)^2))/length(pred.lr$data$prob.P)
+
+  df = data.frame(l1 = diff.l1, l2 = diff.l2)
+  
+  return(df)
 }
 
 wrapper <- function(data.index) {
   tryCatch({
     
     # benchmark
-    runPDP(data.index)
+    runProbability(data.index)
   }, error = function(e) return(paste0("The variable '", data.index, "'", 
                                        " caused the error: '", e, "'")))
 }
@@ -59,7 +71,7 @@ wrapper <- function(data.index) {
 
 # 4. Exporting needed data and loading required 
 # packages on workers. 
-sfExport("runPDP", "weightedPdpInterpretability") 
+sfExport("runProbability") 
 sfLibrary(cmprsk) 
 
 # 5. Start network random number generator 
@@ -67,12 +79,11 @@ sfLibrary(cmprsk)
 sfClusterSetupRNG() 
 
 # 6. Distribute calculation
-start <- Sys.time(); pdp.weigheddifference <- sfLapply(OMLDATASETS, wrapper) ; Sys.time()-start
+start <- Sys.time(); Probability.difference <- sfLapply(OMLDATASETS, wrapper) ; Sys.time()-start
+
 
 # 7. Stop snowfall 
 sfStop() 
 
-save(pdp.weigheddifference, clas_used, file = "../Data_BenchmarkOpenMl/Final/pdp.weigheddifferenceAll.RData")
+save(Probability.difference, clas_used, file = "../Data_BenchmarkOpenMl/Final/Results/Windows/DiffProba.RData")
 print("done with cluster")
-
-load(file = "../Data_BenchmarkOpenMl/Final/pdp.weigheddifferenceAll.RData")
