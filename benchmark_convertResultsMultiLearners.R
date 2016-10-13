@@ -9,17 +9,20 @@ source(file = "benchmark_defs.R")
 
 ## Load and convert the reasults to a data frame ----
 load( file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-allLearnersFoctor_strat_All.RData")
+
+
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
 
 leaner.id.lr = "classif.logreg"
-learner.id.randomForest = "classif.randomForest"
+learner.id.randomForest = "classif.cvglmnet.lasso"
 unwantedLearners = c( "classif.cvglmnet..elasticnet", "classif.penalized.ridge", "classif.penalized.lasso",
-                      "classif.multinom", "classif.cvglmnet.ridge", "classif.cvglmnet.lasso")
+                      "classif.multinom", "classif.cvglmnet.ridge", "classif.cvglmnet.lasso.vanilla")#, "classif.cvglmnet.lasso")
 unwantedMeasures = c("mmce.test.mean")
 
 # models difference
 load(file = "../Data_BenchmarkOpenMl/Final/Interpretability/ImportanceResults-all.RData")
 load(file = "../Data_BenchmarkOpenMl/Final/pdp.weigheddifferenceAll.RData")
+clas_used = clas_used[c(1:length(result)),]
 
 # create the importance.list
 importance.list.aggr.l1 = sapply(importance.list, function(x) sum(abs(x$rf.permutation.imp-x$lr.permutation.imp))/length(x$rf.permutation.imp))
@@ -132,7 +135,7 @@ convertModifiedBMRToRankMatrix <- function(bmr.all, measure = NULL, ties.method 
   return(mat)
 }
 
-
+pairs(df.bmr.diff[,c(7:12)])
 
 ## Measure correlation ----
 
@@ -167,6 +170,8 @@ p = p + ylab("Number")
 p = p + ggtitle(paste("mesure :",measure.chosen$id))
 print(p)
 
+values = sapply(c(1:nrow(matrixRanks)), function(x) mean(matrixRanks[x,]))
+row.names(matrixRanks)
 
 test = matrixRanks[,1]
 
@@ -206,7 +211,7 @@ p + geom_violin(aes(colour = variable))
 # plot of the mean of accuracy rank
 
 # for one measure
-measure.chosen = brier
+measure.chosen = acc
 measure.name = measure.chosen$id
 
 matrixRanks = convertModifiedBMRToRankMatrix(res.perfs.df, measure = measure.chosen)
@@ -327,6 +332,10 @@ cor.test(x,y,method = "spearman")
 
 
 # plot with the pdp
+hist(pdp.df$l2)
+hist(log(pdp.df$l2))
+hist(log1p(log1p(pdp.df$l2)))
+
 plot(log(pdp.df$l1), df.bmr.diff$acc.test.mean, xlab = "Log difference in partial dependance", ylab = "Difference in accuracy")
 cor.test(pdp.df$l1,df.bmr.diff$acc.test.mean,method = "kendall")
 
@@ -337,31 +346,116 @@ plot(pdp.df$linf, df.bmr.diff$acc.test.mean)
 cor.test(pdp.df$linf,df.bmr.diff$acc.test.mean,method = "kendall")
 
 
+# study variance pdp
+plot(log(pdp.df$l2), df.bmr.diff$acc.test.mean, 
+     xlab = "Log difference in partial dependance", ylab = "Difference in accuracy",
+     xlim = c(-6,-1))
+
+x.considered = log(pdp.df$l2)
+
+subsetl2 <- function(x) {
+  res = NA
+  if (x<(-4)) {
+    res = "<-4"
+  } else if (x>=(-4) && x<(-3)) {
+    res = ">-4 & <-3"
+  } else if (x>=(-3) && x<(-2)) {
+    res = ">-3 & <-2"
+  } else if (x>=(-2)) {
+    res = ">-2"
+  }
+  return(res)
+}
+
+
+hist(log(pdp.df$l2))
+l2.categories = sapply(x.considered, subsetl2)
+
+df.l2test = data.frame(l2.categories = l2.categories, x.considered = x.considered, acc.test.mean = df.bmr.diff$acc.test.mean)
+levels(df.l2test$l2.categories) = levels(df.l2test$l2.categories)[c(1,4,3,2)]
+p <- ggplot(df.l2test, aes(factor(l2.categories), acc.test.mean))
+p = p+geom_boxplot()
+print(p)
+
+
+
 
 
 # plot the p with colors
 df.plot = df.bmr.diff
 logical = df.plot$acc.test.mean>0
 df.plot$positive = sapply(logical, function(x) if(x) {("Positive")} else {"Negative"})
-p <- ggplot(data = df.plot, aes(x = exp(r), y = acc.test.mean, colour = positive))
+p <- ggplot(data = df.plot, aes(x = exp(logp), y = acc.test.mean, colour = df.bmr.diff$logn))
 p <- p + geom_point(size = 1)
 p = p + labs(x = "r (logaritmic scale)", y = "Difference in acc")
-p = p + labs(colour = "Difference in acc")
+p = p + labs(colour = "n")
 p = p + scale_x_log10()
+p = p + scale_colour_gradient(limits=c(3, 11), low="white", high="red")
 print(p)
 
-# splines
-splines = smooth.spline(x = x, y = y)
+# with categories
+subsetn <- function(x) {
+  res = NA
+  if (x<50) {
+    res = 1
+  } else if (x>=50 && x<100) {
+    res = 2
+  } else if (x>=100 && x<1000) {
+    res = 3
+  } else if (x>=1000 && x<10000) {
+    res = 4
+  } else if (x>=10000) {
+    res = 5
+  }
+  return(res)
+}
 
-x = df.bmr.diff$logp
+df.bmr.diff.subsetn = df.bmr.diff
+df.bmr.diff.subsetn$subsetn = sapply(exp(df.bmr.diff$logn), subsetn)
+
+df.plot = df.bmr.diff.subsetn
+p <- ggplot(data = df.plot, aes(x = exp(logp), y = acc.test.mean, colour = df.bmr.diff.subsetn$subsetn))
+p <- p + geom_point(size = 1)
+p = p + labs(x = "r (logaritmic scale)", y = "Difference in acc")
+p = p + labs(colour = "n")
+p = p + scale_x_log10()
+p = p + scale_colour_gradient(limits=c(1, 5), low="red", high="white")
+print(p)
+
+
+
+# 3D Plot
+library(scatterplot3d)
+scatterplot3d(df.bmr.diff$logn, df.bmr.diff$logp, df.bmr.diff$acc.test.mean, type = "h")
+
+library(plot3D)
+scatter3D(df.bmr.diff$logn, df.bmr.diff$logp, df.bmr.diff$acc.test.mean)
+
+library(car)
+scatter3d(df.bmr.diff$logn, df.bmr.diff$logp, df.bmr.diff$acc.test.mean)
+scatter3d(x = df.bmr.diff$logn, y = df.bmr.diff$logp, z = df.bmr.diff$acc.test.mean)
+
+library(plotly)
+plot_ly(df, x = df.bmr.diff$logn, y = df.bmr.diff$logp, z = df.bmr.diff$acc.test.mean)
+
+
+df.matlab = data.frame (x = df.bmr.diff$logn, y= df.bmr.diff$logp, z = df.bmr.diff$acc.test.mean)
+save(df.matlab, file = "df.matlab.RData")
+write.table(df.matlab, file = "df.matlab.csv")
+
+# splines
+#splines = smooth.spline(x = x, y = y)
+
+x = df.bmr.diff$logpsurn
 y = df.bmr.diff$acc.test.mean
 lo <- loess(formula = y~x)
 plot(x,y)
 lines(predict(lo), col='red', lwd=1)
 
 smoothingSpline = smooth.spline(x, y, spar=0.9)
-plot(x,y)
-lines(smoothingSpline)
+plot(x,y, xlab = "log(dimension/n)", ylab = "Difference in acc : lasso - lr")
+lines(smoothingSpline, col = "red")
+
 
 scatter.smooth(x,y)
 
@@ -401,6 +495,15 @@ plotLinearModelandCor("logdimensionsurn","acc.test.mean")
 plotLinearModelandCor("lograpportMajorityMinorityClass","acc.test.mean")
 
 
+# n et p
+
+df.concordancenp = data.frame(n = clas_used$NumberOfInstances, p = clas_used$NumberOfFeatures)
+
+tau = cor(df.concordancenp, method="kendall", use="pairwise") # kendall
+rho = cor(df.concordancenp, method="spearman", use="pairwise")# spearmann
+
+a = cor.test(x = df.concordancenp[,1], y = df.concordancenp[,2], method="kendall", use="pairwise")
+b = cor.test(x = df.concordancenp[,1], y = df.concordancenp[,2], method="spearman", use="pairwise")
 
 # Importance of the variables
 
