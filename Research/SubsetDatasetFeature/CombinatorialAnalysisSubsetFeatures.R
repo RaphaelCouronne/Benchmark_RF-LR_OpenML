@@ -187,3 +187,34 @@ for (j in c(1:gridsize)) {
 }
 
 save(results.lr, results.rf, results.diff, file = "resultsSubset.RData")
+
+
+## Plot the results ----
+
+
+j = ncol(results.diff)-1
+
+
+result.diff.mean = apply(results.diff[,c(1:j)], 2, median)
+result.rf.mean = apply(results.rf[,c(1:j)], 2, median)
+result.lr.mean = apply(results.lr[,c(1:j)], 2, median)
+par(mfrow=c(1,2))
+plot(grid[c(1:j)], result.rf.mean, ylim = c(0.5,1), col = "#99CCFF", xlab = expression(p), ylab = "acc", pch = 0)
+points(grid[c(1:j)], result.lr.mean, ylim = c(0.5,1), col = "#990000")
+legend("bottomright", c("RF","LR"), pch = c(0,1), col = c("#99CCFF", "#990000"))
+plot(grid[c(1:j)], result.diff.mean, xlab = expression(p), ylab = expression(paste(Delta,acc)))
+lines(grid[c(1:j)], result.diff.mean)
+
+
+# boxplots
+library(reshape2)
+df.rf = melt(results.rf[,c(1:j)])
+df.rf$learner = "RandomForest"
+df.lr = melt(results.lr[,c(1:j)])
+df.lr$learner = "Logistic Regression"
+df.all = rbind(df.rf, df.lr)
+names(df.all) = c("p", "acc", "Method")
+detach(package:reshape2, unload = TRUE)
+ggp = ggplot(df.all, aes(p, acc))
+ggp = ggp+ geom_boxplot(aes(fill = Method)) + scale_fill_manual(values=c("#99CCFF", "#990000"))
+plot(ggp)

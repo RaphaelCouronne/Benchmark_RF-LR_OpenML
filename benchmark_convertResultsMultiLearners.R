@@ -14,9 +14,9 @@ load( file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_sn
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
 
 leaner.id.lr = "classif.logreg"
-learner.id.randomForest = "classif.cvglmnet.lasso"
+learner.id.randomForest = "classif.randomForest"
 unwantedLearners = c( "classif.cvglmnet..elasticnet", "classif.penalized.ridge", "classif.penalized.lasso",
-                      "classif.multinom", "classif.cvglmnet.ridge", "classif.cvglmnet.lasso.vanilla")#, "classif.cvglmnet.lasso")
+                      "classif.multinom", "classif.cvglmnet.ridge", "classif.cvglmnet.lasso.vanilla", "classif.cvglmnet.lasso")
 unwantedMeasures = c("mmce.test.mean")
 
 # models difference
@@ -93,14 +93,51 @@ detach(package:reshape2, unload = TRUE)
 
 
 
-## Compute the dataset of difference
+## Compute the dataset of difference with the features
+
+# number  of features
+p = clas_used$NumberOfFeatures
+
+# number of numeric attributes
+pnum = clas_used$NumberOfNumericFeatures
+
+# number of categorical attributes
+psymbolic = clas_used$NumberOfSymbolicFeatures
+
+# number of samples
+n = clas_used$NumberOfInstances
+
+# n/p
+psurn = p/n
+
+# Numerical attributes rate
+pnumrate = pnum/p
+
+# Nominal attributes rate
+psymbolicrate = psymbolic/p
+
+# %Cmin Percentage of elements of the minority class
+Cmin = clas_used$MinorityClassSize/n
+
+# %Cmax Percentage of elements of the majority class
+Cmax = clas_used$MinorityClassSize/n
+
+
+
 df.bmr.diff = data.frame(perfsAggr.diff,
                          logp = log(clas_used$NumberOfFeatures), 
                          logn = log(clas_used$NumberOfInstances),
                          logdimension = log(clas_used$dimension),
                          logpsurn = log(clas_used$NumberOfFeatures/clas_used$NumberOfInstances),
                          logdimensionsurn = log(clas_used$dimension/clas_used$NumberOfInstances),
-                         lograpportMajorityMinorityClass = log(clas_used$MajorityClassSize/clas_used$MinorityClassSize))
+                         lograpportMajorityMinorityClass = log(clas_used$MajorityClassSize/clas_used$MinorityClassSize),
+                         pnum, psymbolic, pnumrate, psymbolicrate, Cmin, Cmax,
+                         brierlogreg = perfsAggr.LR$brier.test.mean,
+                         logbrierlogreg = log(perfsAggr.LR$brier.test.mean),
+                         sqrtbrierlogreg = sqrt(perfsAggr.LR$brier.test.mean),
+                         acclogreg = perfsAggr.LR$acc.test.mean,
+                         auclogreg = perfsAggr.LR$auc.test.mean
+                         )
 
 
 paste("Is there any nas ? :", any(is.na(df.bmr.diff)))
@@ -178,22 +215,23 @@ test = matrixRanks[,1]
 rank.shape = function(x) {
   df = NA
   if (x[1]==2) {
-    df=data.frame(rank = as.factor(1), learner = "Random forest")
+    df=data.frame(rank = as.factor(1), learner = "RF")
   } else if (x[1]==1.5) {
-    df=data.frame(rank = as.factor(c("Equal results","Equal results")), learner = c("Random forest","Logistic Regression"))
+    df=data.frame(rank = as.factor(c("Equal performance","Equal performance")), learner = c("RF","LR"))
   } else {
-    df=data.frame(rank = 1, learner = "Logistic Regression")
+    df=data.frame(rank = 1, learner = "LR")
   }
   return(df)
 }
 
 list.shape = lapply(matrixRanks[1,], rank.shape)
 list.shape.df = do.call("rbind", list.shape) 
+names(list.shape.df)[2] = "Method"
 
-p = ggplot(list.shape.df, aes_string("rank", fill = "learner"))
+p = ggplot(list.shape.df, aes_string("rank", fill = "Method"))
 p = p + geom_bar(position = "dodge")
 p = p + ylab("Number")
-p = p + ggtitle(paste("mesure :",measure.chosen$id))
+#p = p + ggtitle(paste("mesure :",measure.chosen$id))
 print(p)
 
 
@@ -203,15 +241,15 @@ names(perfsAggr.diff.melted)<-c("Measure","Performance")
 p <- ggplot(perfsAggr.diff.melted[-which(perfsAggr.diff.melted$Measure %in% c("timetrain.test.mean", "logloss.test.mean", "mmce.test.mean")),], aes(Measure, Performance))
 p + geom_boxplot(aes(colour = Measure))
 
-p <- ggplot(perfsAggr.diff.melted[-which(perfsAggr.diff.melted$variable %in% c("timetrain.test.mean", "logloss.test.mean",  "mmce.test.mean")),], aes(variable, value))
-p + geom_violin(aes(colour = variable))
+p <- ggplot(perfsAggr.diff.melted[-which(perfsAggr.diff.melted$Measure %in% c("timetrain.test.mean", "logloss.test.mean", "mmce.test.mean")),], aes(Measure, Performance))
+p + geom_violin(aes(colour = Measure))
 
 
 
 # plot of the mean of accuracy rank
 
 # for one measure
-measure.chosen = acc
+measure.chosen = logloss
 measure.name = measure.chosen$id
 
 matrixRanks = convertModifiedBMRToRankMatrix(res.perfs.df, measure = measure.chosen)
@@ -224,6 +262,8 @@ learners.name = names(learners.meanrank)
 names(learners.meanrank) <- NULL
 learners.meanrank.df = data.frame(learners = factor(learners.name, levels = learners.name), average_rank = learners.meanrank)
 learners.meanrank.df = learners.meanrank.df[order(learners.meanrank.df$average_rank),]
+learners.meanrank.df
+
 
 print(ggplot(learners.meanrank.df, aes(x = learners, y = average_rank)) + geom_bar(stat = "identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + coord_cartesian(ylim=c(1,4)) +
         ggtitle(paste0("Comparison of ", measure.name, " of random forest and several logistic regression algorithms")) + ylab(paste("Mean of",measure.name, "rank on", n ,"classification datasets")) + xlab("learner"))
@@ -272,28 +312,56 @@ perfsAggr.RF = subset(res.perfs.df, learner.id == learner.id.randomForest)
 lr.acc = perfsAggr.LR$acc.test.mean
 rf.acc = perfsAggr.RF$acc.test.mean
 df.acc = data.frame(lr.acc = lr.acc, rf.acc = rf.acc)
-names(df.acc) = c("Random forest", "Logistic regression")
+names(df.acc) = c("LR", "RF")
 df.acc.melted = reshape2::melt(df.acc)
 diff.acc = perfsAggr.diff$acc.test.mean
+names(df.acc.melted) = c("Method", "Accuracy")
 
-p <- ggplot(df.acc.melted, aes(variable, value))
+
+p <- ggplot(df.acc.melted, aes(Method, Accuracy))
+p = p +  scale_fill_manual(values=c("#990000", "#99CCFF"))
+p = p + geom_boxplot(aes_string(fill = "Method"), outlier.shape = NA, notch = FALSE)
+p = p + labs(y = "acc")
 print(p)
-p = p + geom_boxplot(aes_string(fill = "variable"), outlier.shape = NA, notch = FALSE)
-print(p)
+
 
 
 diff.acc = perfsAggr.diff$acc.test.mean
-boxplot(diff.acc, outline = FALSE, ylab = "Difference in accuracy")
-lines(x =c(0.5,1.5), y=c(0,0), col="blue")
+p <- ggplot(perfsAggr.diff, aes( brier.test.mean, acc.test.mean))
+p = p + geom_boxplot(aes_string(fill = "acc.test.mean"), outlier.shape = NA, notch = FALSE)
+p = p + scale_fill_manual(values=c("#CC6666"))
+p = p + labs(y = (expression(paste(Delta, "acc"))))
+p = p + ylim(c(-0.10,0.08))
+print(p)
+
+p<-geom_boxplot(diff.acc)
+
+# avec le boxplot normal
+boxplot(diff.acc, outline = FALSE, ylab =  expression(paste(Delta, "acc")),  col="#009900", notch = TRUE)
+lines(x =c(0.5,1.5), y=c(0,0), col="red")
+
+boxplot(Accuracy~Method, data = df.acc.melted, outline = FALSE, ylab =  expression(paste("acc")),  col=c("#99CCFF", "#990000"), notch = TRUE)
+
+library(vioplot)
+
+vioplot(diff.acc, outline = FALSE, ylab =  expression(paste(Delta, "acc")),  col="#009900", notch = TRUE)
+lines(x =c(0.5,1.5), y=c(0,0), col="red")
+
+vioplot(diff.acc)
+
 
 df.dummy = data.frame(diff.acc,1)
 p <- ggplot(df.dummy, aes(X1,diff.acc))
-p = p+geom_boxplot()
+p = p + geom_boxplot()
 print(p)
 
 qplot(y=diff.acc, x= 1, geom = "boxplot")
 
 ## Influence of parameters ----
+
+
+
+
 
 ## Plots
 
@@ -485,7 +553,7 @@ plotLinearModelandCor<-function(feature, measure) {
   print(b)
 }
 
-cor.test()
+
 
 plotLinearModelandCor("logn","acc.test.mean")
 plotLinearModelandCor("logdimension","acc.test.mean")
@@ -493,6 +561,10 @@ plotLinearModelandCor("logp","acc.test.mean")
 plotLinearModelandCor("logpsurn","acc.test.mean")
 plotLinearModelandCor("logdimensionsurn","acc.test.mean")
 plotLinearModelandCor("lograpportMajorityMinorityClass","acc.test.mean")
+plotLinearModelandCor("Cmax","acc.test.mean")
+plotLinearModelandCor("brierlogreg","acc.test.mean")
+plotLinearModelandCor("sqrtbrierlogreg","acc.test.mean")
+plotLinearModelandCor("auclogreg","acc.test.mean")
 
 
 # n et p
