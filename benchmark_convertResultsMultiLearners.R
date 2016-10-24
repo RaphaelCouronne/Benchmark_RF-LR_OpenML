@@ -7,6 +7,12 @@ library(cowplot)
 library(reshape2)
 source(file = "benchmark_defs.R")
 
+
+
+################################################################################################################################
+# Part 1 : Creation of the dataset
+################################################################################################################################
+
 ## Load and convert the reasults to a data frame ----
 load( file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-allLearnersFoctor_strat_All.RData")
 
@@ -192,7 +198,18 @@ library(Hmisc)
 rcorr(perfsAggr.diff, type=" ") # type can be pearson or spearman
 
 
-## General vizualisation -----
+
+
+
+
+
+
+
+
+################################################################################################################
+## Part 2 : General vizualisation -----
+################################################################################################################
+
 
 measure.chosen = acc
 matrixRanks = convertModifiedBMRToRankMatrix(res.perfs.df, measure = measure.chosen)
@@ -357,10 +374,11 @@ print(p)
 
 qplot(y=diff.acc, x= 1, geom = "boxplot")
 
+################################################################################################################################
+# Part 3 : Analysis
+################################################################################################################################
+
 ## Influence of parameters ----
-
-
-
 
 
 ## Plots
@@ -532,10 +550,20 @@ plot(dist ~ speed, data = cars, main = "data(cars)  &  smoothing splines")
 cars.spl <- with(cars, smooth.spline(speed, dist))
 cars.spl
 
+
+## Analysis
+
 # with the linear models
-plotLinearModelandCor<-function(feature, measure) {
+plotLinearModelandCor<-function(feature, measure, log = FALSE) {
   plot(df.bmr.diff[[feature]], df.bmr.diff[[measure]], xlab = feature, ylab = measure)
   fit =lm(df.bmr.diff[[measure]]~df.bmr.diff[[feature]])
+  
+  
+  if (log == TRUE) {
+    fit =lm(df.bmr.diff[[measure]]~log1p(df.bmr.diff[[feature]]))
+    plot(log1p(df.bmr.diff[[feature]]), df.bmr.diff[[measure]], xlab = feature, ylab = measure)
+  }
+  
   print(summary(fit))
   x = seq(-100,100,length.out = 20)
   lines(x, x*fit$coefficients[2]+fit$coefficients[1], col = "red")
@@ -567,17 +595,20 @@ plotLinearModelandCor("sqrtbrierlogreg","acc.test.mean")
 plotLinearModelandCor("auclogreg","acc.test.mean")
 
 
-# n et p
+plotLinearModelandCor("pnum","acc.test.mean", log = TRUE)
+plotLinearModelandCor("psymbolic","acc.test.mean")
+plotLinearModelandCor("pnumrate","acc.test.mean")
+plotLinearModelandCor("psymbolicrate","acc.test.mean")
+plotLinearModelandCor("Cmin","acc.test.mean")
+plotLinearModelandCor("Cmax","acc.test.mean")
+plotLinearModelandCor("brierlogreg","acc.test.mean")
+plotLinearModelandCor("logbrierlogreg","acc.test.mean")
+plotLinearModelandCor("sqrtbrierlogreg","acc.test.mean")
 
-df.concordancenp = data.frame(n = clas_used$NumberOfInstances, p = clas_used$NumberOfFeatures)
 
-tau = cor(df.concordancenp, method="kendall", use="pairwise") # kendall
-rho = cor(df.concordancenp, method="spearman", use="pairwise")# spearmann
+## ML Analysis
 
-a = cor.test(x = df.concordancenp[,1], y = df.concordancenp[,2], method="kendall", use="pairwise")
-b = cor.test(x = df.concordancenp[,1], y = df.concordancenp[,2], method="spearman", use="pairwise")
-
-# Importance of the variables
+task.analysis = 
 
 # With linear regression model
 fit.all = lm(df.bmr.diff$acc.test.mean~
@@ -596,6 +627,10 @@ df.regr = data.frame(subset(df.bmr.diff, select = measure.chosen), subset(df.bmr
 task.regr = makeRegrTask(data = df.regr, target = measure.chosen)
 fv = generateFilterValuesData(task.regr, method = "randomForestSRC.rfsrc")
 fv
+
+
+
+#### Boxplots and all
 
 ## Anne Laure visualization
 
