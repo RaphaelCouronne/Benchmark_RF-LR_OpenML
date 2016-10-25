@@ -16,7 +16,6 @@ source(file = "benchmark_defs.R")
 ## Load and convert the reasults to a data frame ----
 load( file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-allLearnersFoctor_strat_All.RData")
 
-
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
 
 leaner.id.lr = "classif.logreg"
@@ -28,6 +27,7 @@ unwantedMeasures = c("mmce.test.mean")
 # models difference
 load(file = "../Data_BenchmarkOpenMl/Final/Interpretability/ImportanceResults-all.RData")
 load(file = "../Data_BenchmarkOpenMl/Final/pdp.weigheddifferenceAll.RData")
+load(file = "../Data_BenchmarkOpenMl/Final/Target/target.sigma.0.5.RData")
 clas_used = clas_used[c(1:length(result)),]
 
 # create the importance.list
@@ -46,6 +46,7 @@ result = result[-res.errorMessages.pdp]
 clas_used = clas_used[-res.errorMessages.pdp,]
 importance.df = importance.df[-res.errorMessages.pdp,]
 pdp.weigheddifference = pdp.weigheddifference[-res.errorMessages.pdp]
+target.sigma = target.sigma[-res.errorMessages.pdp]
 
 # pdp.df
 pdp.df = do.call("rbind", pdp.weigheddifference) 
@@ -57,6 +58,7 @@ result = result[-res.highdimension]
 clas_used = clas_used[-res.highdimension,]
 importance.df = importance.df[-res.highdimension,]
 pdp.df = pdp.df[-res.highdimension,]
+target.sigma = target.sigma[-res.highdimension]
 
 
 # remove the ones with error messages
@@ -65,6 +67,7 @@ result = result[-res.errorMessages]
 clas_used = clas_used[-res.errorMessages,]
 importance.df = importance.df[-res.errorMessages,]
 pdp.df = pdp.df[-res.errorMessages,]
+target.sigma = target.sigma[-res.errorMessages]
 
 # aggregate the results
 res.perfs = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))
@@ -85,6 +88,7 @@ if (!(identical(integer(0), res.perfs.nas))) {
   clas_used = clas_used[-res.perfs.nas,]
   importance.df = importance.df[-res.perfs.nas,]
   pdp.df = pdp.df[-res.perfs.nas,]
+  target.sigma = target.sigma[-res.perfs.nas]
 }
 
 # convert to a data.frame
@@ -142,7 +146,8 @@ df.bmr.diff = data.frame(perfsAggr.diff,
                          logbrierlogreg = log(perfsAggr.LR$brier.test.mean),
                          sqrtbrierlogreg = sqrt(perfsAggr.LR$brier.test.mean),
                          acclogreg = perfsAggr.LR$acc.test.mean,
-                         auclogreg = perfsAggr.LR$auc.test.mean
+                         auclogreg = perfsAggr.LR$auc.test.mean,
+                         target.sigma
                          )
 
 
@@ -399,24 +404,6 @@ plot(df.bmr.diff$logpsurn, df.bmr.diff$acc.test.mean)
 plot(df.bmr.diff$logdimensionsurn, df.bmr.diff$acc.test.mean)
 plot(df.bmr.diff$lograpportMajorityMinorityClass, df.bmr.diff$acc.test.mean)
 
-# plot with the permutation measure
-plot(log(importance.df$l1), df.bmr.diff$acc.test.mean, xlim = c(-10,0))
-plot(log(importance.df$l2), df.bmr.diff$acc.test.mean, xlim = c(-10,0))
-plot(log(importance.df$rank), df.bmr.diff$acc.test.mean)
-
-x = (importance.df$l2)+1e-6
-y = df.bmr.diff$acc.test.mean
-
-index.x.remove = which(x<(1e-3))
-x = x[-index.x.remove]
-y = y[-index.x.remove]
-
-plot(x,y, ylab = "Difference in accuracy", log = "x", xlab = "Difference of variable importance")
-
-cor.test(x,y,method = "kendall")
-cor.test(x,y,method = "spearman")
-
-
 # plot with the pdp
 hist(pdp.df$l2)
 hist(log(pdp.df$l2))
@@ -431,42 +418,6 @@ cor.test(pdp.df$l2,df.bmr.diff$acc.test.mean,method = "kendall")
 plot(pdp.df$linf, df.bmr.diff$acc.test.mean)
 cor.test(pdp.df$linf,df.bmr.diff$acc.test.mean,method = "kendall")
 
-
-# study variance pdp
-plot(log(pdp.df$l2), df.bmr.diff$acc.test.mean, 
-     xlab = "Log difference in partial dependance", ylab = "Difference in accuracy",
-     xlim = c(-6,-1))
-
-x.considered = log(pdp.df$l2)
-
-subsetl2 <- function(x) {
-  res = NA
-  if (x<(-4)) {
-    res = "<-4"
-  } else if (x>=(-4) && x<(-3)) {
-    res = ">-4 & <-3"
-  } else if (x>=(-3) && x<(-2)) {
-    res = ">-3 & <-2"
-  } else if (x>=(-2)) {
-    res = ">-2"
-  }
-  return(res)
-}
-
-
-hist(log(pdp.df$l2))
-l2.categories = sapply(x.considered, subsetl2)
-
-df.l2test = data.frame(l2.categories = l2.categories, x.considered = x.considered, acc.test.mean = df.bmr.diff$acc.test.mean)
-levels(df.l2test$l2.categories) = levels(df.l2test$l2.categories)[c(1,4,3,2)]
-p <- ggplot(df.l2test, aes(factor(l2.categories), acc.test.mean))
-p = p+geom_boxplot()
-print(p)
-
-
-
-
-
 # plot the p with colors
 df.plot = df.bmr.diff
 logical = df.plot$acc.test.mean>0
@@ -479,76 +430,18 @@ p = p + scale_x_log10()
 p = p + scale_colour_gradient(limits=c(3, 11), low="white", high="red")
 print(p)
 
-# with categories
-subsetn <- function(x) {
-  res = NA
-  if (x<50) {
-    res = 1
-  } else if (x>=50 && x<100) {
-    res = 2
-  } else if (x>=100 && x<1000) {
-    res = 3
-  } else if (x>=1000 && x<10000) {
-    res = 4
-  } else if (x>=10000) {
-    res = 5
-  }
-  return(res)
-}
 
-df.bmr.diff.subsetn = df.bmr.diff
-df.bmr.diff.subsetn$subsetn = sapply(exp(df.bmr.diff$logn), subsetn)
-
-df.plot = df.bmr.diff.subsetn
-p <- ggplot(data = df.plot, aes(x = exp(logp), y = acc.test.mean, colour = df.bmr.diff.subsetn$subsetn))
+# plot with the target
+df.plot = df.bmr.diff
+p <- ggplot(data = df.bmr.diff, aes(x = logp, y = logn, colour = target.sigma))
 p <- p + geom_point(size = 1)
-p = p + labs(x = "r (logaritmic scale)", y = "Difference in acc")
-p = p + labs(colour = "n")
-p = p + scale_x_log10()
-p = p + scale_colour_gradient(limits=c(1, 5), low="red", high="white")
 print(p)
 
 
 
-# 3D Plot
-library(scatterplot3d)
-scatterplot3d(df.bmr.diff$logn, df.bmr.diff$logp, df.bmr.diff$acc.test.mean, type = "h")
-
-library(plot3D)
-scatter3D(df.bmr.diff$logn, df.bmr.diff$logp, df.bmr.diff$acc.test.mean)
-
-library(car)
-scatter3d(df.bmr.diff$logn, df.bmr.diff$logp, df.bmr.diff$acc.test.mean)
-scatter3d(x = df.bmr.diff$logn, y = df.bmr.diff$logp, z = df.bmr.diff$acc.test.mean)
-
-library(plotly)
-plot_ly(df, x = df.bmr.diff$logn, y = df.bmr.diff$logp, z = df.bmr.diff$acc.test.mean)
 
 
-df.matlab = data.frame (x = df.bmr.diff$logn, y= df.bmr.diff$logp, z = df.bmr.diff$acc.test.mean)
-save(df.matlab, file = "df.matlab.RData")
-write.table(df.matlab, file = "df.matlab.csv")
 
-# splines
-#splines = smooth.spline(x = x, y = y)
-
-x = df.bmr.diff$logpsurn
-y = df.bmr.diff$acc.test.mean
-lo <- loess(formula = y~x)
-plot(x,y)
-lines(predict(lo), col='red', lwd=1)
-
-smoothingSpline = smooth.spline(x, y, spar=0.9)
-plot(x,y, xlab = "log(dimension/n)", ylab = "Difference in acc : lasso - lr")
-lines(smoothingSpline, col = "red")
-
-
-scatter.smooth(x,y)
-
-require(graphics)
-plot(dist ~ speed, data = cars, main = "data(cars)  &  smoothing splines")
-cars.spl <- with(cars, smooth.spline(speed, dist))
-cars.spl
 
 
 ## Analysis
@@ -608,25 +501,55 @@ plotLinearModelandCor("sqrtbrierlogreg","acc.test.mean")
 
 ## ML Analysis
 
-task.analysis = 
+df.analysis = df.bmr.diff
+target = df.analysis$acc.test.mean>0
+df.analysis$target = target
 
-# With linear regression model
-fit.all = lm(df.bmr.diff$acc.test.mean~
-               df.bmr.diff$logp+
-               df.bmr.diff$logn+
-               df.bmr.diff$logdimension+
-               df.bmr.diff$logpsurn+
-               df.bmr.diff$logdimensionsurn+
-               df.bmr.diff$lograpportMajorityMinorityClass)
+learner.classif.rf = makeLearner("classif.randomForest")
+learner.classif.rpart = makeLearner("classif.rpart")
+learner.regr.rf = makeLearner("regr.randomForest")
+learner.regr.rpart = makeLearner("regr.rpart")
 
-summary(fit.all)
+myvars <- c("logp", "logn", 
+            "logdimension", "logpsurn", "logdimensionsurn",
+            "pnum", "psymbolic", 
+            "pnumrate", "psymbolicrate", 
+            "brierlogreg",
+            "Cmin", "Cmax")
+df.mlanalysis.regr <- df.analysis[c(myvars, "acc.test.mean")]
+df.mlanalysis.clas <- df.analysis[c(myvars, "target")]
 
-# with a random forest
-measure.chosen = "acc.test.mean"
-df.regr = data.frame(subset(df.bmr.diff, select = measure.chosen), subset(df.bmr.diff, select = features.names))
-task.regr = makeRegrTask(data = df.regr, target = measure.chosen)
-fv = generateFilterValuesData(task.regr, method = "randomForestSRC.rfsrc")
-fv
+task.analysis.classif = makeClassifTask(id = "analysis.rank", data = df.mlanalysis.clas, target = "target")
+task.analysis.regr = makeRegrTask(id = "analysis.perfs", data = df.mlanalysis.regr, target = "acc.test.mean")
+
+fit.classif = train(learner = learner.classif.rf, task = task.analysis.classif)
+benchmark(learner.classif.rf, tasks = task.analysis.classif,resamplings = makeResampleDesc("CV", iters = 5))
+
+fit.regr = train(learner = learner.regr.rf, task = task.analysis.regr)
+benchmark(learner.regr.rf, tasks = task.analysis.regr,resamplings = makeResampleDesc("CV", iters = 5))
+
+
+plotLearnerPrediction(learner = learner.classif.rpart, task = task.analysis.classif)
+plotLearnerPrediction(learner = learner.regr.rpart, task = task.analysis.regr)
+
+
+# tree clas
+library(rpart.plot)
+library(rpart)
+form = as.formula(target~.)
+tree.2 <- rpart(form,df.mlanalysis.clas, control=rpart.control(maxdepth = 2))		
+fancyRpartPlot(tree.2)	
+
+# tree regr
+form = as.formula(acc.test.mean~.)
+tree.2 <- rpart(form,df.mlanalysis.regr, control=rpart.control(maxdepth = 2))		
+fancyRpartPlot(tree.2)	
+
+
+
+
+
+
 
 
 
