@@ -1,0 +1,82 @@
+\begin{thebibliography}{14}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Bischl et~al.(2016)Bischl, Lang, Kotthoff, Schiffner, Richter, Jones,
+  and Casalicchio}]{mlrpackage}
+Bischl, B., Lang, M., Kotthoff, L., Schiffner, J., Richter, J., Jones, Z.,
+  Casalicchio, G., 2016. mlr: Machine Learning in R. R package version 2.10.
+\newline\urlprefix\url{https://github.com/mlr-org/mlr}
+
+\bibitem[{Bischl et~al.(2012)Bischl, Mersmann, Trautmann, and
+  Weihs}]{Bischl2012}
+Bischl, B., Mersmann, O., Trautmann, H., Weihs, C., 2012. Resampling methods
+  for meta-model validation with recommendations for evolutionary computation.
+  Evolutionary Computation 20~(2), 249--275.
+\newline\urlprefix\url{http://www.mitpressjournals.org/doi/pdf/10.1162/EVCO_a_00069}
+
+\bibitem[{Boulesteix(2015)}]{boulesteix2015ten}
+Boulesteix, A.-L., 2015. Ten simple rules for reducing overoptimistic reporting
+  in methodological computational research. PLoS Comput Biol 11~(4), e1004191.
+
+\bibitem[{Brazma et~al.(2003)Brazma, Parkinson, Sarkans, Shojatalab, Vilo,
+  Abeygunawardena, Holloway, Kapushesky, Kemmeren, Lara,
+  et~al.}]{brazma2003arrayexpress}
+Brazma, A., Parkinson, H., Sarkans, U., Shojatalab, M., Vilo, J.,
+  Abeygunawardena, N., Holloway, E., Kapushesky, M., Kemmeren, P., Lara, G.~G.,
+  et~al., 2003. Arrayexpress—a public repository for microarray gene
+  expression data at the ebi. Nucleic acids research 31~(1), 68--71.
+
+\bibitem[{Breiman(2001)}]{breiman2001random}
+Breiman, L., 2001. Random forests. Machine learning 45~(1), 5--32.
+
+\bibitem[{Casalicchio et~al.(2016)Casalicchio, Bischl, Kirchhoff, Lang, Hofner,
+  Bossek, Kerschke, and Vanschoren}]{openMLpackage}
+Casalicchio, G., Bischl, B., Kirchhoff, D., Lang, M., Hofner, B., Bossek, J.,
+  Kerschke, P., Vanschoren, J., 2016. OpenML: Exploring Machine Learning
+  Better, Together. R package version 1.0.
+\newline\urlprefix\url{https://github.com/openml/openml-r}
+
+\bibitem[{Ferri et~al.(2009)Ferri, Hern{\'a}ndez-Orallo, and
+  Modroiu}]{ferri2009experimental}
+Ferri, C., Hern{\'a}ndez-Orallo, J., Modroiu, R., 2009. An experimental
+  comparison of performance measures for classification. Pattern Recognition
+  Letters 30~(1), 27--38.
+
+\bibitem[{Friedman(2001)}]{friedman2001greedy}
+Friedman, J.~H., 2001. Greedy function approximation: a gradient boosting
+  machine. Annals of statistics, 1189--1232.
+
+\bibitem[{Lichman(2013)}]{Lichman:2013}
+Lichman, M., 2013. {UCI} machine learning repository.
+\newline\urlprefix\url{http://archive.ics.uci.edu/ml}
+
+\bibitem[{NCBI(2013)}]{ncbiarchive}
+NCBI, G., 2013. archive for functional genomics data sets-update barrett.
+
+\bibitem[{{R Core Team}(2016)}]{snowfallpackage}
+{R Core Team}, 2016. R: A Language and Environment for Statistical Computing. R
+  Foundation for Statistical Computing, Vienna, Austria.
+\newline\urlprefix\url{https://www.R-project.org/}
+
+\bibitem[{Strobl et~al.(2007)Strobl, Boulesteix, Zeileis, and
+  Hothorn}]{strobl2007bias}
+Strobl, C., Boulesteix, A.-L., Zeileis, A., Hothorn, T., 2007. Bias in random
+  forest variable importance measures: Illustrations, sources and a solution.
+  BMC bioinformatics 8~(1), 1.
+
+\bibitem[{Vanschoren et~al.(2014)Vanschoren, Van~Rijn, Bischl, and
+  Torgo}]{vanschoren2014openml}
+Vanschoren, J., Van~Rijn, J.~N., Bischl, B., Torgo, L., 2014. Openml: networked
+  science in machine learning. ACM SIGKDD Explorations Newsletter 15~(2),
+  49--60.
+
+\bibitem[{Yousefi et~al.(2010)Yousefi, Hua, Sima, and
+  Dougherty}]{yousefi2010reporting}
+Yousefi, M.~R., Hua, J., Sima, C., Dougherty, E.~R., 2010. Reporting bias when
+  using real data sets to analyze classification performance. Bioinformatics
+  26~(1), 68--76.
+
+\end{thebibliography}

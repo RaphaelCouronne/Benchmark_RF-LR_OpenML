@@ -1,0 +1,273 @@
+
+\documentclass[12pt]{article}
+\usepackage{graphics,graphicx}
+\usepackage{times,amsfonts,amssymb,latexsym,amsmath}
+%\usepackage[citecolor=black]{hyperref}
+\usepackage{url}
+\usepackage[T1]{fontenc}              % T1 font encoding as default
+%\usepackage[latin9]{inputenc}         % ISO-8859-15 (Latin 9) text
+% ISO-8859-15 check: you should see both the euro and cent signs here:
+% (if not, you are using a font that is not Latin 9 compatible)
+
+\usepackage[a4paper]{geometry}        % DIN A4 paper
+\geometry{lmargin=3cm, rmargin=3cm,tmargin=3cm, bmargin=3cm}
+
+\usepackage{amsmath,amssymb}          % AMS TeX support
+                 % Times font
+\usepackage{bm}                       % bold math
+\usepackage{tabularx}
+
+\sloppy                               % don't be fussy in paragraph
+
+\usepackage{url}                      % URL command
+\usepackage{xspace}                   % gentle spacing after a macro
+\usepackage{color}
+\usepackage{ulem}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+
+\usepackage{graphicx}
+%\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage[round]{natbib}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+%\usepackage{dsfont}   %%% fuer \N, \R etc
+
+%\usepackage{bbm}
+\usepackage{setspace}
+
+%\usepackage[square,numbers]{natbib}
+%\bibliographystyle{unsrtnat}
+\usepackage{natbib}
+\bibliographystyle{elsart-harv}
+            % line spacing
+%\singlespacing
+%\onehalfspacing
+\doublespacing
+
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{proof}{\textit{Proof}}
+
+\bmdefine\X{X}
+\bmdefine\Z{Z}
+\bmdefine\x{x}
+\bmdefine\z{z}
+\bmdefine\y{y}
+\bmdefine\Y{Y}
+
+\bmdefine\M{M}
+\bmdefine\Q{Q}
+\bmdefine\P{P}
+\bmdefine\w{w}
+\bmdefine\W{W}
+\bmdefine\p{p}
+\bmdefine\T{T}
+\bmdefine\t{t}
+\bmdefine\B{B}
+\bmdefine\I{I}
+\bmdefine\u{u}
+\bmdefine\p{p}
+\bmdefine\Sig{\Sigma}
+\bmdefine\E{E}
+\bmdefine\F{F}
+\bmdefine\S{S}
+\bmdefine\a{a}
+\bmdefine\A{A}
+\usepackage{bm}
+
+\newcommand{\bbeta}{\mbox{\boldmath$\beta$}}
+\newcommand{\bepsilon}{\mbox{\boldmath$\epsilon$}}
+\newcommand{\bSigma}{\mbox{\boldmath$\bSigmama$}}
+\def\ls{{\bf $(\X_\mathcal{L},\Y_\mathcal{L})$}}
+\def\as{{\a_1,\dots,\a_m}}
+\def\xm{{\overline{\textbf{x}}}}
+\def\mc{\mathcal}
+\newcommand{\scp}[2]{\left\langle#1, #2\right\rangle}
+
+\newcommand{\PXY}{P}
+\newcommand{\PXYj}{P_j}
+
+
+%\usepackage{soul}
+%\sethlcolor{blue}
+%\setstcolor{blue}
+\newcommand{\MJAE}[1]{\textcolor{blue}{#1}}
+\newcommand{\NOTE}[2]{\hl{#1}\footnote{\textcolor{blue}{#2}}}
+\newcommand{\REMOVE}[2]{\st{#1}\footnote{\textcolor{blue}{#2}}}
+\newcommand{\REMOVEB}[1]{\st{#1}}
+
+\title{Benchmarking random forest:\\ a large scale experiment}
+
+\author{Raphael Couronn\'e$^1$, Philipp Probst$^1$, Anne-Laure Boulesteix$^1$}
+\date{}
+
+\begin{document}
+
+\setkeys{Gin}{width=0.75\textwidth}
+
+\maketitle
+
+%\vspace{-1cm}
+\noindent
+$^1$\ Department of Medical Informatics, Biometry and Epidemiology, University of Munich (LMU), Marchioninistr. 15, D-81377 Munich, Germany.
+
+
+\begin{abstract}
+
+\end{abstract}
+
+
+\section{Introduction}
+\begin{itemize}
+\item In the low dimensional world, logistic regression is considered a standard approach to binary classification. This is especially true in scientific fields such as medicine or psycho-social sciences where the focus is not only on prediction but also on explanation; see Schmuheli (Statistical Science 2010) for a discussion of this distinction.
+\item Since their invention 15 years ago, random forests (add reference) have strongly gained in popularity and are increasingly becoming a common \lq\lq standard tool'' used by scientists without any strong background in statistics or machine learning. Our experience as authors, reviewers and readers is that random forest can now be used routinely without the audience strongly questioning this choice. While their use was in the early years limited to innovation-friendly scientists interested (or experts) in machine learning, it has now become commonplace. Random forests are well-known in various non-computational communities.
+\item In this context, we think that the performance of the method should be systematically investigated in a large-scale benchmarking experiment and compared to the current standard: logistic regression.
+\item We make the---admittedly somewhat controversial---choice to consider the standard version of RF only, with default parameters, and logistic regression only as the standard approach which is very often considered in a first step for low dimensional binary classification problem.
+\item We also investigate the dependence of our conclusions on datasets' characteristics.
+\item In particular, as a important by-product of our study, we provide insights into the importance of inclusion criteria for datasets in benchmarking experiments and more generally critically discuss design issues and scientific practice in this context.
+\item This paper is structured as follows...
+\end{itemize}
+
+
+\section{Methods}
+\subsection{Logistic regression (LR)}
+\subsubsection{Model}
+Standard logistic regression...
+
+\subsubsection{$L_1$-penalized logistic regression}
+Do we want to include it?
+
+\subsubsection{$L_2$-penalized logistic regression}
+Do we want to include it?
+
+\subsection{Random forest (RF)}
+\subsubsection{Brief overview}
+
+\subsubsection{Variable importance measures}
+\begin{itemize}
+\item Short introduction into permutation-based VI
+\item Transition: VIs are not sufficient to capture the patterns of dependency between predictors and response. They only indicate---in the form of a single number---whether there is such a dependency. Partial dependence plots can be used to address this shortcoming. They can essentially be applied to any prediction method but are particularly useful for black-box methods which (in contrast to, say, generalized linear models) do not yield any interpretable patterns.
+\end{itemize}
+
+\subsection{Partial dependence plots}
+\subsubsection{Principle}
+\begin{itemize}
+\item Short introduction
+\item As an illustration, we display in Fig. XXX the partial dependence plots obtained by logistic regression  (left column) and random forest (right column) for three simulated datasets of size $n=1000$ . The first simulated dataset (top row) is simulated from the logistic model $logit(P(Y=1))=\beta_0+\beta_1x_1+\beta_2x_2$ (with $\beta_0=XXX$, $\beta_1=XXX$, $\beta_2=XXX$). The second and third datasets are simulated from $logit(P(Y=1))=\beta_0+\beta_1x_1+\beta_2x_1^2$ and $logit(P(Y=1))=\beta_0+\beta_1x_1+\beta_2x_1x_2$, respectively. For all three datasets the random vector $(X_1,X_2)^\top$ follows the distribution XXX.
+\end{itemize}
+
+
+\subsubsection{Measuring differences between partial dependence plots}
+\begin{itemize}
+\item In the context of the comparison between LR and RF as potential standard classification tools, we are interested in the differences between the patterns of dependency underlying the prediction rules yielded by the two methods.
+\item In this paper, we suggest to investigate this question by comparing the partial dependence plots for the two methods and by quantifying the difference between them through the use of discrepancy measures based on the $L_1$-norm or $L_2$-norm of the difference between the two plots.
+\item More precisely, we define the $L_1$- and $L_2$-based criteria as
+\[
+formula (VI weights, etc)
+\]
+
+\item As can be seen from Figure XXX, the partial dependence plots of LR and RF are similar for the first dataset ($L_1=XXX$ and $L_2=XXX$). This was expected since the logistic regression model is the true model underlying the data. The similarity observed between the partial dependence plots of RF and LR in this setting indicates that RF can successfully recover this model structure in this case.
+\item In contrast, the plots are clearly different for the second and the third simulated datasets (middle and bottom rows).
+\end{itemize}
+
+
+\subsection{Benchmarking with real data}
+In this section we present the design of our benchmarking experiment. Most importantly, the experiment is based on a collection of $J$ real datasets (in contrast to other types of benchmarking experiments relying on simulated data). The prediction accuracy of LR and RF on real datasets is estimated through cross-validation as briefly presented in Section \ref{subsubsec:cv}. Issues related to the statistical analysis of the benchmarking results as discussed in Boulesteix et al. (The American Statistician 2015) are reviewed in Section \ref{subsubsec:stat}. 
+
+\subsubsection{Cross-validation}
+\label{subsubsec:cv}
+\begin{itemize}
+\item Brief overview of CV
+\item At the end we obtain results in the form of a $J\times 2$ data matrix containing the CV errors of LR (first column) and RF (second column) for the $J$ considered datasets.
+\end{itemize}
+
+\subsubsection{Accuracy measures}
+In our study, we consider the following measures quantifying prediction accuracy in the case of a binary classification problem:
+\begin{itemize}
+\item error rate...
+\item area under the curve...
+\item ...
+\end{itemize}
+
+
+\subsubsection{Statistical analysis}
+\label{subsubsec:stat}
+summary of Boulesteix et al. (The American Statistician 2015)
+
+
+\subsubsection{The OpenML database}
+
+So far we have said that the benchmarking experiment used a collection of $J$ real datasets without specifying which ones. In practice, one often uses already formatted datasets from public databases for this purpose. Many of them offer a user-friendly interface and a good documentation which facilitate to some extent the preliminary steps of the benchmarking experiment (search for datasets, data download, preprocessing). One of the most well-known such databases is UCI repository (add references). Specific scientific areas may have their own databases, such as ArrayExpress and GEO for molecular data from high-throughput experiments (add references). Most recently, the OpenML database (add reference) has been initiated as an exchange platform allowing machine learning scientists to share their data and results. This database includes as many as XXX datasets as of September 2016, a non-negligible proportion of which are relevant as example datasets for benchmarking classification methods.
+
+
+\subsubsection{Inclusion criteria}
+\label{subsubsec:incl}
+When using a huge database of datasets, it becomes obvious that one has to define criteria for inclusion in the benchmarking experiment. Inclusion criteria in this context do not have any long tradition in computational science. The criteria used by researchers to select datasets are most often completely non-transparent. It is often the fact that they select a number of datasets which were found to somehow fit the scope of the investigated methods, but without clear definition of this scope. 
+
+We conjecture that datasets are occasionally removed from the experiment {\it a posteriori} because the results do not meet the expectations/hopes of the researcher. While the vast majority of researchers certainly do not cheat consciously, such practices may substantially bias the conclusion of a benchmarking experiment; see for instance Yousefi et al. (Bioinformatics 2010) for theoretical and empirical investigation of this problem. In a word, \lq\lq fishing for datasets'' should be prohibited (see Rule 4 of Boulesteix PLOS Computational Biology 2015).
+
+Even if fishing for datasets is prohibited, it is important that criteria for inclusion in the benchmarking experiment are clearly stated; see Boulesteix, Wilson and Hapfelmeier (technical report 2016, coming soon) for an extensive discussion of this issue.
+
+In our study, we consider the following datasets' characteristics to define inclusion criteria:
+\begin{itemize}
+\item $n$: ...
+\item ...
+\item ...
+\end{itemize}
+Based on these datasets' characteristics, we define several sets of inclusion criteria and investigate the impact of this choice on the results of the benchmarking experiment. In the same vein, one can also analyse the results of benchmarking experiments for different subsets of datasets successively, following the principle of subgroup analyses performed in clinical trials. For example, one could analyse the results for \lq\lq large'' datasets ($n>1000$) and \lq\lq small datasets'' ($n\leq 1000$) separately.
+
+
+\subsubsection{Meta-learning}
+Going one step further, one can try to model the difference between the methods' performances based on the datasets' characteristics. Such a modelling approach can be seen as a simple form of {\it meta-learning}---a well-known task in machine learning.
+
+
+\section{Results}
+\subsection{Datasets}
+\begin{itemize}
+\item basic inclusion criteria
+\item flow-chart displaying the number of datasets excluded
+\end{itemize}
+
+\subsection{Overall results}
+Boxplots of the performance of RF and LR for the basic criteria.
+
+\subsection{Explaining differences: datasets' characteristics}
+While it is obvious to any computational scientist that the performance of methods may depend on some datasets' characteristics, this issue is not easy to investigate in real data settings because i) it requires a large number of datasets---a condition that is often not fulfilled in practice; ii) this problem is enhanced by the correlations between characteristics. In our benchmarking experiment, however, we consider such a huge number of datasets that an investigation of the relationship between methods' performances and datasets' characteristic becomes possible to some extent. 
+
+\begin{itemize}
+\item Results with varying inclusion criteria
+\item Subgroup analyses as additional file?
+\item Meta-learning
+\end{itemize}
+
+\subsection{Explaining differences: partial dependence plots}
+\begin{itemize}
+\item In the previous section we have investigated the impact of datasets' characteristics on the results of benchmarking and simply modeled the difference between methods' performance based on these characteristics. 
+\item In this section, we take a different approach to the explanation of differences. We use partial dependence plots as a technique to assess the dependency pattern between response and predictors underlying the prediction rule. When the methods' performances are different, we intuitively expect these dependency patterns to be different, sampling variations put aside. We typically expect this to be the case when the true joint distribution of response and predictors is far from the logistic regression model or when the logistic regression model holds but RF fails to recover it (due to, e.g., too small sample size). 
+\item 
+\end{itemize}
+
+
+
+
+\section{Discussion}
+ \begin{itemize}
+\item Summarizing results...
+\item Bias of standard random forest (literature by Strobl et al., Boulesteix et al.)
+\item In this paper we investigated only the basic version of RF as implemented in the package randomForest, with default parameter values. The reason for this choice lies in the fact that we wanted to investigate the ability of standard RF as available to any naive user to compete with the standard logistic regression approach---which can be used without needing strong statistical/technical expertise. The random forest approach, however, has the potential to yield better accuracy than suggested by the standard version with default values. Smart tuning procedures may help to identify optimal values for the various parameters defining the tree and forest structure. In order to compete as a potential \lq\lq standard tool'', however, the whole RF method---including tuning---should run in a completely automatized manner. Non-automatic steps may be extremely useful in practice to achieve optimal performance in specific applications, but they disqualify the method as a standard method to be used for naive users; see Duin (1996) for a discussion of the difference between automatic and non-automatic procedures.
+\item An important problem related to the many possible variants of RF is that expert users may be tempted to try several variants successively and select the result that better fits their expectations/hopes---a form of fishing for significance. In this context, we thus insist that RF should be either used with the default parameter settings or a correct tuning procedure should be applied. By correct procedure, we mean that tuning is performed internally, i.e. the parameter settings are not chosen based  on the final accuracy results. blabla (add references).
+\item Last but not least, a requirement that RF currently miss to fulfill in practice is  {\it transportability} in the sense that the constructed prediction rule should be easily applicable (or in other words, {\it transportable}) to another dataset by another scientist.  Provided the fitted coefficients $\hat{\beta}_0,\hat{\beta}_1,\dot,\hat{\beta}_p$ are stated somewhere (e.g., in a table in the paper describing the study), prediction rules constructed by fitting a logistic regression model are easily applicable by computing $\hat{P}(Y=1)$ as $\hat{P}(Y=1)=\exp(\hat{\beta}_0+\hat{\beta}_1x_1+...+\hat{\beta}_px_p)/(1+\exp(\hat{\beta}_0+\hat{\beta}_1x_1+...+\hat{\beta}_px_p))$. For RF things are not so easy. One typically has to make software objects or data\& code available to the potential users of the prediction rule. Furthermore, problems may occur due to software incompabilities. This topic is extensively discussed in Boulesteix et al. (2016, transportability paper) including a survey of recent articles presenting prediction rules constructed by RF. While the situation may improve in the future through the development of interface tools and universal software-independent languages, for the moment one should currently keep in mind that making an RF prediction rule sustainably applicable to a wide non-expert audience may require time, efforts, pedagogical skills and organisation, while this is not the case for logistic regression.
+\item Conclusion: Standard random forest with default values performs well. But a number of practical and methodological issues have to be addressed.
+\end{itemize}
+
+
+\section{Test Bibliography}
+Je cite \cite{ref}
+
+\bibliography{exemple}
+
+\end{document}
+

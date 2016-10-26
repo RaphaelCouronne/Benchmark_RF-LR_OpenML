@@ -1,0 +1,84 @@
+\relax 
+\bibstyle{elsart-harv}
+\citation{breiman2001random}
+\citation{friedman2001greedy}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}}
+\citation{breiman2001random}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Logistic regression (LR)}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}Model}{3}}
+\newlabel{LogisticRegression}{{1}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Random forest (RF)}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Brief overview}{3}}
+\citation{breiman2001random}
+\citation{strobl2007bias}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Parameters}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Variable importance measures}{4}}
+\newlabel{subsubsec:VIM}{{2.2.3}{4}}
+\citation{friedman2001greedy}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Partial dependence plots}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Principle}{5}}
+\newlabel{PDPesperance}{{2}{5}}
+\newlabel{PDPestimation}{{3}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Plot of the PDP for the tree simulated datasets. Each line is related to a dataset. On the left, visualization of the dataset. On the right, the partial dependance for the variable $X_1$. The datasets represent from top to bottom a linear, dependant, and non linear relation with the target.\relax }}{6}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:plotPDP}{{1}{6}}
+\citation{Bischl2012}
+\citation{ferri2009experimental}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Benchmarking with real data}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Cross-validation}{7}}
+\newlabel{subsubsec:cv}{{2.4.1}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Accuracy measures}{7}}
+\citation{Lichman:2013}
+\citation{brazma2003arrayexpress}
+\citation{ncbiarchive}
+\citation{vanschoren2014openml}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.3}Statistical analysis}{8}}
+\newlabel{subsubsec:stat}{{2.4.3}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.4}The OpenML database}{8}}
+\newlabel{subsubsec:OpenML}{{2.4.4}{8}}
+\citation{yousefi2010reporting}
+\citation{boulesteix2015ten}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.5}Inclusion criteria}{9}}
+\newlabel{subsubsec:incl}{{2.4.5}{9}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.6}Meta-learning}{10}}
+\citation{mlrpackage}
+\citation{openMLpackage}
+\citation{snowfallpackage}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Datasets}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Flowchart representing the criteria for selection of the datasets.\relax }}{11}}
+\newlabel{fig:flowchartdataset}{{2}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Overall results}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Table representing the performances for both LR and RF. On the top, the mean performance values. On the bottom, the mean ranks.\relax }}{12}}
+\newlabel{table:meanperfs}{{1}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces On the left, boxplot of the performance in accuracy for the random forest (in red) and the logistic regression (in blue). On the right, boxplot of the difference in accuracy between random forest and logistic regression. A red line is plotted at y=0.\relax }}{12}}
+\newlabel{fig:OverallResults}{{3}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Explaining differences: datasets' characteristics}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Principle}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces On the left, mean evaluation of the performance of Rf and LR on the OpenML dataset (Id = 1496) for different values of $p$. On the left, plot of the difference of the mean performance $\Delta acc = acc_{RF}-acc_{LR}$. Here $p \in \{2,4,5,6,10,14\}$ and the performance is evaluated with a 2 times 5-CV.\relax }}{13}}
+\newlabel{fig:DatasetDifferentp}{{4}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Results with varying inclusion criteria}{14}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Table representing the correlation between $\Delta acc$ and the corresponding dataset's features.\relax }}{14}}
+\newlabel{table:correlation}{{2}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Subgroup analysis as additional file? \textbf  {?? I don't understand this part ??}}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.4}Meta-learning}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Explaining differences: partial dependence plots}{14}}
+\bibdata{bibli}
+\bibcite{mlrpackage}{{1}{2016}{{Bischl et~al.}}{{Bischl, Lang, Kotthoff, Schiffner, Richter, Jones, and Casalicchio}}}
+\bibcite{Bischl2012}{{2}{2012}{{Bischl et~al.}}{{Bischl, Mersmann, Trautmann, and Weihs}}}
+\bibcite{boulesteix2015ten}{{3}{2015}{{Boulesteix}}{{}}}
+\bibcite{brazma2003arrayexpress}{{4}{2003}{{Brazma et~al.}}{{Brazma, Parkinson, Sarkans, Shojatalab, Vilo, Abeygunawardena, Holloway, Kapushesky, Kemmeren, Lara, et~al.}}}
+\bibcite{breiman2001random}{{5}{2001}{{Breiman}}{{}}}
+\bibcite{openMLpackage}{{6}{2016}{{Casalicchio et~al.}}{{Casalicchio, Bischl, Kirchhoff, Lang, Hofner, Bossek, Kerschke, and Vanschoren}}}
+\bibcite{ferri2009experimental}{{7}{2009}{{Ferri et~al.}}{{Ferri, Hern{\'a}ndez-Orallo, and Modroiu}}}
+\bibcite{friedman2001greedy}{{8}{2001}{{Friedman}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Test Bibliography}{16}}
+\bibcite{Lichman:2013}{{9}{2013}{{Lichman}}{{}}}
+\bibcite{ncbiarchive}{{10}{2013}{{NCBI}}{{}}}
+\bibcite{snowfallpackage}{{11}{2016}{{R Core Team}}{{}}}
+\bibcite{strobl2007bias}{{12}{2007}{{Strobl et~al.}}{{Strobl, Boulesteix, Zeileis, and Hothorn}}}
+\bibcite{vanschoren2014openml}{{13}{2014}{{Vanschoren et~al.}}{{Vanschoren, Van~Rijn, Bischl, and Torgo}}}
+\bibcite{yousefi2010reporting}{{14}{2010}{{Yousefi et~al.}}{{Yousefi, Hua, Sima, and Dougherty}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Boxplots of $\Delta acc$ for different threshold as criteria for dataset's selection. On the top, boxplots for feature $n$, on the middle for feature $p$ and on the bottom for the feature $\frac  {p}{n}$. \relax }}{18}}
+\newlabel{fig:Boxplots}{{5}{18}}
