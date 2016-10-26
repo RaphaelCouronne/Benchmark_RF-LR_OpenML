@@ -15,7 +15,6 @@ source(file = "benchmark_defs.R")
 
 ## Load and convert the reasults to a data frame ----
 load( file = "../Data_BenchmarkOpenMl/Final/Results/Windows/benchmark_results_snow_small-medium-allLearnersFoctor_strat_All.RData")
-
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
 
 leaner.id.lr = "classif.logreg"
@@ -133,7 +132,6 @@ Cmin = clas_used$MinorityClassSize/n
 Cmax = clas_used$MinorityClassSize/n
 
 
-
 df.bmr.diff = data.frame(perfsAggr.diff,
                          logp = log(clas_used$NumberOfFeatures), 
                          logn = log(clas_used$NumberOfInstances),
@@ -145,8 +143,6 @@ df.bmr.diff = data.frame(perfsAggr.diff,
                          brierlogreg = perfsAggr.LR$brier.test.mean,
                          logbrierlogreg = log(perfsAggr.LR$brier.test.mean),
                          sqrtbrierlogreg = sqrt(perfsAggr.LR$brier.test.mean),
-                         acclogreg = perfsAggr.LR$acc.test.mean,
-                         auclogreg = perfsAggr.LR$auc.test.mean,
                          target.sigma
                          )
 
@@ -184,6 +180,10 @@ convertModifiedBMRToRankMatrix <- function(bmr.all, measure = NULL, ties.method 
 }
 
 pairs(df.bmr.diff[,c(7:12)])
+
+
+save(df.bmr.diff, res.perfs.df, file = "Data/Results/df.bmr.RData")
+
 
 ## Measure correlation ----
 
