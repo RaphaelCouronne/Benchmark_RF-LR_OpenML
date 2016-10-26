@@ -12,15 +12,14 @@ load(file = "Data/Results/df.bmr.RData")
 
 ## Plots
 
-df.bmr.diff.100 = subset(df.bmr.diff, exp(logn)>99)
-
 # histogram of features
 hist(df.bmr.diff$logn)
 hist(df.bmr.diff$logp)
 hist(df.bmr.diff$logdimension)
 hist(df.bmr.diff$logpsurn)
 hist(df.bmr.diff$logdimensionsurn)
-hist(df.bmr.diff$lograpportMajorityMinorityClass)
+hist(df.bmr.diff$Cmin)
+hist(df.bmr.diff$Cmax)
 
 # plot performance vs parameter of the dataset
 plot(df.bmr.diff$logn, df.bmr.diff$acc.test.mean)

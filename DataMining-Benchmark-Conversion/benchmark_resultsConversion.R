@@ -130,7 +130,7 @@ psymbolicrate = psymbolic/p
 Cmin = clas_used$MinorityClassSize/n
 
 # %Cmax Percentage of elements of the majority class
-Cmax = clas_used$MinorityClassSize/n
+Cmax = clas_used$MajorityClassSize/n
 
 
 df.bmr.diff = data.frame(perfsAggr.diff,
