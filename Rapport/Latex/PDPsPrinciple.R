@@ -16,12 +16,12 @@ PartialDependancePlot<-function(pd.plot, feature.chosen.name, title = "No title 
   pd.plot.long <- melt(pd.plot, id=feature.chosen.name[1])  
   detach("package:reshape", unload=TRUE)
   
-  names(pd.plot.long)[c(2,3)] = c("Method", "Probability")
+  names(pd.plot.long)[c(2,3)] = c("Algorithm", "Probability")
   
   
   plot.PartialDependanceData<-ggplot(data=pd.plot.long,
-                                     aes_string(x=feature.chosen.name, y="Probability", colour="Method")) +
-    geom_line(data = pd.plot.long, aes(linetype = Method) ,size=1) + 
+                                     aes_string(x=feature.chosen.name, y="Probability", colour="Algorithm")) +
+    geom_line(data = pd.plot.long, aes(linetype = Algorithm) ,size=1) + 
     labs(y="Probability") +
     ylim(0,1)
   
@@ -73,6 +73,7 @@ PdpAnalysis= function(n, gridsize = 20,
   # Visualization of the generated datas
   if (visualize==TRUE) {
     plot.data <- ggplot(data=df, aes(x=X1, y=X2, colour=Y, shape = Y))
+    plot.data = plot.data + scale_fill_manual(values=c("#CCCCCC", "#000000"))
     plot.data <- plot.data + geom_point(size=3) # also geom_poinst
     print(plot.data)
   }
@@ -247,12 +248,29 @@ PdpAnalysis= function(n, gridsize = 20,
     PartialDependancePlot(pd.plot, feature.chosen.name, title = paste("Partial dependance plot for train dataset", datasetNumber, "n=",n))
     #PartialDependancePlot(pd.plot.diff, feature.chosen.name, title = paste("Partial dependance difference plot for train dataset", datasetNumber, "n=",n))
   }
-  
+  res = NULL
+  res$pdp = PartialDependancePlot(pd.plot, feature.chosen.name, title = paste("Partial dependance plot for train dataset", datasetNumber, "n=",n))
+  res$dataset = plot.data
+  return(res)
 }
 
 
 ## launch ----
 set.seed(3)
-PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", datasetNumber = 1) 
-PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", datasetNumber = 2) 
-PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", datasetNumber = 3) 
+res.1 = PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", datasetNumber = 1) 
+res.2 = PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", datasetNumber = 2) 
+res.3 = PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", datasetNumber = 3) 
+
+par(mfrow=c(2,3))
+
+plot(res.1$dataset)
+
+print(res.2$dataset)
+
+print(res.3$dataset)
+
+plot_grid(res.1$dataset, res.1$pdp$plot,
+          res.2$dataset, res.2$pdp$plot,
+          res.3$dataset, res.3$pdp$plot,
+          #labels=c("A", "B"), 
+          ncol = 2, nrow = 3)

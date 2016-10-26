@@ -9,7 +9,7 @@ library(randomForest)
 set.seed(1)
 
 ## Generating the data ----
-n=5e2
+n=1e3
 
 
 X1<-runif(n, min = -2.2, max= 2.2)
@@ -122,7 +122,6 @@ p = ggplot(df.plot.reshaped, aes_string(x = "grid", y="value", colour = "variabl
 p = p+geom_line(size=1) + geom_point(size=3)
 print(p)
 # Partial prediction plot with real model
-
 
 
 

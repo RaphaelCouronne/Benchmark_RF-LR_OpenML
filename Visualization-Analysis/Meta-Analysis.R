@@ -3,6 +3,7 @@ load(file = "Data/Results/df.bmr.RData")
 
 
 
+
 ################################################################################################################################
 # Meta-Analysis
 ################################################################################################################################
@@ -13,6 +14,7 @@ load(file = "Data/Results/df.bmr.RData")
 ## Plots
 
 # histogram of features
+par(mfrow=c(2,4))
 hist(df.bmr.diff$logn)
 hist(df.bmr.diff$logp)
 hist(df.bmr.diff$logdimension)
@@ -22,12 +24,17 @@ hist(df.bmr.diff$Cmin)
 hist(df.bmr.diff$Cmax)
 
 # plot performance vs parameter of the dataset
+
+par(mfrow=c(2,4))
 plot(df.bmr.diff$logn, df.bmr.diff$acc.test.mean)
 plot(df.bmr.diff$logp, df.bmr.diff$acc.test.mean)
 plot(df.bmr.diff$logdimension, df.bmr.diff$acc.test.mean)
 plot(df.bmr.diff$logpsurn, df.bmr.diff$acc.test.mean)
 plot(df.bmr.diff$logdimensionsurn, df.bmr.diff$acc.test.mean)
 plot(df.bmr.diff$lograpportMajorityMinorityClass, df.bmr.diff$acc.test.mean)
+plot(df.bmr.diff$Cmin, df.bmr.diff$acc.test.mean)
+plot(df.bmr.diff$Cmax, df.bmr.diff$acc.test.mean)
+
 
 # plot with the pdp
 hist(pdp.df$l2)
