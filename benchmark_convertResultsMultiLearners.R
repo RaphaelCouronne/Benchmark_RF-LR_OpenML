@@ -388,6 +388,8 @@ qplot(y=diff.acc, x= 1, geom = "boxplot")
 
 ## Plots
 
+df.bmr.diff.100 = subset(df.bmr.diff, exp(logn)>99)
+
 # histogram of features
 hist(df.bmr.diff$logn)
 hist(df.bmr.diff$logp)
@@ -505,8 +507,11 @@ df.analysis = df.bmr.diff
 target = df.analysis$acc.test.mean>0
 df.analysis$target = target
 
-learner.classif.rf = makeLearner("classif.randomForest")
-learner.classif.rpart = makeLearner("classif.rpart")
+prop.table(table(df.bmr.diff$target.sigma))
+prop.table(table(target))
+
+learner.classif.rf = makeLearner("classif.randomForest", predict.type = "prob")
+learner.classif.rpart = makeLearner("classif.rpart", predict.type = "prob")
 learner.regr.rf = makeLearner("regr.randomForest")
 learner.regr.rpart = makeLearner("regr.rpart")
 
@@ -518,12 +523,17 @@ myvars <- c("logp", "logn",
             "Cmin", "Cmax")
 df.mlanalysis.regr <- df.analysis[c(myvars, "acc.test.mean")]
 df.mlanalysis.clas <- df.analysis[c(myvars, "target")]
+df.mlanalysis.target.sigma <- df.analysis[c(myvars, "target.sigma")]
 
 task.analysis.classif = makeClassifTask(id = "analysis.rank", data = df.mlanalysis.clas, target = "target")
+task.analysis.target.sigma <- makeClassifTask(id = "analysis.rank", data = df.mlanalysis.clas, target = "target.sigma")
 task.analysis.regr = makeRegrTask(id = "analysis.perfs", data = df.mlanalysis.regr, target = "acc.test.mean")
 
 fit.classif = train(learner = learner.classif.rf, task = task.analysis.classif)
-benchmark(learner.classif.rf, tasks = task.analysis.classif,resamplings = makeResampleDesc("CV", iters = 5))
+benchmark(learner.classif.rf, tasks = task.analysis.classif,resamplings = makeResampleDesc("CV", iters = 5), measures = list(acc, f1,tnr, tpr, auc))
+
+fit.classif = train(learner = learner.classif.rf, task = task.analysis.target.sigma)
+benchmark(learner.classif.rf, tasks = task.analysis.classif,resamplings = makeResampleDesc("CV", iters = 5), measures = list(acc, f1,tnr, tpr, auc))
 
 fit.regr = train(learner = learner.regr.rf, task = task.analysis.regr)
 benchmark(learner.regr.rf, tasks = task.analysis.regr,resamplings = makeResampleDesc("CV", iters = 5))
@@ -550,6 +560,9 @@ fancyRpartPlot(tree.2)
 
 
 
+################################################################################################################################
+# Part 4 : Boxplots
+################################################################################################################################
 
 
 
@@ -587,7 +600,7 @@ feature.boxplot <- function(df, measure, feature, threshold.vect) {
 feature = "logp"
 thresholdvect = c(2,3)
 
-feature.boxplot.oneplot <- function(df, measure, feature, thresholdvect) {
+feature.boxplot.oneplot <- function(df, measure, feature, thresholdvect, feature.name = "feature") {
   
   df.all = data.frame()
   
@@ -606,23 +619,46 @@ feature.boxplot.oneplot <- function(df, measure, feature, thresholdvect) {
   print(p)
   p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = FALSE)
   p = p + scale_y_continuous(limits = c(-0.08, 0.2))
-  p = p + labs(x = "Value of the threshold", y = "Difference in acc ")
-  p = p + labs(fill = "Above threshold")
+  p = p + labs(x = "Threshold", y = expression(paste(Delta,"acc")))
+  p = p + labs(fill = paste( feature.name ,"> Threshold"))
+  #p = p + labs(fill = expression(paste( over(p,n)," > Threshold")))
   print(p)
 }
 
-measure.chosen = "acc.test.mean"
-feature.chosen = "logpsurn"
-feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(2e-3,1e-2,1e-1))
 
+expression(paste(delta,"acc"))
 
+hist(df.bmr.diff$logn)
 measure.chosen = "acc.test.mean"
 feature.chosen = "logn"
-feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(50,500,1000))
+feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(50,500,1000), "n")
+
+hist(df.bmr.diff$logp)
+measure.chosen = "acc.test.mean"
+feature.chosen = "logp"
+feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(5,8,20), "p")
+
+hist(df.bmr.diff$logpsurn)
+measure.chosen = "acc.test.mean"
+feature.chosen = "logpsurn"
+feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(1e-2,4e-2,1e-1), expression(over(p,n)))
+
+hist(df.bmr.diff$Cmax)
+measure.chosen = "acc.test.mean"
+feature.chosen = "Cmax"
+feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(0.1,0.25,0.4), "Cmax")
+
+
+
+
+hist(df.bmr.diff$logpsurn)
 
 measure.chosen = "acc.test.mean"
-feature.chosen = "lograpportMajorityMinorityClass"
-feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(2,3,5))
+feature.chosen = "logp"
+feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(5,12,20))
+
+
+
 
 
 measure.chosen = "acc.test.mean"
