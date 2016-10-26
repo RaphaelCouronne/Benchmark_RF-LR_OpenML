@@ -35,8 +35,8 @@ PartialDependancePlot<-function(pd.plot, feature.chosen.name, title = "No title 
 
 
 PdpAnalysis= function(n, gridsize = 20,
-            visualize=TRUE,
-            feature.chosen.name, datasetNumber) {
+                      visualize=TRUE,
+                      feature.chosen.name, datasetNumber) {
   
   
   ## Data Generation
@@ -73,8 +73,9 @@ PdpAnalysis= function(n, gridsize = 20,
   # Visualization of the generated datas
   if (visualize==TRUE) {
     plot.data <- ggplot(data=df, aes(x=X1, y=X2, colour=Y, shape = Y))
-    plot.data = plot.data + scale_fill_manual(values=c("#CCCCCC", "#000000"))
-    plot.data <- plot.data + geom_point(size=3) # also geom_poinst
+    plot.data <- plot.data + geom_point(size=2) # also geom_poinst#
+    plot.data = plot.data + scale_colour_grey(start = 0,end = 0.6) 
+    #+ scale_fill_manual(values=c("#CCCCCC", "#000000"))
     print(plot.data)
   }
   classif.task
@@ -257,20 +258,30 @@ PdpAnalysis= function(n, gridsize = 20,
 
 ## launch ----
 set.seed(3)
+
+# Computation of pdps
 res.1 = PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", datasetNumber = 1) 
 res.2 = PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", datasetNumber = 2) 
 res.3 = PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", datasetNumber = 3) 
 
-par(mfrow=c(2,3))
+# Change the color and legends
+res.1$pdp$plot = res.1$pdp$plot + theme(legend.title=element_blank()) + scale_colour_grey(start = 0,end = 0.7) +
+  theme(legend.justification=c(1,1), legend.position=c(1,1), legend.background = element_rect(colour = "black", size=.5, linetype="dotted"))
+res.2$pdp$plot = res.2$pdp$plot + theme(legend.position="none") + scale_colour_grey(start = 0,end = 0.7)
+res.3$pdp$plot = res.3$pdp$plot + theme(legend.position="none") + scale_colour_grey(start = 0,end = 0.7)
 
-plot(res.1$dataset)
+res.1$dataset = res.1$dataset + theme(legend.title=element_blank()) +
+   theme(legend.justification=c(1,1), legend.position=c(1,1), legend.background = element_rect(colour = "black", size=.5, linetype="dotted"))
+res.2$dataset= res.2$dataset + theme(legend.position="none")
+res.3$dataset = res.3$dataset + theme(legend.position="none")
 
-print(res.2$dataset)
 
-print(res.3$dataset)
-
+# plot grid
 plot_grid(res.1$dataset, res.1$pdp$plot,
           res.2$dataset, res.2$pdp$plot,
           res.3$dataset, res.3$pdp$plot,
           #labels=c("A", "B"), 
           ncol = 2, nrow = 3)
+
+
+
