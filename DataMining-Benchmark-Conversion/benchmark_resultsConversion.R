@@ -182,4 +182,4 @@ convertModifiedBMRToRankMatrix <- function(bmr.all, measure = NULL, ties.method 
 
 
 # Save it ----
-save(df.bmr.diff, res.perfs.df, convertModifiedBMRToRankMatrix, perfsAggr.diff.melted, perfsAggr.diff, file = "Data/Results/df.bmr.RData")
+save(df.bmr.diff, res.perfs.df, convertModifiedBMRToRankMatrix, perfsAggr.diff.melted, perfsAggr.diff, pdp.df, clas_used, file = "Data/Results/df.bmr.RData")
