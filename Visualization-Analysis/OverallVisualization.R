@@ -117,41 +117,74 @@ df.values
 
 
 
-## 3. Boxplots of performance
+## 3. Boxplots of performance ----
 
 
-# get the performances
-perfsAggr.LR = subset(res.perfs.df, learner.id == "classif.logreg")
-perfsAggr.RF = subset(res.perfs.df, learner.id == "classif.randomForest")
 
-# Boxplot of the performance for both algorithms
-lr.acc = perfsAggr.LR$acc.test.mean
-rf.acc = perfsAggr.RF$acc.test.mean
-df.acc = data.frame(lr.acc = lr.acc, rf.acc = rf.acc)
-names(df.acc) = c("LR", "RF")
-df.acc.melted = reshape2::melt(df.acc)
-diff.acc = perfsAggr.diff$acc.test.mean
-names(df.acc.melted) = c("Method", "Accuracy")
+boxplotPerfsMeasures <- function(perfsAggr.diff, res.perfs.df, measure, measure.name) {
+  
+  res = NULL
+  
+  ## Boxplot two
+  # Separate LR and RF
+  perfsAggr.LR = subset(res.perfs.df, learner.id == "classif.logreg")
+  perfsAggr.RF = subset(res.perfs.df, learner.id == "classif.randomForest")
+  
+  # with the measure
+  lr.measure = perfsAggr.LR[[measure]]
+  rf.measure = perfsAggr.RF[[measure]]
+  df.measure = data.frame(lr.measure = lr.measure, rf.measure = rf.measure)
+  names(df.measure) = c("LR", "RF")
+  df.measure.melted = reshape2::melt(df.measure)
+  names(df.measure.melted) = c("Method", measure.name)
+  
+  p <- ggplot(df.measure.melted, aes_string("Method", measure.name))
+  p = p +  scale_fill_grey(start = 0.4,end = 1)  + ylim(c(0,1))
+  p = p + geom_boxplot(aes_string(fill = "Method"), outlier.shape = NA, notch = TRUE) 
+  p = p + labs(y = measure.name) + theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank())
+  p = p + theme(axis.title.x=element_blank())
+  print(p)
+  
+  res$p.measure = p
+  
+  ## Difference boxplot
+  diff.measure = perfsAggr.diff$measure
+  perfsAggr.diff.boxplot = perfsAggr.diff
+  perfsAggr.diff.boxplot$dummy = ""
+  p <- ggplot(perfsAggr.diff.boxplot, aes_string( "dummy", measure, width = 0.5))
+  p = p + geom_boxplot(aes_string(fill = "dummy"), outlier.shape = NA, notch = TRUE, width = 0.5)
+  p = p + labs(y = paste((expression(paste(Delta))),measure.name))
+  p = p + ylim(c(-0.08,0.08)) + theme(axis.title.x=element_blank())
+  p = p + scale_fill_manual(values=c("#CCCCCC")) + theme(legend.position="none")
+  print(p)
+  
+  res$p.measure.diff = p
 
-p <- ggplot(df.acc.melted, aes(Method, Accuracy))
-p = p +  scale_fill_manual(values=c("#990000", "#99CCFF"))
-p = p + geom_boxplot(aes_string(fill = "Method"), outlier.shape = NA, notch = FALSE)
-p = p + labs(y = "acc")
-print(p)
+  return(res)
+}
+
+res.acc = boxplotPerfsMeasures(perfsAggr.diff, res.perfs.df, "acc.test.mean", "acc")
+res.acc$p.measure.diff = res.acc$p.measure.diff+labs(y=expression(paste(Delta,"acc")))
+res.auc = boxplotPerfsMeasures(perfsAggr.diff, res.perfs.df, "auc.test.mean", "auc")
+res.auc$p.measure.diff = res.auc$p.measure.diff+labs(y=expression(paste(Delta,"auc")))
+res.brier = boxplotPerfsMeasures(perfsAggr.diff, res.perfs.df, "brier.test.mean", "brier")
+res.brier$p.measure.diff = res.brier$p.measure.diff+labs(y=expression(paste(Delta,"brier")))
+res.brier$p.measure = res.brier$p.measure   + theme(legend.justification=c(1,1), legend.position=c(1,1))
+
+library(cowplot)
+plot_grid(res.acc$p.measure,
+          res.auc$p.measure, 
+          res.brier$p.measure, 
+          res.acc$p.measure.diff,
+          res.auc$p.measure.diff,
+          res.brier$p.measure.diff,
+          #labels=c("A", "B"), 
+          ncol = 3, nrow = 2)
 
 
-# Boxplot of difference of performance
-diff.acc = perfsAggr.diff$acc.test.mean
-p <- ggplot(perfsAggr.diff, aes( brier.test.mean, acc.test.mean))
-p = p + geom_boxplot(aes_string(fill = "acc.test.mean"), outlier.shape = NA, notch = FALSE)
-p = p + scale_fill_manual(values=c("#CC6666"))
-p = p + labs(y = (expression(paste(Delta, "acc"))))
-p = p + ylim(c(-0.10,0.08))
-print(p)
 
-p<-geom_boxplot(diff.acc)
 
-# Same with normal boxplot
+# Same with normal boxplot ----
 boxplot(diff.acc, outline = FALSE, ylab =  expression(paste(Delta, "acc")),  col="#009900", notch = TRUE)
 lines(x =c(0.5,1.5), y=c(0,0), col="red")
 boxplot(Accuracy~Method, data = df.acc.melted, outline = FALSE, ylab =  expression(paste("acc")),  col=c("#99CCFF", "#990000"), notch = TRUE)

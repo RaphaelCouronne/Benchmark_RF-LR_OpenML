@@ -36,6 +36,24 @@ plot(df.bmr.diff$Cmin, df.bmr.diff$acc.test.mean)
 plot(df.bmr.diff$Cmax, df.bmr.diff$acc.test.mean)
 
 
+# Bland Altman
+perfsAggr.LR = subset(res.perfs.df, learner.id == "classif.logreg")
+perfsAggr.RF = subset(res.perfs.df, learner.id == "classif.randomForest")
+plot(1/2*(perfsAggr.LR$acc.test.mean+perfsAggr.RF$acc.test.mean),-perfsAggr.LR$acc.test.mean+perfsAggr.RF$acc.test.mean, ylim = c(-0.4,0.4))
+lines(c(0.3,1),c(0,0), col = "red")
+lines(c(0.3,1),c(0.1,0.1), col = "blue")
+lines(c(0.3,1),c(-0.1,-0.1), col = "blue")
+
+plot(1/2*(perfsAggr.LR$auc.test.mean+perfsAggr.RF$auc.test.mean),-perfsAggr.LR$auc.test.mean+perfsAggr.RF$auc.test.mean, ylim = c(-0.4,0.4))
+lines(c(0.3,1),c(0,0), col = "red")
+lines(c(0.3,1),c(0.1,0.1), col = "blue")
+lines(c(0.3,1),c(-0.1,-0.1), col = "blue")
+
+plot(1/2*(perfsAggr.LR$brier.test.mean+perfsAggr.RF$brier.test.mean),-perfsAggr.LR$brier.test.mean+perfsAggr.RF$brier.test.mean, ylim = c(-0.4,0.4))
+lines(c(0,1),c(0,0), col = "red")
+lines(c(0,1),c(0.1,0.1), col = "blue")
+lines(c(0,1),c(-0.1,-0.1), col = "blue")
+
 # plot with the pdp
 hist(pdp.df$l2)
 hist(log(pdp.df$l2))

@@ -276,6 +276,7 @@ res.2$dataset= res.2$dataset + theme(legend.position="none")
 res.3$dataset = res.3$dataset + theme(legend.position="none")
 
 
+library(cowplot)
 # plot grid
 plot_grid(res.1$dataset, res.1$pdp$plot,
           res.2$dataset, res.2$pdp$plot,
