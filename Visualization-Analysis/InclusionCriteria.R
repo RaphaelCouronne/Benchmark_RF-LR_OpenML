@@ -99,12 +99,20 @@ feature.chosen = "Cmax"
 feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(0.1,0.25,0.4), "Cmax")
 
 
+# ===========================================================================
+## ACC - AUC- Brier ==========================================================
+# ============================================================================
 
-## With the hand ----
 
-# n ----
+measure.name = "brier"
+measure = "brier.test.mean"
+y.limits = c(-0.2, 0.1)
 
-measure = "acc.test.mean"
+# launch visualization ----
+
+# n ---
+
+
 feature = "logn"
 nmax = max(exp(df.bmr.diff$logn))
 thresholdvect.original = c(100,500,2000)
@@ -126,11 +134,11 @@ df.all$thresholdValue = as.factor(df.all$thresholdValue)
 
 p <- ggplot(df.all, aes_string("thresholdValue", measure))
 p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = FALSE)
-p = p + scale_y_continuous(limits = c(-0.08, 0.2))
-p = p + labs(x = expression(bar(n)), y = expression(paste(Delta,"acc")))
+p = p + scale_y_continuous(limits = y.limits)
+p = p + labs(x = expression(bar(n)), y = bquote(paste(Delta, .(measure.name))))
 p = p + theme(legend.justification=c(0.8,0.8), legend.position=c(1,1), legend.title=element_blank())
 p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("n < ",bar(n))),expression(paste("n > ",bar(n)))))
-p = p + scale_x_discrete(labels=c(thresholdvect.original,"nmax"))
+p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(n[max])))
 print(p)
 p.n = p
 
@@ -148,10 +156,10 @@ p.density.n = ggplot(datatest, aes(x=n)) +
   theme_bw()
 print(p.density.n)
 
-# p ----
+# p ---
 
 
-measure = "acc.test.mean"
+
 feature = "logp"
 pmax = max(exp(df.bmr.diff$logp))
 thresholdvect.original = c(5,10,20)
@@ -173,16 +181,15 @@ df.all$thresholdValue = as.factor(df.all$thresholdValue)
 
 p <- ggplot(df.all, aes_string("thresholdValue", measure))
 p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = FALSE)
-p = p + scale_y_continuous(limits = c(-0.08, 0.2))
-p = p + labs(x = expression(bar(n)), y = expression(paste(Delta,"acc")))
+p = p + scale_y_continuous(limits = y.limits)
+p = p + labs(x = expression(bar(p)), y = bquote(paste(Delta, .(measure.name))))
 p = p + theme(legend.justification=c(1,1), legend.position=c(1,1), legend.title=element_blank())
 p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("p < ",bar(p))),
                                                       expression(paste("p > ",bar(p)))))
-p = p + scale_x_discrete(labels=c(thresholdvect.original,"pmax"))
+p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(p[max])))
 print(p)
 p.p = p
 
-p.histo.n = qplot(exp(df.bmr.diff$logn), geom="histogram") 
 datatest = data.frame(p = exp(df.bmr.diff$logp))
 p.histo.p = ggplot(datatest, aes(x = p)) + geom_histogram(binwidth = 0.1) + scale_x_log10(breaks=thresholdvect.original)
 print(p.histo.p)
@@ -195,11 +202,11 @@ p.density.p = ggplot(datatest, aes(x=p)) +
   theme_bw()
 print(p.density.p)
 
-# p sur n ----
-measure = "acc.test.mean"
+# p sur n ---
+
 feature = "logpsurn"
 psurnmax = max(exp(df.bmr.diff$logpsurn))
-thresholdvect.original = c(1e-2,4e-2,1e-1)
+thresholdvect.original = c(1e-2,3e-2,1e-1)
 thresholdvect = c(thresholdvect.original, psurnmax+1)
 df = df.bmr.diff
 
@@ -218,18 +225,21 @@ df.all$thresholdValue = as.factor(df.all$thresholdValue)
 
 p <- ggplot(df.all, aes_string("thresholdValue", measure))
 p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = FALSE)
-p = p + scale_y_continuous(limits = c(-0.08, 0.2))
-p = p + labs(x = expression(bar(p)), y = expression(paste(Delta,"acc")))
+p = p + scale_y_continuous(limits = y.limits)
+p = p + labs(x = expression(bar(p/n)), y = bquote(paste(Delta, .(measure.name))))
 p = p + theme(legend.justification=c(1,1), legend.position=c(1,1), legend.title=element_blank())
-p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("p/n < ",bar(p))),
-                                                      expression(paste("p/n > ",bar(p)))))
-p = p + scale_x_discrete(labels=c(thresholdvect.original,"pmax"))
+p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("p/n < ",bar(p/n))),
+                                                      expression(paste("p/n > ",bar(p/n)))))
+
+p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(p/n[max])))
 print(p)
 p.psurn = p
 
 
 datatest = data.frame(psurn = exp(df.bmr.diff$logpsurn))
-p.histo.psurn = ggplot(datatest, aes(x = psurn)) + geom_histogram(binwidth = 0.1) + scale_x_log10(breaks=thresholdvect.original)
+p.histo.psurn = ggplot(datatest, aes(x = psurn)) + geom_histogram(binwidth = 0.1) +
+ scale_x_log10(breaks=thresholdvect.original) + labs(x = expression(p/n))
+
 print(p.histo.psurn)
 
 library(scales)
@@ -240,7 +250,7 @@ p.density.psurn = ggplot(datatest, aes(x=psurn)) +
   theme_bw()
 print(p.density.psurn)
 
-# plot all of it ----
+# plot all of it ---
 library(cowplot)
 
 
@@ -253,3 +263,7 @@ plot_grid(p.n,
 
           #labels=c("A", "B"), 
           ncol = 2, nrow = 3)
+
+
+
+
