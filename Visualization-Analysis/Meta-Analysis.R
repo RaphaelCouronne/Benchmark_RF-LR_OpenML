@@ -1,5 +1,6 @@
 rm(list = ls())
 load(file = "Data/Results/df.bmr.RData")
+library(mlr)
 
 
 
@@ -151,7 +152,10 @@ plotLinearModelandCor("sqrtbrierlogreg","acc.test.mean")
 
 ## ML Analysis ----
 
+perfs.lr = subset(res.perfs.df, learner.id == "classif.logreg")
+
 df.analysis = df.bmr.diff
+df.analysis$lr.acc = perfs.lr$acc.test.mean
 target = df.analysis$acc.test.mean>0
 df.analysis$target = target
 
@@ -159,7 +163,11 @@ prop.table(table(df.bmr.diff$target.sigma))
 prop.table(table(target))
 
 learner.classif.rf = makeLearner("classif.randomForest", predict.type = "prob")
-learner.clas.rpart.small = makeLearner("classif.rpart", maxdepth = 4)
+learner.clas.rpart.small = makeLearner("classif.rpart", maxdepth = 4, predict.type = "prob")
+learner.clas.logreg = makeLearner("classif.logreg", predict.type = "prob")
+list.learner.classif = list(learner.classif.rf,
+                            learner.clas.rpart.small,
+                            learner.clas.logreg)
 
 learner.regr.rf = makeLearner("regr.randomForest")
 learner.regr.lr = makeLearner("regr.lm")
@@ -177,33 +185,98 @@ learner.regr = list(learner.regr.rf,
                     learner.regr.rpart.small)
 
 myvars <- c("logp", "logn", 
-            "logdimension", "logpsurn", "logdimensionsurn",
-            "pnum", "psymbolic", 
-            "pnumrate",
+            "logpsurn",
+            "psymbolic",
             "Cmax")
 
 df.mlanalysis.regr <- df.analysis[c(myvars, "acc.test.mean")]
 df.mlanalysis.clas <- df.analysis[c(myvars, "target")]
-df.mlanalysis.target.sigma <- df.analysis[c(myvars, "target.sigma")]
+
 
 task.analysis.classif = makeClassifTask(id = "analysis.rank", data = df.mlanalysis.clas, target = "target")
-task.analysis.target.sigma <- makeClassifTask(id = "analysis.rank", data = df.mlanalysis.clas, target = "target.sigma")
 task.analysis.regr = makeRegrTask(id = "analysis.perfs", data = df.mlanalysis.regr, target = "acc.test.mean")
+
+rdesc = makeResampleDesc("CV", iters = 5)
 
 # classification
 fit.classif = train(learner = learner.classif.rf, task = task.analysis.classif)
-benchmark(learner.classif.rf, tasks = task.analysis.classif,resamplings = makeResampleDesc("CV", iters = 5), measures = list(acc, f1,tnr, tpr, auc))
-
-fit.classif = train(learner = learner.classif.rf, task = task.analysis.target.sigma)
-benchmark(learner.classif.rf, tasks = task.analysis.classif,resamplings = makeResampleDesc("CV", iters = 5), measures = list(acc, f1,tnr, tpr, auc))
+benchmark(list.learner.classif, tasks = task.analysis.classif,resamplings = rdesc, measures = list(acc, f1,tnr, tpr, auc))
 
 # Regression
 fit.regr = train(learner = learner.regr.rf, task = task.analysis.regr)
-benchmark(learner.regr, tasks = task.analysis.regr,resamplings = makeResampleDesc("CV", iters = 5))
+benchmark(learner.regr, tasks = task.analysis.regr, resamplings= rdesc)
 
 
 
 plotLearnerPrediction(learner = learner.regr.rf, task = task.analysis.regr)
+
+
+
+## ROC curve ----
+ms = list(auc, mmce)
+bmr = benchmark(list.learner.classif, tasks = task.analysis.classif, resampling = rdesc, measures = ms, show.info = FALSE)
+
+
+## Extract predictions
+preds = getBMRPredictions(bmr)[[1]]
+
+## Convert predictions
+ROCRpreds = lapply(preds, asROCRPrediction)
+
+## Calculate true and false positive rate
+ROCRperfs = lapply(ROCRpreds, function(x) ROCR::performance(x, "tpr", "fpr"))
+
+## lda average ROC curve
+plot(ROCRperfs[[1]], col = "blue", avg = "vertical", spread.estimate = "stderror",
+     show.spread.at = seq(0.1, 0.8, 0.1), plotCI.col = "blue", plotCI.lwd = 2, lwd = 2)
+## lda individual ROC curves
+plot(ROCRperfs[[1]], col = "blue", lty = 2, lwd = 0.25, add = TRUE)
+
+## ksvm average ROC curve
+plot(ROCRperfs[[2]], col = "red", avg = "vertical", spread.estimate = "stderror",
+     show.spread.at = seq(0.1, 0.6, 0.1), plotCI.col = "red", plotCI.lwd = 2, lwd = 2, add = TRUE)
+## ksvm individual ROC curves
+plot(ROCRperfs[[2]], col = "red", lty = 2, lwd = 0.25, add = TRUE)
+
+legend("bottomright", legend = getBMRLearnerIds(bmr), lty = 1, lwd = 2, col = c("blue", "red"))
+
+
+
+
+
+
+## Tuning a RF in mlr ----
+
+# regr
+lrn.regr.tuned = makeLearner("regr.randomForest")
+
+ps = makeParamSet(
+  makeDiscreteParam(id = "ntree", values = c ( 500, 750,2000)),
+  makeLogicalParam(id = "replace"),
+  makeDiscreteParam(id = "nodesize", values = c ( 30,60,90 )),
+  makeDiscreteParam(id = "mtry", values = c ( 1,2,3,4,5 ))
+)
+ctrl = makeTuneControlRandom(maxit = 20L)
+res = tuneParams(lrn.regr.tuned, task = task.analysis.regr, resampling = rdesc, par.set = ps, control = ctrl, measures = rmse)
+lrn.regr.tuned = setHyperPars(lrn.regr.tuned, par.vals = res$x)
+
+
+# clas
+lrn.clas.tuned = makeLearner("classif.randomForest", predict.type = "prob")
+
+ps = makeParamSet(
+  makeDiscreteParam(id = "ntree", values = c ( 750,2000,5000)),
+  makeLogicalParam(id = "replace"),
+  makeDiscreteParam(id = "nodesize", values = c ( 30,60,90 )),
+  makeDiscreteParam(id = "mtry", values = c ( 1,2,3,4 ))
+)
+ctrl = makeTuneControlRandom(maxit = 20L)
+res = tuneParams(lrn.clas.tuned, task = task.analysis.classif, resampling = rdesc, par.set = ps, control = ctrl, measures = acc)
+lrn.clas.tuned = setHyperPars(lrn.clas.tuned, par.vals = res$x)
+
+
+
+
 
 ## PDP Analysis ----
 
@@ -219,6 +292,7 @@ sfeats = selectFeatures(learner = "regr.randomForest", task = task.analysis.regr
 ## New Task for analysis
 myvars <- c("logp", "logn", 
             "logdimensionsurn",
+            "psymbolic",
             "Cmax")
 
 df.mlanalysis.regr.filtered <- df.analysis[c(myvars, "acc.test.mean")]
@@ -233,31 +307,38 @@ task.analysis.clas.fileterd = makeClassifTask(id = "analysis.rank", data = df.ml
 
 
 # Regression
-fit.regr = train(learner.regr.rf, task.analysis.regr.filtered)
+fit.regr = train(lrn.regr.tuned, task.analysis.regr.filtered)
+
 pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "logp",
                                       fun = function(x) quantile(x, c(.25, .5, .75)))
 pd.regr.logp = plotPartialDependence(pd.regr)
 
-fit.regr = train(learner.regr.rf, task.analysis.regr.filtered)
+
 pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "logn",
                                         fun = function(x) quantile(x, c(.25, .5, .75)))
 pd.regr.logn = plotPartialDependence(pd.regr)
 
-fit.regr = train(learner.regr.rf, task.analysis.regr.filtered)
+
 pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "logdimensionsurn",
                                         fun = function(x) quantile(x, c(.25, .5, .75)))
 pd.regr.logdimensionsurn = plotPartialDependence(pd.regr)
 
-fit.regr = train(learner.regr.rf, task.analysis.regr.filtered)
+
 pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "Cmax",
                                         fun = function(x) quantile(x, c(.25, .5, .75)))
 pd.regr.Cmax= plotPartialDependence(pd.regr)
+
+
+pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "psymbolic",
+                                        fun = function(x) quantile(x, c(.25, .5, .75)))
+pd.regr.psymbolic= plotPartialDependence(pd.regr)
 
 
 plot_grid(pd.regr.logp,
           pd.regr.logn, 
           pd.regr.logdimensionsurn,
           pd.regr.Cmax, 
+          #pd.regr.psymbolic,
           #labels=c("A", "B"), 
           ncol = 2, nrow = 2)
 
@@ -266,7 +347,7 @@ plot_grid(pd.regr.logp,
 
 
 # Classification
-fit.clas = train(learner.classif.rf, task.analysis.clas.fileterd)
+fit.clas = train(lrn.clas.tuned, task.analysis.clas.fileterd)
 
 
 pd.clas = generatePartialDependenceData(fit.clas, task.analysis.clas.fileterd, "logp")

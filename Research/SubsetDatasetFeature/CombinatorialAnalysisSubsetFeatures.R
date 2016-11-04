@@ -8,10 +8,10 @@ set.seed(1)
 ## Load and Parameters ----
 
 # Load the environment
-load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
+load(file = "Data/Results/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium)
 OMLDATASETS = clas_used$did
-source(file = "benchmark_defs.R")
+source(file = "DataMining-Benchmark-Conversion/benchmark_defs.R")
 
 # Parameters
 index = 250
@@ -117,7 +117,7 @@ for (j in c(1:gridsize)) {
   
 }
 
-save(results.lr, results.rf, results.diff, file = "resultsNSubset.RData")
+save(results.lr, results.rf, results.diff, grid,  file = "resultsNSubset.RData")
 
 
 
@@ -186,12 +186,25 @@ for (j in c(1:gridsize)) {
   
 }
 
-save(results.lr, results.rf, results.diff, file = "resultsSubset.RData")
+save(results.lr, results.rf, results.diff, grid, file = "resultsSubset.RData")
 
 
 ## Plot the results ----
 
+# n
+load(file = "Data/Research/SubsetFeatures/resultsNSubset.RData")
+grid = c(5e1, 1e2, 5e2, 1e3, 5e3)
+grid.toString = sapply(grid, function(x) toString(x))
+gridsize = length(grid)
+nObsExp = 5e1
+j = ncol(results.diff)
 
+# p
+load(file = "Data/Research/SubsetFeatures/resultsSubset.RData")
+grid = c(2,3,4,5,6,10,14,18)
+grid.toString = sapply(grid, function(x) toString(x))
+gridsize = length(grid)
+nObsExp = 1e1
 j = ncol(results.diff)-1
 
 
@@ -206,6 +219,10 @@ plot(grid[c(1:j)], result.diff.mean, xlab = expression(p), ylab = expression(pas
 lines(grid[c(1:j)], result.diff.mean)
 
 
+# Plots
+
+
+
 # boxplots
 library(reshape2)
 df.rf = melt(results.rf[,c(1:j)])
@@ -213,8 +230,33 @@ df.rf$learner = "RandomForest"
 df.lr = melt(results.lr[,c(1:j)])
 df.lr$learner = "Logistic Regression"
 df.all = rbind(df.rf, df.lr)
-names(df.all) = c("p", "acc", "Method")
+names(df.all) = c("n", "acc", "Algorithm")
 detach(package:reshape2, unload = TRUE)
-ggp = ggplot(df.all, aes(p, acc))
-ggp = ggp+ geom_boxplot(aes(fill = Method)) + scale_fill_manual(values=c("#99CCFF", "#990000"))
+ggp = ggplot(df.all, aes(n, acc))
+ggp = ggp + geom_boxplot(aes(fill = Algorithm)) + 
+  scale_fill_grey(start = 0.4,end = 1, labels=c("LR", "RF")) +
+  theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank())
 plot(ggp)
+ggp.acc.n = ggp
+
+
+# Boxplot of difference for several values
+library(reshape2)
+df.diff = melt(results.diff[,c(1:j)])
+detach(package:reshape2, unload = TRUE)
+ggp = ggplot(df.diff, aes(variable, value))
+ggp = ggp + geom_boxplot(aes(fill = value)) +
+ labs(x = "n", y = bquote(paste(Delta, "acc")))
+plot(ggp)
+ggp.deltaacc.n = ggp
+
+
+
+plot_grid(ggp.acc.p,
+          ggp.acc.n,
+          ggp.deltaacc.p, 
+          ggp.deltaacc.n, 
+          #labels=c("A", "B"), 
+          ncol = 2, nrow = 2)
+
+

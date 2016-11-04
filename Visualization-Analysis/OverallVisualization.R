@@ -140,7 +140,7 @@ boxplotPerfsMeasures <- function(perfsAggr.diff, res.perfs.df, measure, measure.
   
   p <- ggplot(df.measure.melted, aes_string("Method", measure.name))
   p = p +  scale_fill_grey(start = 0.4,end = 1)  + ylim(c(0,1))
-  p = p + geom_boxplot(aes_string(fill = "Method"), outlier.shape = NA, notch = TRUE) 
+  p = p + geom_boxplot(aes_string(fill = "Method"), outlier.shape = 1, notch = TRUE) 
   p = p + labs(y = measure.name) + theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank())
   p = p + theme(axis.title.x=element_blank())
   print(p)
@@ -152,9 +152,10 @@ boxplotPerfsMeasures <- function(perfsAggr.diff, res.perfs.df, measure, measure.
   perfsAggr.diff.boxplot = perfsAggr.diff
   perfsAggr.diff.boxplot$dummy = ""
   p <- ggplot(perfsAggr.diff.boxplot, aes_string( "dummy", measure, width = 0.5))
-  p = p + geom_boxplot(aes_string(fill = "dummy"), outlier.shape = NA, notch = TRUE, width = 0.5)
+  p = p + geom_boxplot(aes_string(fill = "dummy"), outlier.shape = 1, notch = TRUE, width = 0.5)
   p = p + labs(y = paste((expression(paste(Delta))),measure.name))
-  p = p + ylim(c(-0.08,0.08)) + theme(axis.title.x=element_blank())
+  p = p + theme(axis.title.x=element_blank())
+  #p = p + ylim(c(-0.1,0.1))
   p = p + scale_fill_manual(values=c("#CCCCCC")) + theme(legend.position="none")
   print(p)
   
