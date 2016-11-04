@@ -233,7 +233,28 @@ clas_time_big = clas_time[which(clas_time$rf.timetrain >10),]
 clas_time_NA = clas_time[which(is.na(clas_time$rf.timetrain)),]
 
 # save it
-save(clas_time, clas_time_small, clas_time_medium, clas_time_big, clas_time_NA,  file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData" )
+save(clas_time, clas_time_small, clas_time_medium, clas_time_big, clas_time_NA,  file = "Data/Results/clas_time.RData" )
 
 rm(list = ls())
-load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas_time.RData")
+load(file = "Data/Results/clas_time.RData")
+
+
+# Low dimension
+rm(list = ls())
+load(file = "Data/Results/clas_time.RData")
+
+index.highdimension = which(clas_time$NumberOfFeatures>clas_time$NumberOfInstances)
+clas_time_lowdim = clas_time[-index.highdimension,]
+
+clas_time_lowdim_small = clas_time_lowdim[which(clas_time_lowdim$rf.timetrain < 1),]
+clas_time_lowdim_medium = clas_time_lowdim[which(clas_time_lowdim$rf.timetrain > 1 &  clas_time_lowdim$rf.timetrain<10 ) ,]
+clas_time_lowdim_big = clas_time_lowdim[which(clas_time_lowdim$rf.timetrain >10),]
+clas_time_lowdim_NA = clas_time_lowdim[which(is.na(clas_time_lowdim$rf.timetrain)),]
+
+save(clas_time_lowdim, clas_time_lowdim_small, 
+     clas_time_lowdim_medium, 
+     clas_time_lowdim_big, 
+     clas_time_lowdim_NA,  
+     file = "Data/Results/clas_time_lowdim.RData" )
+
+
