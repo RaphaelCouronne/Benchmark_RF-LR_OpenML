@@ -2,6 +2,7 @@ rm(list = ls())
 load(file = "Data/Results/df.bmr.RData")
 library(mlr)
 
+load(file = "../Data_BenchmarkOpenMl/Final/Results/Windows/DiffProba.RData")
 
 
 
@@ -186,7 +187,6 @@ learner.regr = list(learner.regr.rf,
 
 myvars <- c("logp", "logn", 
             "logpsurn",
-            "psymbolic",
             "Cmax")
 
 df.mlanalysis.regr <- df.analysis[c(myvars, "acc.test.mean")]
@@ -289,10 +289,9 @@ sfeats = selectFeatures(learner = "regr.randomForest", task = task.analysis.regr
 
 # On garde logdimensionsurn logp Cmax n
 
-## New Task for analysis
+## New Task for analysis ----
 myvars <- c("logp", "logn", 
-            "logdimensionsurn",
-            "psymbolic",
+            "logpsurn",
             "Cmax")
 
 df.mlanalysis.regr.filtered <- df.analysis[c(myvars, "acc.test.mean")]
@@ -303,11 +302,11 @@ task.analysis.regr.filtered = makeRegrTask(id = "analysis.perfs", data = df.mlan
 task.analysis.clas.fileterd = makeClassifTask(id = "analysis.rank", data = df.mlanalysis.clas.filtered, target = "target")
 
 
-
+learner.regr.rf
 
 
 # Regression
-fit.regr = train(lrn.regr.tuned, task.analysis.regr.filtered)
+fit.regr = train(learner.regr.rf, task.analysis.regr.filtered)
 
 pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "logp",
                                       fun = function(x) quantile(x, c(.25, .5, .75)))
@@ -319,7 +318,7 @@ pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "
 pd.regr.logn = plotPartialDependence(pd.regr)
 
 
-pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "logdimensionsurn",
+pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "logpsurn",
                                         fun = function(x) quantile(x, c(.25, .5, .75)))
 pd.regr.logdimensionsurn = plotPartialDependence(pd.regr)
 
@@ -329,10 +328,16 @@ pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "
 pd.regr.Cmax= plotPartialDependence(pd.regr)
 
 
-pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered, "psymbolic",
-                                        fun = function(x) quantile(x, c(.25, .5, .75)))
-pd.regr.psymbolic= plotPartialDependence(pd.regr)
+pd.regr.logp=pd.regr.logp + labs(y = bquote(paste(Delta, .("acc"))))
+pd.regr.logn=pd.regr.logn+ labs(y = bquote(paste(Delta, .("acc"))))
+pd.regr.logdimensionsurn=pd.regr.logdimensionsurn+ labs(y = bquote(paste(Delta, .("acc"))))
+pd.regr.Cmax=pd.regr.Cmax+ labs(y = bquote(paste(Delta, .("acc"))))
 
+
+pd.regr.logp=pd.regr.logp + labs(x = bquote(log(p)))
+pd.regr.logn=pd.regr.logn+ labs(x = bquote(log(n)))
+pd.regr.logdimensionsurn=pd.regr.logdimensionsurn +labs(x = bquote(log(p/n)))
+pd.regr.Cmax=pd.regr.Cmax+labs(x = bquote(Cmax))
 
 plot_grid(pd.regr.logp,
           pd.regr.logn, 
@@ -344,9 +349,60 @@ plot_grid(pd.regr.logp,
 
 
 
+# Regression with p and n and p/n ----
+names(df.mlanalysis.regr)
+df.mlanalysis.regr.exp = df.mlanalysis.regr
+df.mlanalysis.regr.exp$logp=log10(exp(df.mlanalysis.regr.exp$logp))
+df.mlanalysis.regr.exp$logn=log10(exp(df.mlanalysis.regr.exp$logn))
+df.mlanalysis.regr.exp$logpsurn=log10(exp(df.mlanalysis.regr.exp$logpsurn))
 
 
-# Classification
+task.analysis.regr.filtered.nolog = makeRegrTask(id = "analysis.perfs.sanslog", data = df.mlanalysis.regr.exp, target = "acc.test.mean")
+
+
+fit.regr = train(learner.regr.rf, task.analysis.regr.filtered.nolog)
+
+pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered.nolog, "logp", gridsize = 10,
+                                        fun = function(x) quantile(x, c(.25, .5, .75)))
+pd.regr.logp = plotPartialDependence(pd.regr)
+
+
+pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered.nolog, "logn", gridsize = 10,
+                                        fun = function(x) quantile(x, c(.25, .5, .75)))
+pd.regr.logn = plotPartialDependence(pd.regr)
+
+
+pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered.nolog, "logpsurn", gridsize = 10,
+                                        fun = function(x) quantile(x, c(.25, .5, .75)), resample = )
+pd.regr.logdimensionsurn = plotPartialDependence(pd.regr)
+
+
+pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr.filtered.nolog, "Cmax", gridsize = 10,
+                                        fun = function(x) quantile(x, c(.25, .5, .75)))
+pd.regr.Cmax= plotPartialDependence(pd.regr)
+
+
+pd.regr.logp=pd.regr.logp + labs(y = bquote(paste(Delta, .("acc"))))
+pd.regr.logn=pd.regr.logn+ labs(y = bquote(paste(Delta, .("acc"))))
+pd.regr.logdimensionsurn=pd.regr.logdimensionsurn+ labs(y = bquote(paste(Delta, .("acc"))))
+pd.regr.Cmax=pd.regr.Cmax+ labs(y = bquote(paste(Delta, .("acc"))))
+
+
+pd.regr.logp=pd.regr.logp + labs(x = bquote(log[10](p)))
+pd.regr.logn=pd.regr.logn+ labs(x = bquote(log[10](n)))
+pd.regr.logdimensionsurn=pd.regr.logdimensionsurn +labs(x = bquote(log[10](p/n)))
+pd.regr.Cmax=pd.regr.Cmax+labs(x = bquote(Cmax))
+
+plot_grid(pd.regr.logp,
+          pd.regr.logn, 
+          pd.regr.logdimensionsurn,
+          pd.regr.Cmax, 
+          #pd.regr.psymbolic,
+          #labels=c("A", "B"), 
+          ncol = 2, nrow = 2)
+
+
+# Classification ----
 fit.clas = train(lrn.clas.tuned, task.analysis.clas.fileterd)
 
 
