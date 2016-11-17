@@ -26,14 +26,14 @@ source("benchmark_dataMiningOpenML_functions.R")
 # ============================= ----
 
 # Load the classification tasks informations if it does not exist yet
-if (!file.exists("../Data_BenchmarkOpenMl/list_of_tasks_infos/classifTasks.infos.RData")) {
+if (!file.exists("Data/OpenML/classifTasks.infos.RData")) {
   tasks = listOMLTasks()
   classifTasks.infos = subset(tasks, task.type == "Supervised Classification" &    # classification
                                 NumberOfClasses == 2 &                             # binary classification
                                 NumberOfInstancesWithMissingValues == 0)           # no missing values
-  save(classifTasks.infos, file = "../Data_BenchmarkOpenMl/list_of_tasks_infos/classifTasks.infos.RData" )
+  save(classifTasks.infos, file = "Data/OpenML/classifTasks.infos.RData" )
 } else {
-  load("../Data_BenchmarkOpenMl/list_of_tasks_infos/classifTasks.infos.RData")
+  load("Data/OpenML/classifTasks.infos.RData")
 }
 
 datasets.index = sort(unique(classifTasks.infos$did))
@@ -188,11 +188,10 @@ plot(clas_medium$dimension)
 
 load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas.RData" )
 
-
 ## time train of a randomforest
 rf.timetrain = rep(NA, nrow(clas))
 
-load(file = "../Data_BenchmarkOpenMl/Final/DataMining/rf.timetrain.RData")
+load(file = "Data/OpenML/rf.timetrain.RData")
 
 # Begin loop
 for (j in c(351:nrow(clas)) ) {
@@ -213,7 +212,7 @@ for (j in c(351:nrow(clas)) ) {
     bmr = benchmark(lrn.classif.rf, mlrtask, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = FALSE)
     perfs = getBMRPerformances(bmr, as.df = TRUE)
     time.train = sum(perfs$timetrain)
-    save(rf.timetrain, file = "../Data_BenchmarkOpenMl/Final/DataMining/rf.timetrain.RData" )
+    save(rf.timetrain, file = "Data/OpenML/rf.timetrain.RData" )
     
     print(time.train)
     rf.timetrain[j] = time.train
@@ -226,6 +225,11 @@ clas_time$rf.timetrain = rf.timetrain
 # reorder according to time and na
 clas_time = clas_time[order(clas_time$rf.timetrain), ]
 
+
+# =============================
+# Part 6 : Save it
+# ============================= ----
+
 # clas_time small medium big non supported
 clas_time_small = clas_time[which(clas_time$rf.timetrain < 1),]
 clas_time_medium = clas_time[which(clas_time$rf.timetrain > 1 &  clas_time$rf.timetrain<10 ) ,]
@@ -237,6 +241,7 @@ save(clas_time, clas_time_small, clas_time_medium, clas_time_big, clas_time_NA, 
 
 rm(list = ls())
 load(file = "Data/Results/clas_time.RData")
+
 
 
 # Low dimension
