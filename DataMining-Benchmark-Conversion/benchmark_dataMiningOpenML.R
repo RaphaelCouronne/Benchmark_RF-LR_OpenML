@@ -12,18 +12,21 @@ if (OS == "OSX") {
   dir = file.path(githubdir, "BenchmarkOpenMl/FinalVersion/")
 } else {
   # windows
-  githubdir = "Z:/Raphael/GiHub/"
+  githubdir = "C:/Users/couronne/Desktop/GitHub/"
   dir = file.path(githubdir, "IBE_Benchmark-OpenML/")
 }
 
 setwd(file.path(githubdir, "IBE_Benchmark-OpenML"))
 
-source("benchmark_dataMiningOpenML_functions.R")
+source("DataMining-Benchmark-Conversion/benchmark_dataMiningOpenML_functions.R")
 
+print("Begin Datamining OpenML")
 
 # =============================
 # Part 1 : Get the basic informations 
 # ============================= ----
+
+print("1. Load the tasks")
 
 # Load the classification tasks informations if it does not exist yet
 if (!file.exists("Data/OpenML/classifTasks.infos.RData")) {
@@ -38,23 +41,30 @@ if (!file.exists("Data/OpenML/classifTasks.infos.RData")) {
 
 datasets.index = sort(unique(classifTasks.infos$did))
 
+clas = classifTasks.infos
+print(paste("  Number of datasets at the start :", dim(clas)[1]))
 
 
 # =============================
 # Part 2 : More detailed transformations
 # ============================= ----
 
-clas = classifTasks.infos
+print("2. Remove datasets using the tasks features")
 
-## Selecting the tasks only with tasks.infos ----
+
+
 
 # remove the redundancies : 473 tasks
 clas = clas[order(clas$did),]
 logic = diff(clas$did)>0
 clas = clas[logic,]
+print(paste("  Number of datasets after removing the redundacies of datasets's IDs :", dim(clas)[1]))
+
 
 # Friedman-, volcanoes- und trX-Datasets : 393 tasks
 clas = clas[substr(clas$name,1,9) != "volcanoes" & substr(clas$name,1,4) != "fri_" & substr(clas$name,1,3) != "tr1" & substr(clas$name,1,3) != "tr2" & substr(clas$name,1,3) != "tr3" & substr(clas$name,1,3) != "tr4", ]
+print(paste("  Number of datasets after removing the obviously simulated datasets :", dim(clas)[1]))
+print("  Datasets removed : Friedman, volcanoes, TrX-Datasets")
 
 # remove the datasets with the same name, they correspond often to datasets with only very slight changes : 383
 doublon = names(sort(table(clas$name)[table(clas$name) > 1]))
@@ -74,35 +84,55 @@ diff.categorical <- function(x) {
   return(res)
 }
 
-diff.categorical(doublon$name)
-
 indexdoublon.useful = which(diff.categorical(doublon$name)==1)
 indexdoublon.notuseful = which(diff.categorical(doublon$name)==0)
 task.id.notuseful = doublon$task.id[indexdoublon.notuseful]
 indexclas.notuseful = which(clas$task.id %in% task.id.notuseful)
 clas = clas[-indexclas.notuseful,]
 
+
+# Removing High dimentional datasets
+index.highdimension = which(clas$NumberOfFeatures>clas$NumberOfInstances)
+clas= clas[-index.highdimension,]
+print(paste("  Number of datasets after removing the high dimentional datasets p>n:", dim(clas)[1]))
+
 # Ordering according to size (n*p)
 clas = clas[order(clas$NumberOfFeatures * clas$NumberOfInstances), ]
+clas = clas[c(1:100),]
 
 
-## Test the tasks loading each one of them ----
+## Load the tasks to perform actions ----
+
+print("2 Load the datasets for analysis")
+
+# Random permutation for the computation time vizualisation
+#sample_used = sample(nrow(clas))
+#clas = clas[sample_used,]
 
 # time to respond : 380 datasets
-task.id.notresponding = c(7395, 7396, 10111,75127, 75144, 75145)
-clas = clas[-which(clas$task.id %in% task.id.notresponding),]
+task.id.notresponding = c(7395, 7396, 10111, 4216)
+# 75127, 75144, 75145
+if (length(which(clas$task.id %in% task.id.notresponding))>0) {
+  clas = clas[-which(clas$task.id %in% task.id.notresponding),]
+}
+
+print("2.1 Testing dataset's response")
+print("  Results are printed in Data/OpenMLNAsDatasets.Rout")
+print("  Should last around 1 hour")
 
 # categorical target and test loading the datas
 nans = character(nrow(clas))
-nas.file <- file("../Data_BenchmarkOpenMl/Final/DataMining/nasRUN.Rout", open = "wt")
-sink(nas.file)
-sink(nas.file, type = "message")
+file.remove("Data/OpenML/NAsDatasets.Rout")
+nas.file <- file("Data/OpenML/NAsDatasets.Rout", open = "wt")
+pb <- txtProgressBar(min = 0, max = nrow(clas), style = 3)
 
 for(j in 1:nrow(clas)){
+  
+  sink(nas.file)
+  sink(nas.file, type = "message")
+  
   tryCatch({
-    print(j)
-    
-    # with dataset
+    # Loading the dataset
     omldataset = getOMLDataSet(did = clas$did[j], verbosity = 0)
     if (identical(omldataset$target.features, character(0))) {
       omldataset$target.features="Class"
@@ -110,21 +140,17 @@ for(j in 1:nrow(clas)){
     }
     nans[j] = class(omldataset$data[, omldataset$target.features])
     
-    save(nans, file = "../Data_BenchmarkOpenMl/Final/DataMining/nans_clas.RData")
+    save(nans, file = "Data/OpenML/NAsDatasets.RData")
+    print(j)
     print(nans[j])
     gc()
   }, error = function(e) return(paste0("The variable '", j, "'", 
-                                       " caused the error: '", e, "'"))
-)}
+                                       " caused the error: '", e, "'")))
+  sink() 
+  sink(type="message")
+  setTxtProgressBar(pb, j)
+}
 
-sink()
-sink(type = "message")
-file.show("../Data_BenchmarkOpenMl/Final/DataMining/nasRUN.Rout")
-print("end of nas")
-
-# what up with the logicals and data.frame ?
-# seems like no problem fo the logicals
-# for the data.frame it seems the target has not been specified. It usually is "class"
 
 
 
@@ -133,28 +159,40 @@ print("end of nas")
 # Part 3 : Get the dimension as a feature
 # ============================= ----
 
-## Dimension
+print("2.2 Computing dimension")
+print("  Should last around 1 hour")
+file.remove("Data/OpenML/Dimension.Rout")
+dimension.file <- file("Data/OpenML/Dimension.Rout", open = "wt")
+configureMlr(on.learner.error = "warn", show.learner.output = FALSE)
 
+## Dimension
 dimension = rep(NA, nrow(clas))
+pb = txtProgressBar(min = 0, max = nrow(clas), initial = 0) 
 
 # Begin loop
 for (j in c(1:nrow(clas)) ) {
-  print(paste("iteration ", j))
+  
+  sink(dimension.file)
+  sink(dimension.file, type = "message")
+  
   try({
     omldataset = getOMLDataSet(did = clas$did[j], verbosity = 0)
     if (identical(omldataset$target.features, character(0))) {
       omldataset$target.features="Class"
       omldataset$desc$default.target.attribute="Class"
     }
-    mlrtask = convertOMLDataSetToMlr(omldataset)
+
+    mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
     res = getTaskDimension(mlrtask)
-    print(res)
     dimension[j] = res
   })
+  
+  sink() 
+  sink(type="message")
+  setTxtProgressBar(pb,j)
 }
 
 clas$dimension = dimension
-
 
 
 # =============================
@@ -164,38 +202,26 @@ clas$dimension = dimension
 # Ordering according to size (n*dimension)
 clas = clas[order(clas$dimension * clas$NumberOfInstances), ]
 
-plot(clas$NumberOfInstances)
-plot(clas$dimension)
-
-hist(clas$NumberOfFeatures)
-hist(clas$NumberOfInstances)
-
 clas_small = clas[which(clas$NumberOfInstances < 1e3 & clas$dimension < 1e3),]
 clas_big = clas[which(clas$NumberOfInstances * clas$dimension > 1e6 | clas$dimension > 1e3 | clas$NumberOfInstances > 1e5),]
 clas_medium = clas[which(!(clas$task.id %in% c(clas_big$task.id, clas_small$task.id))),]
 
-save(clas, clas_small, clas_medium, clas_big, file = "../Data_BenchmarkOpenMl/Final/DataMining/clas.RData" )
-
-plot(clas_big$NumberOfInstances)
-plot(clas_big$dimension)
-
-plot(clas_medium$NumberOfInstances)
-plot(clas_medium$dimension)
+save(clas, clas_small, clas_medium, clas_big, file = "Data/Results/clas.RData" )
 
 # =============================
 # Part 5 : (optional) Add the time of training
 # ============================= ----
 
-load(file = "../Data_BenchmarkOpenMl/Final/DataMining/clas.RData" )
+print("Adding the time of training of a Random Forest")
+print("Resamplign method: Holdout, 0.2; ntree = 500")
+load(file = "Data/Results/clas.RData" )
 
 ## time train of a randomforest
 rf.timetrain = rep(NA, nrow(clas))
-
-load(file = "Data/OpenML/rf.timetrain.RData")
+pb = txtProgressBar(min = 0, max = nrow(clas), initial = 0) 
 
 # Begin loop
-for (j in c(351:nrow(clas)) ) {
-  print(paste("iteration ", j))
+for (j in c(1:nrow(clas)) ) {
   try({
     omldataset = getOMLDataSet(did = clas$did[j], verbosity = 0)
     if (identical(omldataset$target.features, character(0))) {
@@ -208,14 +234,13 @@ for (j in c(351:nrow(clas)) ) {
     lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE)
     measures = list(timetrain)
     rdesc = makeResampleDesc("Holdout", split = 0.2, stratify = TRUE)
-    configureMlr(on.learner.error = "warn", show.learner.output = FALSE)
+    configureMlr(on.learner.error = "quiet", show.learner.output = FALSE, show.info = FALSE)
     bmr = benchmark(lrn.classif.rf, mlrtask, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = FALSE)
     perfs = getBMRPerformances(bmr, as.df = TRUE)
     time.train = sum(perfs$timetrain)
     save(rf.timetrain, file = "Data/OpenML/rf.timetrain.RData" )
-    
-    print(time.train)
     rf.timetrain[j] = time.train
+    setTxtProgressBar(pb,j)
   })
 }
 
@@ -238,28 +263,5 @@ clas_time_NA = clas_time[which(is.na(clas_time$rf.timetrain)),]
 
 # save it
 save(clas_time, clas_time_small, clas_time_medium, clas_time_big, clas_time_NA,  file = "Data/Results/clas_time.RData" )
-
-rm(list = ls())
-load(file = "Data/Results/clas_time.RData")
-
-
-
-# Low dimension
-rm(list = ls())
-load(file = "Data/Results/clas_time.RData")
-
-index.highdimension = which(clas_time$NumberOfFeatures>clas_time$NumberOfInstances)
-clas_time_lowdim = clas_time[-index.highdimension,]
-
-clas_time_lowdim_small = clas_time_lowdim[which(clas_time_lowdim$rf.timetrain < 1),]
-clas_time_lowdim_medium = clas_time_lowdim[which(clas_time_lowdim$rf.timetrain > 1 &  clas_time_lowdim$rf.timetrain<10 ) ,]
-clas_time_lowdim_big = clas_time_lowdim[which(clas_time_lowdim$rf.timetrain >10),]
-clas_time_lowdim_NA = clas_time_lowdim[which(is.na(clas_time_lowdim$rf.timetrain)),]
-
-save(clas_time_lowdim, clas_time_lowdim_small, 
-     clas_time_lowdim_medium, 
-     clas_time_lowdim_big, 
-     clas_time_lowdim_NA,  
-     file = "Data/Results/clas_time_lowdim.RData" )
 
 

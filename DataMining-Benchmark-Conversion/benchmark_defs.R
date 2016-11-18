@@ -13,5 +13,5 @@ if (OS == "OSX") {
 
 # performance meqsures
 #source(file = file.path(githubdir,"MulticlassAUC/AUCmlr.R"))
-MEASURES = list(acc, ber, mmce, brier, timetrain, auc, logloss)
+MEASURES = list(acc, brier, auc, timetrain)
 

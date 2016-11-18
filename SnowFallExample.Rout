@@ -1,0 +1,1363 @@
+R Version:  R version 3.3.1 (2016-06-21) 
+
+Library cmprsk loaded.
+[1] "done with cluster"
+[[1]]
+[1] "The variable '919' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[2]]
+[1] "The variable '905' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[3]]
+[1] "The variable '713' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[4]]
+[1] "The variable '887' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[5]]
+[1] "The variable '924' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[6]]
+[1] "The variable '848' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[7]]
+[1] "The variable '929' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[8]]
+[1] "The variable '782' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[9]]
+[1] "The variable '476' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[10]]
+[1] "The variable '892' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[11]]
+[1] "The variable '836' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[12]]
+[1] "The variable '755' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[13]]
+[1] "The variable '777' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[14]]
+[1] "The variable '459' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[15]]
+[1] "The variable '801' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[16]]
+[1] "The variable '885' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[17]]
+[1] "The variable '467' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[18]]
+[1] "The variable '683' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[19]]
+[1] "The variable '815' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[20]]
+[1] "The variable '464' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[21]]
+[1] "The variable '969' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[22]]
+[1] "The variable '927' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[23]]
+[1] "The variable '790' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[24]]
+[1] "The variable '759' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[25]]
+[1] "The variable '1055' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[26]]
+[1] "The variable '891' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[27]]
+[1] "The variable '1473' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[28]]
+[1] "The variable '1062' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[29]]
+[1] "The variable '771' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[30]]
+[1] "The variable '747' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[31]]
+[1] "The variable '444' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[32]]
+[1] "The variable '867' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[33]]
+[1] "The variable '1015' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[34]]
+[1] "The variable '780' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[35]]
+[1] "The variable '835' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[36]]
+[1] "The variable '1013' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[37]]
+[1] "The variable '974' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[38]]
+[1] "The variable '859' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[39]]
+[1] "The variable '945' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[40]]
+[1] "The variable '1455' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[41]]
+[1] "The variable '748' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[42]]
+[1] "The variable '882' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[43]]
+[1] "The variable '758' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[44]]
+[1] "The variable '450' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[45]]
+[1] "The variable '719' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[46]]
+[1] "The variable '925' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[47]]
+[1] "The variable '446' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[48]]
+[1] "The variable '965' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[49]]
+[1] "The variable '1060' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[50]]
+[1] "The variable '800' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[51]]
+[1] "The variable '1073' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[52]]
+[1] "The variable '1064' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[53]]
+[1] "The variable '1495' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[54]]
+[1] "The variable '1059' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[55]]
+[1] "The variable '874' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[56]]
+[1] "The variable '857' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[57]]
+[1] "The variable '921' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[58]]
+[1] "The variable '721' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[59]]
+[1] "The variable '1026' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[60]]
+[1] "The variable '796' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[61]]
+[1] "The variable '729' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[62]]
+[1] "The variable '928' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[63]]
+[1] "The variable '731' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[64]]
+[1] "The variable '714' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[65]]
+[1] "The variable '890' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[66]]
+[1] "The variable '902' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[67]]
+[1] "The variable '973' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[68]]
+[1] "The variable '745' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[69]]
+[1] "The variable '791' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[70]]
+[1] "The variable '946' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[71]]
+[1] "The variable '817' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[72]]
+[1] "The variable '787' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[73]]
+[1] "The variable '472' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[74]]
+[1] "The variable '865' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[75]]
+[1] "The variable '894' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[76]]
+[1] "The variable '736' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[77]]
+[1] "The variable '893' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[78]]
+[1] "The variable '346' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[79]]
+[1] "The variable '804' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[80]]
+[1] "The variable '955' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[81]]
+[1] "The variable '964' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[82]]
+[1] "The variable '682' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[83]]
+[1] "The variable '1463' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[84]]
+[1] "The variable '461' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[85]]
+[1] "The variable '988' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[86]]
+[1] "The variable '1075' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[87]]
+[1] "The variable '733' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[88]]
+[1] "The variable '938' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[89]]
+[1] "The variable '784' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[90]]
+[1] "The variable '1005' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[91]]
+[1] "The variable '785' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[92]]
+[1] "The variable '941' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[93]]
+[1] "The variable '1061' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[94]]
+[1] "The variable '811' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[95]]
+[1] "The variable '43' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[96]]
+[1] "The variable '336' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[97]]
+[1] "The variable '947' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[98]]
+[1] "The variable '951' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[99]]
+[1] "The variable '895' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[[100]]
+[1] "The variable '942' caused the error: 'Error in list(lrn.classif.lr, lrn.classif.rf, ): argument 3 is empty\n'"
+
+[1] "Begin Parallel computation for benchmark"
+Library cmprsk loaded.
+[1] "done with cluster"
+[[1]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 919       classif.logreg     0.8406349         0.159      0.1593651      0.10064990              0.0056
+2 dataset 919 classif.randomForest     0.8806349         0.118      0.1193651      0.09456979              0.0392
+  auc.test.mean logloss.test.mean
+1     0.9626667         0.3005964
+2     0.9586250         0.3015422
+
+[[2]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 905       classif.logreg     0.8523413     0.1916667      0.1476587       0.1347184              0.0110
+2 dataset 905 classif.randomForest     0.8057937     0.2343333      0.1942063       0.1500272              0.0296
+  auc.test.mean logloss.test.mean
+1     0.8386667         0.9545266
+2     0.7929444         1.9157478
+
+[[3]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 713       classif.logreg     0.7942222     0.2043333      0.2057778       0.1475207              0.0080
+2 dataset 713 classif.randomForest     0.7864040     0.2071667      0.2135960       0.1684448              0.0426
+  auc.test.mean logloss.test.mean
+1       0.87960         0.4866951
+2       0.83045         1.2590773
+
+[[4]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 887       classif.logreg     0.6501515     0.3512857      0.3498485       0.2143726              0.0104
+2 dataset 887 classif.randomForest     0.6352797     0.3741429      0.3647203       0.2597331              0.0426
+  auc.test.mean logloss.test.mean
+1     0.7427937         0.6798707
+2     0.6516905         0.7597882
+
+[[5]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 924       classif.logreg     0.8769231     0.1230769      0.1230769      0.08455249               0.007
+2 dataset 924 classif.randomForest     0.8415385     0.1584615      0.1584615      0.11127704               0.072
+  auc.test.mean logloss.test.mean
+1     0.9626627         0.2594735
+2     0.9521893         0.5468931
+
+[[6]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 848       classif.logreg     0.7585714     0.3453333      0.2414286       0.1818474               0.011
+2 dataset 848 classif.randomForest     0.8125000     0.2940000      0.1875000       0.1671713               0.026
+  auc.test.mean logloss.test.mean
+1     0.7366667         0.8021305
+2     0.7070000         0.5437383
+
+[[7]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 929       classif.logreg     0.6385714     0.3614286      0.3614286       0.2382399              0.0108
+2 dataset 929 classif.randomForest     0.5214286     0.4785714      0.4785714       0.3023810              0.0418
+  auc.test.mean logloss.test.mean
+1     0.6693878         0.6880311
+2     0.5753061         1.1248872
+
+[[8]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 782       classif.logreg     0.9441681    0.05571678     0.05583188      0.04027387              0.0128
+2 dataset 782 classif.randomForest     0.9525130    0.04696970     0.04748696      0.03638945              0.0606
+  auc.test.mean logloss.test.mean
+1     0.9894318         0.2645468
+2     0.9944265         0.1328578
+
+[[9]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 476       classif.logreg         0.888         0.112          0.112      0.10936572              0.0100
+2 dataset 476 classif.randomForest         0.868         0.132          0.132      0.09010494              0.0272
+  auc.test.mean logloss.test.mean
+1        0.9292          2.350759
+2        0.9648          0.285949
+
+[[10]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 892       classif.logreg     0.8696768    0.12933333     0.13032323      0.12795581              0.0156
+2 dataset 892 classif.randomForest     0.9415152    0.05866667     0.05848485      0.05277179              0.0448
+  auc.test.mean logloss.test.mean
+1     0.9001833         3.6513735
+2     0.9793000         0.1966222
+
+[[11]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 836       classif.logreg            NA            NA             NA              NA              0.0102
+2 dataset 836 classif.randomForest      0.352381     0.6691667       0.647619       0.3390606              0.0338
+  auc.test.mean logloss.test.mean
+1            NA                NA
+2     0.2722222         0.8960776
+
+[[12]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 755       classif.logreg     0.7671429     0.2330952      0.2328571        0.169849              0.0098
+2 dataset 755 classif.randomForest     0.7771612     0.2223810      0.2228388        0.157928              0.0636
+  auc.test.mean logloss.test.mean
+1     0.8403175         0.5513294
+2     0.8515533         0.4821762
+
+[[13]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 777       classif.logreg     0.7840000        0.2155      0.2160000       0.1886835              0.0128
+2 dataset 777 classif.randomForest     0.8526667        0.1435      0.1473333       0.1035930              0.0306
+  auc.test.mean logloss.test.mean
+1     0.8449167         3.5570048
+2     0.9363333         0.3206126
+
+[[14]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 459       classif.logreg     0.7883742     0.2085159      0.2116258       0.1565232              0.0110
+2 dataset 459 classif.randomForest     0.7684641     0.2302421      0.2315359       0.1552415              0.0622
+  auc.test.mean logloss.test.mean
+1     0.8513095         0.6383384
+2     0.8722599         0.6611478
+
+[[15]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 801       classif.logreg     0.6584361     0.3492547      0.3415639       0.2097767              0.0108
+2 dataset 801 classif.randomForest     0.6334116     0.3730301      0.3665884       0.2352507              0.1624
+  auc.test.mean logloss.test.mean
+1     0.6953555         0.6016339
+2     0.6853116         0.7000074
+
+[[16]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 885       classif.logreg     0.9826211    0.01775817     0.01737892      0.01578217              0.0194
+2 dataset 885 classif.randomForest     0.9901140    0.01344444     0.00988604      0.00992877              0.0630
+  auc.test.mean logloss.test.mean
+1     0.9962353        0.24815147
+2     0.9997647        0.03513119
+
+[[17]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 467       classif.logreg     0.8189091     0.1843333      0.1810909       0.1781771               0.017
+2 dataset 467 classif.randomForest     0.8565455     0.1446667      0.1434545       0.1320003               0.041
+  auc.test.mean logloss.test.mean
+1        0.8344         5.0192461
+2        0.8848         0.4543884
+
+[[18]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 683       classif.logreg     0.6966667     0.3033333      0.3033333       0.2089527              0.0084
+2 dataset 683 classif.randomForest     0.7083333     0.2916667      0.2916667       0.2352246              0.0392
+  auc.test.mean logloss.test.mean
+1     0.7877778         0.6445364
+2     0.7019444         0.7175774
+
+[[19]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 815       classif.logreg     0.7726465     0.2300000      0.2273535       0.1893247              0.0140
+2 dataset 815 classif.randomForest     0.8175758     0.1798333      0.1824242       0.1165014              0.0314
+  auc.test.mean logloss.test.mean
+1     0.8538333         2.7672858
+2     0.9341333         0.3617839
+
+[[20]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 464       classif.logreg        0.8604        0.1396         0.1396       0.1040141              0.0066
+2 dataset 464 classif.randomForest        0.8408        0.1592         0.1592       0.1108113              0.1478
+  auc.test.mean logloss.test.mean
+1      0.934176          0.331770
+2      0.929152          0.372879
+
+[[21]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 969       classif.logreg             1             0              0    4.751085e-07              0.0166
+2 dataset 969 classif.randomForest             1             0              0    5.891200e-05              0.0970
+  auc.test.mean logloss.test.mean
+1             1      4.076132e-05
+2             1      2.011547e-03
+
+[[22]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 927       classif.logreg     0.7305556         0.270      0.2694444       0.2642377              0.0180
+2 dataset 927 classif.randomForest     0.7452778         0.283      0.2547222       0.1873862              0.0534
+  auc.test.mean logloss.test.mean
+1        0.7855         6.7201795
+2        0.7870         0.5955486
+
+[[23]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 790       classif.logreg            NA            NA             NA              NA              0.0156
+2 dataset 790 classif.randomForest     0.8536667     0.1463333      0.1463333       0.1008055              0.0280
+  auc.test.mean logloss.test.mean
+1            NA                NA
+2     0.9546667          0.990567
+
+[[24]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 759       classif.logreg     0.9162454    0.08380952     0.08375458      0.08138589              0.0186
+2 dataset 759 classif.randomForest     0.9775641    0.02190476     0.02243590      0.02686169              0.0454
+  auc.test.mean logloss.test.mean
+1     0.9564342         1.7707758
+2     1.0000000         0.1193208
+
+[[25]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1055       classif.logreg     0.7424837     0.4376099      0.2575163       0.2050269              0.0146
+2 dataset 1055 classif.randomForest     0.7659477     0.4757967      0.2340523       0.2000201              0.0466
+  auc.test.mean logloss.test.mean
+1     0.6258654          1.575742
+2     0.5741758          3.327002
+
+[[26]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 891       classif.logreg            NA            NA             NA              NA              0.0182
+2 dataset 891 classif.randomForest     0.8193392     0.1775108      0.1806608       0.1419474              0.0708
+  auc.test.mean logloss.test.mean
+1            NA                NA
+2      0.856066         0.4410301
+
+[[27]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1473       classif.logreg     0.8332632     0.5186601      0.1667368       0.1264839              0.0156
+2 dataset 1473 classif.randomForest     0.8673308     0.4592484      0.1326692       0.1096011              0.0704
+  auc.test.mean logloss.test.mean
+1     0.5939107         0.6142559
+2     0.6509150         0.3915077
+
+[[28]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1062       classif.logreg     0.6880952     0.3760000      0.3119048       0.2947641              0.0252
+2 dataset 1062 classif.randomForest     0.8259524     0.2426667      0.1740476       0.1138295              0.0374
+  auc.test.mean logloss.test.mean
+1     0.6943333         6.3225012
+2     0.9268333         0.4596313
+
+[[29]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 771       classif.logreg     0.7167100     0.2847222      0.2832900       0.2046815              0.0144
+2 dataset 771 classif.randomForest     0.7157143     0.2877778      0.2842857       0.1885503              0.0590
+  auc.test.mean logloss.test.mean
+1     0.7743333         1.2522379
+2     0.7933426         0.5528141
+
+[[30]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 747       classif.logreg     0.9427585    0.07001648     0.05724153      0.05805853              0.0318
+2 dataset 747 classif.randomForest     0.9451303    0.05479835     0.05486965      0.03931363              0.0760
+  auc.test.mean logloss.test.mean
+1     0.9768091         1.2661201
+2     0.9889750         0.1301361
+
+[[31]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 444       classif.logreg     0.7672263     0.2339634      0.2327737       0.1827273              0.0180
+2 dataset 444 classif.randomForest     0.7817562     0.2267912      0.2182438       0.1780817              0.1128
+  auc.test.mean logloss.test.mean
+1     0.8103211         1.8068977
+2     0.8217128         0.5488829
+
+[[32]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 867       classif.logreg     0.8284615     0.1778095      0.1715385       0.1625212              0.0232
+2 dataset 867 classif.randomForest     0.8438462     0.1728571      0.1561538       0.1205044              0.0798
+  auc.test.mean logloss.test.mean
+1     0.8611429         3.4090399
+2     0.8708571         0.3887755
+
+[[33]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1015       classif.logreg     0.8822857     0.2941667      0.1177143      0.09135287              0.0098
+2 dataset 1015 classif.randomForest     0.8684762     0.2891667      0.1315238      0.08382280              0.0334
+  auc.test.mean logloss.test.mean
+1     0.8733333         0.2880906
+2     0.9308333         0.2502600
+
+[[34]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 780       classif.logreg     0.7038182     0.3070000      0.2961818       0.2200197              0.0090
+2 dataset 780 classif.randomForest     0.7045455     0.3148333      0.2954545       0.2044077              0.0332
+  auc.test.mean logloss.test.mean
+1     0.7358333         0.6990199
+2     0.7326667         0.5951610
+
+[[35]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 835       classif.logreg     0.8247879     0.1783333      0.1752121      0.15549232              0.0188
+2 dataset 835 classif.randomForest     0.8456768     0.1533333      0.1543232      0.09813356              0.0566
+  auc.test.mean logloss.test.mean
+1     0.9143000         3.0820713
+2     0.9504333         0.3199174
+
+[[36]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1013       classif.logreg     0.9349206           0.5     0.06507937      0.05842930               0.018
+2 dataset 1013 classif.randomForest     0.9349206           0.5     0.06507937      0.06451979               0.065
+  auc.test.mean logloss.test.mean
+1     0.7292231         0.3390237
+2     0.5747154         1.4896292
+
+[[37]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 974       classif.logreg     0.6784514     0.3322928      0.3215486       0.1817788              0.0120
+2 dataset 974 classif.randomForest     0.7801811     0.2395615      0.2198189       0.1333375              0.0906
+  auc.test.mean logloss.test.mean
+1     0.7857647         0.5331731
+2     0.8831688         0.4091921
+
+[[38]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 859       classif.logreg     0.9971429   0.003333333    0.002857143     0.002857143              0.0194
+2 dataset 859 classif.randomForest     0.9785357   0.018750000    0.021464286     0.030829824              0.0410
+  auc.test.mean logloss.test.mean
+1     1.0000000        0.06276797
+2     0.9859788        0.13774000
+
+[[39]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 945       classif.logreg     0.6969167       0.30125      0.3030833       0.2093871              0.0144
+2 dataset 945 classif.randomForest     0.8104167       0.19125      0.1895833       0.1345714              0.0524
+  auc.test.mean logloss.test.mean
+1     0.7896875         0.6582130
+2     0.9068080         0.4211319
+
+[[40]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1455       classif.logreg     1.0000000         0.000    0.000000000    8.523986e-23              0.0196
+2 dataset 1455 classif.randomForest     0.9983333         0.002    0.001666667    2.047503e-03              0.0592
+  auc.test.mean logloss.test.mean
+1             1      5.645315e-12
+2             1      2.482856e-02
+
+[[41]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 748       classif.logreg     0.7617123     0.3252222      0.2382877       0.1594474              0.0126
+2 dataset 748 classif.randomForest     0.7584102     0.3115374      0.2415898       0.1528669              0.1558
+  auc.test.mean logloss.test.mean
+1     0.8348160         0.5597565
+2     0.8403062         0.4752501
+
+[[42]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 882       classif.logreg     0.6896270         0.313      0.3103730       0.2918417              0.0174
+2 dataset 882 classif.randomForest     0.8069347         0.192      0.1930653       0.1372563              0.0490
+  auc.test.mean logloss.test.mean
+1     0.7274048         7.1660846
+2     0.9013492         0.4286642
+
+[[43]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 758       classif.logreg     0.8823626    0.18288889     0.11763736       0.1166509               0.018
+2 dataset 758 classif.randomForest     0.9598901    0.04988889     0.04010989       0.0327490               0.039
+  auc.test.mean logloss.test.mean
+1     0.8729074         2.7458458
+2     0.9955556         0.1055385
+
+[[44]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 450       classif.logreg     0.9852322    0.05387755     0.01476778      0.01381540              0.0180
+2 dataset 450 classif.randomForest     0.9871118    0.04304422     0.01288824      0.01431454              0.1668
+  auc.test.mean logloss.test.mean
+1     0.9961224        0.18674602
+2     0.9932483        0.05567792
+
+[[45]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 719       classif.logreg     0.7222853     0.3448830      0.2777147       0.1923127              0.0170
+2 dataset 719 classif.randomForest     0.7566524     0.3305263      0.2433476       0.1722068              0.1238
+  auc.test.mean logloss.test.mean
+1     0.7350658         0.5795822
+2     0.7665505         0.5270888
+
+[[46]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 925       classif.logreg     0.9553990    0.04523645     0.04460096      0.03114770               0.016
+2 dataset 925 classif.randomForest     0.9443173    0.05641544     0.05568269      0.03862213               0.225
+  auc.test.mean logloss.test.mean
+1     0.9947271         0.1097113
+2     0.9862319         0.2029817
+
+[[47]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 446       classif.logreg        0.9995        0.0005         0.0005    0.0005290915              0.0190
+2 dataset 446 classif.randomForest        0.9315        0.0685         0.0685    0.0699994420              0.1254
+  auc.test.mean logloss.test.mean
+1       1.00000       0.001910086
+2       0.97005       0.265435773
+
+[[48]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 965       classif.logreg         1.000       0.00000          0.000    8.413943e-24              0.0190
+2 dataset 965 classif.randomForest         0.999       0.00125          0.001    4.600570e-03              0.0308
+  auc.test.mean logloss.test.mean
+1             1      2.900680e-12
+2             1      2.411899e-02
+
+[[49]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1060       classif.logreg      0.800000     0.3918182     0.20000000      0.19478604              0.0178
+2 dataset 1060 classif.randomForest      0.914359     0.2513636     0.08564103      0.07372669              0.0370
+  auc.test.mean logloss.test.mean
+1     0.5418182         5.5281648
+2     0.8140909         0.4461607
+
+[[50]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 800       classif.logreg     0.8685952     0.1399603      0.1314048      0.12737833              0.0148
+2 dataset 800 classif.randomForest     0.8860833     0.1195238      0.1139167      0.08705662              0.0582
+  auc.test.mean logloss.test.mean
+1     0.8892725         2.8955775
+2     0.9302877         0.3190394
+
+[[51]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1073       classif.logreg     0.7201212     0.2806624      0.2798788       0.1802391              0.0126
+2 dataset 1073 classif.randomForest     0.7585051     0.2411874      0.2414949       0.1709867              0.2990
+  auc.test.mean logloss.test.mean
+1     0.8131349         0.6333747
+2     0.8241331         0.5293621
+
+[[52]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1064       classif.logreg     0.7423810     0.3933007      0.2576190       0.2527930              0.0412
+2 dataset 1064 classif.randomForest     0.8484762     0.4411438      0.1515238       0.1168594              0.0904
+  auc.test.mean logloss.test.mean
+1     0.6042048         7.9251773
+2     0.6947930         0.6262958
+
+[[53]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1495       classif.logreg     0.9967915   0.003766234    0.003208483     0.002544434               0.029
+2 dataset 1495 classif.randomForest     1.0000000   0.000000000    0.000000000     0.003340400               0.204
+  auc.test.mean logloss.test.mean
+1             1        0.01218032
+2             1        0.02030391
+
+[[54]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1059       classif.logreg     0.8181768     0.4147431     0.18182319      0.17989674              0.0362
+2 dataset 1059 classif.randomForest     0.9084986     0.5003162     0.09150145      0.07500402              0.1002
+  auc.test.mean logloss.test.mean
+1     0.5993874         4.9795824
+2     0.8055830         0.2510662
+
+[[55]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 874       classif.logreg     0.9513333    0.04916667     0.04866667      0.04870669              0.0150
+2 dataset 874 classif.randomForest     0.9745455    0.02266667     0.02545455      0.02948545              0.0484
+  auc.test.mean logloss.test.mean
+1     0.9848333         0.8149045
+2     0.9975000         0.1428938
+
+[[56]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 857       classif.logreg     0.8297222     0.1676667     0.17027778      0.16368922              0.0158
+2 dataset 857 classif.randomForest     0.9267063     0.0900000     0.07329365      0.07533514              0.0244
+  auc.test.mean logloss.test.mean
+1     0.8770000         4.3984935
+2     0.9593333         0.2759853
+
+[[57]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 921       classif.logreg     0.9349817    0.08277778     0.06501832      0.04908084              0.0094
+2 dataset 921 classif.randomForest     0.9629894    0.04580392     0.03701058      0.04019099              0.0660
+  auc.test.mean logloss.test.mean
+1     0.9717771         0.3104661
+2     0.9828163         0.1878787
+
+[[58]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 721       classif.logreg     0.8579659     0.1424474      0.1420341      0.10337715              0.0146
+2 dataset 721 classif.randomForest     0.8887214     0.1115877      0.1112786      0.09643456              0.1220
+  auc.test.mean logloss.test.mean
+1     0.9415942         0.3314271
+2     0.9488063         0.3313219
+
+[[59]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1026       classif.logreg     0.7180565     0.3270794      0.2819435       0.2280498              0.0200
+2 dataset 1026 classif.randomForest     0.7218401     0.3614747      0.2781599       0.1779033              0.0928
+  auc.test.mean logloss.test.mean
+1     0.7503208         2.3064667
+2     0.7812035         0.5352882
+
+[[60]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 796       classif.logreg            NA            NA             NA              NA              0.0226
+2 dataset 796 classif.randomForest     0.9804702    0.02416697     0.01952975      0.02278371              0.0660
+  auc.test.mean logloss.test.mean
+1            NA                NA
+2     0.9983112        0.09197728
+
+[[61]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 729       classif.logreg     0.9157222        0.0910     0.08427778      0.08444066              0.0114
+2 dataset 729 classif.randomForest     0.9097778        0.1025     0.09022222      0.07125258              0.0608
+  auc.test.mean logloss.test.mean
+1     0.9311667         2.4922220
+2     0.9823333         0.2475132
+
+[[62]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 928       classif.logreg     0.9068889         0.095     0.09311111      0.09272238              0.0132
+2 dataset 928 classif.randomForest     0.9153333         0.090     0.08466667      0.07471583              0.0408
+  auc.test.mean logloss.test.mean
+1        0.9313         2.5909736
+2        0.9880         0.2695053
+
+[[63]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 731       classif.logreg     0.7047368     0.2957778      0.2952632       0.1928792              0.0114
+2 dataset 731 classif.randomForest     0.7156023     0.2835556      0.2843977       0.2016182              0.0952
+  auc.test.mean logloss.test.mean
+1     0.7864444         0.5696865
+2     0.7764358         0.6090668
+
+[[64]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 714       classif.logreg     0.6049744     0.4499583      0.3950256       0.2441070              0.0116
+2 dataset 714 classif.randomForest     0.5186205     0.5227639      0.4813795       0.3091505              0.1232
+  auc.test.mean logloss.test.mean
+1     0.5847014         0.6892306
+2     0.4440898         0.8619952
+
+[[65]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 890       classif.logreg     0.6657839     0.4970000      0.3342161       0.2314878               0.013
+2 dataset 890 classif.randomForest     0.6969170     0.4400357      0.3030830       0.2101280               0.086
+  auc.test.mean logloss.test.mean
+1     0.5026290         0.6782998
+2     0.5959216         0.6142696
+
+[[66]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 902       classif.logreg     0.6373415     0.3612271      0.3626585       0.2160615              0.0150
+2 dataset 902 classif.randomForest     0.6197750     0.3788104      0.3802250       0.2434303              0.1226
+  auc.test.mean logloss.test.mean
+1     0.7237056         0.6157265
+2     0.6610920         0.6919366
+
+[[67]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 973       classif.logreg     0.9567683    0.04571861     0.04323166      0.04017341              0.0224
+2 dataset 973 classif.randomForest     0.9808846    0.02276190     0.01911540      0.02548349              0.1334
+  auc.test.mean logloss.test.mean
+1     0.9901547         0.5866383
+2     0.9995525         0.1148945
+
+[[68]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 745       classif.logreg     0.8899597    0.12541126     0.11004032      0.10836425              0.0264
+2 dataset 745 classif.randomForest     0.9654435    0.04778788     0.03455645      0.02185723              0.1102
+  auc.test.mean logloss.test.mean
+1     0.9031342        3.03626803
+2     0.9974892        0.07795556
+
+[[69]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 791       classif.logreg     0.6665000     0.3653333      0.3335000       0.2268764              0.0190
+2 dataset 791 classif.randomForest     0.6266111     0.3808333      0.3733889       0.2549893              0.0166
+  auc.test.mean logloss.test.mean
+1     0.7072778         0.6623728
+2     0.6780278         0.7464388
+
+[[70]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 946       classif.logreg     0.5552288     0.4437500      0.4447712       0.2529588              0.0060
+2 dataset 946 classif.randomForest     0.5407843     0.4594444      0.4592157       0.2910331              0.0314
+  auc.test.mean logloss.test.mean
+1     0.5878395         0.7007253
+2     0.5486111         0.8254158
+
+[[71]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 817       classif.logreg     0.7351111        0.2615      0.2648889       0.2171952              0.0082
+2 dataset 817 classif.randomForest     0.6471111        0.3485      0.3528889       0.2330120              0.0514
+  auc.test.mean logloss.test.mean
+1        0.7522         0.7792379
+2        0.7049         0.6770971
+
+[[72]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 787       classif.logreg     0.7565455     0.2458333      0.2434545       0.1763682              0.0098
+2 dataset 787 classif.randomForest     0.6832121     0.3198333      0.3167879       0.1930596              0.0548
+  auc.test.mean logloss.test.mean
+1     0.8266000         0.5994356
+2     0.8016667         0.5685036
+
+[[73]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 472       classif.logreg     0.7686275     0.2468312      0.2313725       0.1641188              0.0108
+2 dataset 472 classif.randomForest     0.7518954     0.2754156      0.2481046       0.2082412              0.0638
+  auc.test.mean logloss.test.mean
+1     0.8379610         0.4951930
+2     0.7186883         0.6627856
+
+[[74]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 865       classif.logreg            NA            NA             NA              NA              0.0126
+2 dataset 865 classif.randomForest     0.9304261           0.5     0.06957393      0.07093648              0.0510
+  auc.test.mean logloss.test.mean
+1            NA                NA
+2     0.4694298           2.15979
+
+[[75]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 894       classif.logreg     0.9452930    0.05428571     0.05470696      0.05524776              0.0158
+2 dataset 894 classif.randomForest     0.9529121    0.04642857     0.04708791      0.03624334              0.0492
+  auc.test.mean logloss.test.mean
+1     0.9657766         1.4155310
+2     0.9942177         0.1278264
+
+[[76]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 736       classif.logreg     0.7027574     0.2947121      0.2972426       0.1951689              0.0094
+2 dataset 736 classif.randomForest     0.6816827     0.3160909      0.3183173       0.2198932              0.0926
+  auc.test.mean logloss.test.mean
+1     0.7766556         0.5726720
+2     0.7344084         0.6498224
+
+[[77]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 893       classif.logreg     0.6010476     0.4110119      0.3989524       0.2536612              0.0112
+2 dataset 893 classif.randomForest     0.7144762     0.2912500      0.2855238       0.1972911              0.0724
+  auc.test.mean logloss.test.mean
+1     0.6236310         0.7360277
+2     0.7720833         0.5808474
+
+[[78]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 346       classif.logreg         0.582         0.418          0.418       0.3206789              0.0124
+2 dataset 346 classif.randomForest         0.526         0.474          0.474       0.2864468              0.0388
+  auc.test.mean logloss.test.mean
+1        0.6180         2.0855889
+2        0.5208         0.7892229
+
+[[79]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 804       classif.logreg     0.7200073     0.2795238      0.2799927       0.2072031              0.0118
+2 dataset 804 classif.randomForest     0.7233260     0.2765476      0.2766740       0.1939363              0.0534
+  auc.test.mean logloss.test.mean
+1     0.7893707         0.6735203
+2     0.7875510         0.6383956
+
+[[80]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 955       classif.logreg     0.6757820     0.4015622      0.3242180       0.2139728              0.0112
+2 dataset 955 classif.randomForest     0.7611064     0.2838134      0.2388936       0.1743503              0.1356
+  auc.test.mean logloss.test.mean
+1     0.6595246         0.6217452
+2     0.7900507         0.6046227
+
+[[81]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 964       classif.logreg     0.6552381     0.3436667      0.3447619       0.3407157              0.0204
+2 dataset 964 classif.randomForest     0.8770238     0.1391667      0.1229762       0.1043215              0.0560
+  auc.test.mean logloss.test.mean
+1     0.7233333         8.4288969
+2     0.9425000         0.3375348
+
+[[82]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 682       classif.logreg     0.7302993     0.2744903      0.2697007       0.1901836              0.0094
+2 dataset 682 classif.randomForest     0.7058617     0.3140260      0.2941383       0.1884281              0.0720
+  auc.test.mean logloss.test.mean
+1     0.8214513         0.6064001
+2     0.7872451         0.5572506
+
+[[83]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1463       classif.logreg     0.7150251     0.3713736      0.2849749       0.2125119              0.0158
+2 dataset 1463 classif.randomForest     0.8271303     0.2314835      0.1728697       0.1324042              0.0756
+  auc.test.mean logloss.test.mean
+1     0.7087572         0.9402531
+2     0.8410950         0.7952611
+
+[[84]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 461       classif.logreg            NA            NA             NA              NA              0.0234
+2 dataset 461 classif.randomForest     0.9880802   0.008190476      0.0119198      0.01950849              0.0776
+  auc.test.mean logloss.test.mean
+1            NA                NA
+2     0.9973968        0.09841827
+
+[[85]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 988       classif.logreg     0.7288645     0.2926944      0.2711355       0.2708317              0.0250
+2 dataset 988 classif.randomForest     0.7921612     0.2354444      0.2078388       0.1535072              0.0736
+  auc.test.mean logloss.test.mean
+1     0.7078565         9.0530200
+2     0.8390509         0.4675218
+
+[[86]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1075       classif.logreg     0.8969937     0.4467572      0.1030063      0.08405571              0.0170
+2 dataset 1075 classif.randomForest     0.8995054     0.4813225      0.1004946      0.08153858              0.1026
+  auc.test.mean logloss.test.mean
+1     0.7905556         0.4250341
+2     0.7191486         0.3486144
+
+[[87]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 733       classif.logreg     0.9391640    0.08366422     0.06083597      0.04713479              0.0150
+2 dataset 733 classif.randomForest     0.9400716    0.08681134     0.05992842      0.04606057              0.1748
+  auc.test.mean logloss.test.mean
+1     0.9799397         0.1798211
+2     0.9800658         0.1741733
+
+[[88]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 938       classif.logreg            NA            NA             NA              NA              0.0186
+2 dataset 938 classif.randomForest     0.6207937     0.3581667      0.3792063       0.2057208              0.0372
+  auc.test.mean logloss.test.mean
+1            NA                NA
+2       0.86675         0.5933524
+
+[[89]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 784       classif.logreg     0.7735714     0.2264286      0.2264286       0.1578156              0.0140
+2 dataset 784 classif.randomForest     0.7600000     0.2400000      0.2400000       0.1664853              0.0826
+  auc.test.mean logloss.test.mean
+1     0.8586735         0.7174925
+2     0.8422959         0.5062559
+
+[[90]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1005       classif.logreg     0.6735911     0.3922487      0.3264089       0.2098538              0.0086
+2 dataset 1005 classif.randomForest     0.8406896     0.1937540      0.1593104       0.1192697              0.1168
+  auc.test.mean logloss.test.mean
+1     0.7171661         0.6745983
+2     0.9051038         0.3785965
+
+[[91]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 785       classif.logreg     0.5221667        0.4775     0.47783333      0.47305987              0.0290
+2 dataset 785 classif.randomForest     0.9099444        0.0930     0.09005556      0.07464187              0.0734
+  auc.test.mean logloss.test.mean
+1      0.515325        15.3412026
+2      0.969050         0.2545617
+
+[[92]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 941       classif.logreg            NA            NA             NA              NA              0.0234
+2 dataset 941 classif.randomForest     0.8439687     0.1597895      0.1560313       0.1204739              0.1734
+  auc.test.mean logloss.test.mean
+1            NA                NA
+2     0.8850614          0.398281
+
+[[93]]
+       task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 1061       classif.logreg     0.7351948     0.3765850      0.2648052       0.2416726              0.0260
+2 dataset 1061 classif.randomForest     0.8463203     0.3331699      0.1536797       0.1191301              0.1052
+  auc.test.mean logloss.test.mean
+1     0.6469036         4.8128360
+2     0.8138971         0.5773055
+
+[[94]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 811       classif.logreg     0.9408824    0.06358144     0.05911762      0.04332127              0.0256
+2 dataset 811 classif.randomForest     0.9484658    0.05794075     0.05153416      0.03992812              0.2360
+  auc.test.mean logloss.test.mean
+1     0.9879448         0.1878912
+2     0.9908239         0.1456540
+
+[[95]]
+     task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 43       classif.logreg     0.7388895     0.4364469      0.2611105       0.1874579              0.0284
+2 dataset 43 classif.randomForest     0.7375939     0.3936201      0.2624061       0.1835955              0.2256
+  auc.test.mean logloss.test.mean
+1     0.6491446         0.5708587
+2     0.7089845         0.5590923
+
+[[96]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 336       classif.logreg     0.8108526     0.2948309      0.1891474       0.1349133               0.051
+2 dataset 336 classif.randomForest     0.8194619     0.3069113      0.1805381       0.1292786               0.162
+  auc.test.mean logloss.test.mean
+1     0.8279407         0.5168415
+2     0.8233278         0.4461519
+
+[[97]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 947       classif.logreg     0.9735409     0.2477103     0.02645914      0.02394373              0.0626
+2 dataset 947 classif.randomForest     0.9771155     0.2300888     0.02288449      0.02203240              0.1542
+  auc.test.mean logloss.test.mean
+1     0.8595888         0.3395383
+2     0.8568598         0.2938183
+
+[[98]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 951       classif.logreg             1             0              0    8.413943e-24              0.0604
+2 dataset 951 classif.randomForest             1             0              0    3.611388e-04              0.1336
+  auc.test.mean logloss.test.mean
+1             1      2.900680e-12
+2             1      1.366776e-03
+
+[[99]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 895       classif.logreg     0.8987028     0.1188763      0.1012972      0.08611922              0.0040
+2 dataset 895 classif.randomForest     0.8716702     0.1454315      0.1283298      0.10733249              0.0536
+  auc.test.mean logloss.test.mean
+1     0.9291653         0.2870617
+2     0.8967210         0.4082530
+
+[[100]]
+      task.id           learner.id acc.test.mean ber.test.mean mmce.test.mean brier.test.mean timetrain.test.mean
+1 dataset 942       classif.logreg            NA            NA             NA              NA              0.0056
+2 dataset 942 classif.randomForest     0.6041616     0.3961667      0.3958384       0.2480376              0.0546
+  auc.test.mean logloss.test.mean
+1            NA                NA
+2     0.6747333         0.7039352
+
+[1] "Begin Parallel computation for benchmark"
+[1] "  Computation can be monitord in Data/Results/benchmark_parallel_snowfall_informations.Rout"
+$OS.type
+[1] "windows"
+
+$file.sep
+[1] "/"
+
+$dynlib.ext
+[1] ".dll"
+
+$GUI
+[1] "RStudio"
+
+$endian
+[1] "little"
+
+$pkgType
+[1] "win.binary"
+
+$path.sep
+[1] ";"
+
+$r_arch
+[1] "x64"
+
+$double.eps
+[1] 2.220446e-16
+
+$double.neg.eps
+[1] 1.110223e-16
+
+$double.xmin
+[1] 2.225074e-308
+
+$double.xmax
+[1] 1.797693e+308
+
+$double.base
+[1] 2
+
+$double.digits
+[1] 53
+
+$double.rounding
+[1] 5
+
+$double.guard
+[1] 0
+
+$double.ulp.digits
+[1] -52
+
+$double.neg.ulp.digits
+[1] -53
+
+$double.exponent
+[1] 11
+
+$double.min.exp
+[1] -1022
+
+$double.max.exp
+[1] 1024
+
+$integer.max
+[1] 2147483647
+
+$sizeof.long
+[1] 4
+
+$sizeof.longlong
+[1] 8
+
+$sizeof.longdouble
+[1] 16
+
+$sizeof.pointer
+[1] 8
+
+               _                           
+platform       x86_64-w64-mingw32          
+arch           x86_64                      
+os             mingw32                     
+system         x86_64, mingw32             
+status                                     
+major          3                           
+minor          3.1                         
+year           2016                        
+month          06                          
+day            21                          
+svn rev        70800                       
+language       R                           
+version.string R version 3.3.1 (2016-06-21)
+nickname       Bug in Your Hair            
+                     sysname                      release                      version                     nodename 
+                   "Windows"                      "7 x64" "build 7601, Service Pack 1"                    "INSTALL" 
+                     machine                        login                         user               effective_user 
+                    "x86-64"                   "couronne"                   "couronne"                   "couronne" 
+Library cmprsk loaded.
+[1] "RNGstream"
+Time difference of 0.003000021 secs
+[1] "Done with parallel computations"
+[1] "Begin Parallel computation for benchmark"
+[1] "  Computation can be monitord in Data/Results/benchmark_parallel_snowfall_informations.Rout"
+$OS.type
+[1] "windows"
+
+$file.sep
+[1] "/"
+
+$dynlib.ext
+[1] ".dll"
+
+$GUI
+[1] "RStudio"
+
+$endian
+[1] "little"
+
+$pkgType
+[1] "win.binary"
+
+$path.sep
+[1] ";"
+
+$r_arch
+[1] "x64"
+
+$double.eps
+[1] 2.220446e-16
+
+$double.neg.eps
+[1] 1.110223e-16
+
+$double.xmin
+[1] 2.225074e-308
+
+$double.xmax
+[1] 1.797693e+308
+
+$double.base
+[1] 2
+
+$double.digits
+[1] 53
+
+$double.rounding
+[1] 5
+
+$double.guard
+[1] 0
+
+$double.ulp.digits
+[1] -52
+
+$double.neg.ulp.digits
+[1] -53
+
+$double.exponent
+[1] 11
+
+$double.min.exp
+[1] -1022
+
+$double.max.exp
+[1] 1024
+
+$integer.max
+[1] 2147483647
+
+$sizeof.long
+[1] 4
+
+$sizeof.longlong
+[1] 8
+
+$sizeof.longdouble
+[1] 16
+
+$sizeof.pointer
+[1] 8
+
+               _                           
+platform       x86_64-w64-mingw32          
+arch           x86_64                      
+os             mingw32                     
+system         x86_64, mingw32             
+status                                     
+major          3                           
+minor          3.1                         
+year           2016                        
+month          06                          
+day            21                          
+svn rev        70800                       
+language       R                           
+version.string R version 3.3.1 (2016-06-21)
+nickname       Bug in Your Hair            
+                     sysname                      release                      version                     nodename 
+                   "Windows"                      "7 x64" "build 7601, Service Pack 1"                    "INSTALL" 
+                     machine                        login                         user               effective_user 
+                    "x86-64"                   "couronne"                   "couronne"                   "couronne" 
+Library cmprsk loaded.
+[1] "RNGstream"
+Time difference of 12.97174 secs
+[1] "Done with parallel computations"
+[[1]]
+      task.id           learner.id acc.test.mean brier.test.mean auc.test.mean timetrain.test.mean
+1 dataset 919       classif.logreg     0.8471429      0.09690305      0.960750              0.0084
+2 dataset 919 classif.randomForest     0.8943254      0.08407044      0.955625              0.0400
+
+[[2]]
+      task.id           learner.id acc.test.mean brier.test.mean auc.test.mean timetrain.test.mean
+1 dataset 905       classif.logreg     0.8544841       0.1350262     0.8413333              0.0080
+2 dataset 905 classif.randomForest     0.7842857       0.1518715     0.8042222              0.0414
+
+[[3]]
+      task.id           learner.id acc.test.mean brier.test.mean auc.test.mean timetrain.test.mean
+1 dataset 713       classif.logreg     0.7852121       0.1452385     0.8728167              0.0056
+2 dataset 713 classif.randomForest     0.7853535       0.1759370     0.8187000              0.0504
+
+[[4]]
+      task.id           learner.id acc.test.mean brier.test.mean auc.test.mean timetrain.test.mean
+1 dataset 887       classif.logreg     0.6636014       0.2128402     0.7368651              0.0038
+2 dataset 887 classif.randomForest     0.6545221       0.2532638     0.6535556              0.0514
+
+[[5]]
+      task.id           learner.id acc.test.mean brier.test.mean auc.test.mean timetrain.test.mean
+1 dataset 924       classif.logreg     0.8753846      0.08410462     0.9627219              0.0070
+2 dataset 924 classif.randomForest     0.8453846      0.10938695     0.9510651              0.0904
+
+[[6]]
+      task.id           learner.id acc.test.mean brier.test.mean auc.test.mean timetrain.test.mean
+1 dataset 848       classif.logreg     0.7925000       0.1639187     0.7913333              0.0110
+2 dataset 848 classif.randomForest     0.8203571       0.1645538     0.6951667              0.0278
+
+[[7]]
+      task.id           learner.id acc.test.mean brier.test.mean auc.test.mean timetrain.test.mean
+1 dataset 929       classif.logreg     0.6385714       0.2363015     0.6787755              0.0084
+2 dataset 929 classif.randomForest     0.5442857       0.2885168     0.5936735              0.0634
+
+[[8]]
+      task.id           learner.id acc.test.mean brier.test.mean auc.test.mean timetrain.test.mean
+1 dataset 782       classif.logreg     0.9442319      0.04097443     0.9916754              0.0082
+2 dataset 782 classif.randomForest     0.9490681      0.03890750     0.9926709              0.0772
+
+[[9]]
+      task.id           learner.id acc.test.mean brier.test.mean auc.test.mean timetrain.test.mean
+1 dataset 476       classif.logreg         0.874       0.1068941        0.9348              0.0090
+2 dataset 476 classif.randomForest         0.872       0.0914629        0.9560              0.0516
+
+[[10]]
+      task.id           learner.id acc.test.mean brier.test.mean auc.test.mean timetrain.test.mean
+1 dataset 892       classif.logreg     0.8826667       0.1151258     0.9079333              0.0104
+2 dataset 892 classif.randomForest     0.9421010       0.0506776     0.9802000              0.0500
+
