@@ -1361,3 +1361,1015 @@ Time difference of 12.97174 secs
 1 dataset 892       classif.logreg     0.8826667       0.1151258     0.9079333              0.0104
 2 dataset 892 classif.randomForest     0.9421010       0.0506776     0.9802000              0.0500
 
+[1] "classif.logreg"       "classif.randomForest"
+              learners average_rank
+1 classif.randomForest        1.316
+2       classif.logreg        1.684
+         task.id           learner.id acc.test.mean ber.test.mean brier.test.mean timetrain.test.mean auc.test.mean
+1    dataset 919       classif.logreg     0.8406349  0.1590000000    1.006499e-01              0.0032     0.9626667
+2    dataset 919 classif.randomForest     0.8806349  0.1180000000    9.456979e-02              0.0138     0.9586250
+3    dataset 905       classif.logreg     0.8523413  0.1916666667    1.347184e-01              0.0048     0.8386667
+4    dataset 905 classif.randomForest     0.8057937  0.2343333333    1.500272e-01              0.0112     0.7929444
+5    dataset 713       classif.logreg     0.8015354  0.1981666667    1.439342e-01              0.0044     0.8749333
+6    dataset 713 classif.randomForest     0.7764040  0.2198333333    1.740499e-01              0.0196     0.8226500
+7    dataset 887       classif.logreg     0.6556294  0.3454761905    2.160319e-01              0.0038     0.7257698
+8    dataset 887 classif.randomForest     0.6444988  0.3649523810    2.586504e-01              0.0196     0.6538492
+9    dataset 924       classif.logreg     0.8753846  0.1246153846    8.477083e-02              0.0042     0.9617160
+10   dataset 924 classif.randomForest     0.8392308  0.1607692308    1.076037e-01              0.0326     0.9552071
+11   dataset 848       classif.logreg     0.8057143  0.2886666667    1.694296e-01              0.0038     0.7603333
+12   dataset 848 classif.randomForest     0.8228571  0.2810000000    1.720485e-01              0.0192     0.6590000
+13   dataset 929       classif.logreg     0.6228571  0.3771428571    2.451423e-01              0.0032     0.6412245
+14   dataset 929 classif.randomForest     0.5542857  0.4457142857    2.930492e-01              0.0220     0.5889796
+15   dataset 782       classif.logreg     0.9441739  0.0561130536    3.934010e-02              0.0046     0.9930235
+16   dataset 782 classif.randomForest     0.9568188  0.0427797203    3.425670e-02              0.0292     0.9947426
+17   dataset 476       classif.logreg     0.8700000  0.1300000000    1.128588e-01              0.0046     0.9304000
+18   dataset 476 classif.randomForest     0.8760000  0.1240000000    9.170774e-02              0.0174     0.9624000
+19   dataset 892       classif.logreg     0.8668687  0.1290000000    1.309045e-01              0.0076     0.9130667
+20   dataset 892 classif.randomForest     0.9415556  0.0576666667    5.599662e-02              0.0156     0.9827000
+21   dataset 836       classif.logreg     0.4680952  0.5375000000    4.205695e-01              0.0074     0.4311111
+22   dataset 836 classif.randomForest     0.3823810  0.6391666667    3.328239e-01              0.0170     0.3061111
+23   dataset 755       classif.logreg     0.7616667  0.2371428571    1.590139e-01              0.0048     0.8586508
+24   dataset 755 classif.randomForest     0.7611538  0.2371428571    1.574814e-01              0.0264     0.8496825
+25   dataset 777       classif.logreg     0.7764444  0.2243333333    1.898544e-01              0.0044     0.8605833
+26   dataset 777 classif.randomForest     0.8502222  0.1451666667    1.046389e-01              0.0178     0.9255000
+27   dataset 459       classif.logreg     0.7731536  0.2235634921    1.640979e-01              0.0050     0.8418651
+28   dataset 459 classif.randomForest     0.7716422  0.2252579365    1.551332e-01              0.0208     0.8667083
+29   dataset 801       classif.logreg     0.6621147  0.3450866873    2.104296e-01              0.0070     0.6944131
+30   dataset 801 classif.randomForest     0.6383634  0.3678882009    2.358921e-01              0.0590     0.6819384
+31   dataset 885       classif.logreg     0.9794211  0.0218235294    1.918796e-02              0.0074     0.9956078
+32   dataset 885 classif.randomForest     0.9907054  0.0118431373    8.670699e-03              0.0304     1.0000000
+33   dataset 467       classif.logreg     0.8281818  0.1746666667    1.682168e-01              0.0062     0.8550000
+34   dataset 467 classif.randomForest     0.8785455  0.1220000000    1.282796e-01              0.0220     0.8933333
+35   dataset 683       classif.logreg     0.7033333  0.2966666667    2.071870e-01              0.0028     0.7972222
+36   dataset 683 classif.randomForest     0.7233333  0.2766666667    2.304597e-01              0.0222     0.7144444
+37   dataset 815       classif.logreg     0.8001212  0.2035000000    1.692399e-01              0.0050     0.8518833
+38   dataset 815 classif.randomForest     0.8221616  0.1741666667    1.172884e-01              0.0238     0.9221833
+39   dataset 464       classif.logreg     0.8604000  0.1396000000    1.047322e-01              0.0042     0.9347520
+40   dataset 464 classif.randomForest     0.8460000  0.1540000000    1.069305e-01              0.0788     0.9343520
+41   dataset 969       classif.logreg     1.0000000  0.0000000000    4.302117e-07              0.0078     1.0000000
+42   dataset 969 classif.randomForest     1.0000000  0.0000000000    7.035200e-05              0.0260     1.0000000
+43   dataset 927       classif.logreg     0.7172222  0.2823333333    2.782575e-01              0.0098     0.7751667
+44   dataset 927 classif.randomForest     0.7455556  0.2748333333    1.876832e-01              0.0214     0.7670000
+45   dataset 790       classif.logreg     0.8555152  0.1475000000    1.191258e-01              0.0050     0.9233333
+46   dataset 790 classif.randomForest     0.8423333  0.1612142857    9.774929e-02              0.0128     0.9511667
+47   dataset 759       classif.logreg     0.9066300  0.0928571429    9.315301e-02              0.0086     0.9494728
+48   dataset 759 classif.randomForest     0.9760256  0.0240476190    2.824460e-02              0.0216     0.9986395
+49  dataset 1055       classif.logreg     0.7350980  0.4529945055    2.146732e-01              0.0084     0.6105220
+50  dataset 1055 classif.randomForest     0.7662745  0.4755219780    1.987274e-01              0.0266     0.5711126
+51  dataset 1473       classif.logreg     0.8403008  0.5100000000    1.246427e-01              0.0070     0.5939434
+52  dataset 1473 classif.randomForest     0.8703459  0.4565032680    1.079230e-01              0.0380     0.6641176
+53  dataset 1062       classif.logreg     0.6834524  0.3620000000    3.114773e-01              0.0096     0.6816667
+54  dataset 1062 classif.randomForest     0.8540476  0.2056666667    1.092714e-01              0.0228     0.9290000
+55   dataset 771       classif.logreg     0.7291775  0.2743888889    1.990371e-01              0.0064     0.7871852
+56   dataset 771 classif.randomForest     0.7149784  0.2889444444    1.855074e-01              0.0432     0.8031296
+57   dataset 747       classif.logreg     0.9460205  0.0676934066    5.228963e-02              0.0098     0.9773821
+58   dataset 747 classif.randomForest     0.9454512  0.0553714286    3.639482e-02              0.0464     0.9905865
+59   dataset 444       classif.logreg     0.7747456  0.2269816850    1.806301e-01              0.0084     0.8186642
+60   dataset 444 classif.randomForest     0.7799898  0.2287380952    1.779351e-01              0.0340     0.8258294
+61   dataset 867       classif.logreg     0.8384615  0.1761904762    1.507170e-01              0.0126     0.8730476
+62   dataset 867 classif.randomForest     0.8423077  0.1768571429    1.176898e-01              0.0304     0.8789524
+63   dataset 780       classif.logreg     0.6758182  0.3356666667    2.385431e-01              0.0046     0.7023333
+64   dataset 780 classif.randomForest     0.6781818  0.3393333333    2.110025e-01              0.0232     0.7042500
+65   dataset 835       classif.logreg     0.8194747  0.1841666667    1.674898e-01              0.0076     0.9010167
+66   dataset 835 classif.randomForest     0.8438990  0.1571666667    1.025695e-01              0.0170     0.9449333
+67  dataset 1013       classif.logreg     0.9349451  0.5000000000    6.008115e-02              0.0054     0.7215923
+68  dataset 1013 classif.randomForest     0.9349451  0.5000000000    6.594919e-02              0.0258     0.5307538
+69   dataset 974       classif.logreg     0.6680627  0.3410875668    1.810108e-01              0.0040     0.7878205
+70   dataset 974 classif.randomForest     0.7789174  0.2430247326    1.322215e-01              0.0466     0.8897316
+71   dataset 859       classif.logreg     0.9918095  0.0095238095    8.190476e-03              0.0080     1.0000000
+72   dataset 859 classif.randomForest     0.9756786  0.0208333333    2.999478e-02              0.0280     0.9858102
+73   dataset 945       classif.logreg     0.7087500  0.2889285714    2.069156e-01              0.0068     0.7839286
+74   dataset 945 classif.randomForest     0.8033333  0.1985714286    1.385190e-01              0.0312     0.8982589
+75  dataset 1455       classif.logreg     1.0000000  0.0000000000    7.900928e-23              0.0116     1.0000000
+76  dataset 1455 classif.randomForest     0.9983333  0.0020000000    2.075347e-03              0.0308     1.0000000
+77   dataset 748       classif.logreg     0.7537066  0.3379323671    1.609448e-01              0.0080     0.8286441
+78   dataset 748 classif.randomForest     0.7590018  0.3140664251    1.528482e-01              0.0644     0.8413770
+79   dataset 882       classif.logreg     0.6948252  0.3064285714    2.880652e-01              0.0076     0.7393175
+80   dataset 882 classif.randomForest     0.8057809  0.1920000000    1.398172e-01              0.0286     0.8955714
+81   dataset 758       classif.logreg     0.8984799  0.1798888889    9.800532e-02              0.0092     0.8987963
+82   dataset 758 classif.randomForest     0.9630403  0.0557777778    3.268546e-02              0.0214     0.9967593
+83   dataset 450       classif.logreg     0.9769739  0.0721428571    1.971788e-02              0.0076     0.9912245
+84   dataset 450 classif.randomForest     0.9837373  0.0571938776    1.489900e-02              0.0694     0.9916327
+85   dataset 719       classif.logreg     0.7310460  0.3340350877    1.952458e-01              0.0052     0.7337736
+86   dataset 719 classif.randomForest     0.7494851  0.3331871345    1.774245e-01              0.0532     0.7487971
+87   dataset 925       classif.logreg     0.9588029  0.0416896552    3.114627e-02              0.0082     0.9947067
+88   dataset 925 classif.randomForest     0.9427067  0.0576995074    3.873523e-02              0.0910     0.9881882
+89   dataset 446       classif.logreg     0.9995000  0.0005000000    4.595093e-04              0.0116     1.0000000
+90   dataset 446 classif.randomForest     0.9340000  0.0660000000    6.858622e-02              0.0732     0.9715750
+91   dataset 965       classif.logreg     1.0000000  0.0000000000    8.413943e-24              0.0148     1.0000000
+92   dataset 965 classif.randomForest     0.9990000  0.0012500000    4.694768e-03              0.0274     1.0000000
+93  dataset 1060       classif.logreg     0.8107692  0.3600000000    1.852470e-01              0.0130     0.5754545
+94  dataset 1060 classif.randomForest     0.9012821  0.2768181818    8.482311e-02              0.0396     0.8000000
+95   dataset 800       classif.logreg     0.8830000  0.1274404762    1.141445e-01              0.0144     0.8788856
+96   dataset 800 classif.randomForest     0.8905595  0.1119246032    8.700722e-02              0.0484     0.9425893
+97  dataset 1073       classif.logreg     0.7095219  0.2911487586    1.803979e-01              0.0064     0.8107753
+98  dataset 1073 classif.randomForest     0.7590842  0.2405016280    1.711061e-01              0.1180     0.8249069
+99  dataset 1495       classif.logreg     0.9947909  0.0054746977    4.214497e-03              0.0176     1.0000000
+100 dataset 1495 classif.randomForest     1.0000000  0.0000000000    3.213480e-03              0.0638     1.0000000
+101  dataset 874       classif.logreg     0.9361010  0.0653333333    6.052167e-02              0.0072     0.9740833
+102  dataset 874 classif.randomForest     0.9796970  0.0180000000    2.804747e-02              0.0200     0.9991667
+103  dataset 857       classif.logreg     0.8286905  0.1716666667    1.686061e-01              0.0058     0.8645556
+104  dataset 857 classif.randomForest     0.9381746  0.0823333333    7.299821e-02              0.0132     0.9508889
+105  dataset 921       classif.logreg     0.9365954  0.0805032680    4.838075e-02              0.0068     0.9715243
+106  dataset 921 classif.randomForest     0.9668295  0.0383594771    3.869611e-02              0.0392     0.9846826
+107  dataset 721       classif.logreg     0.8577871  0.1424586466    1.031226e-01              0.0062     0.9407495
+108  dataset 721 classif.randomForest     0.8862858  0.1137355890    9.724506e-02              0.0938     0.9481652
+109 dataset 1026       classif.logreg     0.7260659  0.3119033189    2.214205e-01              0.0194     0.7659577
+110 dataset 1026 classif.randomForest     0.7275403  0.3537344877    1.761398e-01              0.0820     0.7888814
+111  dataset 729       classif.logreg     0.8977222  0.1045000000    1.025804e-01              0.0050     0.9193333
+112  dataset 729 classif.randomForest     0.8819444  0.1313333333    7.815900e-02              0.0152     0.9731667
+113  dataset 928       classif.logreg     0.9002222  0.1000000000    1.011692e-01              0.0056     0.9309000
+114  dataset 928 classif.randomForest     0.9157778  0.0900000000    7.420115e-02              0.0152     0.9766000
+115  dataset 731       classif.logreg     0.7028246  0.2974444444    1.908165e-01              0.0034     0.7937062
+116  dataset 731 classif.randomForest     0.7030468  0.2953333333    2.054185e-01              0.0342     0.7763543
+117  dataset 714       classif.logreg     0.6031897  0.4567638889    2.478886e-01              0.0048     0.5569301
+118  dataset 714 classif.randomForest     0.5147564  0.5273472222    3.064282e-01              0.0530     0.4637394
+119  dataset 890       classif.logreg     0.6824261  0.4771726190    2.259446e-01              0.0070     0.5239901
+120  dataset 890 classif.randomForest     0.6925353  0.4492321429    2.092003e-01              0.0454     0.5954524
+121  dataset 902       classif.logreg     0.6415074  0.3566190476    2.166736e-01              0.0048     0.7172855
+122  dataset 902 classif.randomForest     0.6401100  0.3588507326    2.403832e-01              0.0674     0.6707177
+123  dataset 973       classif.logreg     0.9679798  0.0347272727    3.160502e-02              0.0130     0.9925920
+124  dataset 973 classif.randomForest     0.9814118  0.0226017316    2.559893e-02              0.0764     0.9989920
+125  dataset 791       classif.logreg     0.6513333  0.3805000000    2.298931e-01              0.0028     0.6868889
+126  dataset 791 classif.randomForest     0.6279444  0.3783333333    2.572714e-01              0.0128     0.6588333
+127  dataset 946       classif.logreg     0.5564706  0.4429166667    2.509353e-01              0.0034     0.5852778
+128  dataset 946 classif.randomForest     0.5077778  0.4916666667    2.942384e-01              0.0278     0.5368827
+129  dataset 817       classif.logreg     0.7600000  0.2390000000    2.003759e-01              0.0042     0.7684000
+130  dataset 817 classif.randomForest     0.6688889  0.3280000000    2.198606e-01              0.0206     0.7316000
+131  dataset 787       classif.logreg     0.7611515  0.2418333333    1.732186e-01              0.0040     0.8430000
+132  dataset 787 classif.randomForest     0.7056162  0.2951666667    1.908622e-01              0.0182     0.8027000
+133  dataset 472       classif.logreg     0.7683007  0.2464025974    1.643239e-01              0.0038     0.8280260
+134  dataset 472 classif.randomForest     0.7550327  0.2697272727    2.040181e-01              0.0304     0.7332597
+135  dataset 894       classif.logreg     0.9321978  0.0678571429    6.433799e-02              0.0066     0.9590760
+136  dataset 894 classif.randomForest     0.9605861  0.0390476190    3.488671e-02              0.0190     0.9948186
+137  dataset 736       classif.logreg     0.7023000  0.2947878788    1.959152e-01              0.0028     0.7796240
+138  dataset 736 classif.randomForest     0.6716507  0.3259090909    2.207279e-01              0.0404     0.7315152
+139  dataset 893       classif.logreg     0.5718095  0.4436309524    2.613622e-01              0.0046     0.5833333
+140  dataset 893 classif.randomForest     0.7097143  0.3002976190    2.091783e-01              0.0292     0.7402976
+141  dataset 346       classif.logreg     0.5640000  0.4360000000    3.242858e-01              0.0046     0.5992000
+142  dataset 346 classif.randomForest     0.4560000  0.5440000000    3.017946e-01              0.0238     0.4740000
+143  dataset 804       classif.logreg     0.6863516  0.3123214286    2.241596e-01              0.0060     0.7680952
+144  dataset 804 classif.randomForest     0.7151062  0.2843452381    1.954398e-01              0.0278     0.7812585
+145  dataset 955       classif.logreg     0.6726563  0.4108062201    2.120367e-01              0.0044     0.6694986
+146  dataset 955 classif.randomForest     0.7539303  0.2882535885    1.760420e-01              0.0542     0.7861868
+147  dataset 964       classif.logreg     0.6571429  0.3653333333    3.343968e-01              0.0094     0.7132500
+148  dataset 964 classif.randomForest     0.8800000  0.1418333333    1.018893e-01              0.0202     0.9548333
+149  dataset 682       classif.logreg     0.7146371  0.2939415584    1.896327e-01              0.0116     0.8228896
+150  dataset 682 classif.randomForest     0.7334469  0.2855551948    1.829848e-01              0.0378     0.7970698
+151 dataset 1463       classif.logreg     0.7258972  0.3584065934    2.077287e-01              0.0048     0.7162742
+152 dataset 1463 classif.randomForest     0.8275013  0.2295421245    1.308028e-01              0.0342     0.8415777
+153  dataset 988       classif.logreg     0.7247179  0.2918333333    2.752631e-01              0.0098     0.7182917
+154  dataset 988 classif.randomForest     0.7879853  0.2418333333    1.512248e-01              0.0362     0.8549167
+155 dataset 1075       classif.logreg     0.8963692  0.4580072464    8.623180e-02              0.0066     0.7729046
+156 dataset 1075 classif.randomForest     0.9087054  0.4671376812    7.843626e-02              0.0488     0.7141002
+157  dataset 733       classif.logreg     0.9415968  0.0802380254    4.637974e-02              0.0052     0.9809809
+158  dataset 733 classif.randomForest     0.9421200  0.0818069404    4.420051e-02              0.0658     0.9804391
+159  dataset 784       classif.logreg     0.7692857  0.2307142857    1.599828e-01              0.0074     0.8556122
+160  dataset 784 classif.randomForest     0.7721429  0.2278571429    1.649446e-01              0.0472     0.8398980
+161 dataset 1005       classif.logreg     0.6754253  0.3939695767    2.113905e-01              0.0046     0.7057189
+162 dataset 1005 classif.randomForest     0.8401077  0.1944927249    1.212046e-01              0.1066     0.9037495
+163 dataset 1061       classif.logreg     0.7610390  0.3624509804    2.231800e-01              0.0142     0.6608660
+164 dataset 1061 classif.randomForest     0.8366234  0.3507516340    1.176430e-01              0.0688     0.8173938
+165  dataset 811       classif.logreg     0.9408569  0.0635430195    4.574303e-02              0.0100     0.9870671
+166  dataset 811 classif.randomForest     0.9454010  0.0617340368    4.165770e-02              0.0646     0.9884194
+167   dataset 43       classif.logreg     0.7369646  0.4405261438    1.883236e-01              0.0042     0.6458456
+168   dataset 43 classif.randomForest     0.7281597  0.4065073529    1.859618e-01              0.1026     0.6963358
+169  dataset 336       classif.logreg     0.8217610  0.2845932749    1.310286e-01              0.0202     0.8316551
+170  dataset 336 classif.randomForest     0.8198532  0.3080096648    1.278247e-01              0.0956     0.8282030
+171  dataset 947       classif.logreg     0.9751400  0.2493691589    2.361079e-02              0.0498     0.8485701
+172  dataset 947 classif.randomForest     0.9767503  0.2303691589    2.218800e-02              0.1166     0.8617897
+173  dataset 895       classif.logreg     0.9003488  0.1179051450    8.613188e-02              0.0042     0.9247514
+174  dataset 895 classif.randomForest     0.8697630  0.1476889559    1.082454e-01              0.0504     0.8897696
+175  dataset 860       classif.logreg     0.8376316  0.1627650728    1.106969e-01              0.0048     0.9269092
+176  dataset 860 classif.randomForest     0.8400000  0.1595703396    1.208853e-01              0.0832     0.9022037
+177  dataset 814       classif.logreg     0.5309374  0.5086410808    2.493682e-01              0.0048     0.5054499
+178  dataset 814 classif.randomForest     0.8596200  0.1386626028    9.800309e-02              0.1280     0.9409908
+179  dataset 479       classif.logreg     0.8102821  0.2425714286    1.836034e-01              0.0078     0.7971825
+180  dataset 479 classif.randomForest     0.8569831  0.2630952381    1.042527e-01              0.0664     0.8973571
+181 dataset 1524       classif.logreg     0.8522581  0.1648333333    1.013471e-01              0.0054     0.9320476
+182 dataset 1524 classif.randomForest     0.8370968  0.1933095238    1.079564e-01              0.0984     0.9198690
+183 dataset 1490       classif.logreg     0.6924024  0.5117832168    2.329379e-01              0.0054     0.3495874
+184 dataset 1490 classif.randomForest     0.6984685  0.4900000000    2.314297e-01              0.0846     0.3961958
+185 dataset 1011       classif.logreg     0.9649049  0.0362940175    2.948436e-02              0.0094     0.9899513
+186 dataset 1011 classif.randomForest     0.9643390  0.0358008416    3.528302e-02              0.0968     0.9886026
+187  dataset 756       classif.logreg     0.9233266  0.0847272727    7.660848e-02              0.0136     0.9361169
+188  dataset 756 classif.randomForest     0.9711089  0.0389004329    2.197985e-02              0.0504     0.9980693
+189 dataset 1009       classif.logreg     0.6842308  0.3100357143    3.107667e-01              0.0182     0.7272500
+190 dataset 1009 classif.randomForest     0.7770513  0.2497857143    1.708647e-01              0.0490     0.8357500
+191  dataset 906       classif.logreg     0.4879553  0.5164397626    2.566758e-01              0.0088     0.4606788
+192  dataset 906 classif.randomForest     0.5048782  0.4983891013    2.651247e-01              0.1914     0.4895259
+193  dataset 907       classif.logreg     0.4759241  0.5278900582    2.578808e-01              0.0060     0.4559485
+194  dataset 907 classif.randomForest     0.4959931  0.5050850861    2.646318e-01              0.2004     0.4935335
+195  dataset 820       classif.logreg     0.8974252  0.1074274767    8.152545e-02              0.0074     0.9581583
+196  dataset 820 classif.randomForest     0.8961216  0.1054028750    7.912294e-02              0.0896     0.9605014
+197  dataset 880       classif.logreg     0.9715072  0.0283620690    2.721875e-02              0.0188     0.9863518
+198  dataset 880 classif.randomForest     0.9982517  0.0017241379    5.807123e-03              0.1014     1.0000000
+199 dataset 1121       classif.logreg     1.0000000  0.0000000000    8.413943e-24              0.0134     1.0000000
+200 dataset 1121 classif.randomForest     1.0000000  0.0000000000    3.860463e-03              0.0876     1.0000000
+201  dataset 750       classif.logreg     0.4976382  0.5032840336    2.557403e-01              0.0066     0.4864924
+202  dataset 750 classif.randomForest     0.6119079  0.3886278511    2.315394e-01              0.2870     0.6578275
+203   dataset 53       classif.logreg     0.8348148  0.1693333333    1.253964e-01              0.0080     0.9022778
+204   dataset 53 classif.randomForest     0.8266667  0.1788333333    1.276223e-01              0.1452     0.9010000
+205  dataset 778       classif.logreg     0.9673929  0.0326384615    3.113472e-02              0.0166     0.9873945
+206  dataset 778 classif.randomForest     0.9956232  0.0044166667    1.992504e-02              0.0906     0.9981122
+207 dataset 1511       classif.logreg     0.9124768  0.1065000974    6.797584e-02              0.0128     0.9527077
+208 dataset 1511 classif.randomForest     0.9106690  0.1009314659    6.669161e-02              0.1698     0.9590538
+209  dataset 767       classif.logreg     0.9381460  0.1525133932    4.934458e-02              0.0134     0.9259047
+210  dataset 767 classif.randomForest     0.9377160  0.2066021120    5.063344e-02              0.1100     0.9471756
+211 dataset 1441       classif.logreg     0.7811487  0.3988636364    2.170917e-01              0.0210     0.6023124
+212 dataset 1441 classif.randomForest     0.8523641  0.4668939394    9.875716e-02              0.0816     0.8385985
+213 dataset 1025       classif.logreg     0.9085000  0.1406451613    6.431085e-02              0.0146     0.9607885
+214 dataset 1025 classif.randomForest     0.9092500  0.1598745520    6.414247e-02              0.1216     0.9668638
+215  dataset 335       classif.logreg     0.9798046  0.0201340489    1.909115e-02              0.0130     0.9864001
+216  dataset 335 classif.randomForest     0.9850315  0.0151249745    2.147597e-02              0.1582     0.9855792
+217  dataset 333       classif.logreg     0.7451601  0.2548701299    1.758589e-01              0.0152     0.7123237
+218  dataset 333 classif.randomForest     0.9989173  0.0010811688    4.851501e-02              0.1562     1.0000000
+219 dataset 1054       classif.logreg     0.7099603  0.3395324675    2.489368e-01              0.0190     0.6920907
+220 dataset 1054 classif.randomForest     0.7178470  0.3792251082    1.926980e-01              0.1466     0.7240608
+221 dataset 1442       classif.logreg     0.8582051  0.4222946860    1.217814e-01              0.0254     0.6371610
+222 dataset 1442 classif.randomForest     0.8873472  0.4151690821    9.017240e-02              0.1948     0.7077329
+223  dataset 164       classif.logreg     0.5217576  0.4780909091    4.745372e-01              0.0760     0.5263298
+224  dataset 164 classif.randomForest     0.9321212  0.0675454545    1.229006e-01              0.0588     0.9825041
+225  dataset 949       classif.logreg     0.8508012  0.3884879386    1.077709e-01              0.0440     0.7935053
+226  dataset 949 classif.randomForest     0.8515203  0.4927192982    1.302675e-01              0.1830     0.7505932
+227  dataset 996       classif.logreg     0.6789701  0.3869437831    2.080372e-01              0.0064     0.7202205
+228  dataset 996 classif.randomForest     0.8445278  0.1896931217    1.194333e-01              0.0928     0.9063087
+229  dataset 900       classif.logreg     0.5750000  0.5031463572    2.485836e-01              0.0060     0.4664861
+230  dataset 900 classif.randomForest     0.5262500  0.5183687943    2.596470e-01              0.1838     0.4831077
+231  dataset 448       classif.logreg     0.8360101  0.1822777778    1.454916e-01              0.0092     0.8768351
+232  dataset 448 classif.randomForest     0.8060232  0.2560138889    1.360431e-01              0.1220     0.8996522
+233 dataset 1048       classif.logreg     0.6300926  0.3767017738    2.265366e-01              0.0062     0.6789701
+234 dataset 1048 classif.randomForest     0.6839578  0.3211064302    2.070920e-01              0.1714     0.7408285
+235  dataset 741       classif.logreg     0.6916069  0.3079413838    2.001531e-01              0.0030     0.7791401
+236  dataset 741 classif.randomForest     0.7305763  0.2696036023    1.948125e-01              0.3658     0.7963240
+237  dataset 765       classif.logreg     0.9455161  0.0846016712    4.132849e-02              0.0132     0.9442150
+238  dataset 765 classif.randomForest     0.9324809  0.1721084526    4.630299e-02              0.0966     0.9592168
+239 dataset 1480       classif.logreg     0.7185144  0.4171625846    1.747000e-01              0.0124     0.7469197
+240 dataset 1480 classif.randomForest     0.7049806  0.4157888084    1.758679e-01              0.2948     0.7452602
+241 dataset 1498       classif.logreg     0.7247031  0.3267640027    1.804521e-01              0.0064     0.7749233
+242 dataset 1498 classif.randomForest     0.6849275  0.3736793033    1.976266e-01              0.2434     0.7252278
+243  dataset 795       classif.logreg     0.5496582  0.4510080715    2.494927e-01              0.0062     0.5460703
+244  dataset 795 classif.randomForest     0.4842812  0.5161820269    2.802917e-01              0.3618     0.4896066
+245  dataset 909       classif.logreg     0.4882499  0.5123212946    2.569662e-01              0.0072     0.4887369
+246  dataset 909 classif.randomForest     0.5152797  0.4848919637    2.590792e-01              0.1988     0.5284487
+247 dataset 1464       classif.logreg     0.7716725  0.4507769424    1.544758e-01              0.0092     0.7522996
+248 dataset 1464 classif.randomForest     0.7572072  0.3955254804    1.803676e-01              0.3490     0.6909018
+249  dataset 886       classif.logreg     0.5749984  0.4247747099    2.417987e-01              0.0064     0.6135415
+250  dataset 886 classif.randomForest     0.6444042  0.3556757103    2.162488e-01              0.2526     0.7100530
+251  dataset 770       classif.logreg     0.6435200  0.3560624680    2.119876e-01              0.0068     0.7157092
+252  dataset 770 classif.randomForest     0.9747200  0.0253737839    3.626125e-02              0.2204     0.9959831
+253  dataset 764       classif.logreg     0.9217778  0.1916685846    5.448934e-02              0.0112     0.9223475
+254  dataset 764 classif.randomForest     0.9162222  0.2871691600    5.554030e-02              0.1162     0.9546951
+255  dataset 717       classif.logreg     0.8858169  0.1174776989    8.532751e-02              0.0096     0.9567400
+256  dataset 717 classif.randomForest     0.8852132  0.1179205485    8.239322e-02              0.2356     0.9583228
+257  dataset 853       classif.logreg     0.8719647  0.1335115357    9.377523e-02              0.0094     0.9344177
+258  dataset 853 classif.randomForest     0.8893539  0.1174257564    8.368532e-02              0.2604     0.9524848
+259  dataset 334       classif.logreg     0.6108361  0.5337030095    2.304371e-01              0.0090     0.5392956
+260  dataset 334 classif.randomForest     0.8093058  0.2708608624    1.468519e-01              0.1842     0.8966515
+261 dataset 1447       classif.logreg     0.8400886  0.4157529240    1.262535e-01              0.0290     0.7151535
+262 dataset 1447 classif.randomForest     0.8587552  0.4988084795    1.101445e-01              0.2604     0.7246491
+263 dataset 1045       classif.logreg     0.8643038  0.3883068783    1.288549e-01              0.0506     0.5050000
+264 dataset 1045 classif.randomForest     0.9472053  0.3383730159    4.054248e-02              0.1266     0.9225132
+265  dataset 934       classif.logreg     0.9507800  0.0785515334    3.823436e-02              0.0620     0.9844845
+266  dataset 934 classif.randomForest     0.9513920  0.0686334842    3.801976e-02              0.3902     0.9880896
+267  dataset 827       classif.logreg     0.5404995  0.4596596737    2.490228e-01              0.0046     0.5501578
+268  dataset 827 classif.randomForest     0.4889438  0.5112086421    2.812522e-01              0.3908     0.4837663
+269  dataset 931       classif.logreg     0.5581952  0.4471918787    2.458883e-01              0.0064     0.5795966
+270  dataset 931 classif.randomForest     0.5200901  0.4822868274    2.731979e-01              0.3846     0.5183875
+271  dataset 997       classif.logreg     0.9520023  0.0506002907    4.212721e-02              0.0088     0.9821728
+272  dataset 997 classif.randomForest     0.8980922  0.1035110425    6.617869e-02              0.2370     0.9754018
+273  dataset 908       classif.logreg     0.4927088  0.5126343062    2.571263e-01              0.0052     0.4875118
+274  dataset 908 classif.randomForest     0.4580091  0.5442815058    2.725576e-01              0.2070     0.4439729
+275 dataset 1488       classif.logreg     0.8484406  0.2043639847    1.204696e-01              0.0070     0.8757893
+276 dataset 1488 classif.randomForest     0.9027348  0.1586360153    7.089050e-02              0.0996     0.9588871
+277  dataset 818       classif.logreg     0.9819355  0.0179310345    1.783861e-02              0.0160     0.9917973
+278  dataset 818 classif.randomForest     0.9987097  0.0013375131    3.441483e-03              0.0886     1.0000000
+279  dataset 753       classif.logreg     0.5704588  0.4312698413    2.835259e-01              0.0140     0.6043730
+280  dataset 753 classif.randomForest     0.5704993  0.4331746032    2.544951e-01              0.1766     0.5777368
+281  dataset 987       classif.logreg     1.0000000  0.0000000000    8.413943e-24              0.0384     1.0000000
+282  dataset 987 classif.randomForest     1.0000000  0.0000000000    3.101298e-03              0.2234     1.0000000
+283 dataset 1016       classif.logreg     0.9859596  0.0277222222    1.378433e-02              0.0484     0.9882130
+284 dataset 1016 classif.randomForest     0.9929293  0.0353888889    8.052512e-03              0.3672     0.9991049
+285  dataset 915       classif.logreg     0.5835225  0.4474101024    2.537464e-01              0.0096     0.5632580
+286  dataset 915 classif.randomForest     0.5704740  0.4618008393    2.478223e-01              0.1620     0.5618111
+287  dataset 875       classif.logreg     0.8659975  0.1470343137    1.340025e-01              0.0092     0.9601900
+288  dataset 875 classif.randomForest     0.8633283  0.3591666667    8.259874e-02              0.1034     0.9590472
+289  dataset 774       classif.logreg     0.5611757  0.4424711008    2.460616e-01              0.0076     0.5781909
+290  dataset 774 classif.randomForest     0.4996947  0.5018827640    2.780833e-01              0.2770     0.5054465
+291 dataset 1063       classif.logreg     0.8260586  0.3265826944    1.262002e-01              0.0178     0.8187295
+292 dataset 1063 classif.randomForest     0.8358571  0.2979541543    1.166468e-01              0.3316     0.8403896
+293  dataset 962       classif.logreg     0.9964000  0.0086666667    3.447454e-03              0.0452     0.9939618
+294  dataset 962 classif.randomForest     0.9984500  0.0075277778    1.845342e-03              0.5992     0.9962215
+295 dataset 1510       classif.logreg     0.9427003  0.0585117098    5.695434e-02              0.0434     0.9532930
+296 dataset 1510 classif.randomForest     0.9601235  0.0442123347    3.173119e-02              0.3620     0.9911571
+297   dataset 50       classif.logreg     0.9800724  0.0265454769    1.717878e-02              0.0474     0.9965555
+298   dataset 50 classif.randomForest     0.9860208  0.0181734100    4.956411e-02              0.4044     0.9982095
+299 dataset 1452       classif.logreg     0.9600021  0.4744557550    3.477524e-02              0.0562     0.7294985
+300 dataset 1452 classif.randomForest     0.9777250  0.5004109589    2.228185e-02              0.4520     0.8202824
+301 dataset 1462       classif.logreg     0.9899432  0.0101176005    7.057929e-03              0.0204     0.9997699
+302 dataset 1462 classif.randomForest     0.9919849  0.0078706218    6.285467e-03              0.4894     0.9998146
+303 dataset 1446       classif.logreg     0.8297360  0.4236449580    1.358626e-01              0.0264     0.6971258
+304 dataset 1446 classif.randomForest     0.8551105  0.4973319328    1.082669e-01              0.2348     0.7489697
+305   dataset 59       classif.logreg     0.8711791  0.1543538462    1.158493e-01              0.0298     0.8578168
+306   dataset 59 classif.randomForest     0.9333602  0.0793572650    5.243750e-02              0.2642     0.9799460
+307 dataset 1071       classif.logreg     0.9040292  0.4033585586    8.550396e-02              0.0248     0.6615101
+308 dataset 1071 classif.randomForest     0.9141627  0.4262478764    6.841172e-02              0.2854     0.7668393
+309  dataset 337       classif.logreg     0.8146004  0.2236018576    1.498357e-01              0.0244     0.8738795
+310  dataset 337 classif.randomForest     0.9056770  0.1346377709    7.488449e-02              0.3484     0.9616489
+311 dataset 1066       classif.logreg     0.6358621  0.3755392157    3.601411e-01              0.0518     0.6428431
+312 dataset 1066 classif.randomForest     0.7386207  0.2604411765    1.682583e-01              0.2092     0.8291176
+313   dataset 40       classif.logreg     0.7086319  0.2946068234    2.888137e-01              0.0470     0.7272688
+314   dataset 40 classif.randomForest     0.8370775  0.1680616809    1.292586e-01              0.2550     0.9341884
+315   dataset 37       classif.logreg     0.7733147  0.2733566038    1.576543e-01              0.0112     0.8307999
+316   dataset 37 classif.randomForest     0.7633928  0.2755082460    1.605290e-01              0.3580     0.8250942
+317  dataset 292       classif.logreg     0.8634841  0.1358962436    1.007435e-01              0.0128     0.9293954
+318  dataset 292 classif.randomForest     0.8671209  0.1338970157    9.700160e-02              0.3790     0.9355542
+319 dataset 1065       classif.logreg     0.9002389  0.3655455154    8.682436e-02              0.0338     0.7558166
+320 dataset 1065 classif.randomForest     0.8972002  0.4652309237    7.342450e-02              0.3568     0.8450820
+321  dataset 991       classif.logreg     0.9520821  0.0539799267    3.299080e-02              0.0490     0.9914320
+322  dataset 991 classif.randomForest     0.9870951  0.0101554139    1.897381e-02              0.5478     0.9992538
+323  dataset 914       classif.logreg     0.8305828  0.2716457598    1.198499e-01              0.0124     0.8702851
+324  dataset 914 classif.randomForest     0.8343323  0.3027404172    1.534458e-01              0.5008     0.7936004
+325  dataset 841       classif.logreg     0.8504205  0.1502036338    1.048519e-01              0.0156     0.9340981
+326  dataset 841 classif.randomForest     0.9688361  0.0311470716    2.490993e-02              0.3210     0.9964490
+327 dataset 1467       classif.logreg     0.9042896  0.4069934034    7.011647e-02              0.0130     0.8579362
+328 dataset 1467 classif.randomForest     0.9138936  0.4928717790    6.736074e-02              0.3274     0.8281333
+329 dataset 1443       classif.logreg     0.9144026  0.3896352798    6.969599e-02              0.0424     0.8252276
+330 dataset 1443 classif.randomForest     0.9317838  0.3823083593    5.553940e-02              0.5238     0.8651144
+331  dataset 851       classif.logreg     0.7852996  0.2211772487    2.084498e-01              0.1220     0.8321836
+332  dataset 851 classif.randomForest     0.9198983  0.0827539683    6.793963e-02              0.4244     0.9775665
+333 dataset 1004       classif.logreg     0.9990000  0.0018000000    7.648736e-04              0.0960     1.0000000
+334 dataset 1004 classif.randomForest     1.0000000  0.0000000000    2.119127e-03              0.4674     1.0000000
+335  dataset 872       classif.logreg     0.8755082  0.1307493848    9.459397e-02              0.0124     0.9322632
+336  dataset 872 classif.randomForest     0.8877700  0.1194628634    8.392533e-02              0.3624     0.9527910
+337  dataset 994       classif.logreg     0.9657087  0.0433954952    2.857541e-02              0.0206     0.9899436
+338  dataset 994 classif.randomForest     0.9872251  0.0191319528    1.674011e-02              0.4162     0.9985891
+339  dataset 954       classif.logreg     0.8521795  0.2995455542    1.452378e-01              0.1886     0.7763695
+340  dataset 954 classif.randomForest     0.9612079  0.1358178828    2.781852e-02              0.6488     0.9885687
+341 dataset 1068       classif.logreg     0.9237165  0.4605056048    6.434100e-02              0.0306     0.8051496
+342 dataset 1068 classif.randomForest     0.9368880  0.3767565839    5.119353e-02              0.7988     0.8610756
+343 dataset 1451       classif.logreg     0.9102483  0.3745410797    7.590136e-02              0.0450     0.8161091
+344 dataset 1451 classif.randomForest     0.9207308  0.3888185282    6.198736e-02              0.5582     0.8650101
+345  dataset 983       classif.logreg     0.6750930  0.3482420456    2.116907e-01              0.0164     0.7009143
+346  dataset 983 classif.randomForest     0.6980329  0.3226299145    1.982962e-01              0.7810     0.7511671
+347  dataset 311       classif.logreg     0.9496175  0.2536537865    4.929434e-02              0.0972     0.8066375
+348  dataset 311 classif.randomForest     0.9636134  0.3869497207    2.850777e-02              0.9206     0.9374455
+349  dataset 724       classif.logreg     0.7375658  0.2609706960    1.661794e-01              0.0124     0.8273131
+350  dataset 724 classif.randomForest     0.8534431  0.1479755204    1.012634e-01              0.3656     0.9345373
+351 dataset 1547       classif.logreg     0.7306996  0.4666294155    1.815292e-01              0.0154     0.6630944
+352 dataset 1547 classif.randomForest     0.7804005  0.3952414005    1.662017e-01              1.0240     0.6944217
+353 dataset 1444       classif.logreg     0.8758332  0.4014190992    9.376792e-02              0.0582     0.8105635
+354 dataset 1444 classif.randomForest     0.8780498  0.4451034185    9.019244e-02              1.1678     0.8257867
+355  dataset 958       classif.logreg     0.9925974  0.0132828283    7.421020e-03              0.0750     0.9874097
+356  dataset 958 classif.randomForest     0.9974892  0.0079040404    2.713385e-03              1.0936     0.9999105
+357 dataset 1453       classif.logreg     0.8718763  0.4077954217    9.516259e-02              0.0450     0.8195650
+358 dataset 1453 classif.randomForest     0.8730722  0.4495951645    9.139137e-02              1.1398     0.8303214
+359  dataset 970       classif.logreg     0.9907247  0.0085619277    8.107919e-03              0.1688     0.9997565
+360  dataset 970 classif.randomForest     0.9941751  0.0067803724    1.809843e-02              1.2368     0.9999371
+361  dataset 772       classif.logreg     0.5561055  0.4910011673    2.464639e-01              0.0096     0.5312685
+362  dataset 772 classif.randomForest     0.5232764  0.4893003823    2.804356e-01              1.0704     0.5156822
+363  dataset 728       classif.logreg     0.9894374  0.0156228820    1.546438e-02              0.0352     0.9938434
+364  dataset 728 classif.randomForest     0.9931641  0.0135248650    1.132757e-02              1.1442     0.9969476
+365 dataset 1050       classif.logreg     0.8963558  0.4206984304    7.986454e-02              0.0670     0.8203756
+366 dataset 1050 classif.randomForest     0.9017885  0.4240376843    7.360880e-02              1.7848     0.8514036
+367  dataset 737       classif.logreg     0.8387185  0.1614982898    1.195818e-01              0.0216     0.9041692
+368  dataset 737 classif.randomForest     0.8425165  0.1576047262    1.151439e-01              1.7888     0.9160609
+369 dataset 1494       classif.logreg     0.8636039  0.1538428300    1.010061e-01              0.0860     0.9217463
+370 dataset 1494 classif.randomForest     0.8727192  0.1546161043    9.317454e-02              1.5278     0.9349599
+371  dataset 923       classif.logreg     0.9998727  0.0001157452    1.487307e-04              0.1598     0.9999894
+372  dataset 923 classif.randomForest     0.9998843  0.0001286009    6.867259e-05              1.8364     1.0000000
+373 dataset 1570       classif.logreg     0.9677413  0.2062268640    2.409610e-02              0.0424     0.9772863
+374 dataset 1570 classif.randomForest     0.9824963  0.1311312117    1.280238e-02              1.5786     0.9887898
+375 dataset 1067       classif.logreg     0.8580391  0.3997982456    1.073500e-01              0.0400     0.8017581
+376 dataset 1067 classif.randomForest     0.8603152  0.3643702680    1.024363e-01              1.7586     0.8331117
+377 dataset 1454       classif.logreg     0.9105644  0.2797780258    6.681662e-02              0.0968     0.9116874
+378 dataset 1454 classif.randomForest     0.9040512  0.3385350942    6.411350e-02              1.4540     0.9403813
+379  dataset 995       classif.logreg     0.9871000  0.0280555556    1.247165e-02              0.2060     0.9874090
+380  dataset 995 classif.randomForest     0.9886000  0.0527777778    9.926810e-03              1.9240     0.9947799
+381 dataset 1049       classif.logreg     0.9099550  0.2760641121    6.905947e-02              0.1002     0.9100890
+382 dataset 1049 classif.randomForest     0.9068592  0.3325969742    6.290601e-02              1.4158     0.9433710
+383 dataset 1014       classif.logreg     0.8053939  0.5000775194    1.592945e-01              0.0134     0.5482550
+384 dataset 1014 classif.randomForest     0.7836950  0.5128107222    1.899775e-01              0.9948     0.4616286
+385  dataset 720       classif.logreg     0.7873824  0.2126563662    1.454963e-01              0.0348     0.8739795
+386  dataset 720 classif.randomForest     0.7948757  0.2050385242    1.429657e-01              2.3006     0.8746372
+387  dataset 871       classif.logreg     0.4916844  0.5083109443    2.505065e-01              0.0174     0.4904441
+388  dataset 871 classif.randomForest     0.4947750  0.5052253788    2.676157e-01              2.7532     0.4917726
+389 dataset 1069       classif.logreg     0.9945970  0.4692725251    5.068359e-03              0.3088     0.7554526
+390 dataset 1069 classif.randomForest     0.9956524  0.5001167692    4.237254e-03              4.5864     0.8539394
+391  dataset 971       classif.logreg     0.9991500  0.0024722222    7.756756e-04              0.5448     0.9999944
+392  dataset 971 classif.randomForest     0.9964000  0.0180000000    4.014000e-03              2.5008     0.9999417
+393 dataset 1489       classif.logreg     0.7499261  0.3333568681    1.579921e-01              0.0300     0.8124874
+394 dataset 1489 classif.randomForest     0.9097885  0.1126618509    6.947494e-02              2.2156     0.9619891
+395   dataset 31       classif.logreg     0.7494000  0.3273809524    1.695703e-01              0.0368     0.7804262
+396   dataset 31 classif.randomForest     0.7589000  0.3492619048    1.633476e-01              1.5944     0.7904881
+397 dataset 1021       classif.logreg     0.9494799  0.1844583879    3.923105e-02              0.0500     0.9384037
+398 dataset 1021 classif.randomForest     0.9765943  0.0680174730    1.809421e-02              2.4698     0.9914300
+399 dataset 1022       classif.logreg     0.8292500  0.2193055556    1.621840e-01             59.2896     0.8551111
+400 dataset 1022 classif.randomForest     0.9921500  0.0376944444    7.840215e-03              1.7390     0.9994243
+401 dataset 1479       classif.logreg     0.5899336  0.4099993226    4.100664e-01              0.3394     0.5900007
+402 dataset 1479 classif.randomForest     0.5665815  0.4334040103    2.532324e-01              4.0934     0.5888659
+403 dataset 1460       classif.logreg     0.5575078  0.4830197636    2.458159e-01              0.0174     0.5477303
+404 dataset 1460 classif.randomForest     0.8938877  0.1082801048    7.650265e-02              1.6770     0.9618384
+405 dataset 1020       classif.logreg     0.9859000  0.0316111111    1.310944e-02              0.3498     0.9894215
+406 dataset 1020 classif.randomForest     0.9811500  0.0942500000    1.769025e-02              3.3020     0.9989056
+407  dataset 803       classif.logreg     0.9383782  0.0625869077    5.267675e-02              0.0444     0.9720298
+408  dataset 803 classif.randomForest     0.9445362  0.0562342540    4.531347e-02              2.9212     0.9791644
+409  dataset 316       classif.logreg     0.9632606  0.4241859134    3.612926e-02              1.0950     0.6155438
+410  dataset 316 classif.randomForest     0.9859336  0.5000000000    1.366331e-02              6.1332     0.7886361
+411  dataset 959       classif.logreg     1.0000000  0.0000000000    8.413943e-24              0.5914     1.0000000
+412  dataset 959 classif.randomForest     1.0000000  0.0000000000    1.878621e-03              2.6000     1.0000000
+413 dataset 1487       classif.logreg     0.9362274  0.3543262408    4.906290e-02              0.2270     0.9009487
+414 dataset 1487 classif.randomForest     0.9433307  0.4228120725    4.218015e-02              5.1962     0.9168104
+415  dataset 310       classif.logreg     0.9836448  0.2965380843    1.308424e-02              0.1074     0.9188626
+416  dataset 310 classif.randomForest     0.9876867  0.2295144005    1.006371e-02              3.5470     0.9487285
+417 dataset 4534       classif.logreg     0.9393847  0.0622935296    4.444070e-02              0.8084     0.9868271
+418 dataset 4534 classif.randomForest     0.9670827  0.0340749288    2.561372e-02              3.7206     0.9953799
+419  dataset 725       classif.logreg     0.9425410  0.0607744308    4.050062e-02              0.0752     0.9892892
+420  dataset 725 classif.randomForest     0.9412107  0.0617676701    4.465962e-02              4.0934     0.9881031
+421  dataset 976       classif.logreg     0.9645416  0.0727841299    2.560836e-02              0.1278     0.9919585
+422  dataset 976 classif.randomForest     0.9879530  0.0303283553    1.125593e-02              5.8682     0.9991873
+423  dataset 847       classif.logreg     0.8517944  0.1497079143    1.023113e-01              0.0638     0.9349197
+424  dataset 847 classif.randomForest     0.8631725  0.1379115447    9.971926e-02              4.8380     0.9379999
+425 dataset 1019       classif.logreg     0.9937137  0.0160624091    4.876046e-03              0.2060     0.9991967
+426 dataset 1019 classif.randomForest     0.9960699  0.0087998648    4.529245e-03              5.3590     0.9995942
+427  dataset 735       classif.logreg     0.9141112  0.1129080246    6.182705e-02              0.1346     0.9679294
+428  dataset 735 classif.randomForest     0.9249145  0.1006593545    5.452523e-02              5.3666     0.9764271
+429  dataset 807       classif.logreg     0.7323008  0.2678703408    1.764907e-01              0.0420     0.8138776
+430  dataset 807 classif.randomForest     0.8438965  0.1562168441    1.176592e-01              5.0644     0.9297367
+431  dataset 819       classif.logreg     0.8805087  0.1193989876    8.968226e-02              0.0592     0.9423934
+432  dataset 819 classif.randomForest     0.8812231  0.1187459812    8.963894e-02              4.5758     0.9440098
+433  dataset 978       classif.logreg     0.9959500  0.0091388889    3.564629e-03              2.1644     0.9990535
+434  dataset 978 classif.randomForest     0.9942500  0.0287500000    6.165820e-03              6.8792     0.9993819
+435 dataset 1056       classif.logreg     0.9932603  0.3672229858    6.669979e-03              0.5636     0.8619960
+436 dataset 1056 classif.randomForest     0.9949294  0.3140182296    4.264025e-03              8.9984     0.9323871
+437  dataset 816       classif.logreg     0.8260371  0.1739664949    1.530454e-01              0.0480     0.8556484
+438  dataset 816 classif.randomForest     0.8303585  0.1696897432    1.234277e-01              5.3222     0.9059167
+439  dataset 979       classif.logreg     0.8521997  0.1590528775    1.019701e-01              0.1372     0.9277103
+440  dataset 979 classif.randomForest     0.8910587  0.1367860124    8.671976e-02              8.0760     0.9607975
+441 dataset 1507       classif.logreg     0.9778106  0.0221898342    1.697116e-02              0.1408     0.9977791
+442 dataset 1507 classif.randomForest     0.9735537  0.0264472709    4.635780e-02              7.5228     0.9968346
+443 dataset 1496       classif.logreg     0.7590676  0.2414121534    1.707212e-01              0.0808     0.8137452
+444 dataset 1496 classif.randomForest     0.9502703  0.0494813238    4.545270e-02             10.9706     0.9919376
+445 dataset 1043       classif.logreg     0.8406611  0.2417913577    1.094417e-01              0.5480     0.8940296
+446 dataset 1043 classif.randomForest     0.8514674  0.2355241653    1.070058e-01              8.3104     0.8939450
+447 dataset 1046       classif.logreg     0.8499841  0.1639755728    1.284899e-01              0.0900     0.8869561
+448 dataset 1046 classif.randomForest     0.9536120  0.0661323921    3.611199e-02              5.7994     0.9833340
+449  dataset 980       classif.logreg     0.9880425  0.0356465325    9.586836e-03              0.6816     0.9965443
+450  dataset 980 classif.randomForest     0.9882029  0.0577314574    1.158584e-02              8.8652     0.9991779
+451  dataset 761       classif.logreg     0.9368403  0.0804130180    4.831503e-02              0.1936     0.9799704
+452  dataset 761 classif.randomForest     0.9365963  0.0810794210    4.730282e-02              8.3672     0.9821160
+453  dataset 823       classif.logreg     0.9633430  0.0380767727    2.638818e-02              0.1912     0.9949120
+454  dataset 823 classif.randomForest     0.9823789  0.0180613011    1.293319e-02              8.5972     0.9987188
+455   dataset 44       classif.logreg     0.9258005  0.0803884824    6.012620e-02              0.4106     0.9695125
+456   dataset 44 classif.randomForest     0.9524679  0.0523935616    3.969882e-02             10.1000     0.9857552
+457  dataset 977       classif.logreg     0.9768400  0.2410481113    1.871057e-02              0.3800     0.9659784
+458  dataset 977 classif.randomForest     0.9958850  0.0501545273    3.231393e-03             13.1786     0.9997904
+459 dataset 1471       classif.logreg     0.6418020  0.3728760646    2.247389e-01              0.2242     0.6749998
+460 dataset 1471 classif.randomForest     0.9322496  0.0704367322    7.000978e-02             14.6634     0.9836686
+461  dataset 137       classif.logreg     0.7290961  0.3303115077    1.828298e-01              0.3638     0.7599776
+462  dataset 137 classif.randomForest     0.7993903  0.2393427473    1.437778e-01             15.3964     0.8611940
+463  dataset 833       classif.logreg     0.8183476  0.2374277198    1.239678e-01              0.1446     0.8893902
+464  dataset 833 classif.randomForest     0.8102058  0.2571482826    1.346950e-01             15.5182     0.8791139
+465  dataset 843       classif.logreg     0.8545119  0.2141819979    1.100001e-01              0.1814     0.8867469
+466  dataset 843 classif.randomForest     0.8919769  0.1456110013    7.834773e-02             15.3124     0.9480813
+467 dataset 1120       classif.logreg     0.7908046  0.2547193803    1.474033e-01              0.1184     0.8390704
+468 dataset 1120 classif.randomForest     0.8812409  0.1439978693    8.949357e-02             16.6906     0.9370093
+469  dataset 312       classif.logreg     0.9466149  0.0694370385    5.145080e-02              4.5138     0.9595695
+470  dataset 312 classif.randomForest     0.9124656  0.2417037889    7.180882e-02             17.4336     0.9498852
+471  dataset 752       classif.logreg     0.6451045  0.3549928608    2.293981e-01              0.1310     0.6662298
+472  dataset 752 classif.randomForest     0.8815308  0.1184248414    1.197065e-01             15.0432     0.9435113
+473  dataset 822       classif.logreg     0.8453101  0.1621096570    1.106657e-01              0.1330     0.9181010
+474  dataset 822 classif.randomForest     0.8848740  0.1237987635    8.318315e-02             12.1054     0.9557204
+475  dataset 881       classif.logreg     0.9998038  0.0001969407    1.768560e-04              1.1498     0.9999752
+476  dataset 881 classif.randomForest     0.9972209  0.0028351517    3.262602e-03             16.3996     0.9999631
+477  dataset 251       classif.logreg     0.9791902  0.0233437357    1.592229e-02              0.3724     0.9977014
+478  dataset 251 classif.randomForest     0.9863969  0.0138879253    1.085728e-02             18.5088     0.9986482
+479  dataset 722       classif.logreg     0.8913202  0.1236655945    8.417017e-02              0.2328     0.9408679
+480  dataset 722 classif.randomForest     0.9861067  0.0175409013    1.279582e-02             16.9158     0.9991358
+481  dataset 846       classif.logreg     0.8981505  0.1415578585    7.583275e-02              0.6274     0.9433365
+482  dataset 846 classif.randomForest     0.8632148  0.1952447261    1.012193e-01             18.3138     0.9148580
+483  dataset 734       classif.logreg     0.8410435  0.1599455692    1.328650e-01              1.1986     0.8965248
+484  dataset 734 classif.randomForest     0.8746620  0.1291575522    9.156026e-02             25.5300     0.9495894
+485  dataset 821       classif.logreg     0.8267995  0.2364981540    1.239314e-01              0.3364     0.8863048
+486  dataset 821 classif.randomForest     0.8940529  0.1360628355    7.828659e-02             25.1344     0.9521350
+487  dataset 727       classif.logreg     0.8373577  0.1626433773    1.157547e-01              0.3152     0.9177458
+488  dataset 727 classif.randomForest     0.9313898  0.0686002306    4.936311e-02             22.1586     0.9832713
+489 dataset 1461       classif.logreg     0.9015306  0.3396146320    7.115035e-02              1.0514     0.9066613
+490 dataset 1461 classif.randomForest     0.9081396  0.2741344887    6.209854e-02             37.1274     0.9337149
+491  dataset 151       classif.logreg     0.7218084  0.2981950127    2.280462e-01              1.0024     0.7569277
+492  dataset 151 classif.randomForest     0.8953346  0.1091554998    7.672152e-02             29.1996     0.9640901
+493  dataset 901       classif.logreg     0.8370265  0.1629765876    1.154938e-01              0.2606     0.9159500
+494  dataset 901 classif.randomForest     0.9190640  0.0809416028    6.235900e-02             30.9768     0.9795342
+495 dataset 1485       classif.logreg     0.5511538  0.4488461538    3.033972e-01              2.5932     0.5715834
+496 dataset 1485 classif.randomForest     0.7235385  0.2764615385    2.061153e-01             46.8008     0.8032203
+497 dataset 1040       classif.logreg     0.9677875  0.0485612759    3.110798e-02              5.0090     0.9650066
+498 dataset 1040 classif.randomForest     0.9938035  0.0319369878    6.379776e-03             48.8126     0.9987782
+499  dataset 143       classif.logreg     0.9640205  0.0371451136    2.797918e-02              2.2128     0.9923083
+500  dataset 143 classif.randomForest     0.9731552  0.0283126891    2.146256e-02             59.5892     0.9936470
+    logloss.test.mean
+1        3.005964e-01
+2        3.015422e-01
+3        9.545266e-01
+4        1.915748e+00
+5        4.696478e-01
+6        1.056902e+00
+7        6.883951e-01
+8        7.646121e-01
+9        2.619547e-01
+10       4.538441e-01
+11       1.321327e+00
+12       5.564227e-01
+13       7.007420e-01
+14       1.053990e+00
+15       1.444190e-01
+16       1.281532e-01
+17       2.204329e+00
+18       2.903013e-01
+19       3.558893e+00
+20       2.188212e-01
+21       2.906221e+00
+22       8.818460e-01
+23       5.440317e-01
+24       4.749022e-01
+25       3.017601e+00
+26       3.231339e-01
+27       6.748722e-01
+28       6.097830e-01
+29       6.053817e-01
+30       6.936634e-01
+31       3.122462e-01
+32       3.218661e-02
+33       4.583406e+00
+34       5.054730e-01
+35       6.449037e-01
+36       6.965307e-01
+37       2.168630e+00
+38       3.631898e-01
+39       3.349818e-01
+40       3.521907e-01
+41       3.946331e-05
+42       2.007079e-03
+43       7.167269e+00
+44       6.002376e-01
+45       1.944719e+00
+46       8.738549e-01
+47       1.915125e+00
+48       1.223749e-01
+49       1.910179e+00
+50       3.093338e+00
+51       5.515709e-01
+52       4.779519e-01
+53       7.424938e+00
+54       3.593047e-01
+55       1.058829e+00
+56       5.477939e-01
+57       1.146301e+00
+58       1.216427e-01
+59       1.500135e+00
+60       5.453775e-01
+61       2.986374e+00
+62       3.845054e-01
+63       7.597727e-01
+64       6.097263e-01
+65       3.674737e+00
+66       3.328905e-01
+67       3.459188e-01
+68       1.556601e+00
+69       5.309004e-01
+70       4.028684e-01
+71       1.847554e-01
+72       1.357294e-01
+73       6.754942e-01
+74       4.322716e-01
+75       5.514453e-12
+76       2.404851e-02
+77       5.625328e-01
+78       4.762009e-01
+79       6.834456e+00
+80       4.355977e-01
+81       2.325880e+00
+82       1.051033e-01
+83       3.078591e-01
+84       5.824251e-02
+85       6.528328e-01
+86       5.408528e-01
+87       1.238822e-01
+88       1.452307e-01
+89       1.632500e-03
+90       2.630169e-01
+91       2.900680e-12
+92       2.451296e-02
+93       5.301253e+00
+94       3.935782e-01
+95       2.942702e+00
+96       3.091560e-01
+97       6.031525e-01
+98       5.390405e-01
+99       2.535233e-02
+100      1.994986e-02
+101      1.084957e+00
+102      1.387158e-01
+103      4.342501e+00
+104      2.724916e-01
+105      2.689286e-01
+106      2.009082e-01
+107      3.296470e-01
+108      3.343017e-01
+109      2.457270e+00
+110      5.304868e-01
+111      3.100892e+00
+112      2.597248e-01
+113      2.934871e+00
+114      2.678447e-01
+115      5.616578e-01
+116      6.165915e-01
+117      6.979409e-01
+118      8.598415e-01
+119      6.610716e-01
+120      6.103691e-01
+121      6.158315e-01
+122      6.829940e-01
+123      4.908490e-01
+124      1.152783e-01
+125      6.712945e-01
+126      7.760508e-01
+127      6.957034e-01
+128      8.269684e-01
+129      7.024702e-01
+130      6.397939e-01
+131      5.933041e-01
+132      5.654193e-01
+133      4.965162e-01
+134      6.472501e-01
+135      1.542624e+00
+136      1.253774e-01
+137      5.727790e-01
+138      6.507701e-01
+139      7.490207e-01
+140      6.163909e-01
+141      1.226063e+00
+142      8.263633e-01
+143      7.124401e-01
+144      5.965258e-01
+145      6.162685e-01
+146      5.707047e-01
+147      7.193747e+00
+148      3.325889e-01
+149      5.974883e-01
+150      5.465669e-01
+151      8.056977e-01
+152      9.614166e-01
+153      8.878635e+00
+154      4.618446e-01
+155      4.476303e-01
+156      3.482911e-01
+157      1.772102e-01
+158      1.839412e-01
+159      7.206891e-01
+160      5.035321e-01
+161      6.944545e-01
+162      3.860437e-01
+163      4.127990e+00
+164      5.686837e-01
+165      2.242261e-01
+166      1.500957e-01
+167      6.029656e-01
+168      5.677320e-01
+169      4.692267e-01
+170      4.398535e-01
+171      3.477749e-01
+172      2.827543e-01
+173      2.860936e-01
+174      4.085831e-01
+175      3.438863e-01
+176      6.459014e-01
+177      6.918810e-01
+178      3.150871e-01
+179      5.178072e+00
+180      3.786037e-01
+181      3.156287e-01
+182      3.340227e-01
+183      6.799233e-01
+184      6.703011e-01
+185      1.270999e-01
+186      1.380656e-01
+187      2.139299e+00
+188      7.974072e-02
+189      8.144218e+00
+190      5.226656e-01
+191      7.067919e-01
+192      7.259860e-01
+193      7.092332e-01
+194      7.248394e-01
+195      2.877801e-01
+196      2.620579e-01
+197      5.661513e-01
+198      4.666148e-02
+199      2.900680e-12
+200      3.622508e-02
+201      7.049840e-01
+202      6.564255e-01
+203      4.055172e-01
+204      4.055418e-01
+205      6.260746e-01
+206      1.127410e-01
+207      2.585642e-01
+208      2.480338e-01
+209      2.740243e-01
+210      1.860869e-01
+211      6.249445e+00
+212      3.139229e-01
+213      2.576950e-01
+214      2.139843e-01
+215      1.703267e-01
+216      1.207137e-01
+217      4.994199e-01
+218      2.179336e-01
+219      2.513964e+00
+220      5.648295e-01
+221      8.756388e-01
+222      3.609533e-01
+223      1.511376e+01
+224      4.176716e-01
+225      7.518266e-01
+226      9.323262e-01
+227      6.710848e-01
+228      3.792061e-01
+229      6.921561e-01
+230      7.154381e-01
+231      2.354964e+00
+232      4.268302e-01
+233      6.490975e-01
+234      6.051117e-01
+235      5.875577e-01
+236      9.782905e-01
+237      2.448626e-01
+238      1.965866e-01
+239      5.461704e-01
+240      5.152094e-01
+241      5.355001e-01
+242      5.892694e-01
+243      6.922270e-01
+244      7.635552e-01
+245      7.076395e-01
+246      7.135270e-01
+247      4.776635e-01
+248      1.182418e+00
+249      6.772285e-01
+250      6.208418e-01
+251      6.255261e-01
+252      1.594112e-01
+253      2.643470e-01
+254      2.033245e-01
+255      2.712273e-01
+256      2.700999e-01
+257      3.322226e-01
+258      2.749340e-01
+259      6.494951e-01
+260      4.499022e-01
+261      5.435147e-01
+262      4.052287e-01
+263      2.890518e+00
+264      1.454609e-01
+265      1.496007e-01
+266      1.298604e-01
+267      6.912956e-01
+268      7.656370e-01
+269      6.850754e-01
+270      7.506537e-01
+271      1.476976e-01
+272      2.119682e-01
+273      7.078790e-01
+274      7.410189e-01
+275      4.639611e-01
+276      2.365074e-01
+277      4.069509e-01
+278      1.776671e-02
+279      8.616897e-01
+280      7.079782e-01
+281      2.900680e-12
+282      3.626186e-02
+283      3.158318e-01
+284      3.858520e-02
+285      7.350057e-01
+286      6.903283e-01
+287      2.886828e+00
+288      2.591453e-01
+289      6.853792e-01
+290      7.605172e-01
+291      5.225158e-01
+292      7.667018e-01
+293      9.344614e-02
+294      2.903390e-02
+295      1.709282e+00
+296      1.238413e-01
+297      5.488329e-02
+298      2.161298e-01
+299      3.154001e-01
+300      1.115981e-01
+301      2.228414e-02
+302      2.994843e-02
+303      7.238735e-01
+304      4.114389e-01
+305      1.304223e+00
+306      2.006332e-01
+307      5.879266e-01
+308      2.842029e-01
+309      7.018733e-01
+310      2.652349e-01
+311      1.020480e+01
+312      4.985924e-01
+313      8.780435e+00
+314      4.166902e-01
+315      4.853386e-01
+316      4.844268e-01
+317      3.404497e-01
+318      3.524052e-01
+319      4.108790e-01
+320      3.053037e-01
+321      1.077118e-01
+322      9.155551e-02
+323      3.720847e-01
+324      3.028412e+00
+325      3.309572e-01
+326      8.803839e-02
+327      2.385047e-01
+328      2.343653e-01
+329      2.587309e-01
+330      2.048966e-01
+331      4.413701e+00
+332      2.473336e-01
+333      3.424447e-03
+334      2.146504e-02
+335      3.527026e-01
+336      2.756238e-01
+337      1.336435e-01
+338      7.717748e-02
+339      3.571045e+00
+340      9.259811e-02
+341      2.920206e-01
+342      2.014609e-01
+343      4.455000e-01
+344      2.208110e-01
+345      6.127972e-01
+346      6.036256e-01
+347      1.336590e+00
+348      1.050788e-01
+349      5.172099e-01
+350      3.321891e-01
+351      5.472745e-01
+352      5.152412e-01
+353      3.159275e-01
+354      3.257280e-01
+355      2.450816e-01
+356      1.320587e-02
+357      3.154013e-01
+358      3.152508e-01
+359      6.230944e-02
+360      1.063165e-01
+361      6.860696e-01
+362      7.765066e-01
+363      8.878237e-02
+364      9.474673e-02
+365      2.722547e-01
+366      3.009581e-01
+367      3.945744e-01
+368      3.708846e-01
+369      3.940460e-01
+370      3.179575e-01
+371      1.741408e-03
+372      6.028080e-04
+373      8.482653e-02
+374      5.542833e-02
+375      3.550526e-01
+376      5.435309e-01
+377      2.357189e-01
+378      2.029506e-01
+379      2.481263e-01
+380      5.168580e-02
+381      3.686535e-01
+382      2.004806e-01
+383      5.177483e-01
+384      1.298569e+00
+385      4.463166e-01
+386      4.521275e-01
+387      6.941612e-01
+388      7.326698e-01
+389      4.441563e-02
+390      4.619497e-02
+391      4.119340e-03
+392      2.385885e-02
+393      4.717343e-01
+394      2.487105e-01
+395      5.263514e-01
+396      4.947721e-01
+397      1.555521e-01
+398      9.220800e-02
+399      2.526192e+00
+400      3.999640e-02
+401      1.416319e+01
+402      7.064396e-01
+403      6.848053e-01
+404      2.704079e-01
+405      2.119580e-01
+406      8.137783e-02
+407      1.972240e-01
+408      1.917301e-01
+409      9.373656e-01
+410      7.095657e-02
+411      2.900680e-12
+412      3.045021e-02
+413      1.716054e-01
+414      1.525313e-01
+415      5.749933e-02
+416      8.041521e-02
+417      1.452841e-01
+418      9.418351e-02
+419      1.301716e-01
+420      1.631918e-01
+421      8.473305e-02
+422      5.005841e-02
+423      3.242565e-01
+424      3.247082e-01
+425      1.953101e-02
+426      2.196176e-02
+427      2.034888e-01
+428      1.833615e-01
+429      5.300603e-01
+430      3.834024e-01
+431      3.030962e-01
+432      3.101300e-01
+433      3.900019e-02
+434      3.098081e-02
+435      6.667652e-02
+436      4.629626e-02
+437      5.113906e-01
+438      3.954232e-01
+439      3.130252e-01
+440      2.881645e-01
+441      5.975694e-02
+442      1.983963e-01
+443      5.215678e-01
+444      1.799569e-01
+445      3.469193e-01
+446      3.469635e-01
+447      4.313172e-01
+448      1.328715e-01
+449      4.309613e-02
+450      5.434093e-02
+451      1.615682e-01
+452      1.632819e-01
+453      9.136926e-02
+454      5.201535e-02
+455      3.260017e-01
+456      1.620695e-01
+457      7.042011e-02
+458      1.485986e-02
+459      6.405485e-01
+460      2.612500e-01
+461      5.451212e-01
+462      6.371269e-01
+463      3.871664e-01
+464      4.231810e-01
+465      3.813177e-01
+466      2.640392e-01
+467      4.579523e-01
+468      2.972686e-01
+469      1.034308e+00
+470      2.542514e-01
+471      6.516794e-01
+472      4.077300e-01
+473      3.593768e-01
+474      2.747528e-01
+475      1.960320e-03
+476      1.717757e-02
+477      5.745684e-02
+478      4.516694e-02
+479      2.935712e-01
+480      5.437735e-02
+481      2.521233e-01
+482      3.326835e-01
+483      2.348451e+00
+484      2.998285e-01
+485      4.092702e-01
+486      2.629206e-01
+487      3.634431e-01
+488      1.672403e-01
+489      2.397342e-01
+490      2.008367e-01
+491      4.555755e+00
+492      2.548592e-01
+493      3.719613e-01
+494      2.158399e-01
+495      9.041277e-01
+496      6.026138e-01
+497      9.293702e-01
+498      2.873844e-02
+499      1.028234e-01
+500      1.751531e-01
+                             acc       auc     brier       ber   logloss timetrain
+classif.logreg         0.8205961 0.8256030 0.1301382 0.2396902 1.1559056  0.385740
+classif.randomForest   0.8505170 0.8663418 0.1042731 0.2141329 0.3866035  3.073357
+classif.multinom             NaN       NaN       NaN       NaN       NaN       NaN
+classif.cvglmnet.ridge       NaN       NaN       NaN       NaN       NaN       NaN
+classif.cvglmnet.lasso       NaN       NaN       NaN       NaN       NaN       NaN

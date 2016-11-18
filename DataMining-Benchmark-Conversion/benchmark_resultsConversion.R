@@ -14,7 +14,7 @@ source(file = "DataMining-Benchmark-Conversion/benchmark_defs.R")
 ################################################################################################################################
 
 ## Load and convert the reasults to a data frame ----
-load(file = "Data/Results/benchmark_results_snow_small-medium-allLearners_strat_All.RData")
+load(file = "Data/Results/benchmark_parallel_snowfall.RData")
 load(file = "Data/Results/clas_time.RData")
 
 leaner.id.lr = "classif.logreg"
@@ -42,6 +42,7 @@ importance.df = data.frame(l1 = importance.list.aggr.l1,
 
 # remove error message for pdp
 res.errorMessages.pdp = which(!sapply(pdp.weigheddifference, function(x) typeof(x)=="list"))
+
 result = result[-res.errorMessages.pdp]
 clas_used = clas_used[-res.errorMessages.pdp,]
 importance.df = importance.df[-res.errorMessages.pdp,]
