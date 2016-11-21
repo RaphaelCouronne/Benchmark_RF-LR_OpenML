@@ -592,3 +592,13 @@ Warning message:
 In file.remove("Data/OpenML/NAsDatasets.Rout") :
   cannot remove file 'Data/OpenML/NAsDatasets.Rout', reason 'Permission denied'
 
+ [1] "acc.test.mean"                   "brier.test.mean"                 "auc.test.mean"                  
+ [4] "timetrain.test.mean"             "logp"                            "logn"                           
+ [7] "logdimension"                    "logpsurn"                        "logdimensionsurn"               
+[10] "lograpportMajorityMinorityClass" "pnum"                            "psymbolic"                      
+[13] "pnumrate"                        "Cmax"                           
+ [1] "acc.test.mean"                   "brier.test.mean"                 "auc.test.mean"                  
+ [4] "timetrain.test.mean"             "logp"                            "logn"                           
+ [7] "logdimension"                    "logpsurn"                        "logdimensionsurn"               
+[10] "lograpportMajorityMinorityClass" "pnum"                            "psymbolic"                      
+[13] "pnumrate"                        "Cmax"                           

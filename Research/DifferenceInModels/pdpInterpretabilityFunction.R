@@ -22,7 +22,7 @@ library(mlr)
 # The weights are defined using the empirical density of observations in each interval of the partial dependance data
 
 
-weightedPdpInterpretability = function(task, gridsize) {
+weightedPdpDistance = function(task, gridsize) {
   
   # get the infos
   target = task$task.desc$target
@@ -71,7 +71,22 @@ weightedPdpInterpretability = function(task, gridsize) {
       pd.rf = generatePartialDependenceData(fit.classif.rf, task, features.list[index.temp], gridsize = gridsize)
       pd.lr = generatePartialDependenceData(fit.classif.lr, task, features.list[index.temp], gridsize = gridsize)
       
-      if (length(pd.rf$data[[feature.temp]])==gridsize) {
+      plotPartialDependence(pd.rf)
+      plotPartialDependence(pd.lr)
+      
+      #pd.lr = generatePartialDependenceData(fit.classif.lr, task, features.list[c(1,2)], 
+      #                                      gridsize = gridsize, interaction = TRUE)
+      
+      #pd.rf = generatePartialDependenceData(fit.classif.rf, task, features.list[c(1,2)], 
+      #                                      gridsize = gridsize, interaction = TRUE)
+      
+      #plotPartialDependence(pd.rf, geom = "tile")
+      #plotPartialDependence(pd.lr, geom = "tile")
+      
+
+
+      feature_cardinality = length(pd.rf$data[[feature.temp]])
+                                   
         
         # compute the difference of probability
         difference = pd.rf$data$Probability-pd.lr$data$Probability
@@ -81,11 +96,11 @@ weightedPdpInterpretability = function(task, gridsize) {
         
         # compute the density of observation according to the chosen grid for the partial dependance datas
         bins = c(-Inf,pd.rf$data[[feature.temp]],Inf)
-        empiricalFeature = difference.l1
+        empiricalFeature = task$env$data[[feature.temp]]
         histo = hist(empiricalFeature, breaks = bins, plot = FALSE)
         density = histo$counts/sum(histo$counts)
-        weights = rep(NA, gridsize)
-        for (j in c(1:gridsize)) {
+        weights = rep(NA, feature_cardinality)
+        for (j in c(1:feature_cardinality)) {
           weights[j] = 1/2*(density[j]+density[j+1])
         }
         
@@ -94,8 +109,7 @@ weightedPdpInterpretability = function(task, gridsize) {
         pd.diff.numeric.l1[,i] = difference.l1 * weights
         pd.diff.numeric.l2[,i] = difference.l2 * weights
         pd.diff.numeric.linf[,i] = difference.linf * weights
-      }
-      
+
     }
     # sum the reweighted difference
     diff.abs.numeric.l1 = sum(apply(pd.diff.numeric.l1,2,function(x) sum(abs(x))))
