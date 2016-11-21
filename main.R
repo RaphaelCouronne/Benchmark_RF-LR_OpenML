@@ -17,7 +17,7 @@ library(RWeka)
   # Generates Data/OpenML/rf.timetrain.RData
   # Generates Data/Results/clas_time.RData
 source(file = "DataMining-Benchmark-Conversion/benchmark_dataMiningOpenML.R")
-data_mining_OpenML(target_path = "Data/Results/clas_time.RData")
+data_mining_OpenML(target_path = "Data/Results/clas_time.RData", dataset_count = 329)
 
 ## I.2 Benchmark computation ----
   # Parallel computation for the benchmark, default is 10 cores

@@ -1,24 +1,9 @@
-data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData") {
+data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", dataset_count = 329) {
   
-  rm(list = ls())
   options( java.parameters = "-Xmx16g" )
   library( "RWeka" )
   library(OpenML)
   saveOMLConfig(apikey = "7a4391537f767ea70db6af99497653e5", arff.reader = "RWeka", overwrite=TRUE)
-  
-  OS = "Windows"
-  
-  if (OS == "OSX") {
-    # OSX
-    githubdir = "/Users/Shadok/Programmation/Github"
-    dir = file.path(githubdir, "BenchmarkOpenMl/FinalVersion/")
-  } else {
-    # windows
-    githubdir = "C:/Users/couronne/Desktop/GitHub/"
-    dir = file.path(githubdir, "IBE_Benchmark-OpenML/")
-  }
-  
-  setwd(file.path(githubdir, "IBE_Benchmark-OpenML"))
   
   source("DataMining-Benchmark-Conversion/benchmark_dataMiningOpenML_functions.R")
   
@@ -100,8 +85,8 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData") {
   
   # Ordering according to size (n*p)
   clas = clas[order(clas$NumberOfFeatures * clas$NumberOfInstances), ]
-  clas = clas[c(1:100),]
   
+  clas = clas[c(1:dataset_count),]
   
   ## Load the tasks to perform actions ----
   
@@ -208,7 +193,7 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData") {
   clas_big = clas[which(clas$NumberOfInstances * clas$dimension > 1e6 | clas$dimension > 1e3 | clas$NumberOfInstances > 1e5),]
   clas_medium = clas[which(!(clas$task.id %in% c(clas_big$task.id, clas_small$task.id))),]
   
-  #save(clas, clas_small, clas_medium, clas_big, file = "Data/Results/clas.RData" )
+  save(clas, clas_small, clas_medium, clas_big, file = "Data/Results/clas.RData" )
   
   # =============================
   # Part 5 : (optional) Add the time of training
