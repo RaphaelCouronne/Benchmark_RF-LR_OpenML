@@ -137,9 +137,19 @@ weightedPdpDistance = function(task, gridsize) {
       index.temp = index.factor[i]
       feature.temp = features.list[index.temp]
       
+      
+      # generate the partial dependance datas for both rf and lr models according to this feature
+      pd.rf = generatePartialDependenceData(fit.classif.rf, task, features.list[index.temp], gridsize = gridsize)
+      pd.lr = generatePartialDependenceData(fit.classif.lr, task, features.list[index.temp], gridsize = gridsize)
+
+      
       # generate the partial dependance datas for both rf and lr models according to this feature
       pd.rf = generatePartialDependenceData(fit.classif.rf, task, features.list[index.temp])
       pd.lr = generatePartialDependenceData(fit.classif.lr, task, features.list[index.temp])
+      
+      
+      plotPartialDependence(pd.rf)
+      plotPartialDependence(pd.lr)
       
       # compute the density of observation according to several classes of this categorical feature
       summed = rep(NA, length(levels(task$env$data[[feature.temp]])))
