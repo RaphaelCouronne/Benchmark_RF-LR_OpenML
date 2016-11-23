@@ -1,4 +1,4 @@
-data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", dataset_count = 329) {
+data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", size = "normal", dataset_count = 329) {
   
   options( java.parameters = "-Xmx16g" )
   library( "RWeka" )
@@ -86,7 +86,14 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", dat
   # Ordering according to size (n*p)
   clas = clas[order(clas$NumberOfFeatures * clas$NumberOfInstances), ]
   
-  clas = clas[c(1:dataset_count),]
+  if (size == "tiny") {
+    print("Tiny version of benchmark")
+    clas = clas[c(1:dataset_count),]
+  } else if (size =="normal") {
+    print("normal version of benchmark")
+  } else {
+    stop("Vestion of benchmark not known")
+  }
   
   ## Load the tasks to perform actions ----
   
@@ -225,8 +232,9 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", dat
       bmr = benchmark(lrn.classif.rf, mlrtask, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = FALSE)
       perfs = getBMRPerformances(bmr, as.df = TRUE)
       time.train = sum(perfs$timetrain)
-      save(rf.timetrain, file = "Data/OpenML/rf.timetrain.RData" )
       rf.timetrain[j] = time.train
+      df.time = data.frame(did = clas$did, time = rf.timetrain)
+      save(df.time, file = "Data/OpenML/rf.timetrain.RData" )
       setTxtProgressBar(pb,j)
     })
   }

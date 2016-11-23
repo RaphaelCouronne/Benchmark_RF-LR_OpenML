@@ -3,15 +3,13 @@ parallel_computation_snowfall <- function(nCores = 1,
                                           target_path = "Data/Results/benchmark_parallel_snowfall.RData") {
   
   library(mlr)
-  OS = "Windows"
-  
   print("Begin Parallel computation for benchmark")
   print("  Computation can be monitord in Data/Results/benchmark_parallel_snowfall_informations.Rout")
+  print(paste("Estimated duration time : ",sum(clas_used$rf.timetrain)*50))
+  start.time <- Sys.time()
   
   # Load the environment
   OMLDATASETS = clas_used$did
-  source(file = "DataMining-Benchmark-Conversion/benchmark_defs.R")
-  
   
   ## Example 1 - Multi-core on a single computer
   sink('Data/Results/benchmark_parallel_snowfall_informations.Rout', split=TRUE)
@@ -89,8 +87,10 @@ parallel_computation_snowfall <- function(nCores = 1,
   
   # 7. Stop snowfall 
   sfStop() 
+  end.time <- Sys.time()
   
   save(result, clas_used, file = target_path)
+  time.taken <- end.time - start.time
   print("Done with parallel computations")
-  
+  print(paste("Effective duration time : ", time.taken))
 }

@@ -1,15 +1,12 @@
 convert_results <- function(clas_used, result, target_path) {
   
-  
-  OS = "win"
   library(mlr)
   library(gridExtra)
   library(ggplot2)
   library(cowplot)
 
-  source(file = "DataMining-Benchmark-Conversion/benchmark_defs.R")
   
-  
+  MEASURES = list(acc, auc, brier, timetrain)
   
   ################################################################################################################################
   # Creation of the dataset

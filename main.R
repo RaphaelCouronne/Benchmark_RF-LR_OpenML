@@ -17,17 +17,17 @@ library(RWeka)
   # Generates Data/OpenML/rf.timetrain.RData
   # Generates Data/Results/clas_time.RData
 source(file = "DataMining-Benchmark-Conversion/benchmark_dataMiningOpenML.R")
-data_mining_OpenML(target_path = "Data/Results/clas_time.RData", dataset_count = 329)
+data_mining_OpenML(target_path = "Data/Results/clas_time_tiny.RData", size = "tiny", dataset_count = 150)
 
 ## I.2 Benchmark computation ----
   # Parallel computation for the benchmark, default is 10 cores
   # Generates Data/Results/benchmark_parallel_snowfall.RData
 source(file = "DataMining-Benchmark-Conversion/benchmark_ParallelComputation.R")
-clas_time = load("Data/Results/clas_time.RData")
-clas_used = rbind(clas_time_small, clas_time_medium)[c(1:80),]
+clas_time = load("Data/Results/clas_time_tiny.RData")
+clas_used = rbind(clas_time_small, clas_time_medium)
 parallel_computation_snowfall(nCores = 10, 
                               clas_used = clas_used,
-                              target_path = "Data/Results/benchmark_parallel_snowfall.RData")
+                              target_path = "Data/Results/benchmark_parallel_snowfall_tiny.RData")
 
 
 ## II Visualization

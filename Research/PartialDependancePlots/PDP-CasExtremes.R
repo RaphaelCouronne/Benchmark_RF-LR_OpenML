@@ -140,10 +140,10 @@ for (i in c(1:4)) {
   feature.temp = features.list[index.temp]
   
   set.seed(1)
-  pd.rf = generatePartialDependenceData(fit.classif.rf, task, features.list[index.temp], gridsize = gridsize,
+  pd.rf = generatePartialDependenceData(fit.classif.rf, task, features.list[index.temp], gridsize = 10*gridsize,
                                         resample = "subsample")
   set.seed(1)
-  pd.lr = generatePartialDependenceData(fit.classif.lr, task, features.list[index.temp], gridsize = gridsize, 
+  pd.lr = generatePartialDependenceData(fit.classif.lr, task, features.list[index.temp], gridsize = 10*gridsize, 
                                         resample = "subsample")
   
   #plotPartialDependence(pd.lr)
