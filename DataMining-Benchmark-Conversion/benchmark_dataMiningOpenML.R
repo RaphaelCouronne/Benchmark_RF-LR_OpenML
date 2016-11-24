@@ -1,6 +1,6 @@
 data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", size = "normal", dataset_count = 329) {
   
-  options( java.parameters = "-Xmx16g" )
+  options(java.parameters = "-Xmx8g")
   library( "RWeka" )
   library(OpenML)
   saveOMLConfig(apikey = "7a4391537f767ea70db6af99497653e5", arff.reader = "RWeka", overwrite=TRUE)

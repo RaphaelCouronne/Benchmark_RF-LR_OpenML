@@ -1,0 +1,551 @@
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+De plus : Warning messages:
+1: In download.file(url, destfile = f[[file.ind]]$path, mode = ifelse(!is.null(f[[file.ind]]$binary),  :
+  downloaded length 488572 != reported length 488587
+2: In download.file(url, destfile = f[[file.ind]]$path, mode = ifelse(!is.null(f[[file.ind]]$binary),  :
+  URL 'http://www.openml.org/data/download/53926/ada_agnostic.arff': status was 'Transferred a partial file'
+3: In download.file(url, destfile = f[[file.ind]]$path, mode = ifelse(!is.null(f[[file.ind]]$binary),  :
+  downloaded length 8544653 != reported length 8544666
+4: In download.file(url, destfile = f[[file.ind]]$path, mode = ifelse(!is.null(f[[file.ind]]$binary),  :
+  URL 'http://www.openml.org/data/download/53921/gina_agnostic.arff': status was 'Transferred a partial file'
+5: In download.file(url, destfile = f[[file.ind]]$path, mode = ifelse(!is.null(f[[file.ind]]$binary),  :
+  downloaded length 190190728 != reported length 686003783
+6: In download.file(url, destfile = f[[file.ind]]$path, mode = ifelse(!is.null(f[[file.ind]]$binary),  :
+  URL 'http://www.openml.org/data/download/2165/BayesianNetworkGenerator_spambase.arff': status was 'Failure when receiving data from the peer'
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: Java heap space
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded
+Error in .jnew("java/io/FileReader", file) : 
+  java.lang.OutOfMemoryError: GC overhead limit exceeded.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("weka/core/Instances", .jcast(reader, "java/io/Reader")) : 
+  Java Exception <no description because toString() failed>.jnew("weka/core/Instances", .jcast(reader, "java/io/Reader"))<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
+Error in .jnew("java/io/FileReader", file) : 
+  Java Exception <no description because toString() failed>.jnew("java/io/FileReader", file)<S4 object of class "jobjRef">
