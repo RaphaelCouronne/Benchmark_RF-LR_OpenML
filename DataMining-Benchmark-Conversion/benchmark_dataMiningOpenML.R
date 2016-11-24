@@ -102,7 +102,6 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", for
   n.row = nrow(clas)
   
   
-  
   if (file.exists("Data/OpenML/df.infos.RData") && !force) {
     
     # laod the file
@@ -129,8 +128,7 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", for
     if (file.exists("Data/OpenML/df.infos.Rout")) {file.remove("Data/OpenML/df.infos.Rout")}
   }
   
-    
-
+  
   df.infos.file <- file("Data/OpenML/df.infos.Rout", open = "w")
   pb <- txtProgressBar(min = i_beginning, max = dataset_count, style = 3)
   
@@ -193,15 +191,50 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", for
     save(df.infos, file = "Data/OpenML/df.infos.RData")
   }
   
-
+  
+  # =============================
+  # Part 6 : Select the observations
+  # ============================= ----
+  
+  clas_select = clas
+  time_sum =  df.infos$rf_time+df.infos$lr_time
+  clas_select$time = time_sum
+  
+  # select the number we decided
+  clas_select = clas_select[c(1:dataset_count),]
+  print(paste("Removing the non considered datasets :",nrow(clas_select), "Datasets"))
+  
+  # remove the one with loading unsuccessfull
+  did_loading_failed = df.infos$did[which(is.na(df.infos$loaded))]
+  clas_select = clas_select[-which(clas_select$did %in% did_loading_failed),]
+  print(paste("Removing the datasets which loading failed :",nrow(clas_select), "Datasets"))
+  
+  # remove the one with conversion unsuccessfull
+  did_convert_failed = df.infos$did[which(is.na(df.infos$converted))]
+  index_remove = which(clas_select$did %in% did_convert_failed)
+  if (!identical(which(clas_select$did %in% index_remove), integer(0))) {
+    clas_select = clas_select[-which(clas_select$did %in% index_remove),]
+  }
+  print(paste("Removing the datasets which conversion failed :",nrow(clas_select), "Datasets"))
+  
+  # remove the one with NAs on LR and RF
+  did_learner_failed = df.infos$did[which(is.na(df.infos$rf_NA) |
+                                            is.na(df.infos$lr_NA) |
+                                            df.infos$rf_NA        |
+                                            df.infos$lr_NA  )]
+  index_remove = which(clas_select$did %in% did_learner_failed)
+  if (!identical(which(clas_select$did %in% index_remove), integer(0))) {
+    clas_select = clas_select[-which(clas_select$did %in% index_remove),]
+  }
+  print(paste("Removing the datasets which lr or rf failed :",nrow(clas_select), "Datasets"))
+  
   
   
   # =============================
   # Part 6 : Save it
   # ============================= ----
   
-  clas_time = clas
-  clas_time$rf.timetrain = rf.timetrain
+  clas_time = clas_select
   
   # reorder according to time and na
   clas_time = clas_time[order(clas_time$rf.timetrain), ]
