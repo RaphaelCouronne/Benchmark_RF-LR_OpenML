@@ -1,4 +1,4 @@
-data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", size = "normal", dataset_count = 329) {
+data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", force = FALSE, dataset_count = 329) {
   
   options(java.parameters = "-Xmx8g")
   library( "RWeka" )
@@ -33,12 +33,10 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", siz
   
   
   # =============================
-  # Part 2 : More detailed transformations
+  # Part 2 : Select datasets using OenML task features
   # ============================= ----
   
   print("2. Remove datasets using the tasks features")
-  
-  
   
   
   # remove the redundancies : 473 tasks
@@ -86,169 +84,127 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", siz
   # Ordering according to size (n*p)
   clas = clas[order(clas$NumberOfFeatures * clas$NumberOfInstances), ]
   
-  if (size == "tiny") {
-    print("Tiny version of benchmark")
-    clas = clas[c(1:dataset_count),]
-  } else if (size =="normal") {
-    print("normal version of benchmark")
-  } else {
-    stop("Vestion of benchmark not known")
-  }
   
   ## Load the tasks to perform actions ----
   
   print("2 Load the datasets for analysis")
   
-  # Random permutation for the computation time vizualisation
-  #sample_used = sample(nrow(clas))
-  #clas = clas[sample_used,]
   
-  # time to respond : 380 datasets
-  task.id.notresponding = c(7395, 7396, 10111, 4216)
-  # 75127, 75144, 75145
-  if (length(which(clas$task.id %in% task.id.notresponding))>0) {
-    clas = clas[-which(clas$task.id %in% task.id.notresponding),]
-  }
   
-  print("2.1 Testing dataset's response")
-  print("  Results are printed in Data/OpenMLNAsDatasets.Rout")
+  # =============================
+  # Part 3 : Loading the datasets
+  # ============================= ----
+  
+  print("2.1 Testing the datasets ")
   print("  Should last around 1 hour")
   
-  # categorical target and test loading the datas
-  nans = character(nrow(clas))
-  file.remove("Data/OpenML/NAsDatasets.Rout")
-  nas.file <- file("Data/OpenML/NAsDatasets.Rout", open = "wt")
-  pb <- txtProgressBar(min = 0, max = nrow(clas), style = 3)
+  # categorical target and test loading the datas ----
+  n.row = nrow(clas)
   
-  for(j in 1:nrow(clas)){
+  
+  
+  if (file.exists("Data/OpenML/df.infos.RData") && !force) {
     
-    sink(nas.file)
-    sink(nas.file, type = "message")
+    # laod the file
+    print("load file")
+    load(file = "Data/OpenML/df.infos.RData")
     
+    # check integrity of datasets
+    if (!identical(clas$did,df.infos$did)) {
+      stop("Stop : conflict in the datasets")
+    }
+    i_beginning = which(df.infos$done)[length(which(df.infos$done))]
+    
+  } else {
+    df.infos = data.frame(matrix(data = NA, nrow = n.row, ncol = 13))
+    names(df.infos) = c("index", "did", "taskid", "began", "done", 
+                        "loaded","converted", "target_type", "dimension", 
+                        "rf_time", "lr_time", "rf_NA", "lr_NA")
+    df.infos$index = c(1:n.row)
+    df.infos$did = clas$did
+    df.infos$taskid=clas$task.id
+    
+    i_beginning = 1
+    
+    if (file.exists("Data/OpenML/df.infos.Rout")) {file.remove("Data/OpenML/df.infos.Rout")}
+  }
+  
+    
+
+  df.infos.file <- file("Data/OpenML/df.infos.Rout", open = "w")
+  pb <- txtProgressBar(min = i_beginning, max = dataset_count, style = 3)
+  
+  for(j in c(i_beginning:dataset_count)){
+    
+    # begin
+    df.infos$began[j] = TRUE
+    
+    # Try
     tryCatch({
+      
       # Loading the dataset
       omldataset = getOMLDataSet(did = clas$did[j], verbosity = 0)
       if (identical(omldataset$target.features, character(0))) {
         omldataset$target.features="Class"
         omldataset$desc$default.target.attribute="Class"
       }
-      nans[j] = class(omldataset$data[, omldataset$target.features])
+      df.infos$loaded[j] = "TRUE" 
       
-      save(nans, file = "Data/OpenML/NAsDatasets.RData")
-      print(j)
-      print(nans[j])
-      gc()
-    }, error = function(e) return(paste0("The variable '", j, "'", 
-                                         " caused the error: '", e, "'")))
-    sink() 
-    sink(type="message")
-    setTxtProgressBar(pb, j)
-  }
-  
-  
-  
-  
-  
-  # =============================
-  # Part 3 : Get the dimension as a feature
-  # ============================= ----
-  
-  print("2.2 Computing dimension")
-  print("  Should last around 1 hour")
-  file.remove("Data/OpenML/Dimension.Rout")
-  dimension.file <- file("Data/OpenML/Dimension.Rout", open = "wt")
-  configureMlr(on.learner.error = "warn", show.learner.output = FALSE)
-  
-  ## Dimension
-  dimension = rep(NA, nrow(clas))
-  pb = txtProgressBar(min = 0, max = nrow(clas), initial = 0) 
-  
-  # Begin loop
-  for (j in c(1:nrow(clas)) ) {
-    
-    sink(dimension.file)
-    sink(dimension.file, type = "message")
-    
-    try({
-      omldataset = getOMLDataSet(did = clas$did[j], verbosity = 0)
-      if (identical(omldataset$target.features, character(0))) {
-        omldataset$target.features="Class"
-        omldataset$desc$default.target.attribute="Class"
-      }
+      # check the target
+      df.infos$target_type = class(omldataset$data[, omldataset$target.features])
       
+      # Transform to mlr task
+      configureMlr(on.learner.error = "warn", show.learner.output = TRUE, show.info = FALSE)
       mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
-      res = getTaskDimension(mlrtask)
-      dimension[j] = res
-    })
-    
-    sink() 
-    sink(type="message")
-    setTxtProgressBar(pb,j)
-  }
-  
-  clas$dimension = dimension
-  
-  
-  # =============================
-  # Part 4 : Save it
-  # ============================= ----
-  
-  # Ordering according to size (n*dimension)
-  clas = clas[order(clas$dimension * clas$NumberOfInstances), ]
-  
-  clas_small = clas[which(clas$NumberOfInstances < 1e3 & clas$dimension < 1e3),]
-  clas_big = clas[which(clas$NumberOfInstances * clas$dimension > 1e6 | clas$dimension > 1e3 | clas$NumberOfInstances > 1e5),]
-  clas_medium = clas[which(!(clas$task.id %in% c(clas_big$task.id, clas_small$task.id))),]
-  
-  save(clas, clas_small, clas_medium, clas_big, file = "Data/Results/clas.RData" )
-  
-  # =============================
-  # Part 5 : (optional) Add the time of training
-  # ============================= ----
-  
-  print("Adding the time of training of a Random Forest")
-  print("Resampling method: Holdout, 0.2; ntree = 500")
-  load(file = "Data/Results/clas.RData" )
-  
-  ## time train of a randomforest
-  rf.timetrain = rep(NA, nrow(clas))
-  pb = txtProgressBar(min = 0, max = nrow(clas), initial = 0) 
-  
-  # Begin loop
-  for (j in c(1:nrow(clas)) ) {
-    try({
-      omldataset = getOMLDataSet(did = clas$did[j], verbosity = 0)
-      if (identical(omldataset$target.features, character(0))) {
-        omldataset$target.features="Class"
-        omldataset$desc$default.target.attribute="Class"
-      }
-      mlrtask = convertOMLDataSetToMlr(omldataset)
       
-      # get the time of training
-      lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE)
-      measures = list(timetrain)
-      rdesc = makeResampleDesc("Holdout", split = 0.2, stratify = TRUE)
-      configureMlr(on.learner.error = "quiet", show.learner.output = FALSE, show.info = FALSE)
-      bmr = benchmark(lrn.classif.rf, mlrtask, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = FALSE)
+      # Get the dimension
+      df.infos$dimension[j] = getTaskDimension(mlrtask)
+      df.infos$converted[j] = TRUE
+      
+      # Compute the time for lr andrf
+      learners = list(makeLearner("classif.randomForest"),
+                      makeLearner("classif.logreg"))
+      rdesc = makeResampleDesc("Holdout", split = 0.8, stratify = TRUE)
+      configureMlr(on.learner.error = "warn", show.learner.output = TRUE, show.info = TRUE)
+      
+      sink(df.infos.file)
+      sink(df.infos.file, type = "message")
+      print(paste("Iteration",j,"dataset",clas$did[j]))
+      bmr = benchmark(learners, mlrtask, rdesc, list(acc,timetrain), 
+                      keep.pred = TRUE, models = FALSE, show.info = FALSE)
+      sink() 
+      sink(type="message")
+      
+      perfs=NA
       perfs = getBMRPerformances(bmr, as.df = TRUE)
       time.train = sum(perfs$timetrain)
-      rf.timetrain[j] = time.train
-      df.time = data.frame(did = clas$did, time = rf.timetrain)
-      save(df.time, file = "Data/OpenML/rf.timetrain.RData" )
-      setTxtProgressBar(pb,j)
-    })
+      
+      df.infos$rf_time[j]=perfs$timetrain[which(perfs$learner.id=="classif.randomForest")]
+      df.infos$lr_time[j]=perfs$timetrain[which(perfs$learner.id=="classif.logreg")]
+      
+      df.infos$rf_NA[j] = is.na(perfs$acc[which(perfs$learner.id=="classif.randomForest")])
+      df.infos$lr_NA[j] = is.na(perfs$acc[which(perfs$learner.id=="classif.logreg")])
+      
+    }, error = function(e) return(paste0("The variable '", j, "'", 
+                                         " caused the error: '", e, "'")))
+    
+    setTxtProgressBar(pb, j)
+    df.infos$done[j] = TRUE
+    save(df.infos, file = "Data/OpenML/df.infos.RData")
   }
+  
+
+  
+  
+  # =============================
+  # Part 6 : Save it
+  # ============================= ----
   
   clas_time = clas
   clas_time$rf.timetrain = rf.timetrain
   
   # reorder according to time and na
   clas_time = clas_time[order(clas_time$rf.timetrain), ]
-  
-  
-  # =============================
-  # Part 6 : Save it
-  # ============================= ----
   
   # clas_time small medium big non supported
   clas_time_small = clas_time[which(clas_time$rf.timetrain < 1),]
