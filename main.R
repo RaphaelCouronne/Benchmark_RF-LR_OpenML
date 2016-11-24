@@ -34,17 +34,20 @@ parallel_computation_snowfall(nCores = 10,
 rm(list=ls())
 
 ## II.0 Preprocessing of the benchmark results ----
-load(file = "Data/Results/benchmark_parallel_snowfall.RData")
+load(file = "Data/Results/benchmark_parallel_snowfall_tiny.RData")
 source(file = "DataMining-Benchmark-Conversion/benchmark_resultsConversionNew.R")
-convert_results(clas_used = clas_used, result = result, target_path = "Data/Results/df.bmr.RData")
+convert_results(clas_used = clas_used, result = result, target_path = "Data/Results/df.bmr_tiny.RData")
 
 ## II.1 Overall Visualization ----
-load(file = "Data/Results/df.bmr.RData")
+load(file = "Data/Results/df.bmr_tiny.RData")
 source(file = "Visualization-Analysis/OverallVisualization.R")
-overall_visualiaztion(df.bmr.diff)
+overall_visualization(df.bmr.diff)
 
 ## II.2 Inclusion Criteria Visualization ----
+source(file = "Visualization-Analysis/InclusionCriteriav2.R")
+inclusion_criteria(df.bmr.diff)
 
 ## II.3 Meta-Learning Visualization ----
+# not sure if included
 
 

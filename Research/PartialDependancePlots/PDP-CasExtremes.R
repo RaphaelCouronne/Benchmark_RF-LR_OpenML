@@ -6,7 +6,8 @@ library(mlr)
 load(file = "Data/Results/Original/df.bmr_original.RData")
 source(file = "Research/DifferenceInModels/pdpInterpretabilityFunction.R")
 
-
+perfsAggr.LR = subset(res.perfs.df, learner.id == "classif.logreg")
+perfsAggr.RF = subset(res.perfs.df, learner.id == "classif.randomForest")
 
 # Isolate the values of importance
 names(df.bmr.diff)
@@ -28,8 +29,7 @@ task$task.desc$id = paste("dataset", dataset_id)
 
 weightedPdpDistance(task = task, gridsize = 10)
 
-perfsAggr.LR = subset(res.perfs.df, learner.id == "classif.logreg")
-perfsAggr.RF = subset(res.perfs.df, learner.id == "classif.randomForest")
+
 
 
 plot(log((perfsAggr.LR$acc.test.mean+perfsAggr.RF$acc.test.mean)/2),log(pdp.df$l2))
@@ -80,7 +80,7 @@ data
 
 # find one
 which(max(pdp.df$l2)==pdp.df$l2)
-id = 170
+id = 190
 df.bmr.diff$acc[id]
 pdp.df$l2[id]
 
@@ -107,7 +107,7 @@ if (identical(omldataset$target.features, character(0))) {
 task = convertOMLDataSetToMlr(omldataset)
 task$task.desc$id = paste("dataset", dataset_id)
 task
-task$env$data
+
 
 
 
@@ -126,7 +126,7 @@ fit.classif.lr = train(lrn.classif.lr, task)
 
 
 # Plots 1D ----
-
+gridsize = 10
 plot_list = NULL
 
 for (i in c(1:4)) {
@@ -159,7 +159,6 @@ for (i in c(1:4)) {
   detach(package:reshape2, unload = TRUE)
   p = ggplot(df.plot.reshaped, aes_string(x = "grid", y="value", colour = "variable"))
   p = p+geom_line(size=1) + geom_point(size=3) + ylim(c(0,1))
-  print(p)
   plot_list[[i]]=p
 }
 library(cowplot)
