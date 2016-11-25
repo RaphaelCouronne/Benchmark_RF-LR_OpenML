@@ -36,7 +36,7 @@
 [1] "Iteration 37 dataset 938"
 Warning in predict.WrappedModel(m, task, subset = test.i) :
   Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Europe, NE_Africa, Nthlnds/Belgium, Venezuela
+  factor country has new levels Argentina, Columbia, Nthlnds/Belgium, Venezuela, W_Africa
 
 [1] "Iteration 38 dataset 448"
 [1] "Iteration 39 dataset 683"
@@ -54,6 +54,10 @@ Warning in predict.WrappedModel(m, task, subset = test.i) :
 [1] "Iteration 51 dataset 1463"
 [1] "Iteration 52 dataset 714"
 [1] "Iteration 53 dataset 891"
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor educ has new levels 10
+
 [1] "Iteration 54 dataset 974"
 [1] "Iteration 55 dataset 895"
 [1] "Iteration 56 dataset 461"
@@ -83,7 +87,7 @@ Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
 
 Warning in predict.WrappedModel(m, task, subset = test.i) :
   Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor Pitcher has new levels K._Brown, M._Soto, P._Russell, R._Dotson, T._Hume, T._Worrell
+  factor Pitcher has new levels A._Holland, B._Blyleven, B._Welch, D._Aase, Gullickson, J._Tudor, K._Brown, M._Davis, M._Williams, O._Hershiser, R._Aguilera, R._Dotson, R._Myers, W._Hernandez
 
 [1] "Iteration 78 dataset 758"
 [1] "Iteration 79 dataset 988"
@@ -101,7 +105,7 @@ Warning in predict.WrappedModel(m, task, subset = test.i) :
 [1] "Iteration 92 dataset 796"
 Warning in predict.WrappedModel(m, task, subset = test.i) :
   Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor vendor has new levels bti
+  factor vendor has new levels adviser, microdata
 
 [1] "Iteration 93 dataset 1495"
 [1] "Iteration 94 dataset 764"
@@ -110,120 +114,8 @@ Warning in predict.WrappedModel(m, task, subset = test.i) :
 [1] "Iteration 97 dataset 941"
 Warning in predict.WrappedModel(m, task, subset = test.i) :
   Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor FTV has new levels 6
+  factor PTL has new levels 3
 
 [1] "Iteration 98 dataset 1060"
 [1] "Iteration 99 dataset 765"
 [1] "Iteration 100 dataset 767"
-[1] "Iteration 102 dataset 1009"
-[1] "Iteration 103 dataset 800"
-[1] "Iteration 104 dataset 996"
-[1] "Iteration 105 dataset 1005"
-[1] "Iteration 106 dataset 1524"
-[1] "Iteration 107 dataset 721"
-[1] "Iteration 108 dataset 1490"
-[1] "Iteration 109 dataset 1025"
-[1] "Iteration 110 dataset 1073"
-[1] "Iteration 111 dataset 973"
-[1] "Iteration 112 dataset 745"
-[1] "Iteration 113 dataset 756"
-[1] "Iteration 114 dataset 774"
-[1] "Iteration 115 dataset 795"
-[1] "Iteration 116 dataset 827"
-[1] "Iteration 117 dataset 931"
-[1] "Iteration 118 dataset 1011"
-[1] "Iteration 119 dataset 818"
-[1] "Iteration 120 dataset 947"
-[1] "Iteration 121 dataset 949"
-[1] "Iteration 122 dataset 950"
-[1] "Iteration 123 dataset 951"
-[1] "Iteration 124 dataset 900"
-[1] "Iteration 125 dataset 1006"
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor changes_in_stru has new levels reticular
-
-[1] "Iteration 126 dataset 1167"
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor OPTION has new levels 3
-
-[1] "Iteration 127 dataset 1064"
-[1] "Iteration 128 dataset 820"
-[1] "Iteration 129 dataset 741"
-[1] "Iteration 130 dataset 880"
-[1] "Iteration 131 dataset 997"
-[1] "Iteration 132 dataset 906"
-[1] "Iteration 133 dataset 907"
-[1] "Iteration 134 dataset 908"
-[1] "Iteration 135 dataset 909"
-[1] "Iteration 136 dataset 1061"
-[1] "Iteration 137 dataset 1048"
-[1] "Iteration 138 dataset 1121"
-[1] "Iteration 139 dataset 1059"
-[1] "Iteration 140 dataset 1464"
-[1] "Iteration 141 dataset 53"
-[1] "Iteration 142 dataset 778"
-[1] "Iteration 143 dataset 335"
-[1] "Iteration 144 dataset 333"
-[1] "Iteration 145 dataset 1511"
-[1] "Iteration 146 dataset 1014"
-[1] "Iteration 147 dataset 750"
-[1] "Iteration 148 dataset 886"
-[1] "Iteration 149 dataset 334"
-[1] "Iteration 150 dataset 770"
-[1] "Iteration 151 dataset 915"
-[1] "Iteration 152 dataset 1488"
-[1] "Iteration 153 dataset 1498"
-[1] "Iteration 154 dataset 1441"
-[1] "Iteration 155 dataset 717"
-[1] "Iteration 156 dataset 1012"
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor quarters has new levels 4
-
-[1] "Iteration 157 dataset 463"
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor col_9 has new levels 7
-
-[1] "Iteration 158 dataset 914"
-[1] "Iteration 159 dataset 336"
-[1] "Iteration 160 dataset 164"
-[1] "Iteration 161 dataset 753"
-[1] "Iteration 162 dataset 1480"
-[1] "Iteration 163 dataset 1054"
-[1] "Iteration 164 dataset 1470"
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor V8 has new levels sleveless, turndowncollor
-
-[1] "Iteration 165 dataset 1462"
-[1] "Iteration 166 dataset 37"
-[1] "Iteration 167 dataset 826"
-[1] "Iteration 168 dataset 934"
-[1] "Iteration 169 dataset 853"
-[1] "Iteration 170 dataset 872"
-[1] "Iteration 171 dataset 1506"
-[1] "Iteration 172 dataset 772"
-[1] "Iteration 173 dataset 841"
-[1] "Iteration 174 dataset 50"
-[1] "Iteration 175 dataset 1442"
-[1] "Iteration 176 dataset 292"
-[1] "Iteration 177 dataset 825"
-Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
-  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
-  Can not handle categorical predictors with more than 53 categories.
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor TOWN has new levels Dover, Hanover, Holbrook, Sherborn
-
-[1] "Iteration 178 dataset 1446"
-[1] "Iteration 179 dataset 1467"
-[1] "Iteration 180 dataset 788"
-[1] "Iteration 181 dataset 1063"
-[1] "Iteration 182 dataset 987"
-[1] "Iteration 183 dataset 991"
-[1] "Iteration 184 dataset 59"
-[1] "Iteration 185 dataset 1447"

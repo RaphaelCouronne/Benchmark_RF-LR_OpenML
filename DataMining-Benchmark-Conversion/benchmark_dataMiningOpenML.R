@@ -87,7 +87,7 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", for
   
   ## Load the tasks to perform actions ----
   
-  print("2 Load the datasets for analysis")
+  print("3 Load the datasets for analysis")
   
   
   
@@ -95,8 +95,8 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", for
   # Part 3 : Loading the datasets
   # ============================= ----
   
-  print("2.1 Testing the datasets ")
-  print("  Should last around 1 hour")
+  print("3.1 Testing the datasets ")
+  print("  Should last around 1-2 hour for all the datasets")
   
   # categorical target and test loading the datas ----
   n.row = nrow(clas)
@@ -195,36 +195,37 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", for
   # =============================
   # Part 6 : Select the observations
   # ============================= ----
-  
-  clas_select = clas
-  time_sum =  df.infos$rf_time+df.infos$lr_time
-  clas_select$time = time_sum
+  print("")
+  print("Removing datasets that failed")
+  clas_select = data.frame(clas, df.infos)
+  clas_select$time = clas_select$rf_time+clas_select$lr_time
   
   # select the number we decided
   clas_select = clas_select[c(1:dataset_count),]
   print(paste("Removing the non considered datasets :",nrow(clas_select), "Datasets"))
   
   # remove the one with loading unsuccessfull
-  did_loading_failed = df.infos$did[which(is.na(df.infos$loaded))]
-  clas_select = clas_select[-which(clas_select$did %in% did_loading_failed),]
+  did_loading_failed = clas_select$did[which(is.na(clas_select$loaded))]
+  if (!identical(which(clas_select$did %in% did_loading_failed), integer(0))) {
+    clas_select = clas_select[-which(clas_select$did %in% did_loading_failed),]
+  }
+  
   print(paste("Removing the datasets which loading failed :",nrow(clas_select), "Datasets"))
   
   # remove the one with conversion unsuccessfull
-  did_convert_failed = df.infos$did[which(is.na(df.infos$converted))]
-  index_remove = which(clas_select$did %in% did_convert_failed)
-  if (!identical(which(clas_select$did %in% index_remove), integer(0))) {
-    clas_select = clas_select[-which(clas_select$did %in% index_remove),]
+  did_convert_failed = clas_select$did[which(is.na(clas_select$converted))]
+  if (!identical(which(clas_select$did %in% did_convert_failed), integer(0))) {
+    clas_select = clas_select[-which(clas_select$did %in% did_convert_failed),]
   }
   print(paste("Removing the datasets which conversion failed :",nrow(clas_select), "Datasets"))
   
   # remove the one with NAs on LR and RF
-  did_learner_failed = df.infos$did[which(is.na(df.infos$rf_NA) |
-                                            is.na(df.infos$lr_NA) |
-                                            df.infos$rf_NA        |
-                                            df.infos$lr_NA  )]
-  index_remove = which(clas_select$did %in% did_learner_failed)
-  if (!identical(which(clas_select$did %in% index_remove), integer(0))) {
-    clas_select = clas_select[-which(clas_select$did %in% index_remove),]
+  did_learner_failed = clas_select$did[which(is.na(clas_select$rf_NA) |
+                                            is.na(clas_select$lr_NA) |
+                                            clas_select$rf_NA        |
+                                            clas_select$lr_NA  )]
+  if (!identical(which(clas_select$did %in% did_learner_failed), integer(0))) {
+    clas_select = clas_select[-which(clas_select$did %in% did_learner_failed),]
   }
   print(paste("Removing the datasets which lr or rf failed :",nrow(clas_select), "Datasets"))
   
@@ -237,13 +238,13 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", for
   clas_time = clas_select
   
   # reorder according to time and na
-  clas_time = clas_time[order(clas_time$rf.timetrain), ]
+  clas_time = clas_time[order(clas_time$time), ]
   
   # clas_time small medium big non supported
-  clas_time_small = clas_time[which(clas_time$rf.timetrain < 1),]
-  clas_time_medium = clas_time[which(clas_time$rf.timetrain > 1 &  clas_time$rf.timetrain<10 ) ,]
-  clas_time_big = clas_time[which(clas_time$rf.timetrain >10),]
-  clas_time_NA = clas_time[which(is.na(clas_time$rf.timetrain)),]
+  clas_time_small = clas_time[which(clas_time$time < 1),]
+  clas_time_medium = clas_time[which(clas_time$time > 1 &  clas_time$time<10 ) ,]
+  clas_time_big = clas_time[which(clas_time$time >10),]
+  clas_time_NA = clas_time[which(is.na(clas_time$time)),]
   
   # save it
   save(clas_time, clas_time_small, clas_time_medium, clas_time_big, clas_time_NA,  file = target_path )
