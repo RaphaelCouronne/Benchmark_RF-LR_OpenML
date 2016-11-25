@@ -141,7 +141,7 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", for
     tryCatch({
       
       # Loading the dataset
-      omldataset = getOMLDataSet(did = clas$did[j], verbosity = 0)
+      omldataset = getOMLDataSet(data.id = clas$did[j], verbosity = 0)
       if (identical(omldataset$target.features, character(0))) {
         omldataset$target.features="Class"
         omldataset$desc$default.target.attribute="Class"

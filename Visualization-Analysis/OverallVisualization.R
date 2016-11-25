@@ -1,5 +1,5 @@
 
-overall_visualiaztion<-function(bmr) {
+overall_visualization<-function(bmr) {
   library(ggplot2)
   library(cowplot)
   

@@ -9,7 +9,7 @@ parallel_computation_snowfall <- function(nCores = 1,
   start.time <- Sys.time()
   
   # Load the environment
-  OMLDATASETS = clas_used$did
+  OMLDATASETS = sort(clas_used$did)
   
   ## Example 1 - Multi-core on a single computer
   sink('Data/Results/benchmark_parallel_snowfall_informations.Rout', split=TRUE)
