@@ -53,3 +53,8 @@ inclusion_criteria(df.bmr.diff)
 # not sure if included
 
 
+## III. Simulations
+rm(list=ls())
+
+#
+

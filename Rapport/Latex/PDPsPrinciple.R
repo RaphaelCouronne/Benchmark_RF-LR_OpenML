@@ -1,7 +1,7 @@
 library(mlr)
 library(ggplot2)
 
-
+PartialDependancePlotExample<-function() {
 
 ## Function definition ----
 
@@ -278,11 +278,14 @@ res.3$dataset = res.3$dataset + theme(legend.position="none")
 
 library(cowplot)
 # plot grid
-plot_grid(res.1$dataset, res.1$pdp$plot,
+pdpgrid = plot_grid(res.1$dataset, res.1$pdp$plot,
           res.2$dataset, res.2$pdp$plot,
           res.3$dataset, res.3$pdp$plot,
           #labels=c("A", "B"), 
           ncol = 2, nrow = 3)
 
+print(pdpgrid)
+
+}
 
 
