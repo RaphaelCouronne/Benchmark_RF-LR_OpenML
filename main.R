@@ -56,5 +56,6 @@ inclusion_criteria(df.bmr.diff)
 ## III. Simulations
 rm(list=ls())
 
-#
-
+# Partial dependance plots
+source("Simulations/PDPsPrinciple.R")
+PartialDependancePlotExample()
