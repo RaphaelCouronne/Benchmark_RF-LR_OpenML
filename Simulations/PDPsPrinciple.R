@@ -12,9 +12,9 @@ PartialDependancePlotExample<-function(visualize = FALSE) {
     pd.plot = pd.plot[-index.remove]
     
     # convert to long format
-    library(reshape)
+    library(reshape2)
     pd.plot.long <- melt(pd.plot, id=feature.chosen.name[1])  
-    detach("package:reshape", unload=TRUE)
+    detach("package:reshape2", unload=TRUE)
     
     names(pd.plot.long)[c(2,3)] = c("Algorithm", "Probability")
     
@@ -265,10 +265,12 @@ PartialDependancePlotExample<-function(visualize = FALSE) {
   res.3 = PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", datasetNumber = 3, visualize = visualize) 
   
   # Change the color and legends
-  res.1$pdp$plot = res.1$pdp$plot + theme(legend.title=element_blank()) + scale_colour_grey(start = 0,end = 0.7) +
+  
+  
+  res.1$pdp = res.1$pdp + theme(legend.title=element_blank()) + scale_colour_grey(start = 0,end = 0.7) +
     theme(legend.justification=c(1,1), legend.position=c(1,1), legend.background = element_rect(colour = "black", size=.5, linetype="dotted"))
-  res.2$pdp$plot = res.2$pdp$plot + theme(legend.position="none") + scale_colour_grey(start = 0,end = 0.7)
-  res.3$pdp$plot = res.3$pdp$plot + theme(legend.position="none") + scale_colour_grey(start = 0,end = 0.7)
+  res.2$pdp = res.2$pdp + theme(legend.position="none") + scale_colour_grey(start = 0,end = 0.7)
+  res.3$pdp = res.3$pdp + theme(legend.position="none") + scale_colour_grey(start = 0,end = 0.7)
   
   res.1$dataset = res.1$dataset + theme(legend.title=element_blank()) +
     theme(legend.justification=c(1,1), legend.position=c(1,1), legend.background = element_rect(colour = "black", size=.5, linetype="dotted"))
@@ -278,9 +280,9 @@ PartialDependancePlotExample<-function(visualize = FALSE) {
   
   library(cowplot)
   # plot grid
-  pdpgrid = plot_grid(res.1$dataset, res.1$pdp$plot,
-                      res.2$dataset, res.2$pdp$plot,
-                      res.3$dataset, res.3$pdp$plot,
+  pdpgrid = plot_grid(res.1$dataset, res.1$pdp,
+                      res.2$dataset, res.2$pdp,
+                      res.3$dataset, res.3$pdp,
                       #labels=c("A", "B"), 
                       ncol = 2, nrow = 3)
   
