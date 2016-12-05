@@ -1,10 +1,20 @@
 rm(list = ls())
 library(mlr)
 
+library(OpenML)
+
 
 pdp_difference <- function(task, seed, visualize = FALSE) {
+  
+  configureMlr(on.learner.error = "warn", show.learner.output = FALSE, show.info = TRUE)
+  
   ## Get the basic task data
-  features.list = names(task$env$data)
+  target_position = which(names(task$env$data)%in%task$task.desc$target)
+  if (identical(target_position,integer(0))) {
+    print("Error : target not found")
+  }
+  
+  features.list = names(task$env$data)[-target_position]
   nFeatures = length(features.list)
   df_diff_pdp = data.frame(matrix(
     data = NA,
@@ -12,17 +22,22 @@ pdp_difference <- function(task, seed, visualize = FALSE) {
     ncol = 3
   ))
   names(df_diff_pdp) = c("l1", "l2", "linf")
+  row.names(df_diff_pdp) <- features.list
+  
+  ## rf and lr lmodels
+  lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", importance=TRUE)
+  fit.classif.rf = train(lrn.classif.rf, task)
+  lrn.classif.lr = makeLearner("classif.multinom", predict.type = "prob")
+  fit.classif.lr = train(lrn.classif.lr, task)
+  
+  importances = fit.classif.rf$learner.model$importance
+  permutation_importance = importances[,3]
+  permutation_importance_percentage = permutation_importance/sum(permutation_importance)
   
   # Text bar progression
   pb <- txtProgressBar(min = 1, max = nFeatures, style = 3)
   
   for (i in c(1:nFeatures)) {
-    ## rf and lr lmodels
-    lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob")
-    fit.classif.rf = train(lrn.classif.rf, task)
-    lrn.classif.lr = makeLearner("classif.multinom", predict.type = "prob")
-    fit.classif.lr = train(lrn.classif.lr, task)
-    
     ## Generate partial dependance
     set.seed(seed)
     pd.rf = generatePartialDependenceData(
@@ -55,11 +70,11 @@ pdp_difference <- function(task, seed, visualize = FALSE) {
           LR = pd.lr$data$Probability
         )
       pd.plot
-      names(pd.plot)[1] <- feature.chosen.name[1]
+      names(pd.plot)[1] <- features.list[i]
       
       # reshape it
       library(reshape2)
-      pd.plot.long <- melt(pd.plot, id = feature.chosen.name[1])
+      pd.plot.long <- melt(pd.plot, id = features.list[i])
       detach("package:reshape2", unload = TRUE)
       names(pd.plot.long)[c(2, 3)] = c("Algorithm", "Probability")
       
@@ -67,7 +82,7 @@ pdp_difference <- function(task, seed, visualize = FALSE) {
       plot.PartialDependanceData <- ggplot(
         data = pd.plot.long,
         aes_string(
-          x = feature.chosen.name,
+          x = features.list[i],
           y = "Probability",
           colour = "Algorithm"
         )
@@ -76,24 +91,49 @@ pdp_difference <- function(task, seed, visualize = FALSE) {
                   aes(linetype = Algorithm) ,
                   size = 1) +
         labs(y = "Probability") +
-        ylim(0, 1)
+        ylim(0, 1) + geom_point()
       
-      plot.PartialDependanceData
+      print(plot.PartialDependanceData)
     }
     
+    occurences = table(task$env$data[[features.list[i]]])
     
-    df_diff_pdp[i, ] = c(abs(pd.diff / length(pd.diff)),
-                         sqrt(pd.diff ^ 2 / length(pd.diff)),
+    # Check the length of occurence
+    
+    if(length(occurences)!=length(pd.diff)) {
+      print("Problem with the length of occurence")
+      print("Occurence has been set to 1")
+      occurences = rep(1,length(pd.diff))
+    }
+    
+    weights = occurences/sum(occurences)
+    
+    df_diff_pdp[i, ] = c(abs(pd.diff) %*% weights,
+                         sqrt(pd.diff ^ 2 %*% weights),
                          max(abs(pd.diff)))
     
-    # Puis diviser par nombre de features aussi !
+
     
     setTxtProgressBar(pb, i)
     
   }
-  return(df_diff_pdp)
+  res =  t(data.matrix(permutation_importance_percentage)) %*% data.matrix(df_diff_pdp) 
+  return(res)
 }
 
 
-# test
-pdp_difference(sonar.task, seed = 1, visualize = FALSE)
+# test OML task
+# Loading the dataset
+load(file = "Data/Results/clas_time.RData")
+clas_time$did
+omldataset = getOMLDataSet(data.id = 346, verbosity = 0)
+if (identical(omldataset$target.features, character(0))) {
+  omldataset$target.features="Class"
+  omldataset$desc$default.target.attribute="Class"
+}
+mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
+mlrtask$env$data
+pdp_difference(mlrtask, seed = 1, visualize = TRUE)
+
+# test sonar.task
+#pdp_difference(sonar.task, seed = 1, visualize = FALSE)
