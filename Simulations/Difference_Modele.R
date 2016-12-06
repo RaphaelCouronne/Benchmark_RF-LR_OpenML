@@ -23,9 +23,10 @@ pdp_difference_allDatasets <- function(clas, seed, force = FALSE, visualize = TR
     i_beginning = which(pdp_difference$done)[length(which(pdp_difference$done))]
     
   } else {
-    pdp_difference = data.frame(matrix(data = NA, nrow = n.row, ncol = 10))
+    pdp_difference = data.frame(matrix(data = NA, nrow = n.row, ncol = 13))
     names(pdp_difference) = c("index", "did", "taskid", "began", "done", 
-                              "loaded","converted", "pdp_l1", "pdp_l2", "pdp_linf")
+                              "loaded","converted", "pdp_l1", "pdp_l2", "pdp_linf",
+                              "pdp_l1_first3", "pdp_l2_first3", "pdp_linf_first3")
     pdp_difference$index = c(1:n.row)
     pdp_difference$did = clas$did
     pdp_difference$taskid=clas$task.id
@@ -59,8 +60,10 @@ pdp_difference_allDatasets <- function(clas, seed, force = FALSE, visualize = TR
       pdp_difference$converted[j] = TRUE
       
       # Get the Pdp difference
-      pdp_difference[j,c(8:10)] <- pdp_difference(mlrtask, seed = seed, 
-                                                  visualize = visualize, progression_bar = FALSE)
+      pdp_difference_all <- pdp_difference(mlrtask, seed = seed, 
+                                           visualize = visualize, progression_bar = FALSE)
+      pdp_difference[j,c(8:10)] <- pdp_difference_all$all
+      pdp_difference[j,c(10:13)] <- pdp_difference_all$first3
       
     }, error = function(e) return(paste0("The variable '", j, "'", 
                                          " caused the error: '", e, "'")))
@@ -107,6 +110,8 @@ pdp_difference <- function(task, seed, visualize = FALSE, progression_bar = TRUE
   importances = fit.classif.rf$learner.model$importance
   permutation_importance = importances[,3]
   permutation_importance_percentage = permutation_importance/sum(permutation_importance)
+  permutation_importance_percentage = sapply(permutation_importance_percentage,
+                                             function(x) max(x,0))
   
   # Text bar progression
   if (progression_bar) pb <- txtProgressBar(min = 1, max = nFeatures, style = 3)
@@ -190,10 +195,8 @@ pdp_difference <- function(task, seed, visualize = FALSE, progression_bar = TRUE
       occurences = rep(1,length(pd.diff))
     }
     
-    weights = occurences/sum(occurences)
-    
-    df_diff_pdp[i, ] = c(abs(pd.diff) %*% weights,
-                         sqrt(pd.diff ^ 2 %*% weights),
+    df_diff_pdp[i, ] = c((abs(pd.diff) %*% occurences)/sum(occurences),
+                         sqrt(pd.diff ^ 2 %*% occurences)/sum(occurences),
                          max(abs(pd.diff)))
     
     
@@ -201,23 +204,28 @@ pdp_difference <- function(task, seed, visualize = FALSE, progression_bar = TRUE
     if (progression_bar) setTxtProgressBar(pb, i)
     
   }
-  res =  t(data.matrix(permutation_importance_percentage)) %*% data.matrix(df_diff_pdp) 
+  res = NULL
+  res$all =  t(data.matrix(permutation_importance_percentage)) %*% data.matrix(df_diff_pdp) 
+  
+  # first three features
+  first3 = order(permutation_importance_percentage)[c(1:min(3,nFeatures))]
+  res$first3 = apply(df_diff_pdp[first3,],2,mean)
   return(res)
 }
 
 
-# test OML task
-# Loading the dataset
-# load(file = "Data/Results/clas_time.RData")
-# clas_time$did
-# omldataset = getOMLDataSet(data.id = 905, verbosity = 0)
-# if (identical(omldataset$target.features, character(0))) {
-#   omldataset$target.features="Class"
-#   omldataset$desc$default.target.attribute="Class"
-# }
-# mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
-# mlrtask$env$data
-# pdp_difference(mlrtask, seed = 1, visualize = TRUE)
+#test OML task
+#Loading the dataset
+load(file = "Data/Results/clas_time.RData")
+clas_time$did
+omldataset = getOMLDataSet(data.id = 905, verbosity = 0)
+if (identical(omldataset$target.features, character(0))) {
+  omldataset$target.features="Class"
+  omldataset$desc$default.target.attribute="Class"
+}
+mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
+mlrtask$env$data
+pdp_difference(mlrtask, seed = 1, visualize = TRUE)
 
 # test sonar.task
 #pdp_difference(sonar.task, seed = 1, visualize = FALSE)
