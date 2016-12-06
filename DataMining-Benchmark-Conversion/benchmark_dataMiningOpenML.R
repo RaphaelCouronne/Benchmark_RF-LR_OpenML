@@ -154,10 +154,11 @@ data_mining_OpenML <- function(target_path = "Data/Results/clas_time.RData", for
       # Transform to mlr task
       configureMlr(on.learner.error = "warn", show.learner.output = TRUE, show.info = FALSE)
       mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
+      df.infos$converted[j] = TRUE
       
       # Get the dimension
       df.infos$dimension[j] = getTaskDimension(mlrtask)
-      df.infos$converted[j] = TRUE
+
       
       # Compute the time for lr andrf
       learners = list(makeLearner("classif.randomForest"),

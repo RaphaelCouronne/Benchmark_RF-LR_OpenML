@@ -1,10 +1,84 @@
 rm(list = ls())
 library(mlr)
-
 library(OpenML)
 
 
-pdp_difference <- function(task, seed, visualize = FALSE) {
+# =========================================
+# Individual pdp difference (on all dataset)
+
+pdp_difference_allDatasets <- function(clas, seed, force = FALSE, visualize = TRUE) {
+  
+  dataset_count = length(clas$did)
+  n.row = nrow(clas)
+  
+  if (file.exists("Data/Results/Pdp_difference/Pdp_difference.RData") && !force) {
+    # laod the file
+    print("load file")
+    load(file = "Data/Results/Pdp_difference/Pdp_difference.RData")
+    
+    # check integrity of datasets
+    if (!identical(clas$did, pdp_difference$did)) {
+      stop("Stop : conflict in the datasets")
+    }
+    i_beginning = which(pdp_difference$done)[length(which(pdp_difference$done))]
+    
+  } else {
+    pdp_difference = data.frame(matrix(data = NA, nrow = n.row, ncol = 10))
+    names(pdp_difference) = c("index", "did", "taskid", "began", "done", 
+                              "loaded","converted", "pdp_l1", "pdp_l2", "pdp_linf")
+    pdp_difference$index = c(1:n.row)
+    pdp_difference$did = clas$did
+    pdp_difference$taskid=clas$task.id
+    
+    i_beginning = 1
+    
+  }
+  
+  pb <- txtProgressBar(min = i_beginning, max = dataset_count, style = 3)
+  
+  for(j in c(i_beginning:dataset_count)){
+    
+    # begin
+    pdp_difference$began[j] = TRUE
+    
+    # Try
+    tryCatch({
+      
+      # Loading the dataset
+      omldataset = getOMLDataSet(data.id = clas$did[j], verbosity = 0)
+      if (identical(omldataset$target.features, character(0))) {
+        omldataset$target.features="Class"
+        omldataset$desc$default.target.attribute="Class"
+      }
+      pdp_difference$loaded[j] = "TRUE" 
+      
+      
+      # Transform to mlr task
+      configureMlr(on.learner.error = "warn", show.learner.output = TRUE, show.info = FALSE)
+      mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
+      pdp_difference$converted[j] = TRUE
+      
+      # Get the Pdp difference
+      pdp_difference[j,c(8:10)] <- pdp_difference(mlrtask, seed = seed, 
+                                                  visualize = visualize, progression_bar = FALSE)
+      
+    }, error = function(e) return(paste0("The variable '", j, "'", 
+                                         " caused the error: '", e, "'")))
+    
+    setTxtProgressBar(pb, j)
+    pdp_difference$done[j] = TRUE
+    save(pdp_difference, file = "Data/Results/Pdp_difference/Pdp_difference.RData")
+  }
+  
+  return(pdp_difference)
+}
+
+
+
+# =========================================
+# Individual pdp difference (on one dataset)
+
+pdp_difference <- function(task, seed, visualize = FALSE, progression_bar = TRUE) {
   
   configureMlr(on.learner.error = "warn", show.learner.output = FALSE, show.info = TRUE)
   
@@ -35,7 +109,7 @@ pdp_difference <- function(task, seed, visualize = FALSE) {
   permutation_importance_percentage = permutation_importance/sum(permutation_importance)
   
   # Text bar progression
-  pb <- txtProgressBar(min = 1, max = nFeatures, style = 3)
+  if (progression_bar) pb <- txtProgressBar(min = 1, max = nFeatures, style = 3)
   
   for (i in c(1:nFeatures)) {
     ## Generate partial dependance
@@ -86,12 +160,22 @@ pdp_difference <- function(task, seed, visualize = FALSE) {
           y = "Probability",
           colour = "Algorithm"
         )
-      ) +
-        geom_line(data = pd.plot.long,
-                  aes(linetype = Algorithm) ,
-                  size = 1) +
-        labs(y = "Probability") +
-        ylim(0, 1) + geom_point()
+      ) + labs(y = "Probability") +
+        ylim(0, 1) 
+      
+      if (is.numeric(task$env$data[[features.list[i]]])) {
+        
+        plot.PartialDependanceData = plot.PartialDependanceData + 
+          geom_line(data = pd.plot.long,
+                    aes(linetype = Algorithm) ,
+                    size = 1) + geom_point()
+        
+      } else {
+        plot.PartialDependanceData = plot.PartialDependanceData + 
+          geom_point(data = pd.plot.long,
+                     aes(linetype = Algorithm) ,
+                     size = 1)
+      }
       
       print(plot.PartialDependanceData)
     }
@@ -112,9 +196,9 @@ pdp_difference <- function(task, seed, visualize = FALSE) {
                          sqrt(pd.diff ^ 2 %*% weights),
                          max(abs(pd.diff)))
     
-
     
-    setTxtProgressBar(pb, i)
+    
+    if (progression_bar) setTxtProgressBar(pb, i)
     
   }
   res =  t(data.matrix(permutation_importance_percentage)) %*% data.matrix(df_diff_pdp) 
@@ -124,16 +208,24 @@ pdp_difference <- function(task, seed, visualize = FALSE) {
 
 # test OML task
 # Loading the dataset
-load(file = "Data/Results/clas_time.RData")
-clas_time$did
-omldataset = getOMLDataSet(data.id = 346, verbosity = 0)
-if (identical(omldataset$target.features, character(0))) {
-  omldataset$target.features="Class"
-  omldataset$desc$default.target.attribute="Class"
-}
-mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
-mlrtask$env$data
-pdp_difference(mlrtask, seed = 1, visualize = TRUE)
+# load(file = "Data/Results/clas_time.RData")
+# clas_time$did
+# omldataset = getOMLDataSet(data.id = 905, verbosity = 0)
+# if (identical(omldataset$target.features, character(0))) {
+#   omldataset$target.features="Class"
+#   omldataset$desc$default.target.attribute="Class"
+# }
+# mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
+# mlrtask$env$data
+# pdp_difference(mlrtask, seed = 1, visualize = TRUE)
 
 # test sonar.task
 #pdp_difference(sonar.task, seed = 1, visualize = FALSE)
+
+
+# test all datasets
+load(file = "Data/Results/Original/clas_time_original.RData")
+clas_used = clas_time[c(1:5),]
+u = pdp_difference_allDatasets(clas_used, seed= 1, force = TRUE, visualize = TRUE)
+u
+
