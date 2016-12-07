@@ -158,9 +158,9 @@ features.list = names(task$env$data)
 feature.temp = features.list[index.temp]
 
 set.seed(1)
-pd.rf = generatePartialDependenceData(fit.classif.rf, task, features.list[index.temp], gridsize = gridsize, resample = "subsample")
+pd.rf = generatePartialDependenceData(fit.classif.rf, task, features.list[index.temp], gridsize = gridsize)
 set.seed(1)
-pd.lr = generatePartialDependenceData(fit.classif.lr, task, features.list[index.temp], gridsize = gridsize, resample = "subsample")
+pd.lr = generatePartialDependenceData(fit.classif.lr, task, features.list[index.temp], gridsize = gridsize)
 
 library(ggplot2)
 df.plot = data.frame(grid = pd.rf$data[[feature.temp]], 

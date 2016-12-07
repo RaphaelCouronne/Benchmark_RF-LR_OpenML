@@ -34,35 +34,10 @@ parallel_computation_snowfall(nCores = 10,
 
 ## I.3  Computation of Difference in Partial Dependance  ----
 load("Data/Results/Original/clas_time_original.RData")
-source("Simulations/PDPsPrinciple.R")
-clas_used = clas_time[c(1:377),]
-pdp_difference_allDatasets(clas_used, seed = 1, force = TRUE, visualize = FALSE)
-
-load("Data/Results/Pdp_difference/Pdp_difference.RData")
-load("Data/Results/benchmark_parallel_snowfall_tiny.RData")
-load("Data/Results/df.bmr_tiny.RData")
-
-pdp_difference_tiny = pdp_difference[c(1:147),]
-
-df.bmr.diff$did = clas_used$did
-clas_used
-
-did_bmr = df.bmr.diff$did [which(df.bmr.diff$did  %in% pdp_difference_tiny$did)]
-did_pdp = pdp_difference_tiny$did[which(pdp_difference_tiny$did  %in% df.bmr.diff$did)]
-
-sort(did_bmr)==sort(did_pdp)
-did.chosen = did_bmr
-
-
-df.bmr.diff_tiny = df.bmr.diff[which(df.bmr.diff$did%in% did.chosen),]
-pdp_difference_tiny = pdp_difference[which(pdp_difference$did%in% did.chosen),]
-
-df.bmr.diff_tiny = df.bmr.diff_tiny[order(df.bmr.diff_tiny$did),]
-pdp_difference_tiny = pdp_difference_tiny[order(pdp_difference_tiny$did),]
-
-df = data.frame(df.bmr.diff_tiny, pdp_difference_tiny)
-
-plot(df$pdp_l1, df$acc.test.mean, xlim = c(0,0.2))
+source("Simulations/Difference_Modele.R")
+clas_used = rbind(clas_time_small, clas_time_medium)
+pdp_difference_allDatasets(clas_used, seed = 1, force = TRUE, visualize = FALSE, dataset_count = 20,
+                           target_path = "Data/Results/Pdp_difference/Pdp_difference.RData")
 
 ## II Visualization
 rm(list=ls())
@@ -88,6 +63,23 @@ rm(list=ls())
 # Partial dependance plots
 source("Simulations/PDPsPrinciple.R")
 PartialDependancePlotExample()
+
+# study of 3 datasets with their difference in model and acc
+source("Simulations/Extrem_cases_pdp.R")
+source("Simulations/Difference_Modele.R")
+
+# id = 230 did = 1471
+# Delta acc high / Delta Model High
+plot_extrem_cases(id = 230, seed = 1)
+
+# id = 171 id = 1068
+# Delta acc low / Delta Model High
+plot_extrem_cases(id = 171, seed = 1)
+
+# id = 210 did = 725
+# Delta acc low / Delta Model low
+plot_extrem_cases(id = 210, seed = 1)
+
 
 # One Dataset simulations
 # Enter id, values for n and p to test
