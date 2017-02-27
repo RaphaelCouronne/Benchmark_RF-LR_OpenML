@@ -1,8 +1,10 @@
 parallel_computation_snowfall <- function(nCores = 1, 
                                           clas_used,
-                                          target_path = "Data/Results/benchmark_parallel_snowfall.RData") {
+                                          target_path = "Data/Results/benchmark_parallel_snowfall.RData",
+                                          seed = 1) {
   
   library(mlr)
+  set.seed(seed)
   print("Begin Parallel computation for benchmark")
   print("  Computation can be monitord in Data/Results/benchmark_parallel_snowfall_informations.Rout")
   print(paste("Estimated duration time : ",sum(clas_used$rf.timetrain)*50))
@@ -45,8 +47,8 @@ parallel_computation_snowfall <- function(nCores = 1,
     
     
     # learners
-    lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE) #2class
-    lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE) #multiclass
+    lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE) 
+    lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE) 
     
     # list of learners
     lrn.list = list(lrn.classif.lr, #stats package

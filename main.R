@@ -1,12 +1,21 @@
 rm(list = ls())
-set.seed(1)
+
+# If possible increase memory used
+options( java.parameters = "-Xmx8g" )
+
+# Check that all packages can be loaded
 library(mlr)
 library(OpenML)
 library(ggplot2)
 library(snowfall)
 library(cowplot)
-options( java.parameters = "-Xmx8g" )
 library(RWeka)
+
+load(file = "Data/OpenML/Original/New/df.infos.RData")
+
+# Create an account in OpenML and use the R apikey
+myapikey = "7a4391537f767ea70db6af99497653e5"
+saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
 ## I Benchmark Study
 
@@ -15,11 +24,11 @@ library(RWeka)
   # Generates Data/OpenML/classifTasks.infos.RData
   # Remove non usefull datasets using the tasks attributes
   # Load all the datasets, test them, compute their dimension and computation time
-  # Generates Data/OpenML/rf.timetrain.RData
-  # Generates Data/Results/clas_time.RData
-  # 329 datasets in total
+  # Generates Data/OpenML/df.infos.RData which gives information about the processing of the datasets
+  # Generates Data/Results/clas_time.RData which 
+  # 326 datasets in total
 source(file = "DataMining-Benchmark-Conversion/benchmark_dataMiningOpenML.R")
-data_mining_OpenML(target_path = "Data/Results/clas_time_tiny.RData", force = FALSE, dataset_count = 220)
+get_data_OpenML(target_path = "Data/Results/clas_time_tiny.RData", force = FALSE, dataset_count = 220)
 
 ## I.2 Benchmark computation ----
   # Parallel computation for the benchmark, default is 10 cores
