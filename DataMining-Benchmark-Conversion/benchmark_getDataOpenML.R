@@ -157,9 +157,10 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   
   
   # If there are new datasets, try loading, conversion, computation of dimension, and time
-  df.infos.file <- file("Data/OpenML/df.infos.Rout", open = "w")
+
   
   if (!(identical(index.not.done, integer(0))))  {
+    df.infos.file <- file("Data/OpenML/df.infos.Rout", open = "w")
     
     pb <- txtProgressBar(min = 1, max = length(index.not.done), style = 3)
     
@@ -239,8 +240,6 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   clas_select$time = clas_select$rf_time+clas_select$lr_time
   
   # select the number we decided
-  clas_select = clas_select[c(1:dataset_count),]
-  print(paste("Removing the non considered datasets :",nrow(clas_select), "Datasets"))
   
   # remove the one with loading unsuccessfull
   data.id_loading_failed = clas_select$data.id[which(is.na(clas_select$loaded))]
@@ -258,15 +257,17 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   print(paste("Removing the datasets which conversion failed :",nrow(clas_select), "Datasets"))
   
   # remove the one with NAs on LR and RF
-  data.id_learner_failed = clas_select$data.id[which(is.na(clas_select$rf_NA) |
-                                                       is.na(clas_select$lr_NA) |
-                                                       clas_select$rf_NA        |
-                                                       clas_select$lr_NA  )]
-  if (!identical(which(clas_select$data.id %in% data.id_learner_failed), integer(0))) {
-    clas_select = clas_select[-which(clas_select$data.id %in% data.id_learner_failed),]
-  }
-  print(paste("Removing the datasets which lr or rf failed :",nrow(clas_select), "Datasets"))
+  #data.id_learner_failed = clas_select$data.id[which(is.na(clas_select$rf_NA) |
+  #                                                     is.na(clas_select$lr_NA) |
+  #                                                     clas_select$rf_NA        |
+  #                                                     clas_select$lr_NA  )]
+  #if (!identical(which(clas_select$data.id %in% data.id_learner_failed), integer(0))) {
+  #  clas_select = clas_select[-which(clas_select$data.id %in% data.id_learner_failed),]
+  #}
+  #print(paste("Removing the datasets which lr or rf failed :",nrow(clas_select), "Datasets"))
   
+  # For now we decide to let the dataset resulting in Nas for lr or rf because this happens randomly, and more
+  # Nas will be encountered doind a 10 times 5-CV so we will take care of them at the same time.
   
   
   # =============================
@@ -275,15 +276,13 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   
   clas_time = clas_select
   
-  # reorder according to time and na
-  clas_time = clas_time[order(clas_time$time), ]
-  
-  # clas_time small medium big non supported
-  clas_time_small = clas_time[which(clas_time$time < 1),]
-  clas_time_medium = clas_time[which(clas_time$time > 1 &  clas_time$time<10 ) ,]
-  clas_time_big = clas_time[which(clas_time$time >10),]
-  clas_time_NA = clas_time[which(is.na(clas_time$time)),]
+  # clas_time small medium big and too big
+  # Too big dataset corresponds to a training time of lr+rf that exceeds 100s on a Holdout 80% train and 20% test on the dataset
+  clas_time_small = clas_time[which(clas_time$n*clas_time$p < 20000),]
+  clas_time_medium = clas_time[which(clas_time$n*clas_time$p  > 20000 &  clas_time$n*clas_time$p  <  100000) ,]
+  clas_time_big = clas_time[which(clas_time$n*clas_time$p  > 100000 &  clas_time$n*clas_time$p <  3000000) ,]
+  clas_time_toobig = clas_time[which(clas_time$n*clas_time$p > 3000000),]
   
   # save it
-  save(clas_time, clas_time_small, clas_time_medium, clas_time_big, clas_time_NA,  file = target_path )
+  save(clas_time, clas_time_small, clas_time_medium, clas_time_big, clas_time_toobig,  file = target_path )
 }

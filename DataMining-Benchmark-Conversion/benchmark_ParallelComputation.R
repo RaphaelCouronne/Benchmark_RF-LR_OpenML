@@ -7,11 +7,11 @@ parallel_computation_snowfall <- function(nCores = 1,
   set.seed(seed)
   print("Begin Parallel computation for benchmark")
   print("  Computation can be monitord in Data/Results/benchmark_parallel_snowfall_informations.Rout")
-  print(paste("Estimated duration time : ",sum(clas_used$rf.timetrain)*50))
+  print(paste("Estimated number of s : ",sum(clas_used[-which(is.na(clas_used$time)),]$time)*50))
   start.time <- Sys.time()
   
   # Load the environment
-  OMLDATASETS = sort(clas_used$did)
+  OMLDATASETS = sort(clas_used$data.id)
   
   ## Example 1 - Multi-core on a single computer
   sink('Data/Results/benchmark_parallel_snowfall_informations.Rout', split=TRUE)

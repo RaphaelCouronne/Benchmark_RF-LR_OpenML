@@ -9,9 +9,7 @@ library(OpenML)
 library(ggplot2)
 library(snowfall)
 library(cowplot)
-library(RWeka)
-
-load(file = "Data/OpenML/Original/New/df.infos.RData")
+library(RWeka) 
 
 # Create an account in OpenML and use the R apikey
 myapikey = "7a4391537f767ea70db6af99497653e5"
@@ -27,18 +25,20 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
   # Generates Data/OpenML/df.infos.RData which gives information about the processing of the datasets
   # Generates Data/Results/clas_time.RData which 
   # 326 datasets in total
-source(file = "DataMining-Benchmark-Conversion/benchmark_dataMiningOpenML.R")
-get_data_OpenML(target_path = "Data/Results/clas_time_tiny.RData", force = FALSE, dataset_count = 220)
+source(file = "DataMining-Benchmark-Conversion/benchmark_getDataOpenML.R")
+get_data_OpenML(target_path = "Data/Results/clas_time.RData", force = FALSE, seed = 1)
 
 ## I.2 Benchmark computation ----
-  # Parallel computation for the benchmark, default is 10 cores
+  # Parallel computation for the benchmark, default is 7 cores
   # Generates Data/Results/benchmark_parallel_snowfall.RData
 source(file = "DataMining-Benchmark-Conversion/benchmark_ParallelComputation.R")
-load("Data/Results/clas_time_tiny.RData")
-clas_used = rbind(clas_time_small, clas_time_medium)
-parallel_computation_snowfall(nCores = 10, 
+load("Data/Results/clas_time.RData")
+clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+clas_used = clas_used
+parallel_computation_snowfall(nCores = 7, 
                               clas_used = clas_used,
-                              target_path = "Data/Results/benchmark_parallel_snowfall_tiny.RData")
+                              target_path = "Data/Results/benchmark_parallel_snowfall.RData",
+                              seed = 1)
 
 
 ## I.3  Computation of Difference in Partial Dependance  ----
