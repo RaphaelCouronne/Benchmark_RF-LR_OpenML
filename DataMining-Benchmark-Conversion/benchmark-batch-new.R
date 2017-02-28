@@ -9,16 +9,16 @@ saveOMLConfig(apikey = "7a4391537f767ea70db6af99497653e5", arff.reader = "RWeka"
 
 # which subset of dataset
 clas_used = rbind(clas_time_small)
-OMLDATASETS = clas_used$did[c(1:50)]
+OMLDATASETS = clas_used$data.id[c(1:50)]
 nameExperiment = paste("batchtool-test")
 
 
 unlink(nameExperiment, recursive = TRUE)
-regis = makeExperimentRegistry(nameExperiment, 
+regis = makeExperimentRegistry(nameExperiment, seed = seed,
                                packages = c("mlr", "OpenML", "methods"), 
                                #source = paste0(dir, "/benchmark_defs.R"),
                                work.dir = paste0("Data/Batchtools"),
-                               conf.file = paste0("Data/Batchtools/.batchtools.conf.R")
+                               #conf.file = paste0("Data/Batchtools/.batchtools.conf.R")
 )
 
 regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = 2) 
@@ -36,25 +36,31 @@ for (did in OMLDATASETS) {
 addAlgorithm("eval", fun = function(job, data, instance,  ...) {
   par.vals = list(...)
   
-  # get the dataset
-  omldataset = getOMLDataSet(data$did)
-  if (identical(omldataset$target.features, character(0))) {
-    omldataset$target.features="Class"
-    omldataset$desc$default.target.attribute="Class"
-  }
-  task = convertOMLDataSetToMlr(omldataset)
+  tryCatch({
+    
+    # get the dataset
+    omldataset = getOMLDataSet(data$did)
+    if (identical(omldataset$target.features, character(0))) {
+      omldataset$target.features="Class"
+      omldataset$desc$default.target.attribute="Class"
+    }
+    task = convertOMLDataSetToMlr(omldataset)
+    
+    # learners
+    lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE)
+    lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE)
+    lrn.list = list(lrn.classif.lr,lrn.classif.rf)
+    
+    # measures
+    measures = list(acc, brier, auc, timetrain)
+    rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
+    configureMlr(on.learner.error = "warn", show.learner.output = TRUE)
+    bmr = benchmark(lrn.list, task, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = TRUE)
+    bmr
+    
+  }, error = function(e) return(paste0("The variable '", data$did, "'", 
+                                       " caused the error: '", e, "'")))
   
-  # learners
-  lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE)
-  lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE)
-  lrn.list = list(lrn.classif.lr,lrn.classif.rf)
-  
-  # measures
-  measures = list(acc, brier, auc, timetrain)
-  rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
-  configureMlr(on.learner.error = "warn", show.learner.output = FALSE)
-  bmr = benchmark(lrn.list, task, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = TRUE)
-  bmr
 })
 
 
@@ -72,11 +78,15 @@ testJob(1, reg = regis)
 options(batchtools.progress = TRUE)
 notDone = findNotDone()
 ids = chunkIds(notDone$job.id, chunk.size = 10)
-submitJobs(ids = ids, reg = regis, )
+submitJobs(ids = ids, reg = regis)
 waitForJobs(ids = c(1:50), sleep = 10, timeout = 604800, stop.on.error = FALSE, reg = getDefaultRegistry())
 resetJobs(reg = regis, ids = c(1:50))
 getStatus()
 getErrorMessages()
 
+res_classif_load = reduceResultsList(ids = 1:50, fun = function(r) as.list(r), reg = regis)
 
+getErrorMessages(ids = 1:50, missing.as.error = FALSE,
+                 reg = regis)
 
+getErrorMessages(ids = 1:50, reg = regis)

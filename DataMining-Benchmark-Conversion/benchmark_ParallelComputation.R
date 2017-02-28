@@ -6,15 +6,15 @@ parallel_computation_snowfall <- function(nCores = 1,
   library(mlr)
   set.seed(seed)
   print("Begin Parallel computation for benchmark")
-  print("  Computation can be monitord in Data/Results/benchmark_parallel_snowfall_informations.Rout")
+  print("Computation can be monitord in Data/Results/benchmark_parallel_snowfall_informations.Rout")
   print(paste("Estimated number of s : ",sum(clas_used[-which(is.na(clas_used$time)),]$time)*50))
   start.time <- Sys.time()
   
   # Load the environment
   OMLDATASETS = sort(clas_used$data.id)
   
-  ## Example 1 - Multi-core on a single computer
-  sink('Data/Results/benchmark_parallel_snowfall_informations.Rout', split=TRUE)
+  ## - Multi-core on a single computer
+  
   .Platform
   .Machine
   R.version
@@ -23,7 +23,7 @@ parallel_computation_snowfall <- function(nCores = 1,
   library(snowfall) 
   # 1. Initialisation of snowfall. 
   # (if used with sfCluster, just call sfInit()) 
-  sfInit(parallel=TRUE, cpus=nCores)
+  sfInit(parallel=TRUE, cpus=nCores, slaveOutfile = 'Data/Results/benchmark_parallel_snowfall_informations.Rout')
   
   # 2. Loading data. 
   
@@ -32,8 +32,7 @@ parallel_computation_snowfall <- function(nCores = 1,
     
     library(OpenML)
     library(mlr)
-    
-    print(paste("debut dataset ", data.index))
+    print(paste("Beginning dataset ", data.index, " ======>"))
     print(Sys.time())
     
     # get the dataset
@@ -60,7 +59,9 @@ parallel_computation_snowfall <- function(nCores = 1,
     rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
     configureMlr(on.learner.error = "warn", show.learner.output = FALSE)
     bmr = benchmark(lrn.list, task, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = FALSE)
-    print(paste("fin dataset ", data.index))
+    print(paste(" ======> ", "Ending dataset ", data.index))
+    cat("\n")
+    cat("\n")
     return(bmr)
   }
   
@@ -90,7 +91,6 @@ parallel_computation_snowfall <- function(nCores = 1,
   # 7. Stop snowfall 
   sfStop() 
   end.time <- Sys.time()
-  
   save(result, clas_used, file = target_path)
   time.taken <- end.time - start.time
   print("Done with parallel computations")

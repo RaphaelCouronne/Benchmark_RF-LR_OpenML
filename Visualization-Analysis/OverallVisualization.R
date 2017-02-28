@@ -69,7 +69,7 @@ overall_visualization<-function(bmr) {
   
   
   p.rank = ggplot(learners.meanrank.df, aes(x = learners, y = average_rank)) + geom_bar(stat = "identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + coord_cartesian(ylim=c(1,4)) +
-          ggtitle(paste0("Mean Rank ", measure.name, " ")) + ylab(paste("Mean of",measure.name, "rank on", n ,"datasets")) + xlab("learner")
+    ggtitle(paste0("Mean Rank ", measure.name, " ")) + ylab(paste("Mean of",measure.name, "rank on", n ,"datasets")) + xlab("learner")
   
   
   # compute the matrix of the means of ranks
@@ -81,11 +81,12 @@ overall_visualization<-function(bmr) {
     return(learners.meanrank)
   }
   
-  p.grid.ranks = plot_grid(p.barplot,
-                           p.rank,
-                     ncol = 2, nrow = 1)
+  #p.grid.ranks = plot_grid(p.barplot,
+  #                         p.rank,
+  #                   ncol = 1, nrow = 2)
   
-  print(p.grid.ranks)
+  print(p.barplot)
+  print(p.rank)
   
   
   ## 3. Boxplots of performance ----
@@ -141,7 +142,7 @@ overall_visualization<-function(bmr) {
   res.brier$p.measure.diff = res.brier$p.measure.diff+labs(y=expression(paste(Delta,"brier")))
   res.brier$p.measure = res.brier$p.measure   + theme(legend.justification=c(1,1), legend.position=c(1,1))
   
-
+  
   p.grid = plot_grid(res.acc$p.measure,
                      res.auc$p.measure, 
                      res.brier$p.measure, 
@@ -153,7 +154,7 @@ overall_visualization<-function(bmr) {
   print(p.grid)
   
   
-
+  
   
   
 }

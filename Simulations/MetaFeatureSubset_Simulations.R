@@ -11,7 +11,6 @@ rm(list = ls())
 load(file = "Data/Results/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium)
 OMLDATASETS = clas_used$did
-source(file = "DataMining-Benchmark-Conversion/benchmark_defs.R")
 MEASURES = list(acc)
 
 # Parameters
