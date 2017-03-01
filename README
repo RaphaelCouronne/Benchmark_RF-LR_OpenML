@@ -27,7 +27,7 @@ III) Connect to your rstudio instance
 Enter login/mdp : rstudio/rstudio
 
 IV) In your rstudio instance
-     1. Open main.R, enter your API key at the specified place in the file, and launch from here
+     1. Open main.R, enter your API key and the number of cores you want tu use at the specified place in the file
      2. Get the data from OpenML and optionally compute an estimate of the training time (1-2 days)
      3. Do the benchmark (for 278 datasets, it takes around 8 hours with 7 cores and 8go RAM)
      4. Visualize the results

@@ -1,12 +1,14 @@
-get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force = FALSE, seed = seed) {
+get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force = FALSE, computeTime = FALSE, seed = seed) {
   
+  # Remove non usefull datasets using the tasks attributes
+  # Load all the datasets, test them, compute their dimension and computation time
   
   # Libraries needed
   library(RWeka)
   library(OpenML)
   
   # Load function
-  source("DataMining-Benchmark-Conversion/benchmark_dataMiningOpenML_functions.R")
+  source("DataMining-Benchmark-Conversion/benchmark_getDataOpenML_functions.R")
   
   # Enter the OpenML apikey
   #myapikey = 
@@ -153,11 +155,11 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   
   
   index.not.done = which(is.na(df.infos$done))
-
+  
   
   
   # If there are new datasets, try loading, conversion, computation of dimension, and time
-
+  
   
   if (!(identical(index.not.done, integer(0))))  {
     df.infos.file <- file("Data/OpenML/df.infos.Rout", open = "w")
@@ -194,31 +196,32 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
         # Get the dimension
         df.infos$dimension[j] = getTaskDimension(mlrtask)
         
-        
-        # Compute the time for lr andrf
-        learners = list(makeLearner("classif.randomForest"),
-                        makeLearner("classif.logreg"))
-        rdesc = makeResampleDesc("Holdout", split = 0.8, stratify = TRUE)
-        configureMlr(on.learner.error = "warn", show.learner.output = TRUE, show.info = TRUE)
-        
-        sink(df.infos.file)
-        sink(df.infos.file, type = "message")
-        print(paste("Iteration",j,"dataset",clas$data.id[j]))
-        set.seed(seed)
-        bmr = benchmark(learners, mlrtask, rdesc, list(acc,timetrain), 
-                        keep.pred = TRUE, models = FALSE, show.info = FALSE)
-        sink() 
-        sink(type="message")
-        
-        perfs=NA
-        perfs = getBMRPerformances(bmr, as.df = TRUE)
-        time.train = sum(perfs$timetrain)
-        
-        df.infos$rf_time[j]=perfs$timetrain[which(perfs$learner.id=="classif.randomForest")]
-        df.infos$lr_time[j]=perfs$timetrain[which(perfs$learner.id=="classif.logreg")]
-        
-        df.infos$rf_NA[j] = is.na(perfs$acc[which(perfs$learner.id=="classif.randomForest")])
-        df.infos$lr_NA[j] = is.na(perfs$acc[which(perfs$learner.id=="classif.logreg")])
+        if (computeTime) {
+          # Compute the time for lr andrf
+          learners = list(makeLearner("classif.randomForest"),
+                          makeLearner("classif.logreg"))
+          rdesc = makeResampleDesc("Holdout", split = 0.8, stratify = TRUE)
+          configureMlr(on.learner.error = "warn", show.learner.output = TRUE, show.info = TRUE)
+          
+          sink(df.infos.file)
+          sink(df.infos.file, type = "message")
+          print(paste("Iteration",j,"dataset",clas$data.id[j]))
+          set.seed(seed)
+          bmr = benchmark(learners, mlrtask, rdesc, list(acc,timetrain), 
+                          keep.pred = TRUE, models = FALSE, show.info = FALSE)
+          sink() 
+          sink(type="message")
+          
+          perfs=NA
+          perfs = getBMRPerformances(bmr, as.df = TRUE)
+          time.train = sum(perfs$timetrain)
+          
+          df.infos$rf_time[j]=perfs$timetrain[which(perfs$learner.id=="classif.randomForest")]
+          df.infos$lr_time[j]=perfs$timetrain[which(perfs$learner.id=="classif.logreg")]
+          
+          df.infos$rf_NA[j] = is.na(perfs$acc[which(perfs$learner.id=="classif.randomForest")])
+          df.infos$lr_NA[j] = is.na(perfs$acc[which(perfs$learner.id=="classif.logreg")])
+        }
         
       }, error = function(e) return(paste0("The variable '", j, "'", 
                                            " caused the error: '", e, "'")))
@@ -229,7 +232,7 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
     }
   }
   
-
+  
   
   # =============================
   # Part 6 : Select the observations
@@ -278,10 +281,11 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   
   # clas_time small medium big and too big
   # Too big dataset corresponds to a training time of lr+rf that exceeds 100s on a Holdout 80% train and 20% test on the dataset
+  # It corresponds to datasets such that n*p > 3000000 on our dataset pool
   clas_time_small = clas_time[which(clas_time$n*clas_time$p < 20000),]
   clas_time_medium = clas_time[which(clas_time$n*clas_time$p  > 20000 &  clas_time$n*clas_time$p  <  100000) ,]
   clas_time_big = clas_time[which(clas_time$n*clas_time$p  > 100000 &  clas_time$n*clas_time$p <  3000000) ,]
-  clas_time_toobig = clas_time[which(clas_time$n*clas_time$p > 3000000),]
+  clas_time_toobig = clas_time[which(clas_time$n*clas_time$p > 3000000),] 
   
   # save it
   save(clas_time, clas_time_small, clas_time_medium, clas_time_big, clas_time_toobig,  file = target_path )

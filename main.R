@@ -10,33 +10,41 @@ library(ggplot2)
 library(snowfall)
 library(cowplot)
 library(RWeka) 
+library(doParallel)
 
-# Create an account in OpenML and use the R apikey
-myapikey = "7a4391537f767ea70db6af99497653e5"
+# Enter here nCores and myapikey
+nCores = 3 # n umber of cores you want to use
+myapikey = "7a4391537f767ea70db6af99497653e5" #O penML API key
 saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
-# How many cores do you want to use ?
 
-## I Benchmark Study
+
+
+
+
+
+
+## I Benchmark Study ======================================================================================
 
 ## I.1 Data Mining ----
 # Get the tasks from OpenML
-# Generates Data/OpenML/classifTasks.infos.RData
-# Remove non usefull datasets using the tasks attributes
-# Load all the datasets, test them, compute their dimension and computation time
 # Generates Data/OpenML/df.infos.RData which gives information about the processing of the datasets
-# Generates Data/Results/clas_time.RData which 
-# 326 datasets in total
+# Generates Data/Results/clas_time.RData which contains information about our dataset pool
+# 
+# Options
+# force = TRUE to force (re)computing of ALL dataset informations
+# computeTime = TRUE to compute an estimate of training time for LR and RF. It may take up to several days
 source(file = "DataMining-Benchmark-Conversion/benchmark_getDataOpenML.R")
 get_data_OpenML(target_path = "Data/Results/clas_time.RData", force = FALSE, seed = 1)
 
+
 ## I.2 Benchmark computation ----
-# Parallel computation for the benchmark, default is 7 cores
-# Generates Data/Results/benchmark_parallel_snowfall.RData
+# Parallel computation for the benchmark
+# Generates Data/Results/benchmark_parallel_snowfall.RData and Data/Results/benchmark_parallel_snowfall.Rout
 source(file = "DataMining-Benchmark-Conversion/benchmark_ParallelComputation.R")
 load("Data/Results/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
-#clas_used = clas_used[c(1:50),]
+
 parallel_computation_snowfall(nCores = nCores, 
                               clas_used = clas_used,
                               target_path = "Data/Results/benchmark_parallel_snowfall.RData",
@@ -44,7 +52,10 @@ parallel_computation_snowfall(nCores = nCores,
 
 
 
-## II Visualization
+
+
+
+## II Visualization  ======================================================================================
 rm(list=ls())
 
 ## II.0 Preprocessing of the benchmark results ----
@@ -62,17 +73,28 @@ source(file = "Visualization-Analysis/InclusionCriteriaPlots.R")
 inclusion_criteria(df.bmr.diff)
 
 
-## III. Simulations
+
+
+
+
+## III. Simulations  ======================================================================================
 rm(list=ls())
 
-# III.1 Simulation 1 Dataset
-source("Simulations/PDPsPrinciple.R")
-PartialDependancePlotExample()
+# III.1 Subset analysis on 1 dataset
+source("Simulations/Dataset_SubsetAnalysis.R")
+load(file = "Data/Results/clas_time.RData")
+clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+
+subsetAnalysis_computeParallel(clas_used, nCores = nCores, seed = 1)
+subsetAnalysis_visualization()
 
 
 # III.2 Partial dependance plots simulations
-source("Simulations/PDPsPrinciple.R")
+source("Simulations/PDP_basicCases_simulations.R")
 PartialDependancePlotExample()
+
+
+## TODO
 
 ## III.3  Computation of Difference in Partial Dependance  ----
 load("Data/Results/Original/clas_time_original.RData")
@@ -82,7 +104,7 @@ pdp_difference_allDatasets(clas_used, seed = 1, force = TRUE, visualize = FALSE,
                            target_path = "Data/Results/Pdp_difference/Pdp_difference.RData")
 
 
-## TODO
+
 
 # study of 3 datasets with their difference in model and acc
 source("Simulations/Extrem_cases_pdp.R")

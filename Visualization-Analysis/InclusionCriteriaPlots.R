@@ -2,13 +2,10 @@
 inclusion_criteria <- function(df.bmr.diff){
   
   library(ggplot2)
-  memory.size()
   
   
   ##################
-  ## New version with facets ----
-  ##################
-  
+  ## Compute Inclusion Citeria Boxplot with facets
   
   ## for all ----
   
@@ -60,7 +57,7 @@ inclusion_criteria <- function(df.bmr.diff){
   df.all.p$feature = "p"
   
   
-  # p sur n 
+  # p divided by n 
   feature = "logpsurn"
   psurnmax = max(exp(df.bmr.diff$logpsurn))
   thresholdvect.original = c(1e-2,3e-2,1e-1)
@@ -144,6 +141,8 @@ inclusion_criteria <- function(df.bmr.diff){
     scale_fill_grey(start = 0.4,end = 1)
   
   print(plotmeasures)
+  
+  
   
   ## Now the distributions ----
   
