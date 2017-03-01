@@ -15,7 +15,7 @@ library(doParallel)
 
 ## Load the datasets and set the parameter ----
 
-subsetAnalysis_computeParallel <- function(clas_used, nCores=1, gridsize=5, n.simulation=10, n.max=1e3, data.id, seed) {
+subsetAnalysis_computeParallel <- function(clas_used, nCores=1, data.id, seed) {
   
   set.seed(seed)
   
