@@ -35,7 +35,7 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 # force = TRUE to force (re)computing of ALL dataset informations
 # computeTime = TRUE to compute an estimate of training time for LR and RF. It may take up to several days
 source(file = "Benchmark/benchmark_getDataOpenML.R")
-get_data_OpenML(target_path = "Data/OpenML//clas_time.RData")
+get_data_OpenML(target_path = "Data/OpenML/clas_time.RData")
 
 
 ## 1.2 Benchmark computation ----
@@ -103,13 +103,6 @@ pdpDifferenceAllDatasets(clas = clas_used, visualize = FALSE, force = FALSE,
 # Sauver les plots dans un dossier aussi au fur et à mesure
 
 
-load("Data/Results/Original/clas_time_original.RData")
-source("Simulations/Difference_Modele.R")
-clas_used = rbind(clas_time_small, clas_time_medium)
-pdp_difference_allDatasets(clas_used, seed = 1, force = TRUE, visualize = FALSE, dataset_count = 20,
-                           target_path = "Data/Results/Pdp_difference/Pdp_difference.RData")
-
-
 # study of 3 datasets with their difference in model and acc
 source("Simulations/Extrem_cases_pdp.R")
 source("Simulations/Difference_Modele.R")
@@ -126,6 +119,3 @@ plot_extrem_cases(id = 171, seed = 1)
 # Delta acc low / Delta Model low
 plot_extrem_cases(id = 210, seed = 1)
 
-
-# One Dataset simulations
-# Enter id, values for n and p to test

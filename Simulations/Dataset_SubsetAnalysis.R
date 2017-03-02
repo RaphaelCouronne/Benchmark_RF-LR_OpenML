@@ -21,8 +21,8 @@ subsetAnalysis_computeParallel <- function(clas_used, nCores=1, data.id, seed=1)
   start.time <- Sys.time()
   
   # Parameters 
-  gridsize = 2 # gridsize :  Number of values of p.sub and n.sub considered
-  n.simulation = 3 # n.simulation : For each value of p.sub and n.sub, how many samples and then computations ?
+  gridsize = 6 # gridsize :  Number of values of p.sub and n.sub considered
+  n.simulation = 50 # n.simulation : For each value of p.sub and n.sub, how many samples and then computations ?
   n.max = 1e3 # n.max : Max n for the tiny dataset used for the computation of p
   grid.n.percentage = seq(0.2, 0.9, length.out = gridsize)
   grid.p.percentage = seq(0.2, 0.8, length.out = gridsize)
