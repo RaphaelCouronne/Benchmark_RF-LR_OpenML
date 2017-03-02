@@ -4,8 +4,8 @@ library(OpenML)
 
 # Computation of the individual pdp difference (on all dataset)
 pdpDifferenceAllDatasets = function(clas, seed=1, force = FALSE, visualize = TRUE,
-                                     target.path = "Data/Results/OldStuff/Pdp_difference/pdp.difference.RData") {
-  
+                                     target.path = "Data/Simulations/pdp.difference.RData") {
+
 n.row = nrow(clas)
 options(warn = -1)
 
@@ -29,7 +29,7 @@ options(warn = -1)
   } else {
     # Create the pdp.difference dataframe
     pdp.difference = data.frame(matrix(data = NA, nrow = n.row, ncol = 15))
-    names(pdp.difference) = c("index", "data.id", "task.kid", "n", "p", "began", "done", 
+    names(pdp.difference) = c("index", "data.id", "task.id", "n", "p", "began", "done", 
                               "loaded","converted", "pdp.l1", "pdp.l2", "pdp.linf", 
                               "pdp.l1_first3", "pdp.l2_first3", "pdp.linf_first3")
     pdp.difference$index = c(1:n.row)
@@ -50,6 +50,8 @@ options(warn = -1)
     
     tryCatch({
       
+      set.seed(seed)
+      
       # Loading the dataset
       omldataset = getOMLDataSet(data.id = clas$data.id[j], verbosity = 0)
       if (identical(omldataset$target.features, character(0))) {
@@ -67,8 +69,8 @@ options(warn = -1)
       # Get the Pdp difference
       pdp.difference.all <- getPdpDifference(mlrtask, seed = seed, 
                                              visualize = visualize, progression_bar = FALSE)
-      pdp.difference[j,c(8:10)] <- pdp.difference.all$all
-      pdp.difference[j,c(11:13)] <- pdp.difference.all$first3
+      pdp.difference[j,c(10:12)] <- pdp.difference.all$all
+      pdp.difference[j,c(13:15)] <- pdp.difference.all$first3
       
     }, error = function(e) return(paste0("The variable '", j, "'", 
                                          " caused the error: '", e, "'")))
@@ -199,7 +201,6 @@ getPdpDifference = function(task, seed, visualize = FALSE, progression_bar = TRU
     occurences = table(task$env$data[[features.list[i]]])
     
     # Check the length of occurence
-    
     if(length(occurences)!=length(pd.diff)) {
       print("Problem with the length of occurence")
       print("Occurence has been set to 1")
@@ -223,6 +224,33 @@ getPdpDifference = function(task, seed, visualize = FALSE, progression_bar = TRU
   res$first3 = t(data.matrix(apply(df_diff_pdp[first3,], 2, mean)))
   return(res)
 }
+
+
+# 
+# task.id = 4361
+# 
+# 
+# omldataset = getOMLDataSet(data.id = clas$data.id[j], verbosity = 0)
+# if (identical(omldataset$target.features, character(0))) {
+#   omldataset$target.features="Class"
+#   omldataset$desc$default.target.attribute="Class"
+# }
+# pdp.difference$loaded[j] = "TRUE" 
+# 
+# 
+# # Transform to mlr task
+# configureMlr(on.learner.error = "warn", show.learner.output = TRUE, show.info = FALSE)
+# mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
+# pdp.difference$converted[j] = TRUE
+# 
+# # Get the Pdp difference
+# pdp.difference.all <- getPdpDifference(mlrtask, seed = seed, 
+#                                        visualize = visualize, progression_bar = FALSE)
+# 
+# 
+
+
+
 # 
 # 
 #test OML task

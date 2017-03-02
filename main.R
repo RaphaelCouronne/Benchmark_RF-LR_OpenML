@@ -13,7 +13,7 @@ library(RWeka)
 library(doParallel)
 
 # Enter here nCores and myapikey
-nCores = 3 # n umber of cores you want to use
+nCores = 3 # number of cores you want to use
 myapikey = "7a4391537f767ea70db6af99497653e5" #OpenML API key
 saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
@@ -92,9 +92,8 @@ PlotPartialDependanceExample()
 
 # 3.3  Computation of Difference in Partial Dependance
 source("Simulations/PartialDependance_difference.R")
-pdpDifferenceAllDatasets(clas = clas_used, visualize = TRUE,
-                         target.path = "Data/Results/OldStuff/Pdp_difference/pdp.difference.RData") 
-
+pdpDifferenceAllDatasets(clas = clas_used, visualize = FALSE, force = FALSE,
+                         target.path = "Data/Simulations/pdp.difference.RData") 
 
 
 

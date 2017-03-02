@@ -70,8 +70,12 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
     if (visualize==TRUE) {
       print(plot.data)
     }
-    classif.task
     
+    # Checking of PartialDependance_difference.R
+    # source("Simulations/PartialDependance_difference.R")
+    # res.pdp.difference = getPdpDifference(classif.task, seed=1, visualize = TRUE, progression_bar = FALSE)
+    # print(paste("All features",res.pdp.difference$all))
+    # print(paste("3 most important features",res.pdp.difference$first3))
     
     ## Partial dependance plots
     # Parameters
@@ -242,9 +246,9 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
   ## launch ----
   
   # Computation of pdps
-  res.1 = PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", dataset.number = 1, visualize = visualize) 
-  res.2 = PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", dataset.number = 2, visualize = visualize) 
-  res.3 = PdpAnalysis(1e3, gridsize = 20, feature.chosen.name = "X1", dataset.number = 3, visualize = visualize) 
+  res.1 = PdpAnalysis(5e2, gridsize = 20, feature.chosen.name = "X1", dataset.number = 1, visualize = visualize) 
+  res.2 = PdpAnalysis(5e2, gridsize = 20, feature.chosen.name = "X1", dataset.number = 2, visualize = visualize) 
+  res.3 = PdpAnalysis(5e2, gridsize = 20, feature.chosen.name = "X1", dataset.number = 3, visualize = visualize) 
   
   # Change the color and legends
   
