@@ -1,0 +1,1161 @@
+starting worker for localhost:11772 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+JOB STARTED AT Tue Feb 28 21:36:43 2017 ON 1e8688fb5de7 (OSLinux) 4.4.47-boot2docker
+ 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+R Version:  R version 3.3.2 (2016-10-31) 
+
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Loading required package: survival
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Library cmprsk loaded.
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Type: EXEC 
+Loading required namespace: rlecuyer
+Type: EXEC 
+Loading required package: mlr
+Loading required package: ParamHelpers
+[1] "Beginning dataset  3  ======>"
+[1] "2017-02-28 21:36:46 UTC"
+Data '3' file 'description.xml' found in cache.
+Data '3' file 'dataset.arff' found in cache.
+Warnin[1][1] " ======>  Ending dataset  1441"
+
+
+[1] "Beginning dataset  1442  ======>"
+[1] "2017-02-28 21:36:55 UTC"
+Data '1442' file 'description.xml' found in cache.
+Data '1442' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1442"
+
+
+[1] "Beginning dataset  1443  ======>"
+[1] "2017-02-28 21:37:08 UTC"
+Data '1443' file 'description.xml' found in cache.
+Data '1443' file 'dataset.arff' found[1] " =====[1] " ======>  Ending dataset  1443"
+
+
+[1] "Beginning dataset  1444  ======>"
+[1] "2017-02-28 21:37:43 UTC"
+Data '1444' file 'description.xml' found in cache.
+Data '1444' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1444"
+
+
+[1] "Beginning dataset  1446  ======>"
+[1] "2017-02-28 21:38:47 UTC"
+Data '1446' file 'description.xml' found in cache.
+Data '1446' file 'dataset.arf[1] " ======>  Ending dataset  720"
+
+
+[1] "Beginning dataset  721  ======>"
+[1] "2017-02-28 21:39:10 UTC"
+Data '721' file 'description.xml' found in cache.
+Data '721' file 'dataset.arff' found in cache.
+[1] " ======>  Ending d[1] " ======>  Ending dataset  1447"
+
+
+[1] "Beginning dataset  1451  ======>"
+[1] "2017-02-28 21:39:24 UTC"
+Data '1451' file 'description.xml' found in cache.
+Data '1451' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1451"
+
+
+[1] "Beginning dataset  1452  ======>"
+[1] " ======>  Ending dataset  722"
+
+
+[1] "Beginning dataset  724  ======>"
+[1] "2017-02-28 22:01:44 UTC"
+Data '724' file 'description.xml' found in cache.
+Data '724' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  724"
+
+
+[1] "Beginning dataset  725  ======>"
+[1] "2017-02-28 22:02:03 UTC"
+Data '725' file 'description.xml' found in cache.
+Data '725' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  725"
+
+
+[1] "Beginning dataset  727  ======>"
+[1] "2017-02-28 22:05:57 UTC"
+Data '727' file 'description.xml' found in cache.
+Data '727' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  727"
+
+
+[1] "Beginning dataset  728  ======>"
+[1] "2017-02-28 22:32:59 UTC"
+Data '728' file 'description.xml' found in cache.
+Data '728' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  728"
+
+
+[1] "Beginning dataset  729  ======>"
+[1] "2017-02-28 22:33:50 UTC"
+Data '729' file 'description.xml' found in cache.
+Data '729' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  729"
+
+
+[1] "Beginning dataset  731  ======>"
+[1] "2017-02-28 22:33:52 UTC"
+Data '731' file 'description.xml' found in [1] " ======>  Ending dataset  1461"
+
+
+[1] "Beginning dataset  1462  ======>"
+[1] "2017-02-28 22:41:30 UTC"
+Data '1462' file 'description.xml' found in cache.
+Data '1462' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1462"
+
+
+[1] "Beginning dataset  1463  ======>"
+[1] "2017-02-28 22:41:46 UTC"
+Data '1463' file 'description.xml' found in cache.
+Data '1463' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1463"
+
+
+[1] "Be[1] " ======>  Ending dataset  734"
+
+
+[1] "Beginning dataset  735  ======>"
+[1] "2017-02-28 23:09:20 UTC"
+Data '735' file 'description.xml' found in cache.
+Data '735' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  735"
+
+
+[1] "Beginning dataset  736  ======>"
+[1] "2017-02-28 23:13:18 UTC"
+Data '736' file 'description.xml' found in cache.
+Data '736' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  736"
+
+
+[1] "Beginning dataset  737  ======>"
+[1] "2017-02-28 23:13:21 UTC"
+Data '737' file 'description.xml' found in cache.
+Data '737' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  737"
+
+
+[1] "Beginning dataset  741  ======>"
+[1] "2017-02-28 23:14:21 UTC"
+Data '741' file 'description.xml' found in cache.
+Data '741' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  741"
+
+
+[1] "Beginning dataset  745  ======>"
+[1] "2017-02-28 23:14:30 UTC"
+Data '745' file 'description.xml' found in cache.
+Data '745' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  745"
+
+
+[1] "Beginning dataset  747  ======>"
+[1] "2017-02-28 23:14:34 UTC"
+Data '747' file 'description.xml' found in cache.
+Data '747' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  747"
+
+
+[1] "Beginning dataset  748  ======>"
+[1] "2017-02-28 23:14:37 UTC"
+Data '748' file 'description.xml' found in cache.
+Data '748' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  748"
+
+
+[1] "Beginning dataset  750  ======>"
+[1] "2017-02-28 23:14:41 UTC"
+Data '750' file 'description.xml' found in cache.
+Data '750' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  750"
+
+
+[1] "Beginning dataset  752  ======>"
+[1] "2017-02-28 23:14:53 UTC"
+Data '752' file 'description.xml' found in cache.
+Data '752' file 'dataset.arff' found in cache.
+[1] " ======>[1] " ======>  Ending dataset  151"
+
+
+[1] "Beginning dataset  164  ======>"
+[1] "2017-02-28 23:42:41 UTC"
+Data '164' file 'description.xml' found in cache.
+Data '164' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  164"
+
+
+[1] "Beginning dataset  251  ======>"
+[1] "2017-02-28 23:42:48 UTC"
+Data '251' file 'description.xml' found in cache.
+Data '251' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  251"
+
+
+[1] "Beginning dataset  292  ======>"
+[1] "2017-02-28 23:54:51 UTC"
+Data '292' file 'description.xml' found in cache.
+Data '292' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  292"
+
+
+[1] "Beginning dataset  310  ======>"
+[1] "2017-02-28 23:55:07 UTC"
+Data '310' file 'description.xml' found in cache.
+Data '310' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  310"
+
+
+[1] "Beginning dataset  311  ======>"
+[1] "2017-02-28 23:57:21 UTC"
+Data '311' file 'description.xml' found in cache.
+Data '311' file 'dataset.arff' found in cache.
+Removing 1 columns: attr23
+[1] " ======>  Ending dataset  311"
+
+
+[1] "Beginning dataset  312  ======>"
+[1] "2017-02-28 23:57:56 UTC"
+Data '312' file 'description.xml' found in cache.
+Data '312' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  312"
+
+
+[1] "Beginning dataset  316  ======>"
+[1] "2017-03-01 00:12:56 UTC"
+Data '316' file 'description.xml' found in cache.
+Data '316' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  316"
+
+
+[1] "Beginning dataset  333  ======>"
+[1] "2017-03-01 00:16:48 UTC"
+Data '333' file 'description.xml' found in cache.
+Data '333' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  333"
+
+
+[1] "Beginning dataset  334  ======>"
+[1] "2017-03-01 00:16:54 UTC"
+Data '334' file 'description.xml' found in cache.
+Data '334' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  334"
+
+
+[1] "Beginning dataset  335  ======>"
+[1] "2017-03-01 00:17:02 UTC"
+Data '335' file 'description.xml' found in cache.
+Data '335' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  335"
+
+
+[1] "Beginning dataset  336  ======>"
+[1] "2017-03-01 00:17:08 UTC"
+Data '336' file 'description.xml' found in cache.
+Data '336' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  336"
+
+
+[1] "Beginning dataset  337  ======>"
+[1] "2017-03-01 00:17:13 UTC"
+Data '337' file 'description.xml' found in cache.
+Data '337' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  337"
+
+
+[1] "Beginning dataset  346  ======>"
+[1] "2017-03-01 00:17:29 UTC"
+Data '346' file 'description.xml' found in cache.
+Data '346' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  346"
+
+
+[1] "Beginning dataset  444  ======>"
+[1] "2017-03-01 00:17:31 UTC"
+Data '444' file 'description.xml' found in cache.
+Data '444' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  444"
+
+
+[1] "Beginning dataset  446  ======>"
+[1] "2017-03-01 00:17:34 UTC"
+Data '446' file 'description.xml' found in cache.
+Data '446' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  446"
+
+
+[1] "Beginning dataset  448  ======>"
+[1] "2017-03-01 00:17:37 UTC"
+Data '448' file 'description.xml' found in cache.
+Data '448' file 'dataset.arff' found in cacheType: DONE 
+There were 50 or more warnings (use warnings() to see the first 50)
+] "2017-03-01 00:17:43 UTC"
+Data '450' file 'description.xml' found in cache.
+Data '450' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  450"
+
+
+[1] "Beginning dataset  459  ======>"
+[1] "2017-03-01 00:17:46 UTC"
+Data '459' file 'description.xml' found in cache.
+Data '459' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  459"
+
+
+[1] "Beginning dataset  461  ======>"
+[1] "2017-03-01 00:17:48 UTC"
+Data '461' file 'description.xml' found in cache.
+Data '461' file 'dataset.arff' found in cache.
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 4, 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 4
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 4
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 4
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 4, 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 4
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 2
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 4
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 4
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 4
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor Derogatory.reports has new levels 4
+
+[1] " ======>  Ending dataset  461"
+
+
+[1] "Beginning dataset  463  ======>"
+[1] "2017-03-01 00:17:50 UTC"
+Data '463' file 'description.xml' found in cache.
+Data '463' file 'dataset.arff' found in cache.
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor col_9 has new levels 6, 7
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.logreg: Error in `contrasts<-`(`*tmp*`, value = contr.funs[1 + isOF[nn]]) : 
+  contrasts can be applied only to factors with 2 or more levels
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor col_3 has new levels 1
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.logreg: Error in `contrasts<-`(`*tmp*`, value = contr.funs[1 + isOF[nn]]) : 
+  contrasts can be applied only to factors with 2 or more levels
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor col_9 has new levels 7
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor col_3 has new levels 1
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor col_9 has new levels 7
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.logreg: Error in `contra[1] " ======>  Ending dataset  1042"
+
+
+[1] "Beginning dataset  1043  ======>"
+[1] "2017-03-01 00:47:47 UTC"
+Data '1043' file 'description.xml' found in cache.
+Data '1043' file 'dataset.arff' found in cache.
+Removing 1 columns: attr39
+[1] " ======>  Ending dataset  1043"
+
+
+[1] "Beginning dataset  1045  ======>"
+[1] "2017-03-01 00:53:28 UTC"
+Data '1045' file 'description.xml' found in cache.
+Data '1045' file 'dataset.arff' found in cache.
+Removing 8 columns: ACCESS_TO_PUB_DATA,minLOC_BLANK,minBRANCH_COUNT,minLOC_CODE_AND_COMMENT,minLOC_COMMENTS,minCYCLOMATIC_COMPLEXITY,minDESIGN_COMPLEXITY,minESSENTIAL_COMPLEXITY
+[1] " ======>  Ending dataset  1045"
+
+
+[1] "Beginning dataset  1046  ======>"
+[1] "2017-03-01 00:53:35 UTC"
+Data '1046' file 'description.xml' found in cache.
+Data '1046' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1046"
+
+
+[1] "Beginning dataset  1048  ======>"
+[1] "2017-03-01 00:57:19 UTC"
+Data '1048' file 'description.xml' found in cache.
+Data '1048' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1048"
+
+
+[1] "Beginning dataset  1049  ======>"
+[1] "2017-03-01 00:57:27 UTC"
+Data '1049' file 'description.xml' found in cache.
+Data '1049' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1049"
+
+
+[1] "Beginning dataset  1050  ======>"
+[1] "2017-03-01 00:58:20 UTC"
+Data '1050' file 'description.xml' found in cache.
+Data '1050' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1050"
+
+
+[1] "Beginning dataset  1054  ======>"
+[1] "2017-03-01 00:59:25 UTC"
+Data '1054' file 'description.xml' found in cache.
+Data '1054' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1054"
+
+
+[1] "Beginning dataset  1055  ======>"
+[1] "2017-03-01 00:59:32 UTC"
+Data '1055' file 'description.xml' found in cache.
+Data '1055' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1055"
+
+
+[1] "Beginning dataset  1056  ======>"
+[1] "2017-03-01 00:59:34 UTC"
+Data '1056' file 'description.xml' found in cache.
+Data '1056' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1056"
+
+
+[1] "Beginning dataset  1059  ======>"
+[1] "2017-03-01 01:05:06 UTC"
+Data '1059' file 'description.xml' found in cache.
+Data '1059' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1059"
+
+
+[1] "Beginning dataset  1060  ======>"
+[1] "2017-03-01 01:05:09 UTC"
+Data '1060' file 'description.xml' found in cache.
+Data '1060' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1060"
+
+
+[1] "Beginning dataset  1061  ======>"
+[1] "2017-03-01 01:05:12 UTC"
+Data '1061' file 'description.xml' found in cache.
+Data '1061' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1061"
+
+
+[1] "Beginning dataset  1062  ======>"
+[1] "2017-03-01 01:05:15 UTC"
+Data '1062' file 'description.xml' found in cache.
+Data '1062' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1062"
+
+
+[1] "Beginning dataset  1063  ======>"
+[1] "2017-03-01 01:05:17 UTC"
+Data '1063' file 'description.xml' found in cache.
+Data '1063' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1063"
+
+
+[1] "Beginning dataset  1064  ======>"
+[1] "2017-03-01 01:05:30 UTC"
+Data '1064' file 'description.xml' found in cache.
+Data '1064' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1064"
+
+
+[1] "Beginning dataset  1065  ======>"
+[1] "2017-03-01 01:05:34 UTC"
+Data '1065' file 'description.xml' found in cache.
+Data '1065' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1065"
+
+
+[1] "Beginning dataset  1066  ======>"
+[1] "2017-03-01 01:05:49 UTC"
+Data '1066' file 'description.xml' found in cache.
+Data '1066' file 'dataset.arff' found in cache.
+Removing 8 columns: ACCESS_TO_PUB_DATA,minLOC_BLANK,minBRANCH_COUNT,minLOC_CODE_AND_COMMENT,minLOC_COMMENTS,minCYCLOMATIC_COMPLEXITY,minDESIGN_COMPLEXITY,minESSENTIAL_COMPLEXITY
+[1] " ======>  Ending dataset  1066"
+
+
+[1] "Beginning dataset  1067  ======>"
+[1] "2017-03-01 01:06:00 UTC"
+Data '1067' file 'description.xml' found in cache.
+Data '1067' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1067"
+
+
+[1] "Beginning dataset  1068  ======>"
+[1] "2017-03-01 01:07:02 UTC"
+Data '1068' file 'description.xml' found in cache.
+Data '1068' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1068"
+
+
+[1] "Beginning dataset  1069  ======>"
+[1] "2017-03-01 01:07:28 UTC"
+Data '1069' file 'description.xml' found in cache.
+Data '1069' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1069"
+
+
+[1] "Beginning dataset  1071  ======>"
+[1] "2017-03-01 01:10:19 UTC"
+Data '1071' file 'description.xml' found in cache.
+Data '1071' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1071"
+
+
+[1] "Beginning dataset  1073  ======>"
+[1] "2017-03-01 01:10:32 UTC"
+Data '1073' file 'description.xml' found in cache.
+Data '1073' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1073"
+
+
+[1] "Beginning dataset  1075  ======>"
+[1] "2017-03-01 01:10:37 UTC"
+Data '1075' file 'description.xml' found in cache.
+Data '1075' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1075"
+
+
+[1] "Beginning dataset  1116  ======>"
+[1] "2017-03-01 01:10:39 UTC"
+Data '1116' file 'description.xml' found in cache.
+Data '1116' file 'dataset.arff' found in cache.
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j97, NON-MUSK-j96, NON-MUSK-318
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j130
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-338
+
+Warning in predict.WrappeType: DONE 
+There were 50 or more warnings (use warnings() to see the first 50)
+eg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j97
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j96, NON-MUSK-358
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j96, MUSK-300
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels MUSK-344
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j97
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j97
+
+Warning in predict.WrappedModel(m, task, subset =Type: DONE 
+There were 50 or more warnings (use warnings() to see the first 50)
+.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j96
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j96
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-308
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j97
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-295
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j96, NON-MUSK-309, MUSK-300
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j97
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j96
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j97
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels MUSK-300
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j97
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j96
+
+Warning in predict.WrappedModel(m, task, subset = tType: DONE 
+There were 50 or more warnings (use warnings() to see the first 50)
+efault(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j97, NON-MUSK-308, NON-MUSK-305, NON-MUSK-290
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j96
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j97, NON-MUSK-290
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j130
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor molecule_name has new levels NON-MUSK-j96
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+[1] " ======>  Ending dataset  1116"
+
+
+[1] "Beginning dataset  1120  ======>"
+[1] "2017-03-01 01:14:42 UTC"
+Data '1120' file 'description.xml' found in cache.
+Data '1120' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1120"
+
+
+[1] "Beginning dataset  1121  ======>"
+[1] "2017-03-01 01:24:28 UTC"
+Data '1121' file 'description.xml' found in cache.
+Data '1121' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  1121"
+
+
+[1] "Beginning dataset  1167  ======>"
+[1] "2017-03-01 01:24:32 UTC"
+Data '1167' file 'description.xml' found in cache.
+Data '1167' file 'dataset.arff' found in cache.
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor OPTION has new levels 3
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor OPTION has new levels 3
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor OPTION has new levels 3
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor OPTION has new levels 3
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor OPTION has new levels 3
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor OPTION has new levels 3
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor OPTION has new levels 3
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor OPTION has new levels 3
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+ Type: DONE 
+There were 50 or more warnings (use warnings() to see the first 50)
+ms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor OPTION has new levels 3
+
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor OPTION has new levels 3
+
+[1] " ======>  Ending dataset  1167"
+
+
+Type: DONE 
+There were 50 or more warnings (use warnings() to see the first 50)
+et = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+Warning in train(learner, task, subset = train.i, weights = weights[train.i]) :
+  Could not train learner classif.randomForest: Error in randomForest.default(m, y, ...) : 
+  Can not handle categorical predictors with more than 53 categories.
+
+[1] " ======>  Ending dataset  465"
+
+
+[1] "Beginning dataset  467  ======>"
+[1] "2017-03-01 00:18:05 UTC"
+Data '467' file 'description.xml' found in cache.
+Data '467' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  467"
+
+
+[1] "Beginning dataset  472  ======>"
+[1] "2017-03-01 00:18:07 UTC"
+Data '472' file 'description.xml' found in cache.
+Data '472' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  472"
+
+
+[1] "Beginning dataset  476  ======>"
+[1] "2017-03-01 00:18:09 UTC"
+Data '476' file 'description.xml' found in cache.
+Data '476' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  476"
+
+
+[1] "Beginning dataset  479  ======>"
+[1] "2017-03-01 00:18:10 UTC"
+Data '479' file 'description.xml' found in cache.
+Data '479' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  479"
+
+
+[1] "Beginning dataset  682  ======>"
+[1] "2017-03-01 00:18:14 UTC"
+Data '682' file 'description.xml' found in cache.
+Data '682' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  682"
+
+
+[1] "Beginning dataset  683  ======>"
+[1] "2017-03-01 00:18:17 UTC"
+Data '683' file 'description.xml' found in cache.
+Data '683' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  683"
+
+
+Type: DONE 
+There were 50 or more warnings (use warnings() to see the first 50)

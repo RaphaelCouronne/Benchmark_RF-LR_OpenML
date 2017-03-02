@@ -14,7 +14,7 @@ library(doParallel)
 
 # Enter here nCores and myapikey
 nCores = 3 # n umber of cores you want to use
-myapikey = "7a4391537f767ea70db6af99497653e5" #O penML API key
+myapikey = "7a4391537f767ea70db6af99497653e5" #OpenML API key
 saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
 
@@ -24,7 +24,7 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
 
 
-## I Benchmark Study ======================================================================================
+## 1 Benchmark Study ======================================================================================
 
 ## I.1 Data Mining ----
 # Get the tasks from OpenML
@@ -34,76 +34,81 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 # Options
 # force = TRUE to force (re)computing of ALL dataset informations
 # computeTime = TRUE to compute an estimate of training time for LR and RF. It may take up to several days
-source(file = "DataMining-Benchmark-Conversion/benchmark_getDataOpenML.R")
-get_data_OpenML(target_path = "Data/Results/clas_time.RData", force = FALSE, seed = 1)
+source(file = "Benchmark/benchmark_getDataOpenML.R")
+get_data_OpenML(target_path = "Data/OpenML//clas_time.RData")
 
 
-## I.2 Benchmark computation ----
+## 1.2 Benchmark computation ----
 # Parallel computation for the benchmark
 # Generates Data/Results/benchmark_parallel_snowfall.RData and Data/Results/benchmark_parallel_snowfall.Rout
-source(file = "DataMining-Benchmark-Conversion/benchmark_ParallelComputation.R")
-load("Data/Results/clas_time.RData")
+source(file = "Benchmark/benchmark_ParallelComputation.R")
+load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
 parallel_computation_snowfall(nCores = nCores, 
                               clas_used = clas_used,
-                              target_path = "Data/Results/benchmark_parallel_snowfall.RData",
-                              seed = 1)
+                              target_path = "Data/Results/benchmark_parallel_snowfall.RData")
 
 
 
 
 
 
-## II Visualization  ======================================================================================
+## 2 Visualization  ======================================================================================
 rm(list=ls())
-
-## II.0 Preprocessing of the benchmark results ----
+ 
+# 2.1 Preprocessing of the benchmark results
 load(file = "Data/Results/benchmark_parallel_snowfall.RData")
-source(file = "DataMining-Benchmark-Conversion/benchmark_resultsConversion.R")
-convert_results(clas_used = clas_used, result = result, target_path = "Data/Results/df.bmr_tiny.RData")
+source(file = "Benchmark/benchmark_resultConversion.R")
+convert_results(clas_used = clas_used, result = result, target_path = "Data/Results/df.bmr.RData")
 
-## II.1 Overall Visualization ----
-load(file = "Data/Results/df.bmr_tiny.RData")
+# 2.2 Overall Visualization
+load(file = "Data/Results/df.bmr.RData")
 source(file = "Visualization-Analysis/OverallVisualization.R")
 overall_visualization(df.bmr.diff)
 
-## II.2 Inclusion Criteria Visualization ----
+# 2.3 Inclusion Criteria Visualization
 source(file = "Visualization-Analysis/InclusionCriteriaPlots.R")
 inclusion_criteria(df.bmr.diff)
 
 
 
 
-
-
-## III. Simulations  ======================================================================================
+## 3. Simulations  ======================================================================================
 rm(list=ls())
 
-# III.1 Subset analysis on 1 dataset
+# 3.1 Subset analysis on 1 dataset
 source("Simulations/Dataset_SubsetAnalysis.R")
-load(file = "Data/Results/clas_time.RData")
+load(file = "Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
-subsetAnalysis_computeParallel(clas_used, nCores = nCores, seed = 1)
+subsetAnalysis_computeParallel(clas_used, nCores = nCores)
 subsetAnalysis_visualization()
 
 
-# III.2 Partial dependance plots simulations
-source("Simulations/PDP_basicCases_simulations.R")
-PartialDependancePlotExample()
+# 3.2 Partial dependance plots simulations
+source("Simulations/PDP_ExampleSimulations.R")
+PlotPartialDependanceExample()
+
+# 3.3  Computation of Difference in Partial Dependance
+source("Simulations/PartialDependance_difference.R")
+pdpDifferenceAllDatasets(clas = clas_used, visualize = TRUE,
+                         target.path = "Data/Results/OldStuff/Pdp_difference/pdp.difference.RData") 
+
+
+
 
 
 ## TODO
 
-## III.3  Computation of Difference in Partial Dependance  ----
+# Sauver les plots dans un dossier aussi au fur et à mesure
+
+
 load("Data/Results/Original/clas_time_original.RData")
 source("Simulations/Difference_Modele.R")
 clas_used = rbind(clas_time_small, clas_time_medium)
 pdp_difference_allDatasets(clas_used, seed = 1, force = TRUE, visualize = FALSE, dataset_count = 20,
                            target_path = "Data/Results/Pdp_difference/Pdp_difference.RData")
-
-
 
 
 # study of 3 datasets with their difference in model and acc

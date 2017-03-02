@@ -15,9 +15,10 @@ library(doParallel)
 
 ## Load the datasets and set the parameter ----
 
-subsetAnalysis_computeParallel <- function(clas_used, nCores=1, data.id, seed) {
+subsetAnalysis_computeParallel <- function(clas_used, nCores=1, data.id, seed=1) {
   
   set.seed(seed)
+  start.time <- Sys.time()
   
   # Parameters 
   gridsize = 2 # gridsize :  Number of values of p.sub and n.sub considered
@@ -156,6 +157,9 @@ subsetAnalysis_computeParallel <- function(clas_used, nCores=1, data.id, seed) {
     res = melt(results.temp, id=c("p"))
   }
   stopCluster(cl)  
+  
+  end.time <- Sys.time()
+  time.taken <- end.time - start.time
   
   save(res.subsetp, res.subsetn, file = "Data/Simulations/SubsetAnalysis.R")
 }
