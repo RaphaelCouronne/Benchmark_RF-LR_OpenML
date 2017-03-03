@@ -97,10 +97,32 @@ pdpDifferenceAllDatasets(clas = clas_used, visualize = FALSE, force = FALSE,
 
 
 
-
 ## TODO
 
 # Sauver les plots dans un dossier aussi au fur et à mesure
+
+# Plot of pdp according to dataset
+library(mlr)
+load("Data/Simulations/pdp.difference.RData")
+load("Data/Saved_original/benchmark_parallel_snowfall.RData")
+
+
+res.perfs = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))
+res.perfs.df = do.call("rbind", res.perfs) 
+leaner.id.lr = "classif.logreg"
+learner.id.randomForest = "classif.randomForest"
+perfsAggr.LR = subset(res.perfs.df, learner.id == leaner.id.lr)
+perfsAggr.RF = subset(res.perfs.df, learner.id == learner.id.randomForest)
+perfsAggr.diff = perfsAggr.RF[,3:ncol(perfsAggr.RF)]-perfsAggr.LR[,3:ncol(perfsAggr.LR)]
+
+nas.data = which(is.na(perfsAggr.diff$acc.test.mean) | (is.na(pdp.difference$pdp.l1)))
+
+plot(log1p(pdp.difference$pdp.l1[-nas.data]), perfsAggr.diff$auc.test.mean[-nas.data])
+
+pdp.difference$data.id[order(pdp.difference$pdp.l1)]
+
+# Study of datasets
+load()
 
 
 # study of 3 datasets with their difference in model and acc

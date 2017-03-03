@@ -31,7 +31,7 @@ options(warn = -1)
     pdp.difference = data.frame(matrix(data = NA, nrow = n.row, ncol = 15))
     names(pdp.difference) = c("index", "data.id", "task.id", "n", "p", "began", "done", 
                               "loaded","converted", "pdp.l1", "pdp.l2", "pdp.linf", 
-                              "pdp.l1_first3", "pdp.l2_first3", "pdp.linf_first3")
+                              "pdp.l1.first3", "pdp.l2.first3", "pdp.linf.first3")
     pdp.difference$index = c(1:n.row)
     pdp.difference$data.id = clas$data.id
     pdp.difference$task.id = clas$task.id
