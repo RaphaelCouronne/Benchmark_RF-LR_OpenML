@@ -11,7 +11,7 @@ parallel_computation_snowfall <- function(nCores = 1,
   start.time <- Sys.time()
   
   # Sort the datasets according to dataid
-  omdatasets = sort(clas_used$data.id)
+  omldatasets = sort(clas_used$data.id)
   
   .Platform
   .Machine
@@ -50,6 +50,7 @@ parallel_computation_snowfall <- function(nCores = 1,
     )
     
     # measures
+    set.seed(seed)
     measures = list(acc, brier, auc, timetrain)
     rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
     configureMlr(on.learner.error = "warn", show.learner.output = FALSE)
@@ -76,7 +77,7 @@ parallel_computation_snowfall <- function(nCores = 1,
   # 4. Start network random number generator 
   # (as "sample" is using random numbers). 
   sfClusterSetupRNG() 
-  
+
   # 5. Distribute calculation
   start <- Sys.time(); result <- sfLapply(omdatasets, wrapper) ; Sys.time()-start
   

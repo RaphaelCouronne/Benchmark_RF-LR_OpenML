@@ -19,25 +19,25 @@ Le chargement a nécessité le package : rlecuyer
 Type: EXEC 
 Le chargement a nécessité le package : mlr
 Le chargement a nécessité le package : ParamHelpers
-[1] "Beginning dataset  905  ======>"
-[1] "2017-03-06 16:54:43 CET"
-Data '905' file 'description.xml' found in cache.
-Data '905' file 'dataset.arff' found in cache.
+[1] "Beginning dataset  713  ======>"
+[1] "2017-03-06 17:12:01 CET"
+Data '713' file 'description.xml' found in cache.
+Data '713' file 'dataset.arff' found in cache.
 [1] " ======>  Ending dataset  713"
 
 
 [1] "Beginning dataset  729  ======>"
-[1] "2017-03-06 16:54:46 CET"
+[1] "2017-03-06 17:12:04 CET"
 Data '729' file 'description.xml' found in cache.
 Data '729' file 'dataset.arff' found in cache.
-[1] " ======>  Ending dataset  817"
+[1] " ======>  Ending dataset  729"
 
 
-[1] "Beginning dataset  848  ======>"
-[1] "2017-03-06 16:54:49 CET"
-Data '848' file 'description.xml' found in cache.
-Data '848' file 'dataset.arff' found in cache.
-[1] " ======>  Ending dataset  848"
+[1] "Beginning dataset  790  ======>"
+[1] "2017-03-06 17:12:07 CET"
+Data '790' file 'description.xml' found in cache.
+Data '790' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  790"
 
 
 Type: DONE 
@@ -49,12 +49,7 @@ Data '887' file 'dataset.arff' found in cache.
 
 Type: DONE 
 Warning messages:
-1: le package �There were 50 or more warnings (use warnings() to see the first 50)
-it: algorithm did not converge 
-3: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+1: le package ‘ParamHelpers’ a été compilé avec la version R 3.3.2 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+3: glm.fit: algorithm did not converge 
 4: glm.fit: fitted probabilities numerically 0 or 1 occurred 
-5: glm.fit: algorithm did not converge 
-6: glm.fit: fitted probabilities numerically 0 or 1 occurred 
-7: glm.fit: fitted probabilities numerically 0 or 1 occurred 
-8: glm.fit: algorithm did not converge 
-9: glm.fit: fitted probabilities numerically 0 or 1 occurred 
