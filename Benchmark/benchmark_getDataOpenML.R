@@ -15,7 +15,7 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   
   # Load the classification tasks informations if it does not exist yet
   
-  tasks = listOMLTasks(limit = NULL)
+  #tasks = listOMLTasks(limit = NULL)
   classifTasks.infos = subset(tasks, task.type == "Supervised Classification" &    # classification
                                 number.of.classes == 2 &                             # binary classification
                                 number.of.instances.with.missing.values == 0)           # no missing values

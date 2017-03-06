@@ -43,11 +43,12 @@ get_data_OpenML(target_path = "Data/OpenML/clas_time.RData", force = FALSE, comp
 # Generates Data/Results/benchmark_parallel_snowfall.RData and Data/Results/benchmark_parallel_snowfall.Rout
 source(file = "Benchmark/benchmark_ParallelComputation.R")
 load("Data/OpenML/clas_time.RData")
-clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)[c(1:10),]
 
 parallel_computation_snowfall(nCores = nCores, 
                               clas_used = clas_used,
-                              target_path = "Data/Results/benchmark_parallel_snowfall.RData")
+                              target_path = "Data/Results/benchmark_parallel_snowfall_test.RData",
+                              )
 
 
 

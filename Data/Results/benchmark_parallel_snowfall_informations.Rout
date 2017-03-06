@@ -1,24 +1,4 @@
-starting worker for localhost:11956 
-Type: EXEC 
-Type: EXEC 
-Type: EXEC 
-Type: EXEC 
-Type: EXEC 
-JOB STARTED AT Thu Mar  2 19:48:32 2017 ON Shadoks.local (OSDarwin) 15.6.0
- 
-Type: EXEC 
-Type: EXEC 
-Type: EXEC 
-Type: EXEC 
-Type: EXEC 
-Type: EXEC 
-R Version:  R version 3.3.1 (2016-06-21) 
-
-Type: EXEC 
-Type: EXEC 
-Type: EXEC 
-Type: EXEC 
-Type: EXEC 
+starting worker for localhost:11158 
 Type: EXEC 
 Type: EXEC 
 Type: EXEC 
@@ -39,334 +19,42 @@ Le chargement a nécessité le package : rlecuyer
 Type: EXEC 
 Le chargement a nécessité le package : mlr
 Le chargement a nécessité le package : ParamHelpers
-[1] "Beginning dataset  887  ======>"
-[1] "2017-03-02 19:48:35 CET"
-Downloading from 'http://www.openml.org/api/v1/data/887' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/887/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53318/newton_hema.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/784/dataset[1] " =[1] " ======>  Ending dataset  784"
-
-
-[1] "Beginning dataset  787  ======>"
-[1] "2017-03-02 19:48:41 CET"
-Downloading from 'http://www.openml.org/api/v1/data/787' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/787/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53321/witmer_census_1980.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/787/dataset.[1] " ======>  Ending dataset  444"
-
-
-[1] "Beginning dataset  448  ======>"
-[1] "2017-03-02 19:48:45 CET"
-Downloading from 'http://www.openml.org/api/v1/data/448' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/448/description.xml'.
-Downloading from 'https://www.openml.org/data/download/52560/analcatdata_boxing1.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/448/dataset.arff'
-[1] " ======>  Ending dataset  448"
-
-
-[1] "Beginning dataset  459  ======>"
-[1] "2017-03-02 19:48:55 CET"
-Downloading from 'http://www.openml.org/api/v1/data/459' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/459/description.xml'.
-Downloading from 'https://www.openml.org/data/download/52571/analcatdata_asbestos.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/459/dataset.arff'
-[1] " ======>  Ending dataset  459"
-
-
-[1] "Beginning dataset  467  ======>"
-[1] "2017-03-02 19:48:58 CET"
-Downloading from 'http://www.openml.org/api/v1/data/467' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/467/description.xml'.
-Downloading from 'https://www.openml.org/data/download/52579/analcatdata_japansolvent.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/467/dataset.arff'
-[1] " ======>  Ending dataset  467"
-
-
-[1] "Beginning dataset  472  ======>"
-[1] "2017-03-02 19:49:01 CET"
-Downloading from 'http://www.openml.org/api/v1/data/472' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/472/description.xml'.
-Downloading from 'https://www.openml.org/data/download/52584/lupus.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/472/dataset.arff'
-[1] " ======>  Ending dataset  472"
-
-
-[1] "Beginning dataset  476  ======>"
-[1] "2017-03-02 19:49:04 CET"
-Downloading from 'http://www.openml.org/api/v1/data/476' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/476/description.xml'.
-Downloading from 'https://www.openml.org/data/download/52588/analcatdata_bankruptcy.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/476/dataset.arff'
-[1] " ======>  Ending dataset  476"
-
-
-[1] "Beginning dataset  683  ======>"
-[1] "2017-03-02 19:49:07 CET"
-Downloading from 'http://www.openml.org/api/v1/data/683' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/683/description.xml'.
-Downloading from 'https://www.openml.org/data/download/52983/sleuth_ex2015.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/683/dataset.arff'
-[1] " ======>  Ending dataset  683"
-
-
-[1] "Beginning dataset  713  ======>"
-[1] "2017-03-02 19:49:09 CET"
-Downloading from 'http://www.openml.org/api/v1/data/713' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/713/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53247/vineyard.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/713/dataset.arff'
+[1] "Beginning dataset  905  ======>"
+[1] "2017-03-06 16:54:43 CET"
+Data '905' file 'description.xml' found in cache.
+Data '905' file 'dataset.arff' found in cache.
 [1] " ======>  Ending dataset  713"
 
 
 [1] "Beginning dataset  729  ======>"
-[1] "2017-03-02 19:49:12 CET"
-Downloading from 'http://www.openml.org/api/v1/data/729' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/729/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53263/visualizing_slope.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/729/dataset.arff'
-[1] " ======>  Ending dataset  729"
+[1] "2017-03-06 16:54:46 CET"
+Data '729' file 'description.xml' found in cache.
+Data '729' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  817"
 
 
-[1] "Beginning dataset  731  ======>"
-[1] "2017-03-02 19:49:15 CET"
-Downloading from 'http://www.openml.org/api/v1/data/731' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/731/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53265/baskball.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/731/dataset.arff'
-[1] " ======>  Ending dataset  731"
-
-
-[1] "Beginning dataset  736  ======>"
-[1] "2017-03-02 19:49:19 CET"
-Downloading from 'http://www.openml.org/api/v1/data/736' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/736/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53270/visualizing_environmental.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/736/dataset.arff'
-[1] " ======>  Ending dataset  736"
-
-
-[1] "Beginning dataset  755  ======>"
-[1] "2017-03-02 19:49:24 CET"
-Downloading from 'http://www.openml.org/api/v1/data/755' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/755/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53289/sleuth_ex1605.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/755/dataset.arff'
-[1] " ======>  Ending dataset  755"
-
-
-[1] "Beginning dataset  771  ======>"
-[1] "2017-03-02 19:49:27 CET"
-Downloading from 'http://www.openml.org/api/v1/data/771' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/771/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53305/analcatdata_michiganacc.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/771/dataset.arff'
-[1] " ======>  Ending dataset  771"
-
-
-[1] "Beginning dataset  777  ======>"
-[1] "2017-03-02 19:49:31 CET"
-Downloading from 'http://www.openml.org/api/v1/data/777' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/777/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53311/sleuth_ex1714.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/777/dataset.arff'
-[1] " ======>  Ending dataset  777"
-
-
-[1] "Beginning dataset  780  ======>"
-[1] "2017-03-02 19:49:33 CET"
-Downloading from 'http://www.openml.org/api/v1/data/780' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/780/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53314/rabe_265.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/780/dataset.arff'
-[1] " ======>  Ending dataset  780"
-
-
-[1] "Beginning dataset  782  ======>"
-[1] "2017-03-02 19:49:35 CET"
-Downloading from 'http://www.openml.org/api/v1/data/782' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/782/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53316/rabe_266.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/782/dataset.arff'
-[1] " ======>  Ending dataset  782"
+[1] "Beginning dataset  848  ======>"
+[1] "2017-03-06 16:54:49 CET"
+Data '848' file 'description.xml' found in cache.
+Data '848' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  848"
 
 
 Type: DONE 
 There were 50 or more warnings (use warnings() to see the first 50)
-arning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor Party has new levels I
-
-[1] " ======>  Ending dataset  865"
-
-
-[1] "Beginning dataset  867  ======>"
-[1] "2017-03-02 19:49:12 CET"
-Downloading from 'http://www.openml.org/api/v1/data/867' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/867/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53401/visualizing_livestock.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/867/dataset.arff'
-[1] " ======>  Ending dataset  867"
-
-
-[1] "Beginning dataset  874  ======>"
-[1] "2017-03-02 19:49:17 CET"
-Downloading from 'http://www.openml.org/api/v1/data/874' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/874/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53408/rabe_131.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/874/dataset.arff'
-[1] " ======>  Ending dataset  874"
-
-
-[1] "Beginning dataset  875  ======>"
-[1] "2017-03-02 19:49:19 CET"
-Downloading from 'http://www.openml.org/api/v1/data/875' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/875/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53409/analcatdata_chlamydia.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/875/dataset.arff'
-[1] " ======>  Ending dataset  875"
-
-
-[1] "Beginning dataset  885  ======>"
-[1] "2017-03-02 19:49:27 CET"
-Downloading from 'http://www.openml.org/api/v1/data/885' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/885/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53419/transplant.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/885/dataset.arff'
-[1] " ======>  Ending dataset  885"
+ile 'description.xml' found in cache.
+Data '887' file 'dataset.arff' found in cache.
+[1] " ======>  Ending dataset  887"
 
 
 Type: DONE 
-There were 50 or more warnings (use warnings() to see the first 50)
-el(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Australia, France, W_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Argentina, India, Russia
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Europe, Norway
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels NE_Africa, Poland, SE_Africa, S_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels India, Rumania, S_America, Venezuela
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Columbia, France, Nthlnds/Belgium, SE_Asia, Zaire
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Argentina, Australia, Russia, W_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels NE_Africa, Poland, SE_Asia, W_Africa, Zaire
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Europe, France, Russia, Venezuela
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Australia, Columbia, Rumania
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels India, SE_Africa, S_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Argentina, Ireland, Norway, Nthlnds/Belgium
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Nthlnds/Belgium, Poland, SE_Asia, S_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Europe, NE_Africa, Rumania, Russia, Venezuela
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels France, Norway, SE_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Argentina, Columbia, W_Africa, Zaire
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Australia, India
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Europe, Poland
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Argentina, Columbia, NE_Africa, Nthlnds/Belgium, SE_Africa, Venezuela, Zaire
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Australia, France, India, Rumania
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Russia, W_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Norway, SE_Asia, S_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Nthlnds/Belgium, SE_Africa, S_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Australia, Columbia, Norway
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Poland, Russia, W_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Europe, France, Ireland, Venezuela, Zaire
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Argentina, India, NE_Africa, Rumania, SE_Asia
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Australia, Nthlnds/Belgium
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels NE_Africa, Poland, SE_Asia, Venezuela
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Argentina, Columbia, Europe, Rumania
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels Russia, S_Africa
-
-Warning in predict.WrappedModel(m, task, subset = test.i) :
-  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
-  factor country has new levels France, India, Norway, SE_Africa, W_Africa, Zaire
-
-[1] " ======>  Ending dataset  938"
-
-
-[1] "Beginning dataset  942  ======>"
-[1] "2017-03-02 19:49:08 CET"
-Downloading from 'http://www.openml.org/api/v1/data/942' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/942/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53476/chscase_health.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/942/dataset.arff'
-[1] " ======>  Ending dataset  942"
-
-
-[1] "Beginning dataset  945  ======>"
-[1] "2017-03-02 19:49:13 CET"
-Downloading from 'http://www.openml.org/api/v1/data/945' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/945/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53479/kidney.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/945/dataset.arff'
-[1] " ======>  Ending dataset  945"
-
-
-[1] "Beginning dataset  946  ======>"
-[1] "2017-03-02 19:49:17 CET"
-Downloading from 'http://www.openml.org/api/v1/data/946' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/946/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53480/visualizing_ethanol.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/946/dataset.arff'
-[1] " ======>  Ending dataset  946"
-
-
-[1] "Beginning dataset  1013  ======>"
-[1] "2017-03-02 19:49:20 CET"
-Downloading from 'http://www.openml.org/api/v1/data/1013' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/1013/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53547/analcatdata_challenger.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/1013/dataset.arff'
-[1] " ======>  Ending dataset  1013"
-
-
-[1] "Beginning dataset  1015  ======>"
-[1] "2017-03-02 19:49:23 CET"
-Downloading from 'http://www.openml.org/api/v1/data/1015' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/1015/description.xml'.
-Downloading from 'https://www.openml.org/data/download/53549/confidence.arff' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/1015/dataset.arff'
-[1] " ======>  Ending dataset  1015"
-
-
-[1] "Beginning dataset  1463  ======>"
-[1] "2017-03-02 19:49:26 CET"
-Downloading from 'http://www.openml.org/api/v1/data/1463' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/1463/description.xml'.
-Downloading from 'https://www.openml.org/data/download/1586224/php7gmqTJ' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/1463/dataset.arff'
-[1] " ======>  Ending dataset  1463"
-
-
-Type: DONE 
-There were 50 or more warnings (use warnings() to see the first 50)
+Warning messages:
+1: le package �There were 50 or more warnings (use warnings() to see the first 50)
+it: algorithm did not converge 
+3: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+4: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+5: glm.fit: algorithm did not converge 
+6: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+7: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+8: glm.fit: algorithm did not converge 
+9: glm.fit: fitted probabilities numerically 0 or 1 occurred 
