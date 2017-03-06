@@ -35,7 +35,7 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 # force = TRUE to force (re)computing of ALL dataset informations
 # computeTime = TRUE to compute an estimate of training time for LR and RF. It may take up to several days
 source(file = "Benchmark/benchmark_getDataOpenML.R")
-get_data_OpenML(target_path = "Data/OpenML/clas_time.RData")
+get_data_OpenML(target_path = "Data/OpenML/clas_time.RData", force = FALSE, computeTime = FALSE)
 
 
 ## 1.2 Benchmark computation ----
@@ -102,24 +102,28 @@ pdpDifferenceAllDatasets(clas = clas_used, visualize = FALSE, force = FALSE,
 # Sauver les plots dans un dossier aussi au fur et à mesure
 
 # Plot of pdp according to dataset
-library(mlr)
-load("Data/Simulations/pdp.difference.RData")
-load("Data/Saved_original/benchmark_parallel_snowfall.RData")
 
 
-res.perfs = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))
-res.perfs.df = do.call("rbind", res.perfs) 
-leaner.id.lr = "classif.logreg"
-learner.id.randomForest = "classif.randomForest"
-perfsAggr.LR = subset(res.perfs.df, learner.id == leaner.id.lr)
-perfsAggr.RF = subset(res.perfs.df, learner.id == learner.id.randomForest)
-perfsAggr.diff = perfsAggr.RF[,3:ncol(perfsAggr.RF)]-perfsAggr.LR[,3:ncol(perfsAggr.LR)]
 
-nas.data = which(is.na(perfsAggr.diff$acc.test.mean) | (is.na(pdp.difference$pdp.l1)))
-
-plot(log1p(pdp.difference$pdp.l1[-nas.data]), perfsAggr.diff$auc.test.mean[-nas.data])
-
-pdp.difference$data.id[order(pdp.difference$pdp.l1)]
+# task.id = 4361
+# 
+# 
+# omldataset = getOMLDataSet(data.id = clas$data.id[j], verbosity = 0)
+# if (identical(omldataset$target.features, character(0))) {
+#   omldataset$target.features="Class"
+#   omldataset$desc$default.target.attribute="Class"
+# }
+# pdp.difference$loaded[j] = "TRUE" 
+# 
+# 
+# # Transform to mlr task
+# configureMlr(on.learner.error = "warn", show.learner.output = TRUE, show.info = FALSE)
+# mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
+# pdp.difference$converted[j] = TRUE
+# 
+# # Get the Pdp difference
+# pdp.difference.all <- getPdpDifference(mlrtask, seed = seed, 
+#                                        visualize = visualize, progression_bar = FALSE)
 
 # Study of datasets
 load()

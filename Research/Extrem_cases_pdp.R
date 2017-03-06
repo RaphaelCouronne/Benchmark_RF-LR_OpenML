@@ -2,22 +2,18 @@
 
 
 
-plot_extrem_cases <- function(id, seed) {
+plot_extrem_cases <- function(data.id, seed=1, file.path = "Data/Simulations/pdp.difference.RData") {
   
-  load(file = "Data/Results/Original/df.bmr_original.RData")
-  source(file = "Research/DifferenceInModels/pdpInterpretabilityFunction.R")
-  
-  print(paste("acc :", df.bmr.diff$acc[id]))
+  load(file = file.path)
   
   # load the task
-  dataset_id = clas_used$did[id]
-  omldataset = getOMLDataSet(dataset_id)
+  omldataset = getOMLDataSet(data.id)
   if (identical(omldataset$target.features, character(0))) {
     omldataset$target.features="Class"
     omldataset$desc$default.target.attribute="Class"
   }
   task = convertOMLDataSetToMlr(omldataset)
-  task$task.desc$id = paste("dataset", dataset_id)
+  task$task.desc$id = paste("dataset", data.id)
   task
   task$env$data
   
@@ -44,7 +40,7 @@ plot_extrem_cases <- function(id, seed) {
     index.temp = feature_importance_order[i]
     feature.temp = features.list[index.temp]
     
-    quantiles = quantile(task$env$data[[feature.temp]], probs = c(0.05, 0.95))
+    quantiles = quantile(task$env$data[[feature.temp]], probs = c(0.1, 0.9))
     quantiles_list = as.list(quantiles)
     names(quantiles_list) = c(feature.temp, feature.temp)
     fmin=(quantiles_list[1])
@@ -52,11 +48,12 @@ plot_extrem_cases <- function(id, seed) {
     
     set.seed(seed)
     pd.rf = generatePartialDependenceData(fit.classif.rf, task, 
-                                          features.list[index.temp], gridsize = gridsize,
-                                          fmin = fmin, fmax = fmax)
+                                          features.list[index.temp], gridsize = task$task.desc$size,
+                                          fmin = fmin, fmax = fmax, resample = "subsample")
     set.seed(seed)
     pd.lr = generatePartialDependenceData(fit.classif.lr, task, 
-                                          features.list[index.temp], gridsize = gridsize)
+                                          features.list[index.temp], gridsize = task$task.desc$size,
+                                          fmin = fmin, fmax = fmax, resample = "subsample")
     
     library(ggplot2)
     df.plot = data.frame(grid = pd.rf$data[[feature.temp]], 
@@ -67,7 +64,7 @@ plot_extrem_cases <- function(id, seed) {
     df.plot.reshaped = reshape2::melt(df.plot, "grid")
     detach(package:reshape2, unload = TRUE)
     p = ggplot(df.plot.reshaped, aes_string(x = "grid", y="value", colour = "variable"))
-    p = p+geom_line(size=1) + geom_point(size=3)
+    p = p+geom_line(size=1) + geom_point(size=3) + ylim(0,1)
     print(p)
     
     plot_pdp_list[[i]] = p
