@@ -6,11 +6,15 @@ library(batchtools)
 library(OpenML)
 saveOMLConfig(apikey = "7a4391537f767ea70db6af99497653e5", arff.reader = "RWeka", overwrite=TRUE)
 
+load(file = "Data/OpenML/clas_time.RData")
+
+seed = 1
+ncpus = 2
 
 # which subset of dataset
-clas_used = rbind(clas_time_small)
-OMLDATASETS = clas_used$data.id[c(1:50)]
-nameExperiment = paste("batchtool-test")
+clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+omldatasets = clas_used$data.id
+nameExperiment = paste("Data/Batchtools/batchtool_experiment")
 
 
 unlink(nameExperiment, recursive = TRUE)
@@ -21,12 +25,12 @@ regis = makeExperimentRegistry(nameExperiment, seed = seed,
                                #conf.file = paste0("Data/Batchtools/.batchtools.conf.R")
 )
 
-regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = 2) 
+regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = ncpus) 
 
 
 
 # add selected OML datasets as problems
-for (did in OMLDATASETS) {
+for (did in omldatasets) {
   data = list(did = did)
   addProblem(name = as.character(did), data = data)
 }
@@ -65,7 +69,7 @@ addAlgorithm("eval", fun = function(job, data, instance,  ...) {
 
 
 # finalize experiment
-set.seed(1)
+# set.seed(1)
 ades = data.frame(c(1))
 addExperiments(algo.designs = list(eval = ades))
 summarizeExperiments()
