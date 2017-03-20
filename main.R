@@ -13,7 +13,7 @@ library(RWeka)
 library(doParallel)
 
 # Enter here nCores and myapikey
-nCores = 3 # number of cores you want to use
+nCores = 2 # number of cores you want to use
 myapikey = "7a4391537f767ea70db6af99497653e5" #OpenML API key
 saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
@@ -38,19 +38,24 @@ source(file = "Benchmark/benchmark_getDataOpenML.R")
 get_data_OpenML(target_path = "Data/OpenML/clas_time.RData", force = FALSE, computeTime = FALSE)
 
 
-## 1.2 Benchmark computation ----
-# Parallel computation for the benchmark
-# Generates Data/Results/benchmark_parallel_snowfall.RData and Data/Results/benchmark_parallel_snowfall.Rout
-source(file = "Benchmark/benchmark_ParallelComputation.R")
+## 1.2 Benchmark computation ---
+# Batchtools implementation
+source(file = "Benchmark/benchmark-batch-new.R")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
-parallel_computation_snowfall(nCores = nCores, 
-                              clas_used = clas_used,
-                              target_path = "Data/Results/benchmark_parallel_snowfall_test.RData")
+# Set up the benchmark
+setBatchtoolsExperiment(seed = 1, ncpus = 2, clas_used = clas_used)
+regis = loadRegistry("Data/Batchtools/batchtool_experiment/")
 
-load("Data/Results/benchmark_parallel_snowfall_test.RData")
+# Launch benchmark
+submitJobs(ids = 1:193, reg = regis) #small datasets
+submitJobs(ids = 194:231, reg = regis) #medium datasets
+submitJobs(ids = 232:278, reg = regis) #big datasets
 
+# Chekc benchmark
+u = getStatus()
+getErrorMessages()
 
 
 
