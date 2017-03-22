@@ -89,7 +89,7 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   n.row = nrow(clas)
   
   if (file.exists("Data/OpenML/df.infos.RData") && !force) {
-    print("  File \"Data/OpenML/df.infos.RData\" has been found and loaded, it will not be recomputed here", quote = FALSE)
+    print("  File \"Data/OpenML/df.infos.RData\" has been found and loaded, it will not be recomputed", quote = FALSE)
     
     # laod the file
     load(file = "Data/OpenML/df.infos.RData")
@@ -216,6 +216,7 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   # ============================= ----
   print("4. Remove datasets that failed", quote = FALSE)
   clas_select = data.frame(clas, df.infos)
+  clas_select = clas_select[, -which(names(clas_select) %in% c("task.id.1", "data.id.1"))]
   clas_select$time = clas_select$rf_time+clas_select$lr_time
   
   # remove the one with loading unsuccessfull

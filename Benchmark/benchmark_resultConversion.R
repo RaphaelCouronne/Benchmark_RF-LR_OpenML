@@ -6,7 +6,10 @@ convert_results <- function(clas_used, result, target_path) {
   library(cowplot)
   
   
+  
   ## 1. Remove the nas in result, and create the dataframe associated with results
+  result = reduceResultsList(ids = 1:278, reg = regis)
+  clas_used_original = clas_used
   
   # Defines measures and learners id
   measures = list(acc, auc, brier, timetrain)
@@ -29,6 +32,20 @@ convert_results <- function(clas_used, result, target_path) {
     res.perfs = res.perfs[-res.perfs.nas]
     clas_used = clas_used[-res.perfs.nas,]
   }
+  results.nas = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))[res.perfs.nas]
+  clas_used.nas = clas_used[res.perfs.nas,]
+  save(results.nas, clas_used.nas , file = "Data/Results/results.nas.RData")
+  res.perfs.df.nas = do.call("rbind", results.nas) 
+  
+  print(paste(length(results.nas),"datasets produced nas"))
+
+  print(paste("Logistic regression produced nas in",  
+              sum(is.na(res.perfs.df.nas[which(res.perfs.df.nas$learner.id=="classif.logreg"),]$acc.test.mean)),
+              "datasets"))
+  
+  print(paste("Random forest produced nas in",  
+              sum(is.na(res.perfs.df.nas[which(res.perfs.df.nas$learner.id=="classif.randomForest"),]$acc.test.mean)),
+              "datasets"))
   
   # convert to a data.frame
   res.perfs.df = do.call("rbind", res.perfs) 
@@ -71,9 +88,9 @@ convert_results <- function(clas_used, result, target_path) {
                            logp = log(clas_used$number.of.features), 
                            logn = log(clas_used$number.of.instances),
                            logdimension = log(clas_used$dimension),
-                           logpsurn = log(clas_used$number.of.features/clas_used$number.of.instances),
-                           logdimensionsurn = log(clas_used$dimension/clas_used$number.of.instances),
-                           lograpportMajorityMinorityClass = log(clas_used$majority.class.size/clas_used$minority.class.size),
+                           logp.dividedby.n = log(clas_used$number.of.features/clas_used$number.of.instances),
+                           logdimension.dividedby.n = log(clas_used$dimension/clas_used$number.of.instances),
+                           lograteMajorityMinorityClass = log(clas_used$majority.class.size/clas_used$minority.class.size),
                            pnum, psymbolic, pnumrate, Cmax
   )
   

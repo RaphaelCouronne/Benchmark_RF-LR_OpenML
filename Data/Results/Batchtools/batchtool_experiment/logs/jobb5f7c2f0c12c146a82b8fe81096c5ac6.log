@@ -1,0 +1,301 @@
+### [bt 2017-03-21 08:57:07]: This is batchtools v0.9.2
+### [bt 2017-03-21 08:57:07]: Starting calculation of 1 jobs
+### [bt 2017-03-21 08:57:07]: Setting working directory to '/home/rstudio/Project/IBE_Benchmark-OpenML/Data/Batchtools'
+### [bt 2017-03-21 08:57:07]: Memory measurement disabled
+### [bt 2017-03-21 08:57:07]: Starting job [batchtools job.id=278]
+Generating problem instance for problem '1042' ...
+Applying algorithm 'eval' on problem '1042' ...
+Downloading from 'http://www.openml.org/api/v1/data/1042' to '/tmp/RtmpaPPl1w/cache/datasets/1042/description.xml'.
+Downloading from 'https://www.openml.org/data/download/53925/gina_prior.arff' to '/tmp/RtmpaPPl1w/cache/datasets/1042/dataset.arff'
+Removing 139 columns: pixel1,pixel2,pixel3,pixel4,pixel5,pixel6,pixel7,pixel8,pixel9,pixel10,pixel11,pixel12,pixel13,pixel14,pixel15,pixel16,pixel17,pixel18,pixel19,pixel20,pixel21,pixel22,pixel23,pixel24,pixel25,pixel26,pixel27,pixel28,pixel29,pixel30,pixel31,pixel32,pixel33,pixel34,pixel35,pixel36,pixel37,pixel50,pixel51,pixel52,pixel53,pixel54,pixel55,pixel56,pixel57,pixel58,pixel59,pixel60,pixel63,pixel64,pixel81,pixel82,pixel83,pixel84,pixel85,pixel86,pixel87,pixel88,pixel111,pixel112,pixel113,pixel114,pixel115,pixel116,pixel139,pixel140,pixel141,pixel142,pixel143,pixel168,pixel169,pixel170,pixel197,pixel225,pixel252,pixel253,pixel280,pixel281,pixel308,pixel309,pixel337,pixel365,pixel393,pixel394,pixel395,pixel420,pixel421,pixel422,pixel449,pixel477,pixel505,pixel506,pixel533,pixel534,pixel560,pixel561,pixel588,pixel589,pixel616,pixel617,pixel644,pixel645,pixel646,pixel671,pixel672,pixel673,pixel674,pixel697,pixel698,pixel699,pixel700,pixel701,pixel702,pixel703,pixel726,pixel727,pixel728,pixel729,pixel730,pixel731,pixel732,pixel753,pixel754,pixel755,pixel756,pixel757,pixel758,pixel759,pixel760,pixel761,pixel762,pixel763,pixel778,pixel779,pixel780,pixel781,pixel782,pixel783,pixel784
+Task: gina_prior, Learner: classif.logreg
+[Resample] repeated cross-validation iter 1: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.795,brier.test.mean=0.205,auc.test.mean=0.795,timetrain.test.mean=12.6
+[Resample] repeated cross-validation iter 2: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.814,brier.test.mean=0.186,auc.test.mean=0.814,timetrain.test.mean=7.79
+[Resample] repeated cross-validation iter 3: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.801,brier.test.mean=0.199,auc.test.mean=0.801,timetrain.test.mean=13.1
+[Resample] repeated cross-validation iter 4: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.778,brier.test.mean=0.222,auc.test.mean=0.778,timetrain.test.mean=13.2
+[Resample] repeated cross-validation iter 5: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.825,brier.test.mean=0.175,auc.test.mean=0.825,timetrain.test.mean=12.8
+[Resample] repeated cross-validation iter 6: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.794,brier.test.mean=0.206,auc.test.mean=0.794,timetrain.test.mean=13.1
+[Resample] repeated cross-validation iter 7: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.79,brier.test.mean=0.21,auc.test.mean=0.79,timetrain.test.mean=7.77
+[Resample] repeated cross-validation iter 8: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.817,brier.test.mean=0.183,auc.test.mean=0.817,timetrain.test.mean=10.1
+[Resample] repeated cross-validation iter 9: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.801,brier.test.mean=0.199,auc.test.mean=0.801,timetrain.test.mean=15.1
+[Resample] repeated cross-validation iter 10: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.793,brier.test.mean=0.207,auc.test.mean=0.793,timetrain.test.mean=14.6
+[Resample] repeated cross-validation iter 11: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.527,brier.test.mean=0.473,auc.test.mean=0.519,timetrain.test.mean=6.07
+[Resample] repeated cross-validation iter 12: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.791,brier.test.mean=0.209,auc.test.mean=0.791,timetrain.test.mean=14.7
+[Resample] repeated cross-validation iter 13: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.782,brier.test.mean=0.218,auc.test.mean=0.782,timetrain.test.mean=12.9
+[Resample] repeated cross-validation iter 14: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.82,brier.test.mean=0.18,auc.test.mean=0.82,timetrain.test.mean=14.7
+[Resample] repeated cross-validation iter 15: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.813,brier.test.mean=0.187,auc.test.mean=0.813,timetrain.test.mean=10.7
+[Resample] repeated cross-validation iter 16: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.795,brier.test.mean=0.205,auc.test.mean=0.795,timetrain.test.mean=12.3
+[Resample] repeated cross-validation iter 17: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.81,brier.test.mean=0.19,auc.test.mean=0.81,timetrain.test.mean=13.1
+[Resample] repeated cross-validation iter 18: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.814,brier.test.mean=0.186,auc.test.mean=0.814,timetrain.test.mean=15.4
+[Resample] repeated cross-validation iter 19: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.811,brier.test.mean=0.189,auc.test.mean=0.811,timetrain.test.mean=14.8
+[Resample] repeated cross-validation iter 20: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.787,brier.test.mean=0.213,auc.test.mean=0.787,timetrain.test.mean=14.6
+[Resample] repeated cross-validation iter 21: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.765,brier.test.mean=0.235,auc.test.mean=0.765,timetrain.test.mean=13.1
+[Resample] repeated cross-validation iter 22: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.799,brier.test.mean=0.201,auc.test.mean=0.799,timetrain.test.mean=  13
+[Resample] repeated cross-validation iter 23: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.778,brier.test.mean=0.222,auc.test.mean=0.778,timetrain.test.mean=  13
+[Resample] repeated cross-validation iter 24: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.794,brier.test.mean=0.206,auc.test.mean=0.794,timetrain.test.mean=  13
+[Resample] repeated cross-validation iter 25: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.826,brier.test.mean=0.174,auc.test.mean=0.826,timetrain.test.mean=12.9
+[Resample] repeated cross-validation iter 26: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.789,brier.test.mean=0.211,auc.test.mean=0.789,timetrain.test.mean=13.1
+[Resample] repeated cross-validation iter 27: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.787,brier.test.mean=0.213,auc.test.mean=0.787,timetrain.test.mean=12.7
+[Resample] repeated cross-validation iter 28: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.774,brier.test.mean=0.226,auc.test.mean=0.774,timetrain.test.mean=12.6
+[Resample] repeated cross-validation iter 29: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.801,brier.test.mean=0.199,auc.test.mean=0.801,timetrain.test.mean=11.5
+[Resample] repeated cross-validation iter 30: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.818,brier.test.mean=0.182,auc.test.mean=0.818,timetrain.test.mean=15.8
+[Resample] repeated cross-validation iter 31: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.81,brier.test.mean=0.19,auc.test.mean=0.809,timetrain.test.mean=14.2
+[Resample] repeated cross-validation iter 32: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.816,brier.test.mean=0.184,auc.test.mean=0.815,timetrain.test.mean=15.1
+[Resample] repeated cross-validation iter 33: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.785,brier.test.mean=0.215,auc.test.mean=0.785,timetrain.test.mean=13.5
+[Resample] repeated cross-validation iter 34: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.816,brier.test.mean=0.184,auc.test.mean=0.816,timetrain.test.mean=13.4
+[Resample] repeated cross-validation iter 35: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.801,brier.test.mean=0.199,auc.test.mean=0.801,timetrain.test.mean= 8.6
+[Resample] repeated cross-validation iter 36: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.797,brier.test.mean=0.203,auc.test.mean=0.797,timetrain.test.mean=11.6
+[Resample] repeated cross-validation iter 37: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.805,brier.test.mean=0.195,auc.test.mean=0.805,timetrain.test.mean=13.7
+[Resample] repeated cross-validation iter 38: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.804,brier.test.mean=0.196,auc.test.mean=0.804,timetrain.test.mean=12.7
+[Resample] repeated cross-validation iter 39: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.794,brier.test.mean=0.206,auc.test.mean=0.793,timetrain.test.mean=12.6
+[Resample] repeated cross-validation iter 40: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.808,brier.test.mean=0.192,auc.test.mean=0.808,timetrain.test.mean=12.3
+[Resample] repeated cross-validation iter 41: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.81,brier.test.mean=0.19,auc.test.mean=0.81,timetrain.test.mean=12.7
+[Resample] repeated cross-validation iter 42: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.795,brier.test.mean=0.205,auc.test.mean=0.795,timetrain.test.mean=12.7
+[Resample] repeated cross-validation iter 43: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.801,brier.test.mean=0.199,auc.test.mean= 0.8,timetrain.test.mean=11.7
+[Resample] repeated cross-validation iter 44: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.813,brier.test.mean=0.187,auc.test.mean=0.813,timetrain.test.mean=  13
+[Resample] repeated cross-validation iter 45: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.812,brier.test.mean=0.188,auc.test.mean=0.812,timetrain.test.mean=7.46
+[Resample] repeated cross-validation iter 46: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.771,brier.test.mean=0.229,auc.test.mean=0.771,timetrain.test.mean=12.6
+[Resample] repeated cross-validation iter 47: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.807,brier.test.mean=0.193,auc.test.mean=0.807,timetrain.test.mean=15.1
+[Resample] repeated cross-validation iter 48: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.791,brier.test.mean=0.209,auc.test.mean=0.791,timetrain.test.mean=7.05
+[Resample] repeated cross-validation iter 49: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.805,brier.test.mean=0.195,auc.test.mean=0.805,timetrain.test.mean=13.1
+[Resample] repeated cross-validation iter 50: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.827,brier.test.mean=0.173,auc.test.mean=0.827,timetrain.test.mean=13.7
+[Resample] Aggr. Result: acc.test.mean=0.795,brier.test.mean=0.205,auc.test.mean=0.795,timetrain.test.mean=12.5
+Task: gina_prior, Learner: classif.randomForest
+[Resample] repeated cross-validation iter 1: acc.test.mean=0.944,brier.test.mean=0.0557,auc.test.mean=0.99,timetrain.test.mean=53.9
+[Resample] repeated cross-validation iter 2: acc.test.mean=0.938,brier.test.mean=0.0618,auc.test.mean=0.983,timetrain.test.mean=57.8
+[Resample] repeated cross-validation iter 3: acc.test.mean=0.934,brier.test.mean=0.0606,auc.test.mean=0.986,timetrain.test.mean=54.9
+[Resample] repeated cross-validation iter 4: acc.test.mean=0.951,brier.test.mean=0.0554,auc.test.mean=0.989,timetrain.test.mean=55.2
+[Resample] repeated cross-validation iter 5: acc.test.mean=0.955,brier.test.mean=0.0518,auc.test.mean=0.992,timetrain.test.mean=53.5
+[Resample] repeated cross-validation iter 6: acc.test.mean=0.939,brier.test.mean=0.0642,auc.test.mean=0.982,timetrain.test.mean=55.3
+[Resample] repeated cross-validation iter 7: acc.test.mean=0.948,brier.test.mean=0.0579,auc.test.mean=0.987,timetrain.test.mean=53.4
+[Resample] repeated cross-validation iter 8: acc.test.mean=0.947,brier.test.mean=0.057,auc.test.mean=0.986,timetrain.test.mean=57.2
+[Resample] repeated cross-validation iter 9: acc.test.mean=0.954,brier.test.mean=0.0539,auc.test.mean=0.99,timetrain.test.mean=62.2
+[Resample] repeated cross-validation iter 10: acc.test.mean=0.95,brier.test.mean=0.0548,auc.test.mean=0.991,timetrain.test.mean=56.5
+[Resample] repeated cross-validation iter 11: acc.test.mean=0.952,brier.test.mean=0.0522,auc.test.mean=0.992,timetrain.test.mean=53.4
+[Resample] repeated cross-validation iter 12: acc.test.mean=0.944,brier.test.mean=0.0614,auc.test.mean=0.983,timetrain.test.mean=57.9
+[Resample] repeated cross-validation iter 13: acc.test.mean=0.941,brier.test.mean=0.0611,auc.test.mean=0.987,timetrain.test.mean=61.3
+[Resample] repeated cross-validation iter 14: acc.test.mean=0.951,brier.test.mean=0.0563,auc.test.mean=0.989,timetrain.test.mean=63.4
+[Resample] repeated cross-validation iter 15: acc.test.mean=0.947,brier.test.mean=0.0557,auc.test.mean=0.988,timetrain.test.mean=59.2
+[Resample] repeated cross-validation iter 16: acc.test.mean=0.947,brier.test.mean=0.0547,auc.test.mean=0.989,timetrain.test.mean=54.4
+[Resample] repeated cross-validation iter 17: acc.test.mean=0.949,brier.test.mean=0.0557,auc.test.mean=0.989,timetrain.test.mean=53.4
+[Resample] repeated cross-validation iter 18: acc.test.mean=0.951,brier.test.mean=0.0559,auc.test.mean=0.988,timetrain.test.mean=57.6
+[Resample] repeated cross-validation iter 19: acc.test.mean=0.948,brier.test.mean=0.0551,auc.test.mean=0.991,timetrain.test.mean=59.2
+[Resample] repeated cross-validation iter 20: acc.test.mean=0.935,brier.test.mean=0.0623,auc.test.mean=0.985,timetrain.test.mean=58.1
+[Resample] repeated cross-validation iter 21: acc.test.mean=0.947,brier.test.mean=0.0554,auc.test.mean=0.988,timetrain.test.mean=57.9
+[Resample] repeated cross-validation iter 22: acc.test.mean=0.939,brier.test.mean=0.0592,auc.test.mean=0.987,timetrain.test.mean=54.7
+[Resample] repeated cross-validation iter 23: acc.test.mean=0.947,brier.test.mean=0.0577,auc.test.mean=0.987,timetrain.test.mean=55.4
+[Resample] repeated cross-validation iter 24: acc.test.mean=0.938,brier.test.mean=0.0597,auc.test.mean=0.987,timetrain.test.mean=55.7
+[Resample] repeated cross-validation iter 25: acc.test.mean=0.947,brier.test.mean=0.0554,auc.test.mean=0.99,timetrain.test.mean=57.2
+[Resample] repeated cross-validation iter 26: acc.test.mean=0.945,brier.test.mean=0.0593,auc.test.mean=0.986,timetrain.test.mean=55.3
+[Resample] repeated cross-validation iter 27: acc.test.mean=0.957,brier.test.mean=0.0549,auc.test.mean=0.989,timetrain.test.mean=52.7
+[Resample] repeated cross-validation iter 28: acc.test.mean=0.945,brier.test.mean=0.0573,auc.test.mean=0.99,timetrain.test.mean=54.2
+[Resample] repeated cross-validation iter 29: acc.test.mean=0.941,brier.test.mean=0.0599,auc.test.mean=0.983,timetrain.test.mean=52.7
+[Resample] repeated cross-validation iter 30: acc.test.mean=0.952,brier.test.mean=0.0549,auc.test.mean=0.991,timetrain.test.mean=53.2
+[Resample] repeated cross-validation iter 31: acc.test.mean=0.949,brier.test.mean=0.057,auc.test.mean=0.989,timetrain.test.mean=56.9
+[Resample] repeated cross-validation iter 32: acc.test.mean=0.964,brier.test.mean=0.0561,auc.test.mean=0.992,timetrain.test.mean=57.6
+[Resample] repeated cross-validation iter 33: acc.test.mean=0.932,brier.test.mean=0.061,auc.test.mean=0.983,timetrain.test.mean=52.5
+[Resample] repeated cross-validation iter 34: acc.test.mean=0.947,brier.test.mean=0.0568,auc.test.mean=0.987,timetrain.test.mean=53.1
+[Resample] repeated cross-validation iter 35: acc.test.mean=0.945,brier.test.mean=0.0571,auc.test.mean=0.987,timetrain.test.mean=52.3
+[Resample] repeated cross-validation iter 36: acc.test.mean=0.954,brier.test.mean=0.0559,auc.test.mean=0.99,timetrain.test.mean=  54
+[Resample] repeated cross-validation iter 37: acc.test.mean=0.948,brier.test.mean=0.0538,auc.test.mean=0.989,timetrain.test.mean=  54
+[Resample] repeated cross-validation iter 38: acc.test.mean=0.939,brier.test.mean=0.0579,auc.test.mean=0.985,timetrain.test.mean=53.7
+[Resample] repeated cross-validation iter 39: acc.test.mean=0.931,brier.test.mean=0.0633,auc.test.mean=0.985,timetrain.test.mean=53.3
+[Resample] repeated cross-validation iter 40: acc.test.mean=0.955,brier.test.mean=0.0543,auc.test.mean=0.991,timetrain.test.mean=53.9
+[Resample] repeated cross-validation iter 41: acc.test.mean=0.945,brier.test.mean=0.0554,auc.test.mean=0.987,timetrain.test.mean=53.8
+[Resample] repeated cross-validation iter 42: acc.test.mean=0.948,brier.test.mean=0.06,auc.test.mean=0.985,timetrain.test.mean=52.8
+[Resample] repeated cross-validation iter 43: acc.test.mean=0.938,brier.test.mean=0.0612,auc.test.mean=0.986,timetrain.test.mean=54.6
+[Resample] repeated cross-validation iter 44: acc.test.mean=0.952,brier.test.mean=0.0569,auc.test.mean=0.99,timetrain.test.mean=54.4
+[Resample] repeated cross-validation iter 45: acc.test.mean=0.945,brier.test.mean=0.0555,auc.test.mean=0.989,timetrain.test.mean=54.3
+[Resample] repeated cross-validation iter 46: acc.test.mean=0.935,brier.test.mean=0.0631,auc.test.mean=0.984,timetrain.test.mean=56.9
+[Resample] repeated cross-validation iter 47: acc.test.mean=0.95,brier.test.mean=0.0593,auc.test.mean=0.988,timetrain.test.mean=57.7
+[Resample] repeated cross-validation iter 48: acc.test.mean=0.958,brier.test.mean=0.052,auc.test.mean=0.99,timetrain.test.mean=52.4
+[Resample] repeated cross-validation iter 49: acc.test.mean=0.96,brier.test.mean=0.0534,auc.test.mean=0.99,timetrain.test.mean=53.6
+[Resample] repeated cross-validation iter 50: acc.test.mean=0.931,brier.test.mean=0.0579,auc.test.mean=0.986,timetrain.test.mean=56.5
+[Resample] Aggr. Result: acc.test.mean=0.946,brier.test.mean=0.0573,auc.test.mean=0.988,timetrain.test.mean=55.5
+
+### [bt 2017-03-21 09:54:04]: Job terminated successfully [batchtools job.id=278]
+### [bt 2017-03-21 09:54:04]: Calculation finished!

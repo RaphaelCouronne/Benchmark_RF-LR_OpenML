@@ -153,9 +153,10 @@ overall_visualization<-function(bmr) {
   
   print(p.grid)
   
-  
-  
-  
+
+jpeg(filename = "Data/Pictures/Figure3_MainResults.jpeg", width = 600, height = 400)
+plot(p.grid)
+dev.off()
   
 }
 

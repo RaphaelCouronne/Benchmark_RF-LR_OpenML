@@ -11,9 +11,10 @@ library(snowfall)
 library(cowplot)
 library(RWeka) 
 library(doParallel)
+library(batchtools)
 
 # Enter here nCores and myapikey
-nCores = 2 # number of cores you want to use
+nCores = 3 # number of cores you want to use
 myapikey = "7a4391537f767ea70db6af99497653e5" #OpenML API key
 saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
@@ -40,40 +41,46 @@ get_data_OpenML(target_path = "Data/OpenML/clas_time.RData", force = FALSE, comp
 
 ## 1.2 Benchmark computation ---
 # Batchtools implementation
-source(file = "Benchmark/benchmark-batch-new.R")
+source(file = "Benchmark/benchmark-batchtools.R")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
-# Set up the benchmark
-setBatchtoolsExperiment(seed = 1, ncpus = 2, clas_used = clas_used)
-regis = loadRegistry("Data/Batchtools/batchtool_experiment/")
+# Set up the benchmark (delete current results)
+setBatchtoolsExperiment(seed = 1, ncpus = 3, clas_used = clas_used)
+regis = loadRegistry("Data/Results/Batchtools/batchtool_experiment//")
 
 # Launch benchmark
 submitJobs(ids = 1:193, reg = regis) #small datasets
 submitJobs(ids = 194:231, reg = regis) #medium datasets
 submitJobs(ids = 232:278, reg = regis) #big datasets
 
-# Chekc benchmark
-u = getStatus()
-getErrorMessages()
+# Check benchmark
+getStatus()
 
 
+save(results.reduced, file = "Data/Batchtools/results.reduced.RData")
+a = results.reduced[[12]]
+
+load(file = "Data/Batchtools/res_classif_load.RData")
+b = res_classif_load[[12]]
 
 ## 2 Visualization  ======================================================================================
 rm(list=ls())
  
 # 2.1 Preprocessing of the benchmark results
-load(file = "Data/Results/benchmark_parallel_snowfall.RData")
+regis = loadRegistry("Data/Results/Batchtools/batchtool_experiment//")
+load("Data/OpenML/clas_time.RData")
+clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 source(file = "Benchmark/benchmark_resultConversion.R")
 convert_results(clas_used = clas_used, result = result, target_path = "Data/Results/df.bmr.RData")
 
 # 2.2 Overall Visualization
 load(file = "Data/Results/df.bmr.RData")
-source(file = "Visualization-Analysis/OverallVisualization.R")
+source(file = "Visualization/OverallVisualization.R")
 overall_visualization(df.bmr.diff)
 
 # 2.3 Inclusion Criteria Visualization
-source(file = "Visualization-Analysis/InclusionCriteriaPlots.R")
+source(file = "Visualization/InclusionCriteriaPlots.R")
 inclusion_criteria(df.bmr.diff)
 
 

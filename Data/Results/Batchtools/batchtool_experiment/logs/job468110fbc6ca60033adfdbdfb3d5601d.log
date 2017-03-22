@@ -1,0 +1,216 @@
+### [bt 2017-03-20 23:24:00]: This is batchtools v0.9.2
+### [bt 2017-03-20 23:24:00]: Starting calculation of 1 jobs
+### [bt 2017-03-20 23:24:00]: Setting working directory to '/home/rstudio/Project/IBE_Benchmark-OpenML/Data/Batchtools'
+### [bt 2017-03-20 23:24:00]: Memory measurement disabled
+### [bt 2017-03-20 23:24:00]: Starting job [batchtools job.id=136]
+Generating problem instance for problem '1464' ...
+Applying algorithm 'eval' on problem '1464' ...
+Downloading from 'http://www.openml.org/api/v1/data/1464' to '/tmp/RtmpaPPl1w/cache/datasets/1464/description.xml'.
+Downloading from 'https://www.openml.org/data/download/1586225/php0iVrYT' to '/tmp/RtmpaPPl1w/cache/datasets/1464/dataset.arff'
+Task: blood-transfusion-service-center, Learner: classif.logreg
+[Resample] repeated cross-validation iter 1: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.785,brier.test.mean=0.157,auc.test.mean=0.727,timetrain.test.mean=0.073
+[Resample] repeated cross-validation iter 2: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.767,brier.test.mean=0.145,auc.test.mean=0.805,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 3: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.72,brier.test.mean=0.172,auc.test.mean=0.723,timetrain.test.mean=0.005
+[Resample] repeated cross-validation iter 4: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.772,brier.test.mean=0.15,auc.test.mean=0.752,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 5: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean= 0.8,brier.test.mean=0.152,auc.test.mean=0.744,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 6: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.76,brier.test.mean=0.15,auc.test.mean=0.769,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 7: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.767,brier.test.mean=0.154,auc.test.mean=0.767,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 8: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.792,brier.test.mean=0.155,auc.test.mean=0.72,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 9: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.779,brier.test.mean=0.154,auc.test.mean=0.753,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 10: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.767,brier.test.mean=0.161,auc.test.mean=0.742,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 11: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.78,brier.test.mean=0.16,auc.test.mean=0.711,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 12: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.772,brier.test.mean=0.146,auc.test.mean=0.792,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 13: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.753,brier.test.mean=0.153,auc.test.mean=0.774,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 14: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.767,brier.test.mean=0.15,auc.test.mean=0.78,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 15: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.785,brier.test.mean=0.165,auc.test.mean=0.688,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 16: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.753,brier.test.mean=0.163,auc.test.mean=0.711,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 17: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.765,brier.test.mean=0.16,auc.test.mean=0.754,timetrain.test.mean=0.005
+[Resample] repeated cross-validation iter 18: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.785,brier.test.mean=0.142,auc.test.mean=0.814,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 19: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.787,brier.test.mean=0.15,auc.test.mean=0.753,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 20: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.76,brier.test.mean=0.156,auc.test.mean=0.735,timetrain.test.mean=0.071
+[Resample] repeated cross-validation iter 21: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.773,brier.test.mean=0.158,auc.test.mean=0.725,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 22: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.785,brier.test.mean=0.151,auc.test.mean=0.742,timetrain.test.mean=0.005
+[Resample] repeated cross-validation iter 23: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.773,brier.test.mean=0.148,auc.test.mean=0.777,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 24: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.752,brier.test.mean=0.169,auc.test.mean=0.686,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 25: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.773,brier.test.mean=0.151,auc.test.mean=0.803,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 26: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.753,brier.test.mean=0.152,auc.test.mean=0.764,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 27: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.767,brier.test.mean=0.159,auc.test.mean=0.738,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 28: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.765,brier.test.mean=0.157,auc.test.mean=0.756,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 29: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.779,brier.test.mean=0.15,auc.test.mean=0.747,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 30: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.78,brier.test.mean=0.152,auc.test.mean=0.74,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 31: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.773,brier.test.mean=0.161,auc.test.mean=0.712,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 32: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.753,brier.test.mean=0.152,auc.test.mean=0.794,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 33: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.765,brier.test.mean=0.17,auc.test.mean=0.664,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 34: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.767,brier.test.mean=0.147,auc.test.mean=0.781,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 35: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.779,brier.test.mean=0.142,auc.test.mean=0.808,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 36: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.785,brier.test.mean=0.17,auc.test.mean=0.692,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 37: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.78,brier.test.mean=0.143,auc.test.mean=0.805,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 38: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.767,brier.test.mean=0.153,auc.test.mean=0.757,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 39: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.767,brier.test.mean=0.16,auc.test.mean=0.717,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 40: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.779,brier.test.mean=0.145,auc.test.mean=0.793,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 41: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.753,brier.test.mean=0.148,auc.test.mean=0.814,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 42: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.78,brier.test.mean=0.145,auc.test.mean=0.787,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 43: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.767,brier.test.mean=0.156,auc.test.mean=0.768,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 44: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.792,brier.test.mean=0.16,auc.test.mean=0.715,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 45: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.765,brier.test.mean=0.167,auc.test.mean=0.687,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 46: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.787,brier.test.mean=0.177,auc.test.mean=0.638,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 47: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.765,brier.test.mean=0.149,auc.test.mean=0.777,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 48: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.785,brier.test.mean=0.14,auc.test.mean=0.804,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 49: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.78,brier.test.mean=0.155,auc.test.mean=0.753,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 50: Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+acc.test.mean=0.753,brier.test.mean=0.154,auc.test.mean=0.777,timetrain.test.mean=0.004
+[Resample] Aggr. Result: acc.test.mean=0.771,brier.test.mean=0.155,auc.test.mean=0.751,timetrain.test.mean=0.00678
+Task: blood-transfusion-service-center, Learner: classif.randomForest
+[Resample] repeated cross-validation iter 1: acc.test.mean=0.765,brier.test.mean=0.177,auc.test.mean=0.663,timetrain.test.mean=0.305
+[Resample] repeated cross-validation iter 2: acc.test.mean=0.767,brier.test.mean=0.155,auc.test.mean=0.74,timetrain.test.mean=0.224
+[Resample] repeated cross-validation iter 3: acc.test.mean=0.713,brier.test.mean=0.199,auc.test.mean=0.657,timetrain.test.mean=0.295
+[Resample] repeated cross-validation iter 4: acc.test.mean=0.785,brier.test.mean=0.172,auc.test.mean=0.707,timetrain.test.mean=0.291
+[Resample] repeated cross-validation iter 5: acc.test.mean=0.78,brier.test.mean=0.169,auc.test.mean=0.733,timetrain.test.mean=0.292
+[Resample] repeated cross-validation iter 6: acc.test.mean=0.767,brier.test.mean=0.173,auc.test.mean=0.708,timetrain.test.mean=0.298
+[Resample] repeated cross-validation iter 7: acc.test.mean=0.767,brier.test.mean=0.176,auc.test.mean=0.661,timetrain.test.mean= 0.3
+[Resample] repeated cross-validation iter 8: acc.test.mean=0.711,brier.test.mean=0.213,auc.test.mean= 0.6,timetrain.test.mean=0.294
+[Resample] repeated cross-validation iter 9: acc.test.mean=0.779,brier.test.mean=0.153,auc.test.mean=0.75,timetrain.test.mean=0.228
+[Resample] repeated cross-validation iter 10: acc.test.mean=0.747,brier.test.mean=0.193,auc.test.mean=0.668,timetrain.test.mean=0.367
+[Resample] repeated cross-validation iter 11: acc.test.mean= 0.7,brier.test.mean=0.186,auc.test.mean=0.685,timetrain.test.mean=0.301
+[Resample] repeated cross-validation iter 12: acc.test.mean=0.745,brier.test.mean=0.176,auc.test.mean=0.714,timetrain.test.mean=0.299
+[Resample] repeated cross-validation iter 13: acc.test.mean=0.773,brier.test.mean=0.164,auc.test.mean=0.725,timetrain.test.mean=0.303
+[Resample] repeated cross-validation iter 14: acc.test.mean=0.78,brier.test.mean=0.165,auc.test.mean=0.711,timetrain.test.mean=0.293
+[Resample] repeated cross-validation iter 15: acc.test.mean=0.732,brier.test.mean=0.221,auc.test.mean=0.576,timetrain.test.mean=0.299
+[Resample] repeated cross-validation iter 16: acc.test.mean=0.713,brier.test.mean=0.204,auc.test.mean=0.624,timetrain.test.mean=0.302
+[Resample] repeated cross-validation iter 17: acc.test.mean=0.738,brier.test.mean=0.199,auc.test.mean=0.651,timetrain.test.mean=0.299
+[Resample] repeated cross-validation iter 18: acc.test.mean=0.779,brier.test.mean=0.156,auc.test.mean=0.721,timetrain.test.mean=0.229
+[Resample] repeated cross-validation iter 19: acc.test.mean=0.747,brier.test.mean=0.184,auc.test.mean=0.673,timetrain.test.mean=0.299
+[Resample] repeated cross-validation iter 20: acc.test.mean=0.767,brier.test.mean=0.161,auc.test.mean=0.764,timetrain.test.mean=0.292
+[Resample] repeated cross-validation iter 21: acc.test.mean=0.747,brier.test.mean=0.179,auc.test.mean=0.684,timetrain.test.mean=0.297
+[Resample] repeated cross-validation iter 22: acc.test.mean=0.819,brier.test.mean=0.154,auc.test.mean=0.732,timetrain.test.mean=0.153
+[Resample] repeated cross-validation iter 23: acc.test.mean=0.76,brier.test.mean=0.16,auc.test.mean=0.751,timetrain.test.mean=0.303
+[Resample] repeated cross-validation iter 24: acc.test.mean=0.691,brier.test.mean=0.226,auc.test.mean=0.533,timetrain.test.mean=0.296
+[Resample] repeated cross-validation iter 25: acc.test.mean=0.773,brier.test.mean=0.178,auc.test.mean=0.717,timetrain.test.mean=0.303
+[Resample] repeated cross-validation iter 26: acc.test.mean=0.767,brier.test.mean=0.182,auc.test.mean=0.677,timetrain.test.mean=0.223
+[Resample] repeated cross-validation iter 27: acc.test.mean=0.727,brier.test.mean=0.193,auc.test.mean=0.706,timetrain.test.mean=0.297
+[Resample] repeated cross-validation iter 28: acc.test.mean=0.738,brier.test.mean=0.191,auc.test.mean=0.66,timetrain.test.mean=0.303
+[Resample] repeated cross-validation iter 29: acc.test.mean=0.799,brier.test.mean=0.159,auc.test.mean=0.705,timetrain.test.mean=0.307
+[Resample] repeated cross-validation iter 30: acc.test.mean=0.78,brier.test.mean=0.168,auc.test.mean=0.711,timetrain.test.mean=0.305
+[Resample] repeated cross-validation iter 31: acc.test.mean=0.74,brier.test.mean=0.19,auc.test.mean=0.68,timetrain.test.mean=0.229
+[Resample] repeated cross-validation iter 32: acc.test.mean=0.733,brier.test.mean=0.185,auc.test.mean=0.699,timetrain.test.mean=0.364
+[Resample] repeated cross-validation iter 33: acc.test.mean=0.772,brier.test.mean=0.189,auc.test.mean=0.644,timetrain.test.mean=0.297
+[Resample] repeated cross-validation iter 34: acc.test.mean=0.787,brier.test.mean=0.162,auc.test.mean=0.74,timetrain.test.mean=0.306
+[Resample] repeated cross-validation iter 35: acc.test.mean=0.698,brier.test.mean=0.193,auc.test.mean=0.663,timetrain.test.mean=0.298
+[Resample] repeated cross-validation iter 36: acc.test.mean=0.752,brier.test.mean=0.189,auc.test.mean=0.662,timetrain.test.mean=0.225
+[Resample] repeated cross-validation iter 37: acc.test.mean=0.773,brier.test.mean=0.166,auc.test.mean=0.708,timetrain.test.mean=0.372
+[Resample] repeated cross-validation iter 38: acc.test.mean=0.733,brier.test.mean=0.176,auc.test.mean=0.733,timetrain.test.mean= 0.3
+[Resample] repeated cross-validation iter 39: acc.test.mean=0.727,brier.test.mean=0.201,auc.test.mean=0.619,timetrain.test.mean=0.301
+[Resample] repeated cross-validation iter 40: acc.test.mean=0.799,brier.test.mean=0.166,auc.test.mean=0.681,timetrain.test.mean=0.228
+[Resample] repeated cross-validation iter 41: acc.test.mean=0.74,brier.test.mean=0.186,auc.test.mean=0.673,timetrain.test.mean=0.297
+[Resample] repeated cross-validation iter 42: acc.test.mean=0.807,brier.test.mean=0.164,auc.test.mean=0.724,timetrain.test.mean=0.228
+[Resample] repeated cross-validation iter 43: acc.test.mean=0.733,brier.test.mean=0.204,auc.test.mean=0.597,timetrain.test.mean=0.363
+[Resample] repeated cross-validation iter 44: acc.test.mean=0.772,brier.test.mean=0.165,auc.test.mean=0.728,timetrain.test.mean=0.296
+[Resample] repeated cross-validation iter 45: acc.test.mean=0.698,brier.test.mean=0.201,auc.test.mean=0.646,timetrain.test.mean=0.299
+[Resample] repeated cross-validation iter 46: acc.test.mean=0.747,brier.test.mean=0.192,auc.test.mean=0.694,timetrain.test.mean=0.297
+[Resample] repeated cross-validation iter 47: acc.test.mean=0.765,brier.test.mean=0.175,auc.test.mean=0.679,timetrain.test.mean=0.232
+[Resample] repeated cross-validation iter 48: acc.test.mean=0.765,brier.test.mean=0.162,auc.test.mean=0.756,timetrain.test.mean=0.304
+[Resample] repeated cross-validation iter 49: acc.test.mean=0.713,brier.test.mean=0.192,auc.test.mean=0.643,timetrain.test.mean=0.295
+[Resample] repeated cross-validation iter 50: acc.test.mean=0.76,brier.test.mean=0.183,auc.test.mean=0.659,timetrain.test.mean=0.302
+[Resample] Aggr. Result: acc.test.mean=0.753,brier.test.mean=0.181,auc.test.mean=0.685,timetrain.test.mean=0.289
+
+### [bt 2017-03-20 23:24:18]: Job terminated successfully [batchtools job.id=136]
+### [bt 2017-03-20 23:24:18]: Calculation finished!

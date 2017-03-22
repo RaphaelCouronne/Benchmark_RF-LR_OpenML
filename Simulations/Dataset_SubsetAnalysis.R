@@ -8,14 +8,18 @@ library(doParallel)
 
 # == Description
 # We want to study, for one dataset, the influence of n and p on the results of a benchmark comparing random forest and logistic regression
-# Thus, for a grid of values n.sub<n, we will compute for each value of n.sub n.simulation-times the comparison between rf and lr. We will then be able to plot
-# boxplots of accuracy of both lr and rf regarding to n.sub.
+# Thus, for a grid of values n.sub<n, we will compute for each value of n.sub n.simulation-times the comparison between rf and lr. 
+# We will then be able to plot boxplots of accuracy of both lr and rf regarding to n.sub.
+# 
+# Note that we do this simulation on a real dataset from OpenML. 
+# We consider only a subset of the datasets as candidates for this simulation, such that p>20, n>5000 and the features are all numeric
+# for the sake of simmplicity. You can do the simulation on other dataset using the parameter index.
 
 
 
 ## Load the datasets and set the parameter ----
 
-subsetAnalysis_computeParallel <- function(clas_used, nCores=1, data.id, seed=1) {
+subsetAnalysis_computeParallel <- function(clas_used, nCores=1, index = 1, seed=1) {
   
   set.seed(seed)
   start.time <- Sys.time()
@@ -32,7 +36,7 @@ subsetAnalysis_computeParallel <- function(clas_used, nCores=1, data.id, seed=1)
   # the choice of the intermediate values of p and n
   
   data.id.candidates = clas_used$data.id[which((clas_used$p>20) & (clas_used$n>5e3) & (clas_used$number.of.symbolic.features==1))]
-  data.id = data.id.candidates[1] #(we choose dataset 1496 here)
+  data.id = data.id.candidates[index] #(we choose dataset 1496 here)
   
   # Load and convert one dataset
   print("Loading dataset")

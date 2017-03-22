@@ -273,6 +273,11 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
   
   print(pdpgrid)
   
+  jpeg(filename = "Data/Pictures/Figure1_PDP.jpeg", width = 400, height = 450)
+  plot(pdpgrid)
+  dev.off()
+  
+  
 }
 
 
