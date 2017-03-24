@@ -165,13 +165,13 @@ subsetAnalysis_computeParallel <- function(clas_used, nCores=1, index = 1, seed=
   end.time <- Sys.time()
   time.taken <- end.time - start.time
   
-  save(res.subsetp, res.subsetn, file = "Data/Simulations/SubsetAnalysis.R")
+  save(res.subsetp, res.subsetn, file = "Data/Simulations/SubsetAnalysis.RData")
 }
 
 
 
 subsetAnalysis_visualization<-function() {
-  load(file = "Data/Simulations/SubsetAnalysis.R")
+  load(file = "Data/Simulations/SubsetAnalysis.RData")
   
   ## ===============
   ## Visualization : Boxplots----
@@ -215,7 +215,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggp + geom_boxplot() + 
     scale_fill_grey(start = 0.4,end = 1) +
     theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank()) +
-    xlab("n")
+    xlab("n") + ylab(expression(paste(Delta, "acc")))
   plot(ggp)
   ggp.deltaacc.n = ggp
   
@@ -224,16 +224,22 @@ subsetAnalysis_visualization<-function() {
   ggp = ggp + geom_boxplot() + 
     scale_fill_grey(start = 0.4,end = 1) +
     theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank()) +
-    xlab("p")
+    xlab("p") + ylab(expression(paste(Delta, "acc")))
   plot(ggp)
   ggp.deltaacc.p = ggp
   
   library(cowplot)
-  plot_grid(ggp.acc.p,
+  plot.grid = plot_grid(ggp.acc.p,
             ggp.acc.n,
             ggp.deltaacc.p, 
             ggp.deltaacc.n, 
             ncol = 2, nrow = 2)
+  
+  print(plot.grid)
+  
+  jpeg(filename = "Data/Pictures/Figure4_SubsetSimulation_bis.jpeg", width = 1000, height = 800)
+  plot(plot.grid)
+  dev.off()
   
   print("Beginning plot with facets")
   
@@ -245,7 +251,7 @@ subsetAnalysis_visualization<-function() {
   names(res.subsetp2)[1]="featureValue"
   
   res.subsetp2$feature = "p"
-  res.subsetn2$feature="n"
+  res.subsetn2$feature = "n"
   
   res.tot = rbind(res.subsetp2, res.subsetn2)
   
@@ -271,5 +277,11 @@ subsetAnalysis_visualization<-function() {
     theme(legend.position="none") +
     scale_fill_grey(start = 0.4,end = 1)
   print(pp)
+  
+  jpeg(filename = "Data/Pictures/Figure4_SubsetSimulation.jpeg", width = 1000, height = 800)
+  plot(pp)
+  dev.off()
+  
+  
 }
 

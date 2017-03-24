@@ -22,9 +22,6 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
 
 
-
-
-
 ## 1 Benchmark Study ======================================================================================
 
 ## I.1 Data Mining ----
@@ -58,16 +55,10 @@ submitJobs(ids = 232:278, reg = regis) #big datasets
 getStatus()
 
 
-save(results.reduced, file = "Data/Batchtools/results.reduced.RData")
-a = results.reduced[[12]]
-
-load(file = "Data/Batchtools/res_classif_load.RData")
-b = res_classif_load[[12]]
-
 ## 2 Visualization  ======================================================================================
 rm(list=ls())
  
-# 2.1 Preprocessing of the benchmark results
+# 2.1 Conversion of the benchmark results
 regis = loadRegistry("Data/Results/Batchtools/batchtool_experiment//")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
@@ -84,12 +75,23 @@ source(file = "Visualization/InclusionCriteriaPlots.R")
 inclusion_criteria(df.bmr.diff)
 
 
-
-
-## 3. Simulations  ======================================================================================
+## 3. Analysis  ======================================================================================
 rm(list=ls())
 
-# 3.1 Subset analysis on 1 dataset
+# 3.1 Overall results
+load(file = "Data/Results/df.bmr.RData")
+source(file = "Benchmark/benchmark_ResultsOverview.R")
+benchmark_ResultsOverview(df.bmr.diff)
+
+# 3.2 Meta Learning
+load(file = "Data/Results/df.bmr.RData")
+source(file = "Benchmark/benchmark-ResultsMetaLearning.R")
+ResultsMetaLearning(df.bmr.diff)
+
+## 4. Simulations  ======================================================================================
+rm(list=ls())
+
+# 4.1 Subset analysis on 1 dataset
 source("Simulations/Dataset_SubsetAnalysis.R")
 load(file = "Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
@@ -98,47 +100,18 @@ subsetAnalysis_computeParallel(clas_used, nCores = nCores)
 subsetAnalysis_visualization()
 
 
-# 3.2 Partial dependance plots simulations
+# 4.2 Partial dependance plots simulations
 source("Simulations/PDP_ExampleSimulations.R")
 PlotPartialDependanceExample()
 
-# 3.3  Computation of Difference in Partial Dependance
+# 4.3  Computation of Difference in Partial Dependance
 source("Simulations/PartialDependance_difference.R")
 pdpDifferenceAllDatasets(clas = clas_used, visualize = FALSE, force = FALSE,
                          target.path = "Data/Simulations/pdp.difference.RData") 
 
 
 
-## TODO
-
-# Sauver les plots dans un dossier aussi au fur et à mesure
-
-# Plot of pdp according to dataset
-
-
-
-# task.id = 4361
-# 
-# 
-# omldataset = getOMLDataSet(data.id = clas$data.id[j], verbosity = 0)
-# if (identical(omldataset$target.features, character(0))) {
-#   omldataset$target.features="Class"
-#   omldataset$desc$default.target.attribute="Class"
-# }
-# pdp.difference$loaded[j] = "TRUE" 
-# 
-# 
-# # Transform to mlr task
-# configureMlr(on.learner.error = "warn", show.learner.output = TRUE, show.info = FALSE)
-# mlrtask = convertOMLDataSetToMlr(omldataset, verbosity = 0)
-# pdp.difference$converted[j] = TRUE
-# 
-# # Get the Pdp difference
-# pdp.difference.all <- getPdpDifference(mlrtask, seed = seed, 
-#                                        visualize = visualize, progression_bar = FALSE)
-
-# Study of datasets
-load()
+## 5 Study of partial difference plots ??????????
 
 
 # study of 3 datasets with their difference in model and acc
