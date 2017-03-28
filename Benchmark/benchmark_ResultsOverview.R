@@ -97,3 +97,18 @@ print(paste0("  95% (Bca) bootstrap confidence interval for the mean is [",
 
 }
 
+
+## Power of the test
+
+alpha = 0.05
+beta = 0.2
+delta = 0.02
+sigma = sd(results.acc.diff)
+
+Mreq = ((qnorm(1-beta)+qnorm(1-alpha/2))^2*sigma^2)/delta^2
+
+print(paste0("Value of power calculation is ",
+          floor(Mreq+1),
+          " with parameters : alpha = ",alpha,
+          ", beta = ",beta,", delta = ",delta,
+          ", sigma = ",sigma), quote = FALSE)

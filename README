@@ -12,8 +12,14 @@ II) Launch the docker container from the console
      1. Download the appropriate docker image from dockerhub (around 2go)
         > docker pull shadoko/docker_java_packages:version3
 
-     2. Generate a rstudio instance that you can connect to
+     2. Create your docker machine and change its parameters
+Change the default parameter for your docker machine and use the number of cpus and RAM that you desire. For example :
+        > docker-machine create -d virtualbox --virtualbox-cpu-count=6 --virtualbox-memory=16000 --virtualbox-disk-size=50000 default
+
+     3. Generate a rstudio instance that you can connect to
       > docker run --rm -p 8787:8787 -v /Users/myname/myFolder:/home/rstudio/Docker-Benchmark/ shadoko/docker_java_packages:version3
+
+Note : for windows OS syntax is different, and the User Public is recommended for rights issues /c/Users/Public/MyFolder:/home/rstudio/Project shadoko/docker_java_packages:version3
 
         --rm indicates that the container will be deleted when stopped
         -p indicates the choice of port
