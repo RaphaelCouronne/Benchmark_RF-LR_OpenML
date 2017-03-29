@@ -71,6 +71,7 @@ source(file = "Visualization/OverallVisualization.R")
 overall_visualization(df.bmr.diff)
 
 # 2.3 Inclusion Criteria Visualization
+load(file = "Data/Results/df.bmr.RData")
 source(file = "Visualization/InclusionCriteriaPlots.R")
 inclusion_criteria(df.bmr.diff)
 
@@ -81,7 +82,7 @@ rm(list=ls())
 # 3.1 Overall results
 load(file = "Data/Results/df.bmr.RData")
 source(file = "Benchmark/benchmark_ResultsOverview.R")
-benchmark_ResultsOverview(df.bmr.diff)
+benchmark_ResultsOverview(df.bmr.diff, res.perfs.df)
 
 # 3.2 Meta Learning
 load(file = "Data/Results/df.bmr.RData")

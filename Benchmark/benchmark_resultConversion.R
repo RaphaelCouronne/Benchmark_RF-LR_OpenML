@@ -4,6 +4,7 @@ convert_results <- function(clas_used, result, target_path) {
   library(gridExtra)
   library(ggplot2)
   library(cowplot)
+  library(batchtools)
   
   
   
@@ -33,7 +34,7 @@ convert_results <- function(clas_used, result, target_path) {
     clas_used = clas_used[-res.perfs.nas,]
   }
   results.nas = lapply(result, function(x) getBMRAggrPerformances(x, as.df=TRUE))[res.perfs.nas]
-  clas_used.nas = clas_used[res.perfs.nas,]
+  clas_used.nas = clas_used_original[res.perfs.nas,]
   save(results.nas, clas_used.nas , file = "Data/Results/results.nas.RData")
   res.perfs.df.nas = do.call("rbind", results.nas) 
   

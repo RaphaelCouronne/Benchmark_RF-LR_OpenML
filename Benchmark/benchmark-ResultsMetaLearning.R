@@ -62,8 +62,7 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
   df.blandAltman = data.frame(mean = (1/2)*(perfsAggr.RF$acc.test.mean+perfsAggr.LR$acc.test.mean), 
                               difference = (1/2)*(perfsAggr.RF$acc.test.mean-perfsAggr.LR$acc.test.mean))
   
-  plot.BlandAltman = ggplot()
-  
+
   
   plot.BlandAltman = ggplot(df.blandAltman, aes(mean, difference))+
     geom_point() + geom_hline(yintercept = 0)
@@ -71,7 +70,7 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
   plot.BlandAltman
   
   jpeg(filename = "Data/Pictures/AdditionalFigures/Figure9_BlandAltman.jpeg", width = 800, height = 500)
-  plot(plot.performances)
+  plot(plot.BlandAltman)
   dev.off()
   
   

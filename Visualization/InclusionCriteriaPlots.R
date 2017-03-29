@@ -23,7 +23,7 @@ inclusion_criteria <- function(df.bmr.diff){
     threshold = thresholdvect[i]
     logthreshold = log(threshold)
     df.temp$thresholdValue = threshold
-    df.temp$logical.threshold = df[[feature]]>logthreshold
+    df.temp$logical.threshold = df[[feature]]>=logthreshold
     
     df.all = rbind(df.all, df.temp) 
   }
@@ -48,7 +48,7 @@ inclusion_criteria <- function(df.bmr.diff){
     threshold = thresholdvect[i]
     logthreshold = log(threshold)
     df.temp$thresholdValue = threshold
-    df.temp$logical.threshold = df[[feature]]>logthreshold
+    df.temp$logical.threshold = df[[feature]]>=logthreshold
     
     df.all = rbind(df.all, df.temp) 
   }
@@ -71,7 +71,7 @@ inclusion_criteria <- function(df.bmr.diff){
     threshold = thresholdvect[i]
     logthreshold = log(threshold)
     df.temp$thresholdValue = threshold
-    df.temp$logical.threshold = df[[feature]]>logthreshold
+    df.temp$logical.threshold = df[[feature]]>=logthreshold
     
     df.all = rbind(df.all, df.temp) 
   }
@@ -96,7 +96,7 @@ inclusion_criteria <- function(df.bmr.diff){
     threshold = thresholdvect[i]
     logthreshold = (threshold)
     df.temp$thresholdValue = threshold
-    df.temp$logical.threshold = df[[feature]]>logthreshold
+    df.temp$logical.threshold = df[[feature]]>=logthreshold
     
     df.all = rbind(df.all, df.temp) 
   }
@@ -380,12 +380,15 @@ inclusion_criteria <- function(df.bmr.diff){
   p = p + labs(x = expression(t), y = bquote(paste(Delta, .(measure.name))))
   p = p + theme(legend.justification=c(1,1), legend.position=c(1,1), legend.title=element_blank())
   p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("n < ",t)),
-                                                        expression(paste("n > ",t))))
+                                                        expression(n >= t)))
   p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(n[max])))
 
   p.n = p
+  print(p.n)
 
   p.histo.n = qplot(exp(df.bmr.diff$logn), geom="histogram")
+  
+
 
   datatest = data.frame(n = exp(df.bmr.diff$logn))
   p.histo.n = ggplot(datatest, aes(x = n)) + geom_histogram(binwidth = 0.1, alpha = 0.4) +
@@ -429,7 +432,7 @@ inclusion_criteria <- function(df.bmr.diff){
   p = p + labs(x = expression(t), y = bquote(paste(Delta, .(measure.name))))
   p = p + theme(legend.justification=c(1,1), legend.position=c(1,1), legend.title=element_blank())
   p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("p < ",t)),
-                                                        expression(paste("p > ",t))))
+                                                        expression(p >= t)))
   p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(p[max])))
 
   p.p = p
@@ -472,7 +475,7 @@ inclusion_criteria <- function(df.bmr.diff){
   p = p + theme(legend.justification=c(1,1), legend.position=c(1,1), legend.title=element_blank(),
                 legend.background = element_rect(colour = "black"))
   p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("p/n < ",t)),
-                                                        expression(paste("p/n > ",t))))
+                                                        expression(p/n >= t)))
 
   p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(p/n[max])))
 
@@ -527,7 +530,7 @@ inclusion_criteria <- function(df.bmr.diff){
   p = p + theme(legend.justification=c(1,1), legend.position=c(1,1), legend.title=element_blank(),
                 legend.background = element_rect(colour = "black"))
   p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("Cmax < ",t)),
-                                                        expression(paste("Cmax > ",t))))
+                                                        expression(Cmax >= t)))
 
   p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(Cmax[max])))
 
@@ -565,7 +568,7 @@ inclusion_criteria <- function(df.bmr.diff){
 
   print(p.acc_dist)
   
-  jpeg(filename = "Data/Pictures/Figure5_InclusionCriteria.jpeg", width = 700, height = 500)
+  jpeg(filename = "Data/Pictures/Figure5_InclusionCriteria.jpeg", width = 800, height = 400)
   plot(p.acc_dist)
   dev.off()
   

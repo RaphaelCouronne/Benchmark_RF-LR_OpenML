@@ -191,7 +191,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggp + geom_boxplot(aes(fill = algorithm)) + 
     scale_fill_grey(start = 0.4,end = 1, labels=c("LR", "RF")) +
     theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank()) +
-    xlab("n")
+    xlab("n") + ylim(c(0.55,0.95))
   plot(ggp)
   ggp.acc.n = ggp
   
@@ -200,7 +200,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggp + geom_boxplot(aes(fill = algorithm)) + 
     scale_fill_grey(start = 0.4,end = 1, labels=c("LR", "RF")) +
     theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank())+
-    xlab("p")
+    xlab("p") + ylim(c(0.55,0.95))
   plot(ggp)
   ggp.acc.p = ggp
   
@@ -215,7 +215,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggp + geom_boxplot() + 
     scale_fill_grey(start = 0.4,end = 1) +
     theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank()) +
-    xlab("n") + ylab(expression(paste(Delta, "acc")))
+    xlab("n") + ylab(expression(paste(Delta, "acc"))) + ylim(c(0.15,0.28))
   plot(ggp)
   ggp.deltaacc.n = ggp
   
@@ -224,7 +224,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggp + geom_boxplot() + 
     scale_fill_grey(start = 0.4,end = 1) +
     theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank()) +
-    xlab("p") + ylab(expression(paste(Delta, "acc")))
+    xlab("p") + ylab(expression(paste(Delta, "acc")))  + ylim(c(0.15,0.28))
   plot(ggp)
   ggp.deltaacc.p = ggp
   
@@ -237,7 +237,7 @@ subsetAnalysis_visualization<-function() {
   
   print(plot.grid)
   
-  jpeg(filename = "Data/Pictures/Figure4_SubsetSimulation_bis.jpeg", width = 1000, height = 800)
+  jpeg(filename = "Data/Pictures/Figure4_SubsetSimulation_bis1.jpeg", width = 600, height = 400)
   plot(plot.grid)
   dev.off()
   
