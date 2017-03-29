@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/65920602.svg)](https://zenodo.org/badge/latestdoi/65920602)
+
 README
 
 Instructions for setting up the benchmark

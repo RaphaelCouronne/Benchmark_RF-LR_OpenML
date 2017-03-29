@@ -40,6 +40,14 @@ benchmark_ResultsOverview = function(df.bmr.diff = df.bmr.diff, res.perfs.df = r
   PrintBasicStatistics(perfsAggr.LR$acc.test.mean, title = "LR performance for acc")
   PrintBasicStatistics(perfsAggr.RF$acc.test.mean, title = "RF performance for acc")
   
+  PrintBasicStatistics(df.bmr.diff$auc.test.mean, title = "RF-LR difference in performance for auc")
+  PrintBasicStatistics(perfsAggr.LR$auc.test.mean, title = "LR performance for auc")
+  PrintBasicStatistics(perfsAggr.RF$auc.test.mean, title = "RF performance for auc")
+  
+  PrintBasicStatistics(df.bmr.diff$brier.test.mean, title = "RF-LR difference in performance for brier")
+  PrintBasicStatistics(perfsAggr.LR$brier.test.mean, title = "LR performance for brier")
+  PrintBasicStatistics(perfsAggr.RF$brier.test.mean, title = "RF performance for brier")
+  
   
   ## Power of the test
   
