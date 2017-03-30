@@ -16,14 +16,38 @@
 
 #### 3. Use main.R
 
-2. In your rstudio instance
-     1. Open main.R, enter your API key and the number of cores you want tu use at the specified place in the file
-     2. Get the data from OpenML and optionally compute an estimate of the training time (1-2 days)
-     3. Do the benchmark (for 278 datasets, it takes around 8 hours with 7 cores and 8go RAM)
-     4. Visualize the results
-     5. Additional Simulations and computations
+Make sure you have all the required package if you do not use our Docker image.  
+For each of the subsections (e.g. 1.1), you have to run all the code.  
+For a more practical use, the results are already present in the GitHub in the folder Data. Thus, if you want only to generate the graphics and simulations you can skip parts 1. and 2.  
+Graphics will be saved in Data/Pictures/
 
+1. Benchmark Study
+	1. Get the Data from OpenML  
+Note that a fixed list of OpenML tasks is used here, so that we work with a fixed set of datasets. We first remove all the datasets that do not fit our criteria (binary classification problem, no NAs, no High dimension, no simulated datasets, no duplicates). We then use the file "Data/OpenML/df.infos.RData" to remove the dataset which failed to load. If you want to recompute this file, you can set the option force=TRUE. Computations should then last for several hours.
 
+	2. Launch the benchmark  
+You can here recompute the benchmark using batchtools. The function setBatchtoolsExperiment() will clear the current batchtools folder and prepare R for a new benchmark computation. You can then use the batchtools function submitJobs to compute the results for the datasets. getStatus() will help monitor the computation. For 278 datasets, it took around 8 hours with 7 i7 cores and 8go RAM.
+2. Visualization of the results
+	1. Convert the results  
+Results are converted to a dataframe.
+	2. Overall visualization  
+Barplot of ranks is plotted, as well as boxplot of the performance and difference of performance for acc, auc and brier measures.
+	3. Inclusion Criteria visualization  
+We visualize the boxplot of difference considering different subgroups according to the values of the meta-features such as p and n.  
+  
+3. Analysis of the results  
+	1. Overall results  
+We present here the mean, standard deviation and boostrap confidence interval of the results, as well as power of the test.
+	2. Meta-Learning  
+Partial dependance plot of the model trained to predict the difference of performance between RF and LR based on the values of the meta-features.
+
+4. Simulations
+	1. Subset simulation
+Computation of the performance of LR and RF for many sub-datasets of the OpenML dataset with id 1496. Sub-datasets are randomly generated according to subset of p0<p features or n0<n observations. We then visualize the dependancy of the difference between RF and LR according to increasing values of p0 and n0.
+	2. Partial dependance plot simulation  
+Computation of simple examples for partial dependance.
+	3. Computation of the difference in partial dependance
+Computation of the difference in partial dependance between RF and LR for all the 278 datasets we considered for this study. Comptation may be very time expensive.
 
 
 
@@ -39,9 +63,9 @@ More information can be found on the [Docker Website](https://docs.docker.com/en
 You might have to change the default parameters for your docker machine, such as the number of Cpus and RAM that you decide to allow for a container. This parameters can be found in the graphic interface, or via the command line, such as :
 
 	# Remove the default docker machine parameters  
-	docker-machine rm default   
+	> docker-machine rm default   
 	# Create new new default parameters for the docker machine, for example with 16gb RAM, 8 Cpus and 20Gb Hard-drive.  
-	docker-machine create -d virtualbox --virtualbox-memory=16000 --virtualbox-cpu-count=8 --virtualbox-disk-size=20000 default  
+	> docker-machine create -d virtualbox --virtualbox-memory=16000 --virtualbox-cpu-count=8 --virtualbox-disk-size=20000 default  
 
 
 #### 3. Get the Docker image associated with the benchmark
@@ -64,11 +88,11 @@ Note : for windows OS syntax is different, and the User Public is recommended fo
 
 
 #### 5. Connect to your Rstudio instance
-1. Check the IP of your computer which should be something like 192.168.0.12
+1. Check the IP of your computer which should look like 192.168.0.12
 2. In your browser enter http://myContainerIP:8787 and sign in with id=rstudio and password=rstudio
 
 
-#### 6. After use, clode Docker
+#### 6. After use, close Docker
 Close the container. In the command line use ctrl+c to close the container.  
 Check that no container are running with the command :  
 	> docker ps

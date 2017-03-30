@@ -43,7 +43,7 @@ load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
 # Set up the benchmark (delete current results)
-setBatchtoolsExperiment(seed = 1, ncpus = 3, clas_used = clas_used)
+setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used)
 regis = loadRegistry("Data/Results/Batchtools/batchtool_experiment//")
 
 # Launch benchmark
