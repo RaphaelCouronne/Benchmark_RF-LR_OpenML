@@ -172,6 +172,7 @@ subsetAnalysis_computeParallel <- function(clas_used, nCores=1, index = 1, seed=
 
 subsetAnalysis_visualization<-function() {
   load(file = "Data/Simulations/SubsetAnalysis.RData")
+  police.size = 17
   
   ## ===============
   ## Visualization : Boxplots----
@@ -190,7 +191,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggplot(subset(res.subsetn, algorithm %in% c("RF","LR")), aes(factor(n), acc))
   ggp = ggp + geom_boxplot(aes(fill = algorithm)) + 
     scale_fill_grey(start = 0.4,end = 1, labels=c("LR", "RF")) +
-    theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank()) +
+    theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank(),  text = element_text(size=police.size)) +
     xlab("n") + ylim(c(0.55,0.95))
   plot(ggp)
   ggp.acc.n = ggp
@@ -199,7 +200,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggplot(subset(res.subsetp, algorithm %in% c("RF","LR")), aes(factor(p), acc))
   ggp = ggp + geom_boxplot(aes(fill = algorithm)) + 
     scale_fill_grey(start = 0.4,end = 1, labels=c("LR", "RF")) +
-    theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank())+
+    theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank(),  text = element_text(size=police.size))+
     xlab("p") + ylim(c(0.55,0.95))
   plot(ggp)
   ggp.acc.p = ggp
@@ -214,7 +215,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggplot(subset(res.subsetn, algorithm %in% c("Difference")), aes(factor(n), acc))
   ggp = ggp + geom_boxplot() + 
     scale_fill_grey(start = 0.4,end = 1) +
-    theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank()) +
+    theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank(),  text = element_text(size=police.size)) +
     xlab("n") + ylab(expression(paste(Delta, "acc"))) + ylim(c(0.15,0.28))
   plot(ggp)
   ggp.deltaacc.n = ggp
@@ -223,7 +224,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggplot(subset(res.subsetp, algorithm %in% c("Difference")), aes(factor(p), acc))
   ggp = ggp + geom_boxplot() + 
     scale_fill_grey(start = 0.4,end = 1) +
-    theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank()) +
+    theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank(),  text = element_text(size=police.size)) +
     xlab("p") + ylab(expression(paste(Delta, "acc")))  + ylim(c(0.15,0.28))
   plot(ggp)
   ggp.deltaacc.p = ggp

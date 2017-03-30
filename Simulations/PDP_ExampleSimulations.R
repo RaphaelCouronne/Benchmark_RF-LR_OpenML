@@ -252,15 +252,17 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
   
   # Change the color and legends
   
+  police.size = 13
+  
   res.1$pdp = res.1$pdp + theme(legend.title=element_blank()) + scale_colour_grey(start = 0,end = 0.7) +
-    theme(legend.justification=c(1,1), legend.position=c(1,1), legend.background = element_rect(colour = "black", size=.5, linetype="dotted"))
-  res.2$pdp = res.2$pdp + theme(legend.position="none") + scale_colour_grey(start = 0,end = 0.7)
-  res.3$pdp = res.3$pdp + theme(legend.position="none") + scale_colour_grey(start = 0,end = 0.7)
+    theme(legend.justification=c(1,1),, text = element_text(size=police.size), legend.position=c(1,1), legend.background = element_rect(colour = "black", size=.5, linetype="dotted"))
+  res.2$pdp = res.2$pdp + theme(legend.position="none", text = element_text(size=police.size)) + scale_colour_grey(start = 0,end = 0.7)
+  res.3$pdp = res.3$pdp + theme(legend.position="none", text = element_text(size=police.size)) + scale_colour_grey(start = 0,end = 0.7)
   
   res.1$dataset = res.1$dataset + theme(legend.title=element_blank()) +
-    theme(legend.justification=c(1,1), legend.position=c(1,1), legend.background = element_rect(colour = "black", size=.5, linetype="dotted"))
-  res.2$dataset= res.2$dataset + theme(legend.position="none")
-  res.3$dataset = res.3$dataset + theme(legend.position="none")
+    theme(legend.justification=c(1,1), text = element_text(size=police.size), legend.position=c(1,1), legend.background = element_rect(colour = "black", size=.5, linetype="dotted"))
+  res.2$dataset= res.2$dataset + theme(legend.position="none", text = element_text(size=police.size))
+  res.3$dataset = res.3$dataset + theme(legend.position="none", text = element_text(size=police.size))
   
   
   library(cowplot)
@@ -272,6 +274,8 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
                       ncol = 2, nrow = 3)
   
   print(pdpgrid)
+  
+  
   
   jpeg(filename = "Data/Pictures/Figure1_PDP.jpeg", width = 400, height = 450)
   plot(pdpgrid)

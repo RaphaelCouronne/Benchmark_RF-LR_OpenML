@@ -91,7 +91,7 @@ overall_visualization<-function(bmr) {
   
   ## 3. Boxplots of performance ----
   
-  boxplotPerfsMeasures <- function(perfsAggr.diff, res.perfs.df, measure, measure.name) {
+  boxplotPerfsMeasures <- function(perfsAggr.diff, res.perfs.df, measure, measure.name, police.size) {
     
     res = NULL
     
@@ -112,7 +112,7 @@ overall_visualization<-function(bmr) {
     p = p +  scale_fill_grey(start = 0.4,end = 1)  + ylim(c(0,1))
     p = p + geom_boxplot(aes_string(fill = "Method"), outlier.shape = 1, notch = TRUE) 
     p = p + labs(y = measure.name) + theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank())
-    p = p + theme(axis.title.x=element_blank())
+    p = p + theme(axis.title.x=element_blank(), text = element_text(size=police.size))
     #print(p)
     
     res$p.measure = p
@@ -124,7 +124,7 @@ overall_visualization<-function(bmr) {
     p <- ggplot(perfsAggr.diff.boxplot, aes_string( "dummy", measure, width = 0.5))
     p = p + geom_boxplot(aes_string(fill = "dummy"), outlier.shape = 1, notch = TRUE, width = 0.5)
     p = p + labs(y = paste((expression(paste(Delta))),measure.name))
-    p = p + theme(axis.title.x=element_blank())
+    p = p + theme(axis.title.x=element_blank(),  text = element_text(size=police.size))
     #p = p + ylim(c(-0.1,0.1))
     p = p + scale_fill_manual(values=c("#CCCCCC")) + theme(legend.position="none")
     #print(p)
@@ -134,11 +134,11 @@ overall_visualization<-function(bmr) {
     return(res)
   }
   
-  res.acc = boxplotPerfsMeasures(perfsAggr.diff, res.perfs.df, "acc.test.mean", "acc")
+  res.acc = boxplotPerfsMeasures(perfsAggr.diff, res.perfs.df, "acc.test.mean", "acc", 13)
   res.acc$p.measure.diff = res.acc$p.measure.diff+labs(y=expression(paste(Delta,"acc")))
-  res.auc = boxplotPerfsMeasures(perfsAggr.diff, res.perfs.df, "auc.test.mean", "auc")
+  res.auc = boxplotPerfsMeasures(perfsAggr.diff, res.perfs.df, "auc.test.mean", "auc", 13)
   res.auc$p.measure.diff = res.auc$p.measure.diff+labs(y=expression(paste(Delta,"auc")))
-  res.brier = boxplotPerfsMeasures(perfsAggr.diff, res.perfs.df, "brier.test.mean", "brier")
+  res.brier = boxplotPerfsMeasures(perfsAggr.diff, res.perfs.df, "brier.test.mean", "brier", 13)
   res.brier$p.measure.diff = res.brier$p.measure.diff+labs(y=expression(paste(Delta,"brier")))
   res.brier$p.measure = res.brier$p.measure   + theme(legend.justification=c(1,1), legend.position=c(1,1))
   
