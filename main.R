@@ -15,7 +15,7 @@ library(batchtools)
 
 # Enter here nCores and myapikey
 nCores = 3 # number of cores you want to use
-myapikey = "7a4391537f767ea70db6af99497653e5" #OpenML API key
+myapikey = "7a4391537f767ea70db6af99497653e5" # OpenML API key
 saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
 
@@ -24,7 +24,7 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
 ## 1 Benchmark Study ======================================================================================
 
-## I.1 Data Mining ----
+## 1.1 Data Mining ----
 # Get the tasks from OpenML
 # Generates Data/OpenML/df.infos.RData which gives information about the processing of the datasets
 # Generates Data/Results/clas_time.RData which contains information about our dataset pool

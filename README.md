@@ -12,7 +12,12 @@
 #### 2. Set up main.R
 1. Open main.R 
 2. Enter your OpenML API key at the beginning of the file so that you will be able to download data from OpenML
-3. Enter the number of cores you want to use for the benchmark experiment
+3. Enter the number of cores you want to use for the benchmark experiment  
+
+	# Enter here nCores and myapikey  
+	nCores = ??? # number of cores you want to use   
+	myapikey = "??????????????????????????????????" # OpenML API key  
+	saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)  
 
 #### 3. Use main.R
 
