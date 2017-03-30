@@ -5,8 +5,8 @@
 
 #### 1. Installation
 1. Create an OpenML account, and generate an API key
-2. Install Github
-3. Optional : set up Docker as presented below, for a reproducible environment
+2. Get the GitHub code [here](https://github.com/RaphaelCouronne/IBE_Benchmark-OpenML)
+3. Optional : **set up Docker as presented below, for a reproducible environment**
 
 
 #### 2. Set up main.R
@@ -47,7 +47,7 @@ Computation of the performance of LR and RF for many sub-datasets of the OpenML 
 	2. Partial dependance plot simulation  
 Computation of simple examples for partial dependance.
 	3. Computation of the difference in partial dependance
-Computation of the difference in partial dependance between RF and LR for all the 278 datasets we considered for this study. Comptation may be very time expensive.
+Computation of the difference in partial dependance between RF and LR for all the 278 datasets we considered for this study. Computation may be very time expensive.
 
 
 
