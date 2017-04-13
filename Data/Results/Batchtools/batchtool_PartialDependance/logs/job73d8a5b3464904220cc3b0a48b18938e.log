@@ -1,0 +1,19 @@
+### [bt 2017-04-05 00:03:43]: This is batchtools v0.9.2
+### [bt 2017-04-05 00:03:43]: Starting calculation of 1 jobs
+### [bt 2017-04-05 00:03:43]: Setting working directory to '/Users/Shadok/Programmation/Github/IBE_Benchmark-OpenML/Data/Results/Batchtools'
+### [bt 2017-04-05 00:03:43]: Memory measurement disabled
+### [bt 2017-04-05 00:03:43]: Starting job [batchtools job.id=4]
+Generating problem instance for problem '790' ...
+Applying algorithm 'eval' on problem '790' ...
+Data '790' file 'description.xml' found in cache.
+Data '790' file 'dataset.arff' found in cache.
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+
+### [bt 2017-04-05 00:03:45]: Job terminated successfully [batchtools job.id=4]
+### [bt 2017-04-05 00:03:45]: Calculation finished!

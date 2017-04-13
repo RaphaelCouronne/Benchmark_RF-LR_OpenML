@@ -1,0 +1,37 @@
+### [bt 2017-04-05 03:12:30]: This is batchtools v0.9.2
+### [bt 2017-04-05 03:12:30]: Starting calculation of 1 jobs
+### [bt 2017-04-05 03:12:30]: Setting working directory to '/Users/Shadok/Programmation/Github/IBE_Benchmark-OpenML/Data/Results/Batchtools'
+### [bt 2017-04-05 03:12:30]: Memory measurement disabled
+### [bt 2017-04-05 03:12:30]: Starting job [batchtools job.id=243]
+Generating problem instance for problem '821' ...
+Applying algorithm 'eval' on problem '821' ...
+Downloading from 'http://www.openml.org/api/v1/data/821' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/821/description.xml'.
+Downloading from 'https://www.openml.org/data/download/53355/house_16H.ARFF' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/821/dataset.arff'
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+
+### [bt 2017-04-05 03:25:50]: Job terminated successfully [batchtools job.id=243]
+### [bt 2017-04-05 03:25:50]: Calculation finished!

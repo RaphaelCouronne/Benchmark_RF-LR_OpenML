@@ -1,5 +1,6 @@
 library(mlr)
 library(ggplot2)
+library(cowplot)
 
 ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
   
@@ -161,8 +162,8 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
   pd.regr.Cmax = generatePartialDependenceDataFeature("Cmax") + labs(x = bquote(Cmax))
   
   
-  plot.grid = plot_grid(pd.regr.logp,
-                        pd.regr.logn, 
+  plot.grid = plot_grid(pd.regr.logn, 
+                        pd.regr.logp,
                         pd.regr.logdimension.dividedby.n,
                         pd.regr.Cmax, 
                         ncol = 4, nrow = 1)

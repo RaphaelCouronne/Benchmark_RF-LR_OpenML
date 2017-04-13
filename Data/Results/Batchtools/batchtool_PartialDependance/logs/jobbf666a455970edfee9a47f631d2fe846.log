@@ -1,0 +1,12 @@
+### [bt 2017-04-05 06:03:49]: This is batchtools v0.9.2
+### [bt 2017-04-05 06:03:49]: Starting calculation of 1 jobs
+### [bt 2017-04-05 06:03:49]: Setting working directory to '/Users/Shadok/Programmation/Github/IBE_Benchmark-OpenML/Data/Results/Batchtools'
+### [bt 2017-04-05 06:03:49]: Memory measurement disabled
+### [bt 2017-04-05 06:03:49]: Starting job [batchtools job.id=255]
+Generating problem instance for problem '1461' ...
+Applying algorithm 'eval' on problem '1461' ...
+Downloading from 'http://www.openml.org/api/v1/data/1461' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/1461/description.xml'.
+Downloading from 'https://www.openml.org/data/download/1586218/bank-marketing.ARFF' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/1461/dataset.arff'
+
+### [bt 2017-04-05 06:26:48]: Job terminated successfully [batchtools job.id=255]
+### [bt 2017-04-05 06:26:48]: Calculation finished!

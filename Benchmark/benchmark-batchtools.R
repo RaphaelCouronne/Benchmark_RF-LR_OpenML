@@ -1,5 +1,3 @@
-rm(list = ls())
-detectCores(all.tests = FALSE, logical = TRUE)
 library(mlr)
 library(plyr)
 library(batchtools)
@@ -9,7 +7,7 @@ saveOMLConfig(apikey = "7a4391537f767ea70db6af99497653e5", arff.reader = "RWeka"
 
 setBatchtoolsExperiment = function(seed = 1, ncpus = 2, 
                                    clas_used,
-                                   nameExperiment =  paste("Data/Batchtools/batchtool_experiment")) {
+                                   nameExperiment =  paste("Data/Results/Batchtools/batchtool_experiment")) {
   
   # which subset of dataset
   omldatasets = clas_used$data.id
@@ -19,7 +17,7 @@ setBatchtoolsExperiment = function(seed = 1, ncpus = 2,
   regis = makeExperimentRegistry(nameExperiment, seed = seed,
                                  packages = c("mlr", "OpenML", "methods"), 
                                  #source = paste0(dir, "/benchmark_defs.R"),
-                                 work.dir = paste0("Data/Batchtools"),
+                                 work.dir = paste0("Data/Results/Batchtools"),
                                  #conf.file = paste0("Data/Batchtools/.batchtools.conf.R")
   )
   
@@ -57,8 +55,20 @@ setBatchtoolsExperiment = function(seed = 1, ncpus = 2,
       measures = list(acc, brier, auc, timetrain)
       rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
       configureMlr(on.learner.error = "warn", show.learner.output = TRUE)
-      bmr = benchmark(lrn.list, task, rdesc, measures, keep.pred = FALSE, models = FALSE, show.info = TRUE)
-      bmr
+      bmr = benchmark(lrn.list, task, rdesc, measures, keep.pred = TRUE, models = FALSE, show.info = TRUE)
+
+      bmr.res = getBMRAggrPerformances(bmr, as.df = TRUE)
+      predictions = getBMRPredictions(bmr)
+      pred.proba.rf = predictions[[1]]$classif.randomForest$data[,3]
+      pred.proba.lr = predictions[[1]]$classif.logreg$data[,3]
+      
+      pred.proba.diff.l1 = sum(abs(pred.proba.rf - pred.proba.lr))/length(pred.proba.lr)
+      pred.proba.diff.l2 = sum(abs(pred.proba.rf - pred.proba.lr)^2)/length(pred.proba.lr)
+      
+      bmr.res$pred.proba.diff.l1=pred.proba.diff.l1
+      bmr.res$pred.proba.diff.l2=pred.proba.diff.l2
+      
+      return(bmr.res)
       
     #}, error = function(e) return(paste0("The variable '", data$did, "'", 
     #                                     " caused the error: '", e, "'")))

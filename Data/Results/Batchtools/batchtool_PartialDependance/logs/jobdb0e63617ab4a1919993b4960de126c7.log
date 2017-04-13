@@ -1,0 +1,12 @@
+### [bt 2017-04-05 00:14:07]: This is batchtools v0.9.2
+### [bt 2017-04-05 00:14:07]: Starting calculation of 1 jobs
+### [bt 2017-04-05 00:14:07]: Setting working directory to '/Users/Shadok/Programmation/Github/IBE_Benchmark-OpenML/Data/Results/Batchtools'
+### [bt 2017-04-05 00:14:07]: Memory measurement disabled
+### [bt 2017-04-05 00:14:07]: Starting job [batchtools job.id=153]
+Generating problem instance for problem '872' ...
+Applying algorithm 'eval' on problem '872' ...
+Data '872' file 'description.xml' found in cache.
+Data '872' file 'dataset.arff' found in cache.
+
+### [bt 2017-04-05 00:14:19]: Job terminated successfully [batchtools job.id=153]
+### [bt 2017-04-05 00:14:19]: Calculation finished!

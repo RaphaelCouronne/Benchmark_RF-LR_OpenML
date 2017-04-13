@@ -1,0 +1,29 @@
+### [bt 2017-04-05 05:53:54]: This is batchtools v0.9.2
+### [bt 2017-04-05 05:53:54]: Starting calculation of 1 jobs
+### [bt 2017-04-05 05:53:54]: Setting working directory to '/Users/Shadok/Programmation/Github/IBE_Benchmark-OpenML/Data/Results/Batchtools'
+### [bt 2017-04-05 05:53:54]: Memory measurement disabled
+### [bt 2017-04-05 05:53:54]: Starting job [batchtools job.id=254]
+Generating problem instance for problem '722' ...
+Applying algorithm 'eval' on problem '722' ...
+Downloading from 'http://www.openml.org/api/v1/data/722' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/722/description.xml'.
+Downloading from 'https://www.openml.org/data/download/53256/pol.ARFF' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/722/dataset.arff'
+Removing 22 columns: f1,f2,f3,f4,f10,f11,f12,f34,f35,f36,f37,f38,f39,f40,f41,f42,f43,f44,f45,f46,f47,f48
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+
+### [bt 2017-04-05 06:03:49]: Job terminated successfully [batchtools job.id=254]
+### [bt 2017-04-05 06:03:49]: Calculation finished!

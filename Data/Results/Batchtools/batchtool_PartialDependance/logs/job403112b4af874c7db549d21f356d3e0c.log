@@ -1,0 +1,15 @@
+### [bt 2017-04-05 00:06:53]: This is batchtools v0.9.2
+### [bt 2017-04-05 00:06:53]: Starting calculation of 1 jobs
+### [bt 2017-04-05 00:06:53]: Setting working directory to '/Users/Shadok/Programmation/Github/IBE_Benchmark-OpenML/Data/Results/Batchtools'
+### [bt 2017-04-05 00:06:53]: Memory measurement disabled
+### [bt 2017-04-05 00:06:53]: Starting job [batchtools job.id=85]
+Generating problem instance for problem '965' ...
+Applying algorithm 'eval' on problem '965' ...
+Data '965' file 'description.xml' found in cache.
+Data '965' file 'dataset.arff' found in cache.
+Warning: glm.fit: algorithm did not converge
+Warning in predict.lm(object, newdata, se.fit, scale = 1, type = ifelse(type ==  :
+  prediction from a rank-deficient fit may be misleading
+
+### [bt 2017-04-05 00:06:55]: Job terminated successfully [batchtools job.id=85]
+### [bt 2017-04-05 00:06:55]: Calculation finished!

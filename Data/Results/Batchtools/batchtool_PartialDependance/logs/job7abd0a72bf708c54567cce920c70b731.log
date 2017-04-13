@@ -1,0 +1,14 @@
+### [bt 2017-04-05 00:04:02]: This is batchtools v0.9.2
+### [bt 2017-04-05 00:04:02]: Starting calculation of 1 jobs
+### [bt 2017-04-05 00:04:02]: Setting working directory to '/Users/Shadok/Programmation/Github/IBE_Benchmark-OpenML/Data/Results/Batchtools'
+### [bt 2017-04-05 00:04:02]: Memory measurement disabled
+### [bt 2017-04-05 00:04:02]: Starting job [batchtools job.id=14]
+Generating problem instance for problem '1015' ...
+Applying algorithm 'eval' on problem '1015' ...
+Data '1015' file 'description.xml' found in cache.
+Data '1015' file 'dataset.arff' found in cache.
+Error in `$<-.data.frame`(`*tmp*`, "Class", value = character(0)) : 
+  replacement has 0 rows, data has 10
+
+### [bt 2017-04-05 00:04:02]: Job terminated with an exception [batchtools job.id=14]
+### [bt 2017-04-05 00:04:02]: Calculation finished!

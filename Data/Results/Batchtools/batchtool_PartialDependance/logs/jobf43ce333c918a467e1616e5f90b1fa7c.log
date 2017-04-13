@@ -1,0 +1,12 @@
+### [bt 2017-04-05 06:55:24]: This is batchtools v0.9.2
+### [bt 2017-04-05 06:55:24]: Starting calculation of 1 jobs
+### [bt 2017-04-05 06:55:24]: Setting working directory to '/Users/Shadok/Programmation/Github/IBE_Benchmark-OpenML/Data/Results/Batchtools'
+### [bt 2017-04-05 06:55:24]: Memory measurement disabled
+### [bt 2017-04-05 06:55:24]: Starting job [batchtools job.id=257]
+Generating problem instance for problem '1485' ...
+Applying algorithm 'eval' on problem '1485' ...
+Downloading from 'http://www.openml.org/api/v1/data/1485' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/1485/description.xml'.
+Downloading from 'https://www.openml.org/data/download/1590986/madelon.ARFF' to '/var/folders/f1/hnk7ddc10z90n2tx02lhw_740000gn/T//RtmpjulkKM/cache/datasets/1485/dataset.arff'
+
+### [bt 2017-04-05 08:38:18]: Job terminated successfully [batchtools job.id=257]
+### [bt 2017-04-05 08:38:18]: Calculation finished!
