@@ -251,8 +251,7 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
   res.3 = PdpAnalysis(5e2, gridsize = 20, feature.chosen.name = "X1", dataset.number = 3, visualize = visualize) 
   
   # Change the color and legends
-  
-  police.size = 13
+  police.size = 18
   
   res.1$pdp = res.1$pdp + theme(legend.title=element_blank()) + scale_colour_grey(start = 0,end = 0.7) +
     theme(legend.justification=c(1,1),, text = element_text(size=police.size), legend.position=c(1,1), legend.background = element_rect(colour = "black", size=.5, linetype="dotted"))

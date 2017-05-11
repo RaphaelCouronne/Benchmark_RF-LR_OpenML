@@ -352,6 +352,8 @@ inclusion_criteria <- function(df.bmr.diff){
 
   # launch visualization ----
 
+  police.size=18
+  
   # n ---
 
 
@@ -378,9 +380,9 @@ inclusion_criteria <- function(df.bmr.diff){
   p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = TRUE)
   p = p + scale_y_continuous(limits = y.limits)
   p = p + labs(x = expression(t), y = bquote(paste(Delta, .(measure.name))))
-  p = p + theme(legend.justification=c(1,1), legend.position=c(1,1), legend.title=element_blank())
+  p = p + theme(legend.justification=c(1,1), legend.position=c(0.45,1), legend.title=element_blank(), text = element_text(size=police.size))
   p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("n < ",t)),
-                                                        expression(n >= t)))
+                                                        expression( n >= t)))
   p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(n[max])))
 
   p.n = p
@@ -396,7 +398,7 @@ inclusion_criteria <- function(df.bmr.diff){
                   labels = c("  100", "  500", " 2000", "10000")) +
     #scale_x_log10() +
     geom_vline(xintercept=thresholdvect.original)+
-    theme(axis.text.x=element_text(angle=45, hjust=1, lineheight = 1, debug = FALSE))
+    theme(axis.text.x=element_text(angle=45, hjust=1, lineheight = 1, debug = FALSE), text = element_text(size=police.size))
 
 
 
@@ -430,9 +432,9 @@ inclusion_criteria <- function(df.bmr.diff){
   p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = TRUE)
   p = p + scale_y_continuous(limits = y.limits)
   p = p + labs(x = expression(t), y = bquote(paste(Delta, .(measure.name))))
-  p = p + theme(legend.justification=c(1,1), legend.position=c(1,1), legend.title=element_blank())
+  p = p + theme(legend.justification=c(1,1), legend.position=c(0.45,1), legend.title=element_blank(), text = element_text(size=police.size))
   p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("p < ",t)),
-                                                        expression(p >= t)))
+                                                        expression( p >= t)))
   p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(p[max])))
 
   p.p = p
@@ -443,7 +445,7 @@ inclusion_criteria <- function(df.bmr.diff){
                   labels = c("      5", "      10", "      20", "     100")) +
     #scale_x_log10() +
     geom_vline(xintercept=thresholdvect.original)+
-    theme(axis.text.x=element_text(angle=45, hjust=1, lineheight = 1, debug = FALSE))
+    theme(axis.text.x=element_text(angle=45, hjust=1, lineheight = 1, debug = FALSE), text = element_text(size=police.size))
 
 
 
@@ -472,10 +474,10 @@ inclusion_criteria <- function(df.bmr.diff){
   p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = TRUE)
   p = p + scale_y_continuous(limits = y.limits)
   p = p + labs(x = expression(t), y = bquote(paste(Delta, .(measure.name))))
-  p = p + theme(legend.justification=c(1,1), legend.position=c(1,1), legend.title=element_blank(),
-                legend.background = element_rect(colour = "black"))
+  p = p + theme(legend.justification=c(1,1), legend.position=c(0.60,1), legend.title=element_blank(),
+                legend.background = element_rect(colour = "black"), text = element_text(size=police.size))
   p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("p/n < ",t)),
-                                                        expression(p/n >= t)))
+                                                        expression( "p/n" >= t)))
 
   p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(p/n[max])))
 
@@ -491,7 +493,7 @@ inclusion_criteria <- function(df.bmr.diff){
     #scale_x_log10() +
     labs(x = expression(p/n)) +
     geom_vline(xintercept = thresholdvect.original) +
-    theme(axis.text.x=element_text(angle=45, hjust=1, lineheight = 1, debug = FALSE))
+    theme(axis.text.x=element_text(angle=45, hjust=1, lineheight = 1, debug = FALSE), text = element_text(size=police.size))
 
 
 
@@ -527,10 +529,10 @@ inclusion_criteria <- function(df.bmr.diff){
   p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = TRUE)
   p = p + scale_y_continuous(limits = y.limits)
   p = p + labs(x = expression(t), y = bquote(paste(Delta, .(measure.name))))
-  p = p + theme(legend.justification=c(1,1), legend.position=c(1,1), legend.title=element_blank(),
-                legend.background = element_rect(colour = "black"))
+  p = p + theme(legend.justification=c(1,1), legend.position=c(0.75,1), legend.title=element_blank(),
+                legend.background = element_rect(colour = "black"), text = element_text(size=police.size))
   p = p + scale_fill_grey(start = 0.4,end = 1, labels=c(expression(paste("Cmax < ",t)),
-                                                        expression(Cmax >= t)))
+                                                        expression( Cmax >= t)))
 
   p = p + scale_x_discrete(labels=c(thresholdvect.original,expression(Cmax[max])))
 
@@ -545,7 +547,7 @@ inclusion_criteria <- function(df.bmr.diff){
     #scale_x_log10() +
     labs(x = expression(Cmax)) +
     geom_vline(xintercept=c(thresholdvect.original)) +
-    theme( axis.text.x=element_text(angle=45, hjust=1, lineheight = 1, debug = FALSE))
+    theme( axis.text.x=element_text(angle=45, hjust=1, lineheight = 1, debug = FALSE), text = element_text(size=police.size))
 
 
 

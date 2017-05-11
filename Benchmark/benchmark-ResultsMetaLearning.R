@@ -155,11 +155,11 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
     return(pd.regr.logp)
   }
   
-  
-  pd.regr.logp = generatePartialDependenceDataFeature("logp") + labs(x = bquote(log(p)))
-  pd.regr.logn = generatePartialDependenceDataFeature("logn") + labs(x = bquote(log(n)))
-  pd.regr.logdimension.dividedby.n = generatePartialDependenceDataFeature("logp.dividedby.n") +labs(x = bquote(log(p/n)))
-  pd.regr.Cmax = generatePartialDependenceDataFeature("Cmax") + labs(x = bquote(Cmax))
+  police.size = 18
+  pd.regr.logp = generatePartialDependenceDataFeature("logp") + labs(x = bquote(log(p))) + theme(text = element_text(size=police.size))
+  pd.regr.logn = generatePartialDependenceDataFeature("logn") + labs(x = bquote(log(n)))+ theme(text = element_text(size=police.size))
+  pd.regr.logdimension.dividedby.n = generatePartialDependenceDataFeature("logp.dividedby.n") +labs(x = bquote(log(p/n)))+ theme(text = element_text(size=police.size))
+  pd.regr.Cmax = generatePartialDependenceDataFeature("Cmax") + labs(x = bquote(Cmax))+ theme(text = element_text(size=police.size))
   
   
   plot.grid = plot_grid(pd.regr.logn, 

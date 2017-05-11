@@ -172,7 +172,7 @@ subsetAnalysis_computeParallel <- function(clas_used, nCores=1, index = 1, seed=
 
 subsetAnalysis_visualization<-function() {
   load(file = "Data/Simulations/SubsetAnalysis.RData")
-  police.size = 17
+  police.size = 18
   
   ## ===============
   ## Visualization : Boxplots----
@@ -192,7 +192,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggp + geom_boxplot(aes(fill = algorithm)) + 
     scale_fill_grey(start = 0.4,end = 1, labels=c("LR", "RF")) +
     theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank(),  text = element_text(size=police.size)) +
-    xlab("n") + ylim(c(0.55,0.95))
+    xlab("n") + ylim(c(0.65,0.95))
   plot(ggp)
   ggp.acc.n = ggp
   
@@ -216,7 +216,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggp + geom_boxplot() + 
     scale_fill_grey(start = 0.4,end = 1) +
     theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank(),  text = element_text(size=police.size)) +
-    xlab("n") + ylab(expression(paste(Delta, "acc"))) + ylim(c(0.15,0.28))
+    xlab("n") + ylab(expression(paste(Delta, "acc"))) #+ ylim(c(0.15,0.28))
   plot(ggp)
   ggp.deltaacc.n = ggp
   
@@ -225,7 +225,7 @@ subsetAnalysis_visualization<-function() {
   ggp = ggp + geom_boxplot() + 
     scale_fill_grey(start = 0.4,end = 1) +
     theme(legend.justification=c(1,0), legend.position=c(1,0), legend.title=element_blank(),  text = element_text(size=police.size)) +
-    xlab("p") + ylab(expression(paste(Delta, "acc")))  + ylim(c(0.15,0.28))
+    xlab("p") + ylab(expression(paste(Delta, "acc")))  #+ ylim(c(0.15,0.28))
   plot(ggp)
   ggp.deltaacc.p = ggp
   
@@ -233,12 +233,12 @@ subsetAnalysis_visualization<-function() {
   plot.grid = plot_grid(ggp.acc.p,
             ggp.acc.n,
             ggp.deltaacc.p, 
-            ggp.deltaacc.n, 
+            ggp.deltaacc.n, align = "v",
             ncol = 2, nrow = 2)
   
   print(plot.grid)
   
-  jpeg(filename = "Data/Pictures/Figure4_SubsetSimulation_bis1.jpeg", width = 600, height = 400)
+  jpeg(filename = "Data/Pictures/Figure4_SubsetSimulation.jpeg", width = 600, height = 400)
   plot(plot.grid)
   dev.off()
   
@@ -279,7 +279,7 @@ subsetAnalysis_visualization<-function() {
     scale_fill_grey(start = 0.4,end = 1)
   print(pp)
   
-  jpeg(filename = "Data/Pictures/Figure4_SubsetSimulation.jpeg", width = 1000, height = 800)
+  jpeg(filename = "Data/Pictures/AdditionalFigures/Figure4_SubsetSimulation_facet.jpeg", width = 1000, height = 800)
   plot(pp)
   dev.off()
   
