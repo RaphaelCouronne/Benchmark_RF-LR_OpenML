@@ -20,8 +20,6 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
 
 
-
-
 ## 1 Benchmark Study ======================================================================================
 
 ## 1.1 Data Mining ----
@@ -32,23 +30,22 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 # Options
 # force = TRUE to force (re)computing of ALL dataset informations
 # computeTime = TRUE to compute an estimate of training time for LR and RF. It may take up to several days
-source(file = "Benchmark/benchmark_getDataOpenML.R")
+source(file = "Benchmark/benchmark_getData_OpenML.R")
 get_data_OpenML(target_path = "Data/OpenML/clas_time.RData", force = FALSE, computeTime = FALSE)
 
 
 ## 1.2 Benchmark computation ---
 # Batchtools implementation
-source(file = "Benchmark/benchmark-batchtools.R")
+source(file = "Benchmark/benchmark_batchtools.R")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
 # Set up the benchmark (delete current results)
 setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used)
-regis = loadRegistry("Data/Results/Batchtools/batchtool_experiment//")
+regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//")
 
 # Launch benchmark
-submitJobs(ids = 1:40, reg = regis) #small datasets
-submitJobs(ids = 41:193, reg = regis) #small datasets
+submitJobs(ids = 1:193, reg = regis) #small datasets
 submitJobs(ids = 194:231, reg = regis) #medium datasets
 submitJobs(ids = 232:278, reg = regis) #big datasets
 
@@ -57,44 +54,44 @@ getStatus()
 
 
 ## 2 Visualization  ======================================================================================
-rm(list=ls())
  
 # 2.1 Conversion of the benchmark results
-regis = loadRegistry("Data/Results/Batchtools/batchtool_experiment//")
+regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
-source(file = "Benchmark/benchmark_resultConversion.R")
-convert_results(clas_used = clas_used, result = result, target_path = "Data/Results/df.bmr.RData")
+source(file = "Benchmark/benchmark_Results_Conversion.R")
+convert_results(clas_used = clas_used, result = result, target_path = "Data/Results/df_bmr.RData")
 
 # 2.2 Overall Visualization
-load(file = "Data/Results/df.bmr.RData")
-source(file = "Visualization/OverallVisualization.R")
+load(file = "Data/Results/df_bmr.RData")
+source(file = "Visualization/Overall_Visualization.R")
 overall_visualization(df.bmr.diff)
 
 # 2.3 Inclusion Criteria Visualization
-load(file = "Data/Results/df.bmr.RData")
-source(file = "Visualization/InclusionCriteriaPlots.R")
+load(file = "Data/Results/df_bmr.RData")
+source(file = "Visualization/Inclusion_Criteria_Plots.R")
 inclusion_criteria(df.bmr.diff)
 
 
 ## 3. Analysis  ======================================================================================
-rm(list=ls())
 
 # 3.1 Overall results
-load(file = "Data/Results/df.bmr.RData")
-source(file = "Benchmark/benchmark_ResultsOverview.R")
+load(file = "Data/Results/df_bmr.RData")
+source(file = "Benchmark/benchmark_Results_Overview.R")
 benchmark_ResultsOverview(df.bmr.diff, res.perfs.df)
 
 # 3.2 Meta Learning
-load(file = "Data/Results/df.bmr.RData")
-source(file = "Benchmark/benchmark-ResultsMetaLearning.R")
+load(file = "Data/Results/df_bmr.RData")
+source(file = "Benchmark/benchmark_Results_MetaLearning.R")
 ResultsMetaLearning(df.bmr.diff)
 
+
+
+
 ## 4. Simulations  ======================================================================================
-rm(list=ls())
 
 # 4.1 Subset analysis on 1 dataset
-source("Simulations/Dataset_SubsetAnalysis.R")
+source("Simulations/Dataset_Subset_Analysis.R")
 load(file = "Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
@@ -103,70 +100,55 @@ subsetAnalysis_visualization()
 
 
 # 4.2 Partial dependance plots simulations
-source("Simulations/PDP_ExampleSimulations.R")
+source("Simulations/PDP_Example_Simulations.R")
 PlotPartialDependanceExample()
 
-# 4.3  Computation of Difference in Partial Dependance
-source("Simulations/PartialDependance_difference.R")
-pdpDifferenceAllDatasets(clas = clas_used, visualize = FALSE, force = FALSE,
-                         target.path = "Data/Simulations/pdp.difference.RData") 
 
 
 
 
-
-
-## Additional files/code
+## ===========================
+##                           =
+## Additional files/code     =
+##                           =
+## ===========================
 
 
 ## 5 Study of partial difference plots  ======================================================================================
-rm(list=ls())
 
 ## 5.1 Computation of the difference in Partial Dependence ---
 # Batchtools implementation
-source(file = "AdditionalFile_PartialDependence/batchtools-pd.R")
-load("Data/Results/df.bmr.RData")
+source(file = "Additional_Files/PartialDependence_Batchtools.R")
+load("Data/Results/df_bmr.RData")
+load("Data/OpenML/clas_time.RData")
+clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
 # Set up the benchmark (delete current results)
+
 setBatchtoolsPDPExperiment(seed = 1, ncpus = 3, clas_used = clas_used)
 regis.pdp = loadRegistry("Data/Results/Batchtools/batchtool_PartialDependance///")
 
 # Launch benchmark
-testJob(id = 1)
-
-submitJobs(ids = 1:260, reg = regis.pdp) #small datasets
-
-submitJobs(ids = 220:240, reg = regis.pdp) #small datasets
+submitJobs(ids = 1:193, reg = regis.pdp) #small datasets
 submitJobs(ids = 194:231, reg = regis.pdp) #medium datasets
 submitJobs(ids = 232:278, reg = regis.pdp) #big datasets
 
 # Check benchmark
-status = getStatus()
-status
-getErrorMessages()
+getStatus()
 
 
 
 ## 5.2 Visualization of the results
 
 # requires
-load("Data/Results/df.bmr.RData")
+load("Data/Results/df_bmr.RData")
 regis.pdp = loadRegistry("Data/Results/Batchtools/batchtool_PartialDependance///")
-source("AdditionalFile_PartialDependence/ComputeModelDifference.R")
-source("AdditionalFile_PartialDependence/ExtremeCases.R")
+source("Additional_Files/PartialDependence_Extreme_Cases.R")
 
 
 partialDependenceAnalysis_extremCases()
 
-## 5.2 Additional information
 
-
-# High acc 1460
-
-# Low modele
-
-# High modele 1479
-ComputeDependenceDifference(data.id)
 
 
 
