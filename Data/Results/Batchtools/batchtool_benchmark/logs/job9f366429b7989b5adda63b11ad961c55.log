@@ -1,0 +1,216 @@
+### [bt 2017-03-21 04:30:50]: This is batchtools v0.9.2
+### [bt 2017-03-21 04:30:50]: Starting calculation of 1 jobs
+### [bt 2017-03-21 04:30:50]: Setting working directory to '/home/rstudio/Project/IBE_Benchmark-OpenML/Data/Batchtools'
+### [bt 2017-03-21 04:30:50]: Memory measurement disabled
+### [bt 2017-03-21 04:30:50]: Starting job [batchtools job.id=268]
+Generating problem instance for problem '1022' ...
+Applying algorithm 'eval' on problem '1022' ...
+Downloading from 'http://www.openml.org/api/v1/data/1022' to '/tmp/RtmpaPPl1w/cache/datasets/1022/description.xml'.
+Downloading from 'https://www.openml.org/data/download/53556/mfeat-pixel.arff' to '/tmp/RtmpaPPl1w/cache/datasets/1022/dataset.arff'
+Task: mfeat-pixel, Learner: classif.logreg
+[Resample] repeated cross-validation iter 1: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.853,brier.test.mean=0.141,auc.test.mean=0.874,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 2: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.825,brier.test.mean=0.165,auc.test.mean=0.831,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 3: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.845,brier.test.mean=0.146,auc.test.mean=0.923,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 4: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.807,brier.test.mean=0.183,auc.test.mean=0.844,timetrain.test.mean=22.1
+[Resample] repeated cross-validation iter 5: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.805,brier.test.mean=0.186,auc.test.mean=0.839,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 6: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.802,brier.test.mean=0.186,auc.test.mean=0.812,timetrain.test.mean=21.9
+[Resample] repeated cross-validation iter 7: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.828,brier.test.mean=0.16,auc.test.mean=0.872,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 8: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.823,brier.test.mean=0.174,auc.test.mean=0.826,timetrain.test.mean=22.1
+[Resample] repeated cross-validation iter 9: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.843,brier.test.mean=0.147,auc.test.mean=0.875,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 10: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.877,brier.test.mean=0.121,auc.test.mean=0.874,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 11: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.792,brier.test.mean=0.199,auc.test.mean=0.843,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 12: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.823,brier.test.mean=0.172,auc.test.mean=0.806,timetrain.test.mean=22.2
+[Resample] repeated cross-validation iter 13: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.812,brier.test.mean=0.178,auc.test.mean=0.86,timetrain.test.mean=22.1
+[Resample] repeated cross-validation iter 14: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.828,brier.test.mean=0.168,auc.test.mean=0.884,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 15: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.833,brier.test.mean=0.157,auc.test.mean=0.852,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 16: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.82,brier.test.mean=0.167,auc.test.mean=0.848,timetrain.test.mean=21.9
+[Resample] repeated cross-validation iter 17: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean= 0.8,brier.test.mean=0.189,auc.test.mean=0.87,timetrain.test.mean=22.3
+[Resample] repeated cross-validation iter 18: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.823,brier.test.mean=0.166,auc.test.mean=0.843,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 19: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.823,brier.test.mean=0.165,auc.test.mean=0.83,timetrain.test.mean=21.9
+[Resample] repeated cross-validation iter 20: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.838,brier.test.mean=0.155,auc.test.mean=0.897,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 21: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.81,brier.test.mean=0.182,auc.test.mean=0.827,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 22: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.802,brier.test.mean=0.183,auc.test.mean=0.853,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 23: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.782,brier.test.mean=0.202,auc.test.mean=0.868,timetrain.test.mean=22.1
+[Resample] repeated cross-validation iter 24: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.818,brier.test.mean=0.174,auc.test.mean=0.882,timetrain.test.mean=22.1
+[Resample] repeated cross-validation iter 25: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.818,brier.test.mean=0.173,auc.test.mean=0.862,timetrain.test.mean=22.1
+[Resample] repeated cross-validation iter 26: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.78,brier.test.mean=0.208,auc.test.mean=0.851,timetrain.test.mean=22.2
+[Resample] repeated cross-validation iter 27: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.82,brier.test.mean=0.168,auc.test.mean=0.87,timetrain.test.mean=22.1
+[Resample] repeated cross-validation iter 28: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.85,brier.test.mean=0.145,auc.test.mean=0.884,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 29: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.845,brier.test.mean=0.142,auc.test.mean=0.867,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 30: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.81,brier.test.mean=0.181,auc.test.mean=0.828,timetrain.test.mean=21.9
+[Resample] repeated cross-validation iter 31: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.845,brier.test.mean=0.144,auc.test.mean=0.845,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 32: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.843,brier.test.mean=0.152,auc.test.mean=0.885,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 33: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.818,brier.test.mean=0.175,auc.test.mean=0.881,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 34: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.848,brier.test.mean=0.147,auc.test.mean=0.853,timetrain.test.mean=21.9
+[Resample] repeated cross-validation iter 35: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.83,brier.test.mean=0.164,auc.test.mean=0.85,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 36: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.83,brier.test.mean=0.165,auc.test.mean=0.884,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 37: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.84,brier.test.mean=0.153,auc.test.mean=0.899,timetrain.test.mean=22.7
+[Resample] repeated cross-validation iter 38: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.825,brier.test.mean=0.161,auc.test.mean=0.799,timetrain.test.mean=25.2
+[Resample] repeated cross-validation iter 39: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.815,brier.test.mean=0.172,auc.test.mean=0.856,timetrain.test.mean=24.6
+[Resample] repeated cross-validation iter 40: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.825,brier.test.mean=0.161,auc.test.mean=0.872,timetrain.test.mean=24.4
+[Resample] repeated cross-validation iter 41: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.812,brier.test.mean=0.183,auc.test.mean=0.866,timetrain.test.mean=24.5
+[Resample] repeated cross-validation iter 42: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.835,brier.test.mean=0.154,auc.test.mean=0.89,timetrain.test.mean=22.4
+[Resample] repeated cross-validation iter 43: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.865,brier.test.mean=0.131,auc.test.mean=0.871,timetrain.test.mean=21.9
+[Resample] repeated cross-validation iter 44: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.795,brier.test.mean=0.195,auc.test.mean=0.859,timetrain.test.mean=21.9
+[Resample] repeated cross-validation iter 45: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.815,brier.test.mean=0.169,auc.test.mean=0.854,timetrain.test.mean=21.9
+[Resample] repeated cross-validation iter 46: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.85,brier.test.mean=0.138,auc.test.mean=0.865,timetrain.test.mean=  22
+[Resample] repeated cross-validation iter 47: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.82,brier.test.mean=0.165,auc.test.mean=0.847,timetrain.test.mean=21.9
+[Resample] repeated cross-validation iter 48: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.83,brier.test.mean=0.165,auc.test.mean=0.847,timetrain.test.mean=21.9
+[Resample] repeated cross-validation iter 49: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.818,brier.test.mean=0.177,auc.test.mean=0.838,timetrain.test.mean=21.8
+[Resample] repeated cross-validation iter 50: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.818,brier.test.mean=0.173,auc.test.mean=0.804,timetrain.test.mean=21.9
+[Resample] Aggr. Result: acc.test.mean=0.824,brier.test.mean=0.167,auc.test.mean=0.857,timetrain.test.mean=22.2
+Task: mfeat-pixel, Learner: classif.randomForest
+[Resample] repeated cross-validation iter 1: acc.test.mean=0.99,brier.test.mean=0.00659,auc.test.mean=   1,timetrain.test.mean=0.889
+[Resample] repeated cross-validation iter 2: acc.test.mean=0.993,brier.test.mean=0.00948,auc.test.mean=   1,timetrain.test.mean=0.863
+[Resample] repeated cross-validation iter 3: acc.test.mean=0.995,brier.test.mean=0.00621,auc.test.mean=   1,timetrain.test.mean=0.883
+[Resample] repeated cross-validation iter 4: acc.test.mean=0.998,brier.test.mean=0.00617,auc.test.mean=   1,timetrain.test.mean=0.877
+[Resample] repeated cross-validation iter 5: acc.test.mean=0.988,brier.test.mean=0.0102,auc.test.mean=0.999,timetrain.test.mean=0.869
+[Resample] repeated cross-validation iter 6: acc.test.mean=0.99,brier.test.mean=0.00922,auc.test.mean=   1,timetrain.test.mean=0.843
+[Resample] repeated cross-validation iter 7: acc.test.mean=0.995,brier.test.mean=0.00765,auc.test.mean=0.998,timetrain.test.mean=0.868
+[Resample] repeated cross-validation iter 8: acc.test.mean=0.995,brier.test.mean=0.00685,auc.test.mean=   1,timetrain.test.mean=0.879
+[Resample] repeated cross-validation iter 9: acc.test.mean=0.995,brier.test.mean=0.0059,auc.test.mean=   1,timetrain.test.mean=0.876
+[Resample] repeated cross-validation iter 10: acc.test.mean=0.99,brier.test.mean=0.0078,auc.test.mean=   1,timetrain.test.mean=0.872
+[Resample] repeated cross-validation iter 11: acc.test.mean=0.99,brier.test.mean=0.00791,auc.test.mean=   1,timetrain.test.mean=0.873
+[Resample] repeated cross-validation iter 12: acc.test.mean=0.993,brier.test.mean=0.00854,auc.test.mean=   1,timetrain.test.mean=0.858
+[Resample] repeated cross-validation iter 13: acc.test.mean=0.998,brier.test.mean=0.0066,auc.test.mean=   1,timetrain.test.mean=0.883
+[Resample] repeated cross-validation iter 14: acc.test.mean=0.99,brier.test.mean=0.00643,auc.test.mean=   1,timetrain.test.mean=0.908
+[Resample] repeated cross-validation iter 15: acc.test.mean=0.993,brier.test.mean=0.00885,auc.test.mean=0.999,timetrain.test.mean=0.915
+[Resample] repeated cross-validation iter 16: acc.test.mean=0.988,brier.test.mean=0.00918,auc.test.mean=   1,timetrain.test.mean=0.897
+[Resample] repeated cross-validation iter 17: acc.test.mean=0.993,brier.test.mean=0.00782,auc.test.mean=   1,timetrain.test.mean=0.857
+[Resample] repeated cross-validation iter 18: acc.test.mean=0.993,brier.test.mean=0.0077,auc.test.mean=   1,timetrain.test.mean=0.924
+[Resample] repeated cross-validation iter 19: acc.test.mean=0.995,brier.test.mean=0.00702,auc.test.mean=0.999,timetrain.test.mean=0.887
+[Resample] repeated cross-validation iter 20: acc.test.mean=0.993,brier.test.mean=0.00672,auc.test.mean=   1,timetrain.test.mean=0.88
+[Resample] repeated cross-validation iter 21: acc.test.mean=0.993,brier.test.mean=0.00742,auc.test.mean=0.999,timetrain.test.mean=0.885
+[Resample] repeated cross-validation iter 22: acc.test.mean=0.988,brier.test.mean=0.00823,auc.test.mean=   1,timetrain.test.mean=0.886
+[Resample] repeated cross-validation iter 23: acc.test.mean=0.995,brier.test.mean=0.00707,auc.test.mean=   1,timetrain.test.mean=0.877
+[Resample] repeated cross-validation iter 24: acc.test.mean=0.99,brier.test.mean=0.00993,auc.test.mean=0.999,timetrain.test.mean=0.874
+[Resample] repeated cross-validation iter 25: acc.test.mean=0.998,brier.test.mean=0.00576,auc.test.mean=   1,timetrain.test.mean=0.878
+[Resample] repeated cross-validation iter 26: acc.test.mean=0.993,brier.test.mean=0.00813,auc.test.mean=   1,timetrain.test.mean=0.88
+[Resample] repeated cross-validation iter 27: acc.test.mean=0.993,brier.test.mean=0.00754,auc.test.mean=   1,timetrain.test.mean=0.877
+[Resample] repeated cross-validation iter 28: acc.test.mean=0.995,brier.test.mean=0.00523,auc.test.mean=   1,timetrain.test.mean=0.881
+[Resample] repeated cross-validation iter 29: acc.test.mean=0.995,brier.test.mean=0.00653,auc.test.mean=0.998,timetrain.test.mean=0.858
+[Resample] repeated cross-validation iter 30: acc.test.mean=0.98,brier.test.mean=0.0122,auc.test.mean=   1,timetrain.test.mean=0.859
+[Resample] repeated cross-validation iter 31: acc.test.mean=0.99,brier.test.mean=0.0112,auc.test.mean=0.998,timetrain.test.mean=0.874
+[Resample] repeated cross-validation iter 32: acc.test.mean=0.995,brier.test.mean=0.00734,auc.test.mean=0.998,timetrain.test.mean=0.873
+[Resample] repeated cross-validation iter 33: acc.test.mean=0.995,brier.test.mean=0.00578,auc.test.mean=   1,timetrain.test.mean=0.858
+[Resample] repeated cross-validation iter 34: acc.test.mean=0.983,brier.test.mean=0.00917,auc.test.mean=   1,timetrain.test.mean=0.862
+[Resample] repeated cross-validation iter 35: acc.test.mean=0.995,brier.test.mean=0.00622,auc.test.mean=   1,timetrain.test.mean=0.916
+[Resample] repeated cross-validation iter 36: acc.test.mean=0.995,brier.test.mean=0.0056,auc.test.mean=   1,timetrain.test.mean=0.873
+[Resample] repeated cross-validation iter 37: acc.test.mean=0.99,brier.test.mean=0.00776,auc.test.mean=   1,timetrain.test.mean= 0.9
+[Resample] repeated cross-validation iter 38: acc.test.mean=0.988,brier.test.mean=0.0104,auc.test.mean=0.998,timetrain.test.mean=0.872
+[Resample] repeated cross-validation iter 39: acc.test.mean=0.988,brier.test.mean=0.00894,auc.test.mean=   1,timetrain.test.mean= 0.9
+[Resample] repeated cross-validation iter 40: acc.test.mean=0.995,brier.test.mean=0.00598,auc.test.mean=   1,timetrain.test.mean=0.883
+[Resample] repeated cross-validation iter 41: acc.test.mean=0.998,brier.test.mean=0.00425,auc.test.mean=   1,timetrain.test.mean=0.917
+[Resample] repeated cross-validation iter 42: acc.test.mean=0.995,brier.test.mean=0.00556,auc.test.mean=   1,timetrain.test.mean=0.892
+[Resample] repeated cross-validation iter 43: acc.test.mean=0.993,brier.test.mean=0.00814,auc.test.mean=0.999,timetrain.test.mean=0.883
+[Resample] repeated cross-validation iter 44: acc.test.mean=0.993,brier.test.mean=0.00965,auc.test.mean=   1,timetrain.test.mean=0.858
+[Resample] repeated cross-validation iter 45: acc.test.mean=0.988,brier.test.mean=0.0108,auc.test.mean=0.999,timetrain.test.mean=0.853
+[Resample] repeated cross-validation iter 46: acc.test.mean=0.99,brier.test.mean=0.00876,auc.test.mean=   1,timetrain.test.mean=0.891
+[Resample] repeated cross-validation iter 47: acc.test.mean=0.995,brier.test.mean=0.00612,auc.test.mean=   1,timetrain.test.mean=0.884
+[Resample] repeated cross-validation iter 48: acc.test.mean=0.988,brier.test.mean=0.0111,auc.test.mean=0.999,timetrain.test.mean=0.851
+[Resample] repeated cross-validation iter 49: acc.test.mean=   1,brier.test.mean=0.00471,auc.test.mean=   1,timetrain.test.mean=0.906
+[Resample] repeated cross-validation iter 50: acc.test.mean=0.99,brier.test.mean=0.00966,auc.test.mean=0.998,timetrain.test.mean=0.867
+[Resample] Aggr. Result: acc.test.mean=0.992,brier.test.mean=0.00776,auc.test.mean=   1,timetrain.test.mean=0.879
+
+### [bt 2017-03-21 04:50:20]: Job terminated successfully [batchtools job.id=268]
+### [bt 2017-03-21 04:50:20]: Calculation finished!

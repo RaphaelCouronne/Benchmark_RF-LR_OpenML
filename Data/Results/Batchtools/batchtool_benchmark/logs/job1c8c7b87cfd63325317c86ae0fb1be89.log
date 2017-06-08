@@ -1,0 +1,242 @@
+### [bt 2017-03-20 23:17:56]: This is batchtools v0.9.2
+### [bt 2017-03-20 23:17:56]: Starting calculation of 1 jobs
+### [bt 2017-03-20 23:17:56]: Setting working directory to '/home/rstudio/Project/IBE_Benchmark-OpenML/Data/Batchtools'
+### [bt 2017-03-20 23:17:56]: Memory measurement disabled
+### [bt 2017-03-20 23:17:56]: Starting job [batchtools job.id=94]
+Generating problem instance for problem '941' ...
+Applying algorithm 'eval' on problem '941' ...
+Data '941' file 'description.xml' found in cache.
+Data '941' file 'dataset.arff' found in cache.
+Task: lowbwt, Learner: classif.logreg
+[Resample] repeated cross-validation iter 1: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor FTV has new levels 6
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 2: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.895,brier.test.mean=0.0711,auc.test.mean=0.936,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 3: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.816,brier.test.mean=0.12,auc.test.mean=0.897,timetrain.test.mean=0.599
+[Resample] repeated cross-validation iter 4: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor PTL has new levels 3
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 5: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.784,brier.test.mean=0.161,auc.test.mean=0.825,timetrain.test.mean= 0.1
+[Resample] repeated cross-validation iter 6: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.816,brier.test.mean=0.154,auc.test.mean=0.744,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 7: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.842,brier.test.mean=0.117,auc.test.mean=0.897,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 8: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor FTV has new levels 6
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 9: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.811,brier.test.mean=0.141,auc.test.mean=0.854,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 10: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor PTL has new levels 3
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 11: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.811,brier.test.mean=0.148,auc.test.mean=0.822,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 12: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor PTL has new levels 3
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 13: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor FTV has new levels 6
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 14: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.842,brier.test.mean=0.13,auc.test.mean=0.864,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 15: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.895,brier.test.mean=0.0905,auc.test.mean=0.908,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 16: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.711,brier.test.mean=0.154,auc.test.mean=0.831,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 17: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.816,brier.test.mean=0.127,auc.test.mean=0.85,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 18: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor PTL has new levels 3
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.013
+[Resample] repeated cross-validation iter 19: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.816,brier.test.mean=0.121,auc.test.mean=0.878,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 20: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor FTV has new levels 6
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 21: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor FTV has new levels 6
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 22: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.737,brier.test.mean=0.179,auc.test.mean=0.775,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 23: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor PTL has new levels 3
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 24: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.947,brier.test.mean=0.0631,auc.test.mean=0.956,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 25: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.868,brier.test.mean=0.0937,auc.test.mean=0.906,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 26: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.711,brier.test.mean=0.194,auc.test.mean=0.739,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 27: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor PTL has new levels 3
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 28: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor FTV has new levels 6
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 29: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.816,brier.test.mean=0.14,auc.test.mean=0.875,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 30: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.868,brier.test.mean=0.0965,auc.test.mean=0.969,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 31: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.838,brier.test.mean=0.115,auc.test.mean=0.889,timetrain.test.mean=0.012
+[Resample] repeated cross-validation iter 32: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor FTV has new levels 6
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 33: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor PTL has new levels 3
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 34: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.684,brier.test.mean=0.237,auc.test.mean=0.708,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 35: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.737,brier.test.mean=0.176,auc.test.mean=0.761,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 36: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.811,brier.test.mean=0.139,auc.test.mean=0.845,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 37: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor PTL has new levels 3
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 38: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor FTV has new levels 6
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 39: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.895,brier.test.mean=0.0987,auc.test.mean=0.883,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 40: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.921,brier.test.mean=0.0799,auc.test.mean=0.967,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 41: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.868,brier.test.mean=0.107,auc.test.mean=0.889,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 42: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.868,brier.test.mean=0.119,auc.test.mean=0.839,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 43: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.763,brier.test.mean=0.174,auc.test.mean=0.781,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 44: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor PTL has new levels 3
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 45: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.868,brier.test.mean=0.0873,auc.test.mean=0.975,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 46: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor FTV has new levels 6
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 47: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor PTL has new levels 3
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 48: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.816,brier.test.mean=0.134,auc.test.mean=0.858,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 49: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.605,brier.test.mean=0.255,auc.test.mean=0.731,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 50: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.842,brier.test.mean=0.14,auc.test.mean=0.817,timetrain.test.mean=0.007
+[Resample] Aggr. Result: acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.0209
+Task: lowbwt, Learner: classif.randomForest
+[Resample] repeated cross-validation iter 1: acc.test.mean=0.842,brier.test.mean=0.139,auc.test.mean=0.863,timetrain.test.mean=0.043
+[Resample] repeated cross-validation iter 2: acc.test.mean=0.816,brier.test.mean=0.111,auc.test.mean=0.889,timetrain.test.mean=0.051
+[Resample] repeated cross-validation iter 3: acc.test.mean=0.816,brier.test.mean=0.128,auc.test.mean=0.853,timetrain.test.mean=0.109
+[Resample] repeated cross-validation iter 4: acc.test.mean=0.868,brier.test.mean=0.0948,auc.test.mean=0.933,timetrain.test.mean=0.048
+[Resample] repeated cross-validation iter 5: acc.test.mean=0.811,brier.test.mean=0.122,auc.test.mean=0.909,timetrain.test.mean=0.046
+[Resample] repeated cross-validation iter 6: acc.test.mean=0.816,brier.test.mean=0.14,auc.test.mean=0.856,timetrain.test.mean=0.047
+[Resample] repeated cross-validation iter 7: acc.test.mean=0.842,brier.test.mean=0.106,auc.test.mean=0.928,timetrain.test.mean=0.046
+[Resample] repeated cross-validation iter 8: acc.test.mean=0.868,brier.test.mean=0.126,auc.test.mean=0.835,timetrain.test.mean=0.046
+[Resample] repeated cross-validation iter 9: acc.test.mean=0.838,brier.test.mean=0.143,auc.test.mean=0.83,timetrain.test.mean=0.11
+[Resample] repeated cross-validation iter 10: acc.test.mean=0.868,brier.test.mean=0.101,auc.test.mean=0.915,timetrain.test.mean=0.047
+[Resample] repeated cross-validation iter 11: acc.test.mean=0.838,brier.test.mean=0.131,auc.test.mean=0.898,timetrain.test.mean=0.042
+[Resample] repeated cross-validation iter 12: acc.test.mean=0.763,brier.test.mean=0.164,auc.test.mean=0.807,timetrain.test.mean=0.046
+[Resample] repeated cross-validation iter 13: acc.test.mean=0.868,brier.test.mean=0.0854,auc.test.mean=0.958,timetrain.test.mean=0.115
+[Resample] repeated cross-validation iter 14: acc.test.mean=0.842,brier.test.mean=0.159,auc.test.mean=0.779,timetrain.test.mean=0.051
+[Resample] repeated cross-validation iter 15: acc.test.mean=0.947,brier.test.mean=0.077,auc.test.mean=0.932,timetrain.test.mean=0.045
+[Resample] repeated cross-validation iter 16: acc.test.mean=0.868,brier.test.mean=0.104,auc.test.mean=0.915,timetrain.test.mean=0.113
+[Resample] repeated cross-validation iter 17: acc.test.mean=0.842,brier.test.mean=0.142,auc.test.mean=0.839,timetrain.test.mean=0.043
+[Resample] repeated cross-validation iter 18: acc.test.mean=0.838,brier.test.mean=0.111,auc.test.mean=0.906,timetrain.test.mean=0.045
+[Resample] repeated cross-validation iter 19: acc.test.mean=0.816,brier.test.mean=0.117,auc.test.mean=0.878,timetrain.test.mean=0.046
+[Resample] repeated cross-validation iter 20: acc.test.mean=0.842,brier.test.mean=0.113,auc.test.mean=0.893,timetrain.test.mean=0.05
+[Resample] repeated cross-validation iter 21: acc.test.mean=0.842,brier.test.mean=0.133,auc.test.mean=0.863,timetrain.test.mean=0.043
+[Resample] repeated cross-validation iter 22: acc.test.mean=0.816,brier.test.mean=0.151,auc.test.mean=0.792,timetrain.test.mean=0.043
+[Resample] repeated cross-validation iter 23: acc.test.mean=0.811,brier.test.mean=0.121,auc.test.mean=0.921,timetrain.test.mean=0.112
+[Resample] repeated cross-validation iter 24: acc.test.mean=0.921,brier.test.mean=0.0836,auc.test.mean=0.953,timetrain.test.mean=0.045
+[Resample] repeated cross-validation iter 25: acc.test.mean=0.895,brier.test.mean=0.0713,auc.test.mean=0.942,timetrain.test.mean=0.047
+[Resample] repeated cross-validation iter 26: acc.test.mean=0.816,brier.test.mean=0.16,auc.test.mean=0.796,timetrain.test.mean=0.045
+[Resample] repeated cross-validation iter 27: acc.test.mean=0.811,brier.test.mean=0.11,auc.test.mean=0.918,timetrain.test.mean=0.112
+[Resample] repeated cross-validation iter 28: acc.test.mean=0.816,brier.test.mean=0.117,auc.test.mean=0.875,timetrain.test.mean=0.046
+[Resample] repeated cross-validation iter 29: acc.test.mean=0.842,brier.test.mean=0.132,auc.test.mean=0.886,timetrain.test.mean=0.045
+[Resample] repeated cross-validation iter 30: acc.test.mean=0.842,brier.test.mean=0.103,auc.test.mean=0.943,timetrain.test.mean=0.111
+[Resample] repeated cross-validation iter 31: acc.test.mean=0.865,brier.test.mean=0.0948,auc.test.mean=0.944,timetrain.test.mean=0.133
+[Resample] repeated cross-validation iter 32: acc.test.mean=0.921,brier.test.mean=0.0723,auc.test.mean=0.972,timetrain.test.mean=0.046
+[Resample] repeated cross-validation iter 33: acc.test.mean=0.816,brier.test.mean=0.116,auc.test.mean=0.875,timetrain.test.mean=0.049
+[Resample] repeated cross-validation iter 34: acc.test.mean=0.737,brier.test.mean=0.177,auc.test.mean=0.794,timetrain.test.mean=0.043
+[Resample] repeated cross-validation iter 35: acc.test.mean=0.789,brier.test.mean=0.126,auc.test.mean=0.875,timetrain.test.mean=0.047
+[Resample] repeated cross-validation iter 36: acc.test.mean=0.892,brier.test.mean=0.125,auc.test.mean=0.883,timetrain.test.mean=0.112
+[Resample] repeated cross-validation iter 37: acc.test.mean=0.842,brier.test.mean=0.127,auc.test.mean=0.883,timetrain.test.mean=0.048
+[Resample] repeated cross-validation iter 38: acc.test.mean=0.789,brier.test.mean=0.176,auc.test.mean= 0.8,timetrain.test.mean=0.042
+[Resample] repeated cross-validation iter 39: acc.test.mean=0.868,brier.test.mean=0.103,auc.test.mean=0.928,timetrain.test.mean=0.047
+[Resample] repeated cross-validation iter 40: acc.test.mean=0.921,brier.test.mean=0.0652,auc.test.mean=0.983,timetrain.test.mean=0.047
+[Resample] repeated cross-validation iter 41: acc.test.mean=0.921,brier.test.mean=0.0997,auc.test.mean=0.917,timetrain.test.mean=0.046
+[Resample] repeated cross-validation iter 42: acc.test.mean=0.895,brier.test.mean=0.0742,auc.test.mean=0.951,timetrain.test.mean=0.048
+[Resample] repeated cross-validation iter 43: acc.test.mean=0.763,brier.test.mean=0.189,auc.test.mean=0.743,timetrain.test.mean=0.111
+[Resample] repeated cross-validation iter 44: acc.test.mean=0.757,brier.test.mean=0.145,auc.test.mean=0.842,timetrain.test.mean=0.043
+[Resample] repeated cross-validation iter 45: acc.test.mean=0.842,brier.test.mean=0.0993,auc.test.mean=0.956,timetrain.test.mean=0.047
+[Resample] repeated cross-validation iter 46: acc.test.mean=0.784,brier.test.mean=0.125,auc.test.mean=0.865,timetrain.test.mean=0.047
+[Resample] repeated cross-validation iter 47: acc.test.mean=0.921,brier.test.mean=0.0805,auc.test.mean=0.942,timetrain.test.mean=0.115
+[Resample] repeated cross-validation iter 48: acc.test.mean=0.842,brier.test.mean=0.109,auc.test.mean=0.876,timetrain.test.mean=0.044
+[Resample] repeated cross-validation iter 49: acc.test.mean=0.737,brier.test.mean=0.18,auc.test.mean=0.771,timetrain.test.mean=0.114
+[Resample] repeated cross-validation iter 50: acc.test.mean=0.842,brier.test.mean=0.104,auc.test.mean=0.914,timetrain.test.mean=0.048
+[Resample] Aggr. Result: acc.test.mean=0.84,brier.test.mean=0.12,auc.test.mean=0.884,timetrain.test.mean=0.0623
+
+### [bt 2017-03-20 23:18:02]: Job terminated successfully [batchtools job.id=94]
+### [bt 2017-03-20 23:18:02]: Calculation finished!

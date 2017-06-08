@@ -1,0 +1,340 @@
+### [bt 2017-03-20 23:17:15]: This is batchtools v0.9.2
+### [bt 2017-03-20 23:17:15]: Starting calculation of 1 jobs
+### [bt 2017-03-20 23:17:15]: Setting working directory to '/home/rstudio/Project/IBE_Benchmark-OpenML/Data/Batchtools'
+### [bt 2017-03-20 23:17:15]: Memory measurement disabled
+### [bt 2017-03-20 23:17:15]: Starting job [batchtools job.id=89]
+Generating problem instance for problem '796' ...
+Applying algorithm 'eval' on problem '796' ...
+Downloading from 'http://www.openml.org/api/v1/data/796' to '/tmp/RtmpaPPl1w/cache/datasets/796/description.xml'.
+Downloading from 'https://www.openml.org/data/download/53330/cpu.arff' to '/tmp/RtmpaPPl1w/cache/datasets/796/dataset.arff'
+Task: cpu, Learner: classif.logreg
+[Resample] repeated cross-validation iter 1: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels four-phase, microdata
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.101
+[Resample] repeated cross-validation iter 2: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.929,brier.test.mean=0.0719,auc.test.mean=0.947,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 3: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels sratus
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 4: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels adviser, bti
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.077
+[Resample] repeated cross-validation iter 5: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.902,brier.test.mean=0.0866,auc.test.mean=0.908,timetrain.test.mean=0.012
+[Resample] repeated cross-validation iter 6: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels adviser
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.011
+[Resample] repeated cross-validation iter 7: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels microdata, sratus
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 8: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels four-phase
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.013
+[Resample] repeated cross-validation iter 9: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.93,brier.test.mean=0.0683,auc.test.mean=0.991,timetrain.test.mean=0.011
+[Resample] repeated cross-validation iter 10: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.878,brier.test.mean=0.121,auc.test.mean=0.958,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 11: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.881,brier.test.mean=0.119,auc.test.mean=0.959,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 12: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels four-phase
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 13: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.905,brier.test.mean=0.0952,auc.test.mean=0.965,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 14: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels adviser
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 15: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels microdata, sratus
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 16: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.927,brier.test.mean=0.0732,auc.test.mean=0.982,timetrain.test.mean=0.082
+[Resample] repeated cross-validation iter 17: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.952,brier.test.mean=0.0476,auc.test.mean=0.943,timetrain.test.mean=0.013
+[Resample] repeated cross-validation iter 18: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.976,brier.test.mean=0.0162,auc.test.mean=   1,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 19: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels adviser, sratus
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 20: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels bti, four-phase, microdata
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 21: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.929,brier.test.mean=0.068,auc.test.mean=0.988,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 22: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels adviser
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 23: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.878,brier.test.mean=0.122,auc.test.mean=0.968,timetrain.test.mean=0.013
+[Resample] repeated cross-validation iter 24: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels sratus
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 25: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels apollo, four-phase, microdata, wang
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 26: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels microdata
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 27: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels wang
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.011
+[Resample] repeated cross-validation iter 28: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels apollo, sratus
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 29: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels adviser
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.011
+[Resample] repeated cross-validation iter 30: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels four-phase
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.015
+[Resample] repeated cross-validation iter 31: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels microdata
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.011
+[Resample] repeated cross-validation iter 32: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels sratus
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 33: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.854,brier.test.mean=0.134,auc.test.mean=0.929,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 34: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.953,brier.test.mean=0.0479,auc.test.mean=0.983,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 35: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels adviser, four-phase
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 36: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.857,brier.test.mean=0.128,auc.test.mean=0.982,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 37: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels sratus
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 38: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels microdata
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.013
+[Resample] repeated cross-validation iter 39: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels adviser, four-phase
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 40: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.929,brier.test.mean=0.0716,auc.test.mean=0.991,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 41: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels four-phase
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 42: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels adviser, microdata
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.012
+[Resample] repeated cross-validation iter 43: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.907,brier.test.mean=0.0829,auc.test.mean=0.939,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 44: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.952,brier.test.mean=0.048,auc.test.mean=0.975,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 45: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels sratus
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.013
+[Resample] repeated cross-validation iter 46: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.905,brier.test.mean=0.0969,auc.test.mean=0.968,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 47: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.878,brier.test.mean=0.122,auc.test.mean=0.924,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 48: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels adviser, basf
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 49: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels apollo, microdata, wang
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 50: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+Warning in predict.WrappedModel(m, task, subset = test.i) :
+  Could not predict with learner classif.logreg: Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels) : 
+  factor vendor has new levels four-phase, sratus
+
+acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.009
+[Resample] Aggr. Result: acc.test.mean=  NA,brier.test.mean=  NA,auc.test.mean=  NA,timetrain.test.mean=0.0149
+Task: cpu, Learner: classif.randomForest
+[Resample] repeated cross-validation iter 1: acc.test.mean=0.953,brier.test.mean=0.0318,auc.test.mean=0.994,timetrain.test.mean=0.099
+[Resample] repeated cross-validation iter 2: acc.test.mean=   1,brier.test.mean=0.0189,auc.test.mean=   1,timetrain.test.mean=0.032
+[Resample] repeated cross-validation iter 3: acc.test.mean=0.952,brier.test.mean=0.0232,auc.test.mean=   1,timetrain.test.mean=0.033
+[Resample] repeated cross-validation iter 4: acc.test.mean=   1,brier.test.mean=0.0228,auc.test.mean=   1,timetrain.test.mean=0.03
+[Resample] repeated cross-validation iter 5: acc.test.mean=0.951,brier.test.mean=0.0347,auc.test.mean=0.994,timetrain.test.mean=0.033
+[Resample] repeated cross-validation iter 6: acc.test.mean=   1,brier.test.mean=0.0249,auc.test.mean=   1,timetrain.test.mean=0.097
+[Resample] repeated cross-validation iter 7: acc.test.mean=   1,brier.test.mean=0.0179,auc.test.mean=   1,timetrain.test.mean=0.034
+[Resample] repeated cross-validation iter 8: acc.test.mean=0.952,brier.test.mean=0.0308,auc.test.mean=0.994,timetrain.test.mean=0.03
+[Resample] repeated cross-validation iter 9: acc.test.mean=0.977,brier.test.mean=0.0184,auc.test.mean=   1,timetrain.test.mean=0.031
+[Resample] repeated cross-validation iter 10: acc.test.mean=0.927,brier.test.mean=0.0332,auc.test.mean=0.99,timetrain.test.mean=0.032
+[Resample] repeated cross-validation iter 11: acc.test.mean=0.952,brier.test.mean=0.0246,auc.test.mean=   1,timetrain.test.mean=0.093
+[Resample] repeated cross-validation iter 12: acc.test.mean=0.952,brier.test.mean=0.0302,auc.test.mean=   1,timetrain.test.mean=0.032
+[Resample] repeated cross-validation iter 13: acc.test.mean=   1,brier.test.mean=0.0178,auc.test.mean=   1,timetrain.test.mean=0.032
+[Resample] repeated cross-validation iter 14: acc.test.mean=   1,brier.test.mean=0.0197,auc.test.mean=   1,timetrain.test.mean=0.032
+[Resample] repeated cross-validation iter 15: acc.test.mean=   1,brier.test.mean=0.0164,auc.test.mean=   1,timetrain.test.mean=0.034
+[Resample] repeated cross-validation iter 16: acc.test.mean=0.976,brier.test.mean=0.0245,auc.test.mean=   1,timetrain.test.mean=0.099
+[Resample] repeated cross-validation iter 17: acc.test.mean=0.952,brier.test.mean=0.0207,auc.test.mean=   1,timetrain.test.mean=0.033
+[Resample] repeated cross-validation iter 18: acc.test.mean=   1,brier.test.mean=0.0109,auc.test.mean=   1,timetrain.test.mean=0.032
+[Resample] repeated cross-validation iter 19: acc.test.mean=0.951,brier.test.mean=0.0335,auc.test.mean=0.994,timetrain.test.mean=0.03
+[Resample] repeated cross-validation iter 20: acc.test.mean=   1,brier.test.mean=0.0187,auc.test.mean=   1,timetrain.test.mean=0.033
+[Resample] repeated cross-validation iter 21: acc.test.mean=   1,brier.test.mean=0.0133,auc.test.mean=   1,timetrain.test.mean=0.095
+[Resample] repeated cross-validation iter 22: acc.test.mean=0.929,brier.test.mean=0.0401,auc.test.mean=0.997,timetrain.test.mean=0.031
+[Resample] repeated cross-validation iter 23: acc.test.mean=0.902,brier.test.mean=0.0586,auc.test.mean=0.987,timetrain.test.mean=0.03
+[Resample] repeated cross-validation iter 24: acc.test.mean=   1,brier.test.mean=0.0147,auc.test.mean=   1,timetrain.test.mean=0.032
+[Resample] repeated cross-validation iter 25: acc.test.mean=0.977,brier.test.mean=0.0234,auc.test.mean=   1,timetrain.test.mean=0.033
+[Resample] repeated cross-validation iter 26: acc.test.mean=0.857,brier.test.mean=0.0727,auc.test.mean=0.985,timetrain.test.mean=0.093
+[Resample] repeated cross-validation iter 27: acc.test.mean=0.977,brier.test.mean=0.0124,auc.test.mean=   1,timetrain.test.mean=0.033
+[Resample] repeated cross-validation iter 28: acc.test.mean=   1,brier.test.mean=0.0149,auc.test.mean=   1,timetrain.test.mean=0.032
+[Resample] repeated cross-validation iter 29: acc.test.mean=   1,brier.test.mean=0.0243,auc.test.mean=   1,timetrain.test.mean=0.031
+[Resample] repeated cross-validation iter 30: acc.test.mean=   1,brier.test.mean=0.0172,auc.test.mean=   1,timetrain.test.mean=0.182
+[Resample] repeated cross-validation iter 31: acc.test.mean=0.976,brier.test.mean=0.025,auc.test.mean=0.997,timetrain.test.mean=0.033
+[Resample] repeated cross-validation iter 32: acc.test.mean=   1,brier.test.mean=0.00624,auc.test.mean=   1,timetrain.test.mean=0.038
+[Resample] repeated cross-validation iter 33: acc.test.mean=0.976,brier.test.mean=0.0205,auc.test.mean=   1,timetrain.test.mean= 0.1
+[Resample] repeated cross-validation iter 34: acc.test.mean=0.953,brier.test.mean=0.0333,auc.test.mean=0.991,timetrain.test.mean=0.032
+[Resample] repeated cross-validation iter 35: acc.test.mean=   1,brier.test.mean=0.0287,auc.test.mean=   1,timetrain.test.mean=0.03
+[Resample] repeated cross-validation iter 36: acc.test.mean=   1,brier.test.mean=0.0166,auc.test.mean=   1,timetrain.test.mean=0.033
+[Resample] repeated cross-validation iter 37: acc.test.mean=   1,brier.test.mean=0.0251,auc.test.mean=   1,timetrain.test.mean=0.031
+[Resample] repeated cross-validation iter 38: acc.test.mean=0.976,brier.test.mean=0.0184,auc.test.mean=   1,timetrain.test.mean=0.101
+[Resample] repeated cross-validation iter 39: acc.test.mean=0.976,brier.test.mean=0.0197,auc.test.mean=   1,timetrain.test.mean=0.03
+[Resample] repeated cross-validation iter 40: acc.test.mean=   1,brier.test.mean=0.0161,auc.test.mean=   1,timetrain.test.mean=0.034
+[Resample] repeated cross-validation iter 41: acc.test.mean=0.952,brier.test.mean=0.0313,auc.test.mean=   1,timetrain.test.mean=0.03
+[Resample] repeated cross-validation iter 42: acc.test.mean=   1,brier.test.mean=0.012,auc.test.mean=   1,timetrain.test.mean=0.035
+[Resample] repeated cross-validation iter 43: acc.test.mean=   1,brier.test.mean=0.00919,auc.test.mean=   1,timetrain.test.mean=0.095
+[Resample] repeated cross-validation iter 44: acc.test.mean=   1,brier.test.mean=0.0194,auc.test.mean=   1,timetrain.test.mean=0.031
+[Resample] repeated cross-validation iter 45: acc.test.mean=0.976,brier.test.mean=0.0241,auc.test.mean=   1,timetrain.test.mean=0.031
+[Resample] repeated cross-validation iter 46: acc.test.mean=   1,brier.test.mean=0.0191,auc.test.mean=   1,timetrain.test.mean=0.03
+[Resample] repeated cross-validation iter 47: acc.test.mean=   1,brier.test.mean=0.0201,auc.test.mean=   1,timetrain.test.mean=0.033
+[Resample] repeated cross-validation iter 48: acc.test.mean=   1,brier.test.mean=0.0176,auc.test.mean=   1,timetrain.test.mean=0.107
+[Resample] repeated cross-validation iter 49: acc.test.mean=   1,brier.test.mean=0.0134,auc.test.mean=   1,timetrain.test.mean=0.032
+[Resample] repeated cross-validation iter 50: acc.test.mean=0.929,brier.test.mean=0.0441,auc.test.mean=0.994,timetrain.test.mean=0.029
+[Resample] Aggr. Result: acc.test.mean=0.977,brier.test.mean=0.0237,auc.test.mean=0.998,timetrain.test.mean=0.0482
+
+### [bt 2017-03-20 23:17:21]: Job terminated successfully [batchtools job.id=89]
+### [bt 2017-03-20 23:17:21]: Calculation finished!

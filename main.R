@@ -35,6 +35,11 @@ get_data_OpenML(target_path = "Data/OpenML/clas_time.RData", force = FALSE, comp
 
 
 ## 1.2 Benchmark computation ---
+
+###########################################
+########## High Computation time ##########
+###########################################
+
 # Batchtools implementation
 source(file = "Benchmark/benchmark_batchtools.R")
 load("Data/OpenML/clas_time.RData")
@@ -91,11 +96,21 @@ ResultsMetaLearning(df.bmr.diff)
 ## 4. Simulations  ======================================================================================
 
 # 4.1 Subset analysis on 1 dataset
+
+# 4.1.1 Computation
+
+###########################################
+########## High Computation time ##########
+###########################################
+
 source("Simulations/Dataset_Subset_Analysis.R")
 load(file = "Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
 subsetAnalysis_computeParallel(clas_used, nCores = nCores)
+
+# 4.1.2 Visualization
+
 subsetAnalysis_visualization()
 
 
@@ -117,6 +132,11 @@ PlotPartialDependanceExample()
 ## 5 Study of partial difference plots  ======================================================================================
 
 ## 5.1 Computation of the difference in Partial Dependence ---
+
+###########################################
+########## High Computation time ##########
+###########################################
+
 # Batchtools implementation
 source(file = "Additional_Files/PartialDependence_Batchtools.R")
 load("Data/Results/df_bmr.RData")
