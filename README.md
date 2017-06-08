@@ -5,7 +5,7 @@
 
 #### 1. Installation
 1. Create an OpenML account, and generate an API key
-2. Get the GitHub code [here](https://github.com/RaphaelCouronne/IBE_Benchmark-OpenML)
+2. Get the GitHub code [here](https://github.com/RaphaelCouronne/Benchmark_RF-LR_OpenML)
 3. Optional : **set up Docker as presented below, for a reproducible environment**
 
 
@@ -74,19 +74,19 @@ You might have to change the default parameters for your docker machine, such as
 
 
 #### 3. Get the Docker image associated with the benchmark
-The Docker image can be found on [DockerHub](https://hub.docker.com/r/shadoko/docker_java_packages/). You can pull the image (around 2.4gb) to your system via the command line :
+The Docker image can be found on [DockerHub](https://hub.docker.com/r/shadoko/docker_benchmark_RF-LR/). You can pull the image (around 2.4gb) to your system via the command line :
 
-	> docker pull shadoko/docker_java_packages:version3
+	> docker pull shadoko/docker_benchmark_RF-LR:version1
 
 Note that in DockerHub the Dockerbuild file was given so that the image can be recomputed. However, some dependancies may have changed since the version used for the benchmark, so we recommand using a fixed version of the image: shadoko/docker_java_packages:version3
 
 #### 4. Generate a Rstudio instance that you can connect to
-    > docker run --rm -p 8787:8787 -v /Users/myname/myFolder:/home/rstudio/Docker-Benchmark/ shadoko/docker_java_packages:version3
+    > docker run --rm -p 8787:8787 -v /Users/myname/myFolder:/home/rstudio/Docker-Benchmark/ shadoko/docker_benchmark_RF-LR:version1
 
     -- rm indicates that the container will be deleted when stopped
     -p 8787:8787 indicates that the Rstudio instance will be available on port 8787
     -v /myComputerPath/:/myContainerPath/ link a volume from your computer to your container VM, so that you can for example open your R project
-    shadoko/docker_java_packages:version3  refers to the docker image you want to create a container from
+    shadoko/docker_benchmark_RF-LR:version1  refers to the docker image you want to create a container from
 
 Here you should link your docker container with a folder containing the GitHub project.  
 Note : for windows OS syntax is different, and the User Public is recommended for rights issues /c/Users/Public/MyFolder:/home/rstudio/Project 
@@ -95,7 +95,7 @@ Note : for windows OS syntax is different, and the User Public is recommended fo
 #### 5. Connect to your Rstudio instance
 1. Check the IP of your computer which should look like 192.168.0.12
 2. In your browser enter http://myContainerIP:8787 and sign in with id=rstudio and password=rstudio
-
+Alternatively use http://0.0.0.0:8787
 
 #### 6. After use, close Docker
 Close the container. In the command line use ctrl+c to close the container.  
