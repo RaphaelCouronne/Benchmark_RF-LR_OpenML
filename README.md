@@ -7,6 +7,7 @@
 1. Create an OpenML account, and generate an API key
 2. Get the GitHub code [here](https://github.com/RaphaelCouronne/Benchmark_RF-LR_OpenML)
 3. Optional : **set up Docker as presented below, for a reproducible environment**
+Note that files are already included in the Docker image.
 
 
 #### 2. Set up main.R
