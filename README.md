@@ -60,6 +60,8 @@ Computation of the difference in partial dependance between RF and LR for all th
 
 ## Instructions for Setting up Docker
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.804427.svg)](https://doi.org/10.5281/zenodo.804427)
+
 #### 1. Install Docker
 More information can be found on the [Docker Website](https://docs.docker.com/engine/installation/)
 
@@ -89,7 +91,7 @@ Note that in DockerHub the Dockerbuild file was given so that the image can be r
     -v /myComputerPath/:/myContainerPath/ link a volume from your computer to your container VM, so that you can for example open your R project
     shadoko/docker_benchmark_RF-LR:version1  refers to the docker image you want to create a container from
 
-Here you should link your docker container with a folder containing the GitHub project.  
+The GitHub code is already included in the Docker image. You can also link your docker container with a folder containing the GitHub project.  
 Note : for windows OS syntax is different, and the User Public is recommended for rights issues /c/Users/Public/MyFolder:/home/rstudio/Project 
 
 
