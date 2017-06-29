@@ -1,5 +1,6 @@
 [![DOI](https://zenodo.org/badge/65920602.svg)](https://zenodo.org/badge/latestdoi/65920602)
 
+Code supporting the paper : Random forest versus logistic regression: a large-scale benchmark experiment
 
 ## Instructions for launching the benchmark
 
