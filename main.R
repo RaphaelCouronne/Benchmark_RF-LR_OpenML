@@ -12,6 +12,9 @@ library(cowplot)
 library(RWeka) 
 library(doParallel)
 library(batchtools)
+library(gridExtra)
+library(cowplot)
+library(doParallel)
 
 # Enter here nCores and myapikey
 nCores = 3 # number of Cpus you want to use
@@ -47,7 +50,7 @@ clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
 # Set up the benchmark (delete current results)
 setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used)
-regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//")
+regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//", writeable = TRUE)
 
 # Launch benchmark
 submitJobs(ids = 1:193, reg = regis) #small datasets
