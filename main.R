@@ -58,6 +58,7 @@ submitJobs(ids = 194:231, reg = regis) #medium datasets
 submitJobs(ids = 232:278, reg = regis) #big datasets
 
 # Check benchmark
+submitJobs(ids = 1:10, reg = regis) #small datasets
 getStatus()
 
 
@@ -68,7 +69,7 @@ regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//", writeable 
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 source(file = "Benchmark/benchmark_Results_Conversion.R")
-convert_results(clas_used = clas_used, result = result, target_path = "Data/Results/df_bmr.RData")
+convert_results(clas_used = clas_used, regis = regis, target_path = "Data/Results/df_bmr.RData")
 
 # 2.2 Overall Visualization
 load(file = "Data/Results/df_bmr.RData")

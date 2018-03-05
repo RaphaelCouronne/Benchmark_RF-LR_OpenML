@@ -1,4 +1,4 @@
-convert_results <- function(clas_used, result, target_path) {
+convert_results <- function(clas_used, regis, target_path) {
   
   library(mlr)
   library(gridExtra)
