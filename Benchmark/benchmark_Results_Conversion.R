@@ -1,5 +1,10 @@
 convert_results <- function(clas_used, result, target_path) {
   
+  
+  las_used = clas_used
+  result = result
+  target_path = "Data/Results/df_bmr.RData"
+  
   library(mlr)
   library(gridExtra)
   library(ggplot2)
