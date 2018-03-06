@@ -37,6 +37,12 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 source(file = "Benchmark/benchmark_getData_OpenML.R")
 get_data_OpenML(target_path = "Data/OpenML/clas_time.RData", force = FALSE, computeTime = FALSE)
 
+## ----
+plot(log10(clas_time$time), log10(clas_time$number.of.features*clas_time$number.of.instances))
+lines(c(-3,5),c(6,6))
+lines(c(2,2),c(0,10))
+title("Computation time vs n*p, log scale")
+
 
 ## 1.2 Benchmark computation ---
 
@@ -48,6 +54,7 @@ get_data_OpenML(target_path = "Data/OpenML/clas_time.RData", force = FALSE, comp
 source(file = "Benchmark/benchmark_batchtools.R")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+clas_used = rbind(clas_time_small)[1:10,]
 
 # Set up the benchmark (delete current results)
 setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used)
@@ -69,7 +76,7 @@ regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//", writeable 
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 source(file = "Benchmark/benchmark_Results_Conversion.R")
-convert_results(clas_used = clas_used, result = result, target_path = "Data/Results/df_bmr.RData")
+convert_results(clas_used = clas_used, regis = regis, target_path = "Data/Results/df_bmr.RData")
 
 # 2.2 Overall Visualization
 load(file = "Data/Results/df_bmr.RData")

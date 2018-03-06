@@ -1,0 +1,156 @@
+### [bt 2018-03-05 19:18:56]: This is batchtools v0.9.8
+### [bt 2018-03-05 19:18:56]: Starting calculation of 1 jobs
+### [bt 2018-03-05 19:18:56]: Setting working directory to '/Users/raphael.couronne/Programming/Perso/Munich/Benchmark_RF-LR_OpenML/Data/Results/Batchtools'
+### [bt 2018-03-05 19:18:56]: Memory measurement disabled
+### [bt 2018-03-05 19:18:56]: Starting job [batchtools job.id=3]
+Generating problem instance for problem '905' ...
+Applying algorithm 'eval' on problem '905' ...
+Data '905' file 'description.xml' found in cache.
+Data '905' file 'dataset.arff' found in cache.
+Task: chscase_adopt, Learner: classif.logreg
+[Resample] repeated cross-validation iter 1: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=   1,brier.test.mean=0.0368,auc.test.mean=   1,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 2: Warning: glm.fit: algorithm did not converge
+Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.667,brier.test.mean=0.333,auc.test.mean= 0.5,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 3: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.714,brier.test.mean=0.217,auc.test.mean= 0.8,timetrain.test.mean=0.002
+[Resample] repeated cross-validation iter 4: acc.test.mean=   1,brier.test.mean=0.0523,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 5: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.875,brier.test.mean=0.0618,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 6: acc.test.mean=   1,brier.test.mean=0.0284,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 7: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.714,brier.test.mean=0.265,auc.test.mean= 0.3,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 8: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.857,brier.test.mean=0.159,auc.test.mean= 0.8,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 9: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.778,brier.test.mean=0.176,auc.test.mean=0.778,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 10: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=   1,brier.test.mean=0.013,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 11: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.889,brier.test.mean=0.102,auc.test.mean=0.889,timetrain.test.mean=0.002
+[Resample] repeated cross-validation iter 12: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=   1,brier.test.mean=0.0493,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 13: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=   1,brier.test.mean=0.0324,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 14: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.625,brier.test.mean=0.228,auc.test.mean=0.583,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 15: acc.test.mean=0.875,brier.test.mean=0.119,auc.test.mean=0.733,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 16: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.714,brier.test.mean=0.133,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 17: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.875,brier.test.mean=0.068,auc.test.mean=   1,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 18: acc.test.mean=   1,brier.test.mean=0.0302,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 19: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.875,brier.test.mean=0.101,auc.test.mean=0.917,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 20: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.625,brier.test.mean=0.379,auc.test.mean=0.267,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 21: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.889,brier.test.mean=0.125,auc.test.mean=0.778,timetrain.test.mean=0.002
+[Resample] repeated cross-validation iter 22: acc.test.mean=0.889,brier.test.mean=0.114,auc.test.mean=0.889,timetrain.test.mean=0.002
+[Resample] repeated cross-validation iter 23: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.857,brier.test.mean=0.16,auc.test.mean= 0.8,timetrain.test.mean=0.002
+[Resample] repeated cross-validation iter 24: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.857,brier.test.mean=0.139,auc.test.mean= 0.7,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 25: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.714,brier.test.mean=0.13,auc.test.mean= 0.9,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 26: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.857,brier.test.mean=0.0786,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 27: acc.test.mean=0.889,brier.test.mean=0.125,auc.test.mean=0.778,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 28: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.857,brier.test.mean=0.0963,auc.test.mean= 0.9,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 29: acc.test.mean=0.857,brier.test.mean=0.195,auc.test.mean= 0.8,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 30: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.778,brier.test.mean=0.208,auc.test.mean=0.778,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 31: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=   1,brier.test.mean=0.036,auc.test.mean=   1,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 32: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=   1,brier.test.mean=0.0272,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 33: acc.test.mean=0.778,brier.test.mean=0.147,auc.test.mean=0.889,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 34: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.714,brier.test.mean=0.188,auc.test.mean= 0.5,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 35: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.75,brier.test.mean=0.246,auc.test.mean=0.533,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 36: acc.test.mean=0.875,brier.test.mean=0.0823,auc.test.mean=   1,timetrain.test.mean=0.002
+[Resample] repeated cross-validation iter 37: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.778,brier.test.mean=0.238,auc.test.mean=0.556,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 38: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.857,brier.test.mean=0.161,auc.test.mean= 0.8,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 39: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.875,brier.test.mean=0.173,auc.test.mean= 0.5,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 40: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.857,brier.test.mean=0.114,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 41: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.875,brier.test.mean=0.117,auc.test.mean=0.75,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 42: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.889,brier.test.mean=0.109,auc.test.mean=0.778,timetrain.test.mean=0.004
+[Resample] repeated cross-validation iter 43: acc.test.mean=0.875,brier.test.mean=0.0803,auc.test.mean=0.933,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 44: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.714,brier.test.mean=0.264,auc.test.mean= 0.8,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 45: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.857,brier.test.mean=0.114,auc.test.mean= 0.9,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 46: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.875,brier.test.mean=0.0832,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 47: acc.test.mean=0.75,brier.test.mean=0.226,auc.test.mean=0.867,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 48: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.857,brier.test.mean=0.145,auc.test.mean= 0.6,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 49: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=0.875,brier.test.mean=0.154,auc.test.mean= 0.8,timetrain.test.mean=0.003
+[Resample] repeated cross-validation iter 50: Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+acc.test.mean=   1,brier.test.mean=0.023,auc.test.mean=   1,timetrain.test.mean=0.003
+[Resample] Aggr. Result: acc.test.mean=0.852,brier.test.mean=0.134,auc.test.mean=0.822,timetrain.test.mean=0.00324
+Task: chscase_adopt, Learner: classif.randomForest
+[Resample] repeated cross-validation iter 1: acc.test.mean=0.857,brier.test.mean=0.087,auc.test.mean= 0.9,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 2: acc.test.mean=0.667,brier.test.mean=0.333,auc.test.mean=0.417,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 3: acc.test.mean=0.714,brier.test.mean=0.171,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 4: acc.test.mean=0.875,brier.test.mean=0.0963,auc.test.mean=0.933,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 5: acc.test.mean=0.875,brier.test.mean=0.101,auc.test.mean=0.917,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 6: acc.test.mean=0.778,brier.test.mean=0.117,auc.test.mean=   1,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 7: acc.test.mean=0.714,brier.test.mean=0.277,auc.test.mean= 0.5,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 8: acc.test.mean=0.571,brier.test.mean=0.198,auc.test.mean= 0.6,timetrain.test.mean=0.009
+[Resample] repeated cross-validation iter 9: acc.test.mean=0.778,brier.test.mean=0.195,auc.test.mean=0.694,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 10: acc.test.mean=0.857,brier.test.mean=0.0572,auc.test.mean=   1,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 11: acc.test.mean=0.778,brier.test.mean=0.165,auc.test.mean=0.778,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 12: acc.test.mean=0.714,brier.test.mean=0.109,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 13: acc.test.mean=   1,brier.test.mean=0.0151,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 14: acc.test.mean=0.625,brier.test.mean=0.239,auc.test.mean=0.583,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 15: acc.test.mean=0.875,brier.test.mean=0.115,auc.test.mean=   1,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 16: acc.test.mean=0.714,brier.test.mean=0.114,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 17: acc.test.mean=0.75,brier.test.mean=0.114,auc.test.mean=0.917,timetrain.test.mean=0.011
+[Resample] repeated cross-validation iter 18: acc.test.mean=   1,brier.test.mean=0.0426,auc.test.mean=   1,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 19: acc.test.mean=0.75,brier.test.mean=0.202,auc.test.mean=0.542,timetrain.test.mean=0.005
+[Resample] repeated cross-validation iter 20: acc.test.mean=0.625,brier.test.mean=0.321,auc.test.mean=0.333,timetrain.test.mean=0.005
+[Resample] repeated cross-validation iter 21: acc.test.mean=0.778,brier.test.mean=0.151,auc.test.mean=0.806,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 22: acc.test.mean=0.778,brier.test.mean=0.163,auc.test.mean=0.778,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 23: acc.test.mean=0.857,brier.test.mean=0.0517,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 24: acc.test.mean=0.714,brier.test.mean=0.221,auc.test.mean= 0.6,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 25: acc.test.mean=0.714,brier.test.mean=0.181,auc.test.mean= 0.8,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 26: acc.test.mean=   1,brier.test.mean=0.0529,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 27: acc.test.mean=0.889,brier.test.mean=0.119,auc.test.mean=0.722,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 28: acc.test.mean=0.714,brier.test.mean=0.148,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 29: acc.test.mean=0.714,brier.test.mean=0.161,auc.test.mean= 0.7,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 30: acc.test.mean=0.667,brier.test.mean=0.263,auc.test.mean=0.444,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 31: acc.test.mean=0.875,brier.test.mean=0.0634,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 32: acc.test.mean=0.857,brier.test.mean=0.0772,auc.test.mean= 0.9,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 33: acc.test.mean=0.778,brier.test.mean=0.199,auc.test.mean=0.694,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 34: acc.test.mean=0.857,brier.test.mean=0.184,auc.test.mean= 0.7,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 35: acc.test.mean=0.75,brier.test.mean=0.175,auc.test.mean=0.667,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 36: acc.test.mean=0.75,brier.test.mean=0.125,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 37: acc.test.mean=0.667,brier.test.mean=0.251,auc.test.mean= 0.5,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 38: acc.test.mean=0.857,brier.test.mean=0.0818,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 39: acc.test.mean=0.875,brier.test.mean=0.0626,auc.test.mean=   1,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 40: acc.test.mean=0.714,brier.test.mean=0.218,auc.test.mean=0.55,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 41: acc.test.mean=0.875,brier.test.mean=0.118,auc.test.mean=0.875,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 42: acc.test.mean=0.778,brier.test.mean=0.168,auc.test.mean=0.722,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 43: acc.test.mean=   1,brier.test.mean=0.0123,auc.test.mean=   1,timetrain.test.mean=0.008
+[Resample] repeated cross-validation iter 44: acc.test.mean=0.714,brier.test.mean=0.208,auc.test.mean= 0.6,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 45: acc.test.mean=0.857,brier.test.mean=0.11,auc.test.mean=   1,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 46: acc.test.mean=0.875,brier.test.mean=0.0941,auc.test.mean=   1,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 47: acc.test.mean=0.875,brier.test.mean=0.19,auc.test.mean=0.733,timetrain.test.mean=0.006
+[Resample] repeated cross-validation iter 48: acc.test.mean=0.857,brier.test.mean=0.132,auc.test.mean=0.65,timetrain.test.mean=0.01
+[Resample] repeated cross-validation iter 49: acc.test.mean=0.875,brier.test.mean=0.185,auc.test.mean=0.667,timetrain.test.mean=0.007
+[Resample] repeated cross-validation iter 50: acc.test.mean=0.75,brier.test.mean=0.0958,auc.test.mean=   1,timetrain.test.mean=0.007
+[Resample] Aggr. Result: acc.test.mean=0.796,brier.test.mean=0.147,auc.test.mean=0.804,timetrain.test.mean=0.00724
+
+### [bt 2018-03-05 19:18:58]: Job terminated successfully [batchtools job.id=3]
+### [bt 2018-03-05 19:18:58]: Calculation finished!
