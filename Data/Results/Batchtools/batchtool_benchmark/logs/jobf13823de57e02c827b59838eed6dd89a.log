@@ -1,0 +1,306 @@
+### [bt 2018-03-13 16:12:35]: This is batchtools v0.9.8
+### [bt 2018-03-13 16:12:35]: Starting calculation of 1 jobs
+### [bt 2018-03-13 16:12:35]: Setting working directory to '/Users/raphael.couronne/Programming/Perso/Munich/Benchmark_RF-LR_OpenML/Data/Results/Batchtools'
+### [bt 2018-03-13 16:12:35]: Memory measurement disabled
+### [bt 2018-03-13 16:12:35]: Starting job [batchtools job.id=8]
+Generating problem instance for problem '848' ...
+Applying algorithm 'eval' on problem '848' ...
+Data '848' file 'description.xml' found in cache.
+Data '848' file 'dataset.arff' found in cache.
+Task: schlvote, Learner: classif.logreg
+Resampling: cross-validation
+Measures:             acc         brier       auc         timetrain   
+[Resample] iter 1:    0.8571429   0.1122480   0.9000000   0.0030000   
+[Resample] iter 2:    0.7500000   0.2003961   0.5833333   0.0020000   
+[Resample] iter 3:    1.0000000   0.0405614   1.0000000   0.0120000   
+[Resample] iter 4:    0.7500000   0.1829132   0.6666667   0.0030000   
+[Resample] iter 5:    0.6250000   0.2462063   0.6666667   0.0030000   
+
+
+Aggregated Result: acc.test.mean=0.7964286,brier.test.mean=0.1564650,auc.test.mean=0.7633333,timetrain.test.mean=0.0046000
+
+
+Task: schlvote, Learner: classif.randomForest
+Resampling: cross-validation
+Measures:             acc         brier       auc         timetrain   
+[Resample] iter 1:    0.8571429   0.1449829   0.9000000   0.0090000   
+[Resample] iter 2:    0.6250000   0.2332035   0.5833333   0.0110000   
+[Resample] iter 3:    1.0000000   0.0658754   1.0000000   0.0090000   
+[Resample] iter 4:    0.7500000   0.1986995   0.7500000   0.0090000   
+[Resample] iter 5:    0.8750000   0.1569285   0.5833333   0.0090000   
+
+
+Aggregated Result: acc.test.mean=0.8214286,brier.test.mean=0.1599380,auc.test.mean=0.7633333,timetrain.test.mean=0.0094000
+
+
+Task: schlvote, Learner: classif.tuneRanger
+Resampling: cross-validation
+Measures:             acc         brier       auc         timetrain   
+Computing y column(s) for design. Not provided.
+[mbo] 0: mtry=4; min.node.size=5; sample.fraction=0.622 : y = 0.164 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=3; sample.fraction=0.708 : y = 0.16 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=5; sample.fraction=0.802 : y = 0.164 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.417 : y = 0.167 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.525 : y = 0.162 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.268 : y = 0.181 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.609 : y = 0.161 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=3; sample.fraction=0.365 : y = 0.17 : 0.2 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=4; sample.fraction=0.317 : y = 0.186 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.773 : y = 0.166 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=4; sample.fraction=0.725 : y = 0.163 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=5; sample.fraction=0.555 : y = 0.165 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=7; sample.fraction=0.681 : y = 0.178 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=3; sample.fraction=0.489 : y = 0.169 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=3; sample.fraction=0.532 : y = 0.169 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=3; sample.fraction=0.397 : y = 0.173 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.201 : y = 0.18 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=4; sample.fraction=0.896 : y = 0.155 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=3; sample.fraction=0.318 : y = 0.172 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.662 : y = 0.162 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=5; sample.fraction=0.476 : y = 0.181 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=6; sample.fraction=0.341 : y = 0.177 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=3; sample.fraction=0.588 : y = 0.165 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.874 : y = 0.162 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=3; sample.fraction=0.807 : y = 0.167 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=4; sample.fraction=0.243 : y = 0.183 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.29 : y = 0.173 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.85 : y = 0.199 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.434 : y = 0.18 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=6; sample.fraction=0.757 : y = 0.162 : 0.1 secs : initdesign
+[mbo] 1: mtry=3; min.node.size=4; sample.fraction=0.822 : y = 0.156 : 0.1 secs : infill_cb
+[mbo] 2: mtry=3; min.node.size=6; sample.fraction=0.896 : y = 0.158 : 0.1 secs : infill_cb
+[mbo] 3: mtry=3; min.node.size=4; sample.fraction=0.883 : y = 0.154 : 0.1 secs : infill_cb
+[mbo] 4: mtry=3; min.node.size=3; sample.fraction=0.893 : y = 0.152 : 0.1 secs : infill_cb
+[mbo] 5: mtry=3; min.node.size=3; sample.fraction=0.894 : y = 0.166 : 0.1 secs : infill_cb
+[mbo] 6: mtry=3; min.node.size=4; sample.fraction=0.877 : y = 0.159 : 0.1 secs : infill_cb
+[mbo] 7: mtry=3; min.node.size=4; sample.fraction=0.889 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 8: mtry=3; min.node.size=4; sample.fraction=0.884 : y = 0.156 : 0.1 secs : infill_cb
+[mbo] 9: mtry=3; min.node.size=4; sample.fraction=0.849 : y = 0.153 : 0.1 secs : infill_cb
+[mbo] 10: mtry=3; min.node.size=4; sample.fraction=0.835 : y = 0.16 : 0.1 secs : infill_cb
+[mbo] 11: mtry=3; min.node.size=4; sample.fraction=0.885 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 12: mtry=3; min.node.size=4; sample.fraction=0.894 : y = 0.156 : 0.1 secs : infill_cb
+[mbo] 13: mtry=3; min.node.size=4; sample.fraction=0.897 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 14: mtry=3; min.node.size=4; sample.fraction=0.877 : y = 0.155 : 0.1 secs : infill_cb
+[mbo] 15: mtry=2; min.node.size=4; sample.fraction=0.899 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 16: mtry=3; min.node.size=4; sample.fraction=0.875 : y = 0.158 : 0.1 secs : infill_cb
+[mbo] 17: mtry=3; min.node.size=4; sample.fraction=0.893 : y = 0.159 : 0.1 secs : infill_cb
+[mbo] 18: mtry=3; min.node.size=4; sample.fraction=0.881 : y = 0.153 : 0.1 secs : infill_cb
+[mbo] 19: mtry=3; min.node.size=4; sample.fraction=0.87 : y = 0.155 : 0.2 secs : infill_cb
+[mbo] 20: mtry=3; min.node.size=4; sample.fraction=0.868 : y = 0.159 : 0.1 secs : infill_cb
+[Resample] iter 1:    0.8571429   0.1402741   0.9000000   9.4630000   
+Computing y column(s) for design. Not provided.
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.333 : y = 0.156 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=4; sample.fraction=0.651 : y = 0.163 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=5; sample.fraction=0.44 : y = 0.154 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.679 : y = 0.171 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.535 : y = 0.164 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.745 : y = 0.161 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=4; sample.fraction=0.593 : y = 0.164 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.494 : y = 0.157 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=3; sample.fraction=0.459 : y = 0.159 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=3; sample.fraction=0.783 : y = 0.174 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=6; sample.fraction=0.313 : y = 0.155 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.417 : y = 0.158 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=4; sample.fraction=0.691 : y = 0.162 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=3; sample.fraction=0.237 : y = 0.161 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.211 : y = 0.165 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=6; sample.fraction=0.51 : y = 0.156 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.733 : y = 0.161 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=3; sample.fraction=0.622 : y = 0.163 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=5; sample.fraction=0.78 : y = 0.178 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=3; sample.fraction=0.269 : y = 0.156 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=3; sample.fraction=0.884 : y = 0.161 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=4; sample.fraction=0.562 : y = 0.163 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.353 : y = 0.168 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.61 : y = 0.158 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=4; sample.fraction=0.39 : y = 0.17 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=6; sample.fraction=0.871 : y = 0.164 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.287 : y = 0.157 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=3; sample.fraction=0.838 : y = 0.193 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.818 : y = 0.159 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=5; sample.fraction=0.383 : y = 0.158 : 0.1 secs : initdesign
+[mbo] 1: mtry=3; min.node.size=6; sample.fraction=0.501 : y = 0.156 : 0.1 secs : infill_cb
+[mbo] 2: mtry=3; min.node.size=5; sample.fraction=0.438 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 3: mtry=5; min.node.size=4; sample.fraction=0.373 : y = 0.152 : 0.1 secs : infill_cb
+[mbo] 4: mtry=5; min.node.size=4; sample.fraction=0.393 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 5: mtry=5; min.node.size=4; sample.fraction=0.356 : y = 0.158 : 0.1 secs : infill_cb
+[mbo] 6: mtry=3; min.node.size=4; sample.fraction=0.496 : y = 0.16 : 0.1 secs : infill_cb
+[mbo] 7: mtry=5; min.node.size=6; sample.fraction=0.338 : y = 0.158 : 0.1 secs : infill_cb
+[mbo] 8: mtry=5; min.node.size=3; sample.fraction=0.347 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 9: mtry=5; min.node.size=4; sample.fraction=0.313 : y = 0.158 : 0.1 secs : infill_cb
+[mbo] 10: mtry=5; min.node.size=3; sample.fraction=0.375 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 11: mtry=5; min.node.size=5; sample.fraction=0.372 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 12: mtry=3; min.node.size=6; sample.fraction=0.424 : y = 0.159 : 0.1 secs : infill_cb
+[mbo] 13: mtry=5; min.node.size=4; sample.fraction=0.37 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 14: mtry=5; min.node.size=4; sample.fraction=0.365 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 15: mtry=5; min.node.size=3; sample.fraction=0.364 : y = 0.158 : 0.1 secs : infill_cb
+[mbo] 16: mtry=5; min.node.size=5; sample.fraction=0.229 : y = 0.161 : 0.1 secs : infill_cb
+[mbo] 17: mtry=4; min.node.size=3; sample.fraction=0.229 : y = 0.16 : 0.1 secs : infill_cb
+[mbo] 18: mtry=5; min.node.size=3; sample.fraction=0.348 : y = 0.155 : 0.1 secs : infill_cb
+[mbo] 19: mtry=5; min.node.size=2; sample.fraction=0.35 : y = 0.154 : 0.1 secs : infill_cb
+[mbo] 20: mtry=5; min.node.size=2; sample.fraction=0.354 : y = 0.156 : 0.1 secs : infill_cb
+[Resample] iter 2:    0.7500000   0.2113887   0.5000000   8.5380000   
+Computing y column(s) for design. Not provided.
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.634 : y = 0.207 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=4; sample.fraction=0.412 : y = 0.204 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=4; sample.fraction=0.777 : y = 0.207 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=5; sample.fraction=0.406 : y = 0.203 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.684 : y = 0.219 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=5; sample.fraction=0.791 : y = 0.231 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=3; sample.fraction=0.5 : y = 0.203 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.586 : y = 0.216 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.359 : y = 0.202 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=5; sample.fraction=0.733 : y = 0.212 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=4; sample.fraction=0.315 : y = 0.193 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.443 : y = 0.203 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=3; sample.fraction=0.758 : y = 0.246 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.608 : y = 0.207 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=3; sample.fraction=0.649 : y = 0.214 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=3; sample.fraction=0.893 : y = 0.218 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=3; sample.fraction=0.265 : y = 0.2 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.507 : y = 0.207 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=4; sample.fraction=0.274 : y = 0.2 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=3; sample.fraction=0.317 : y = 0.196 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=7; sample.fraction=0.384 : y = 0.193 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=6; sample.fraction=0.851 : y = 0.212 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.53 : y = 0.214 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.223 : y = 0.196 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=4; sample.fraction=0.871 : y = 0.219 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.713 : y = 0.211 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.24 : y = 0.2 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=5; sample.fraction=0.563 : y = 0.214 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=6; sample.fraction=0.457 : y = 0.195 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.817 : y = 0.239 : 0.1 secs : initdesign
+[mbo] 1: mtry=2; min.node.size=7; sample.fraction=0.213 : y = 0.205 : 0.1 secs : infill_cb
+[mbo] 2: mtry=1; min.node.size=7; sample.fraction=0.366 : y = 0.197 : 0.1 secs : infill_cb
+[mbo] 3: mtry=3; min.node.size=7; sample.fraction=0.339 : y = 0.193 : 0.1 secs : infill_cb
+[mbo] 4: mtry=3; min.node.size=6; sample.fraction=0.329 : y = 0.195 : 0.1 secs : infill_cb
+[mbo] 5: mtry=2; min.node.size=5; sample.fraction=0.356 : y = 0.198 : 0.1 secs : infill_cb
+[mbo] 6: mtry=3; min.node.size=7; sample.fraction=0.338 : y = 0.193 : 0.1 secs : infill_cb
+[mbo] 7: mtry=3; min.node.size=7; sample.fraction=0.333 : y = 0.195 : 0.1 secs : infill_cb
+[mbo] 8: mtry=1; min.node.size=4; sample.fraction=0.47 : y = 0.2 : 0.1 secs : infill_cb
+[mbo] 9: mtry=3; min.node.size=7; sample.fraction=0.328 : y = 0.194 : 0.1 secs : infill_cb
+[mbo] 10: mtry=3; min.node.size=7; sample.fraction=0.353 : y = 0.193 : 0.1 secs : infill_cb
+[mbo] 11: mtry=2; min.node.size=7; sample.fraction=0.449 : y = 0.197 : 0.1 secs : infill_cb
+[mbo] 12: mtry=3; min.node.size=4; sample.fraction=0.355 : y = 0.204 : 0.1 secs : infill_cb
+[mbo] 13: mtry=3; min.node.size=7; sample.fraction=0.309 : y = 0.19 : 0.1 secs : infill_cb
+[mbo] 14: mtry=3; min.node.size=7; sample.fraction=0.328 : y = 0.194 : 0.1 secs : infill_cb
+[mbo] 15: mtry=3; min.node.size=7; sample.fraction=0.305 : y = 0.194 : 0.1 secs : infill_cb
+[mbo] 16: mtry=3; min.node.size=7; sample.fraction=0.312 : y = 0.189 : 0.1 secs : infill_cb
+[mbo] 17: mtry=3; min.node.size=6; sample.fraction=0.301 : y = 0.191 : 0.1 secs : infill_cb
+[mbo] 18: mtry=3; min.node.size=6; sample.fraction=0.315 : y = 0.197 : 0.1 secs : infill_cb
+[mbo] 19: mtry=1; min.node.size=7; sample.fraction=0.317 : y = 0.194 : 0.1 secs : infill_cb
+[mbo] 20: mtry=3; min.node.size=7; sample.fraction=0.302 : y = 0.192 : 0.1 secs : infill_cb
+[Resample] iter 3:    0.8571429   0.1034773   1.0000000   8.4510000   
+Computing y column(s) for design. Not provided.
+[mbo] 0: mtry=4; min.node.size=6; sample.fraction=0.513 : y = 0.165 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.891 : y = 0.196 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=3; sample.fraction=0.396 : y = 0.178 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=5; sample.fraction=0.801 : y = 0.177 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=4; sample.fraction=0.323 : y = 0.164 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.712 : y = 0.198 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.362 : y = 0.17 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.634 : y = 0.174 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=3; sample.fraction=0.578 : y = 0.164 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=4; sample.fraction=0.782 : y = 0.175 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.822 : y = 0.182 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.28 : y = 0.166 : 0.2 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=5; sample.fraction=0.467 : y = 0.158 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.558 : y = 0.175 : 0.2 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=4; sample.fraction=0.608 : y = 0.169 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=4; sample.fraction=0.385 : y = 0.156 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.453 : y = 0.167 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=3; sample.fraction=0.244 : y = 0.169 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=5; sample.fraction=0.421 : y = 0.164 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=3; sample.fraction=0.726 : y = 0.19 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=6; sample.fraction=0.748 : y = 0.187 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.532 : y = 0.168 : 0.2 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=4; sample.fraction=0.301 : y = 0.173 : 0.3 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=5; sample.fraction=0.648 : y = 0.175 : 0.3 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=3; sample.fraction=0.843 : y = 0.18 : 0.2 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.684 : y = 0.167 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=3; sample.fraction=0.248 : y = 0.163 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.212 : y = 0.176 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.864 : y = 0.199 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=6; sample.fraction=0.499 : y = 0.155 : 0.1 secs : initdesign
+[mbo] 1: mtry=3; min.node.size=6; sample.fraction=0.455 : y = 0.16 : 0.1 secs : infill_cb
+[mbo] 2: mtry=3; min.node.size=6; sample.fraction=0.469 : y = 0.16 : 0.1 secs : infill_cb
+[mbo] 3: mtry=3; min.node.size=6; sample.fraction=0.466 : y = 0.16 : 0.1 secs : infill_cb
+[mbo] 4: mtry=3; min.node.size=6; sample.fraction=0.471 : y = 0.163 : 0.1 secs : infill_cb
+[mbo] 5: mtry=3; min.node.size=5; sample.fraction=0.476 : y = 0.162 : 0.1 secs : infill_cb
+[mbo] 6: mtry=3; min.node.size=6; sample.fraction=0.457 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 7: mtry=3; min.node.size=6; sample.fraction=0.441 : y = 0.16 : 0.1 secs : infill_cb
+[mbo] 8: mtry=3; min.node.size=6; sample.fraction=0.439 : y = 0.159 : 0.1 secs : infill_cb
+[mbo] 9: mtry=3; min.node.size=6; sample.fraction=0.454 : y = 0.159 : 0.1 secs : infill_cb
+[mbo] 10: mtry=3; min.node.size=6; sample.fraction=0.429 : y = 0.159 : 0.1 secs : infill_cb
+[mbo] 11: mtry=3; min.node.size=6; sample.fraction=0.412 : y = 0.16 : 0.1 secs : infill_cb
+[mbo] 12: mtry=3; min.node.size=6; sample.fraction=0.464 : y = 0.159 : 0.1 secs : infill_cb
+[mbo] 13: mtry=3; min.node.size=6; sample.fraction=0.399 : y = 0.161 : 0.1 secs : infill_cb
+[mbo] 14: mtry=3; min.node.size=4; sample.fraction=0.435 : y = 0.157 : 0.1 secs : infill_cb
+[mbo] 15: mtry=2; min.node.size=6; sample.fraction=0.521 : y = 0.164 : 0.1 secs : infill_cb
+[mbo] 16: mtry=3; min.node.size=4; sample.fraction=0.445 : y = 0.155 : 0.1 secs : infill_cb
+[mbo] 17: mtry=3; min.node.size=4; sample.fraction=0.454 : y = 0.159 : 0.1 secs : infill_cb
+[mbo] 18: mtry=3; min.node.size=4; sample.fraction=0.44 : y = 0.159 : 0.1 secs : infill_cb
+[mbo] 19: mtry=3; min.node.size=4; sample.fraction=0.433 : y = 0.161 : 0.1 secs : infill_cb
+[mbo] 20: mtry=3; min.node.size=4; sample.fraction=0.451 : y = 0.157 : 0.1 secs : infill_cb
+[Resample] iter 4:    0.7500000   0.2041686   0.5000000   10.0880000  
+Computing y column(s) for design. Not provided.
+[mbo] 0: mtry=2; min.node.size=3; sample.fraction=0.628 : y = 0.2 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=3; sample.fraction=0.336 : y = 0.185 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.649 : y = 0.197 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=5; sample.fraction=0.668 : y = 0.21 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=4; sample.fraction=0.603 : y = 0.208 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.504 : y = 0.188 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=4; sample.fraction=0.796 : y = 0.215 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=3; sample.fraction=0.4 : y = 0.187 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=5; sample.fraction=0.539 : y = 0.192 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=4; sample.fraction=0.371 : y = 0.186 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.434 : y = 0.188 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=5; sample.fraction=0.268 : y = 0.182 : 0.1 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=3; sample.fraction=0.71 : y = 0.212 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=2; sample.fraction=0.842 : y = 0.214 : 0.2 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=5; sample.fraction=0.352 : y = 0.195 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.281 : y = 0.182 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=4; sample.fraction=0.741 : y = 0.2 : 0.3 secs : initdesign
+[mbo] 0: mtry=4; min.node.size=2; sample.fraction=0.775 : y = 0.221 : 0.3 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=3; sample.fraction=0.594 : y = 0.192 : 0.2 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.237 : y = 0.183 : 0.2 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=3; sample.fraction=0.461 : y = 0.196 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=4; sample.fraction=0.494 : y = 0.193 : 0.1 secs : initdesign
+[mbo] 0: mtry=3; min.node.size=2; sample.fraction=0.563 : y = 0.194 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.818 : y = 0.195 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=6; sample.fraction=0.714 : y = 0.212 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=6; sample.fraction=0.213 : y = 0.209 : 0.2 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.893 : y = 0.258 : 0.1 secs : initdesign
+[mbo] 0: mtry=5; min.node.size=2; sample.fraction=0.433 : y = 0.192 : 0.1 secs : initdesign
+[mbo] 0: mtry=2; min.node.size=6; sample.fraction=0.869 : y = 0.214 : 0.1 secs : initdesign
+[mbo] 0: mtry=1; min.node.size=2; sample.fraction=0.299 : y = 0.193 : 0.1 secs : initdesign
+[mbo] 1: mtry=4; min.node.size=2; sample.fraction=0.285 : y = 0.185 : 0.2 secs : infill_cb
+[mbo] 2: mtry=3; min.node.size=2; sample.fraction=0.254 : y = 0.185 : 0.2 secs : infill_cb
+[mbo] 3: mtry=3; min.node.size=3; sample.fraction=0.296 : y = 0.186 : 0.1 secs : infill_cb
+[mbo] 4: mtry=3; min.node.size=2; sample.fraction=0.279 : y = 0.185 : 0.1 secs : infill_cb
+[mbo] 5: mtry=3; min.node.size=2; sample.fraction=0.269 : y = 0.187 : 0.1 secs : infill_cb
+[mbo] 6: mtry=5; min.node.size=2; sample.fraction=0.311 : y = 0.185 : 0.1 secs : infill_cb
+[mbo] 7: mtry=4; min.node.size=2; sample.fraction=0.291 : y = 0.184 : 0.1 secs : infill_cb
+[mbo] 8: mtry=1; min.node.size=2; sample.fraction=0.553 : y = 0.196 : 0.2 secs : infill_cb
+[mbo] 9: mtry=5; min.node.size=2; sample.fraction=0.229 : y = 0.184 : 0.1 secs : infill_cb
+[mbo] 10: mtry=5; min.node.size=2; sample.fraction=0.342 : y = 0.188 : 0.1 secs : infill_cb
+[mbo] 11: mtry=5; min.node.size=2; sample.fraction=0.258 : y = 0.185 : 0.1 secs : infill_cb
+[mbo] 12: mtry=4; min.node.size=2; sample.fraction=0.255 : y = 0.182 : 0.1 secs : infill_cb
+[mbo] 13: mtry=4; min.node.size=2; sample.fraction=0.248 : y = 0.186 : 0.1 secs : infill_cb
+[mbo] 14: mtry=3; min.node.size=4; sample.fraction=0.262 : y = 0.185 : 0.1 secs : infill_cb
+[mbo] 15: mtry=5; min.node.size=2; sample.fraction=0.268 : y = 0.182 : 0.1 secs : infill_cb
+[mbo] 16: mtry=5; min.node.size=2; sample.fraction=0.277 : y = 0.186 : 0.1 secs : infill_cb
+[mbo] 17: mtry=4; min.node.size=2; sample.fraction=0.261 : y = 0.185 : 0.1 secs : infill_cb
+[mbo] 18: mtry=3; min.node.size=4; sample.fraction=0.296 : y = 0.185 : 0.1 secs : infill_cb
+[mbo] 19: mtry=5; min.node.size=2; sample.fraction=0.252 : y = 0.184 : 0.1 secs : infill_cb
+[mbo] 20: mtry=5; min.node.size=2; sample.fraction=0.267 : y = 0.186 : 0.1 secs : infill_cb
+[Resample] iter 5:    0.8750000   0.1678207   0.5000000   11.6540000  
+
+
+Aggregated Result: acc.test.mean=0.8178571,brier.test.mean=0.1654259,auc.test.mean=0.6800000,timetrain.test.mean=9.6388000
+
+
+
+### [bt 2018-03-13 16:13:24]: Job terminated successfully [batchtools job.id=8]
+### [bt 2018-03-13 16:13:24]: Calculation finished!

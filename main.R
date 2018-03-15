@@ -15,6 +15,7 @@ library(batchtools)
 library(gridExtra)
 library(cowplot)
 library(doParallel)
+library(mmpf)
 
 # Enter here nCores and myapikey
 nCores = 3 # number of Cpus you want to use
