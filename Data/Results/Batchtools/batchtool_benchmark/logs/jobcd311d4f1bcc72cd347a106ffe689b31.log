@@ -1,6 +1,0 @@
-### [bt 2018-03-05 16:38:22]: This is batchtools v0.9.8
-### [bt 2018-03-05 16:38:22]: Starting calculation of 1 jobs
-### [bt 2018-03-05 16:38:22]: Setting working directory to '/home/rstudio/Project/IBE_Benchmark-OpenML/Data/Batchtools'
-Warning in gzfile(file, mode) :
-  impossible d'ouvrir le fichier compressé '/Users/raphael.couronne/Programming/Perso/Munich/Benchmark_RF-LR_OpenML/Data/Results/Batchtools/batchtool_benchmark/updates/jobcd311d4f1bcc72cd347a106ffe689b31.rds', cause probable : 'No such file or directory'
-Error in gzfile(file, mode) : impossible d'ouvrir la connexion
