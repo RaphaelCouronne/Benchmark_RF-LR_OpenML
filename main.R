@@ -72,6 +72,7 @@ regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = nCores)
 submitJobs(ids = 1:193, reg = regis) #small datasets
 submitJobs(ids = 194:231, reg = regis) #medium datasets
 submitJobs(ids = 232:278, reg = regis) #big datasets
+waitForJobs()
 
 # Check benchmark
 getStatus()
@@ -83,7 +84,7 @@ getStatus()
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//", writeable = TRUE)
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
-clas_used = rbind(clas_time_small)[1:10,]
+clas_used = rbind(clas_time_small)[1:80,]
 source(file = "Benchmark/benchmark_Results_Conversion.R")
 convert_results(clas_used = clas_used, regis = regis, target_path = "Data/Results/df_bmr.RData")
 

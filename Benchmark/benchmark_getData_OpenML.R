@@ -65,7 +65,8 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
                 clas$name != "2dplanes" &
                 clas$name != "mv" &
                 clas$name != "fried" &
-                clas$name != "madelon", ]
+                clas$name != "madelon" &
+                clas$name != "SEA(50)", ]
   print(paste("  Number of datasets after removing the obviously simulated datasets :", dim(clas)[1]), quote = FALSE)
   print("  Datasets removed : Friedman, volcanoes, TrX-Datasets, BNG", quote = FALSE)
   
@@ -239,8 +240,7 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   # Part 6 : Select the datasets
   # ============================= ----
   print("4. Remove datasets that failed", quote = FALSE)
-  clas_select = data.frame(clas, df.infos)
-  clas_select = clas_select[, -which(names(clas_select) %in% c("task.id.1", "data.id.1"))]
+  clas_select = merge(clas, df.infos, by = c("data.id","task.id"))
   clas_select$time = clas_select$rf_time+clas_select$lr_time
   
   # remove the one with loading unsuccessfull
