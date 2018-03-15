@@ -64,7 +64,7 @@ getStatus()
 ## 2 Visualization  ======================================================================================
  
 # 2.1 Conversion of the benchmark results
-regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//", writeable = TRUE)
+regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 source(file = "Benchmark/benchmark_Results_Conversion.R")
