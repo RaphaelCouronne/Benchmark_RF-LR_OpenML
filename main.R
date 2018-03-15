@@ -61,11 +61,12 @@ lines(c(6,6),c(0,3000))
 source(file = "Benchmark/benchmark_batchtools.R")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
-clas_used = rbind(clas_time_small)[1:10,]
+clas_used = rbind(clas_time_small)[1:20,]
 
 # Set up the benchmark (delete current results)
 setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used)
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//", writeable = TRUE)
+regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = nCores) 
 
 # Launch benchmark
 submitJobs(ids = 1:193, reg = regis) #small datasets
