@@ -2,6 +2,7 @@ require(mlr)
 require(plyr)
 require(batchtools)
 require(OpenML)
+require(tuneRanger)
 
 
 
@@ -49,7 +50,7 @@ setBatchtoolsExperiment = function(seed = 1, ncpus = 2,
       # learners
       lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE)
       lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE)
-      lrn.classif.tuneranger = makeLearner("classif.tuneRanger", predict.type = "prob", fix.factors.prediction = TRUE, iters = 50, num.threads=1)
+      lrn.classif.tuneranger = makeLearner("classif.tuneRanger", predict.type = "prob", fix.factors.prediction = TRUE, iters = 20, num.threads=1)
       lrn.list = list(lrn.classif.lr,lrn.classif.rf, lrn.classif.tuneranger)
       
       # measures

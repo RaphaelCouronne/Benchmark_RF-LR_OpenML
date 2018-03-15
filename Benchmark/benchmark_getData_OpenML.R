@@ -34,18 +34,42 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   
   print("2. Remove datasets using the tasks features", quote = FALSE)
 
-  # remove the redundancies : 470 datasets
+  # remove the redundancies : 472 datasets
   clas = clas[order(clas$data.id),]
-  logic = diff(clas$data.id)>0
+  logic = diff(clas$data.id)>0 # Automatic removal of same name datasets
   clas = clas[logic,]
+  clas = clas[clas$name != "SEA(50000)" &
+                clas$name != "cal_housing",] # Hand removal from duplicated datasets
   print(paste("  Number of datasets after removing the redundacies of datasets's IDs :", dim(clas)[1]), quote = FALSE)
   
-  # Friedman-, volcanoes- und trX-Datasets : 393 datasets
-  clas = clas[substr(clas$name,1,9) != "volcanoes" & substr(clas$name,1,4) != "fri_" & substr(clas$name,1,3) != "tr1" & substr(clas$name,1,3) != "tr2" & substr(clas$name,1,3) != "tr3" & substr(clas$name,1,3) != "tr4", ]
+  # Friedman-, volcanoes- und trX-Datasets : 348 datasets
+  clas = clas[substr(clas$name,1,9) != "volcanoes" &
+                substr(clas$name,1,4) != "fri_" &
+                substr(clas$name,1,3) != "tr1" &
+                substr(clas$name,1,3) != "tr2" &
+                substr(clas$name,1,3) != "tr3" &
+                substr(clas$name,1,3) != "tr4" &
+                substr(clas$name,1,3) != "BNG" &
+                clas$name != "prnn_synth" &
+                clas$name != "prnn_fglass" &
+                clas$name != "autoPrice" &
+                clas$name != "banana" &
+                clas$name != "pollen" &
+                clas$name != "kdd_synthetic_control" &
+                clas$name != "ringnorm" &
+                clas$name != "twonorm" &
+                clas$name != "waveform-5000" &
+                clas$name != "MagicTelescope" &
+                clas$name != "puma32H" &
+                clas$name != "bank32nh" &
+                clas$name != "2dplanes" &
+                clas$name != "mv" &
+                clas$name != "fried" &
+                clas$name != "madelon", ]
   print(paste("  Number of datasets after removing the obviously simulated datasets :", dim(clas)[1]), quote = FALSE)
-  print("  Datasets removed : Friedman, volcanoes, TrX-Datasets", quote = FALSE)
+  print("  Datasets removed : Friedman, volcanoes, TrX-Datasets, BNG", quote = FALSE)
   
-  # remove the datasets with the same name, they correspond often to datasets with only very slight changes : 380 datasets
+  # remove the datasets with the same name, they correspond often to datasets with only very slight changes : 338 datasets
   doublon = names(sort(table(clas$name)[table(clas$name) > 1]))
   doublon = clas[clas$name %in% doublon,]
   doublon = doublon[order(doublon$name), ]
@@ -70,7 +94,7 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   clas = clas[-indexclas.notuseful,]
   print(paste("  Number of datasets after removing the redundancies in dataset's names:", dim(clas)[1]), quote = FALSE)
   
-  # Removing High dimentional datasets : 326 datasets
+  # Removing High dimentional datasets : 284 datasets
   index.highdimension = which(clas$number.of.features>clas$number.of.instances)
   clas= clas[-index.highdimension,]
   print(paste("  Number of datasets after removing the high dimentional datasets p>n:", dim(clas)[1]), quote = FALSE)

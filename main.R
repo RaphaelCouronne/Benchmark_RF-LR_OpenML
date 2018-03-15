@@ -16,6 +16,7 @@ library(batchtools)
 library(gridExtra)
 library(cowplot)
 library(doParallel)
+library(tuneRanger)
 
 # Enter here nCores and myapikey
 nCores = 3 # number of Cpus you want to use
@@ -39,9 +40,15 @@ get_data_OpenML(target_path = "Data/OpenML/clas_time.RData", force = FALSE, comp
 
 ## ----
 plot(log10(clas_time$time), log10(clas_time$number.of.features*clas_time$number.of.instances))
+plot(log10(clas_time$number.of.features*clas_time$number.of.instances), clas_time$time, ylim = c(0,2000))
 lines(c(-3,5),c(6,6))
 lines(c(2,2),c(0,10))
 title("Computation time vs n*p, log scale")
+
+plot(log10(clas_time$number.of.features*clas_time$number.of.instances), clas_time$time, ylim = c(0,2000))
+title("Computation time vs log(n*p)")
+lines(c(0,10),c(100,100))
+lines(c(6,6),c(0,3000))
 
 
 ## 1.2 Benchmark computation ---
@@ -75,6 +82,7 @@ getStatus()
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//", writeable = TRUE)
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+clas_used = rbind(clas_time_small)[1:10,]
 source(file = "Benchmark/benchmark_Results_Conversion.R")
 convert_results(clas_used = clas_used, regis = regis, target_path = "Data/Results/df_bmr.RData")
 
