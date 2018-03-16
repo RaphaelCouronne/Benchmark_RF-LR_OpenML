@@ -84,7 +84,7 @@ getStatus()
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark//", writeable = TRUE)
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
-clas_used = rbind(clas_time_small)[1:80,]
+clas_used = rbind(clas_time_small)
 source(file = "Benchmark/benchmark_Results_Conversion.R")
 convert_results(clas_used = clas_used, regis = regis, target_path = "Data/Results/df_bmr.RData")
 
@@ -137,7 +137,7 @@ subsetAnalysis_visualization()
 
 # 4.2 Partial dependance plots simulations
 source("Simulations/PDP_Example_Simulations.R")
-PlotPartialDependanceExample()
+PlotPartialDependanceExample(seed = 2)
 
 
 
@@ -192,7 +192,20 @@ partialDependenceAnalysis_extremCases()
 
 
 
+## 5 Study of biological datasets  ====================================================================
 
+## 5.1 Load the biological datasets----
+
+## 5.2 Benchmark biological datasets----
+
+## 5.3 Show results with biological datasetss----
+
+
+
+
+###########################################
+########## High Computation time ##########
+###########################################
 
 
 

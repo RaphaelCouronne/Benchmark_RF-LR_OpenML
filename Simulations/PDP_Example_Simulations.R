@@ -5,6 +5,11 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
   
   set.seed(seed)
   
+  
+
+    
+  
+  
   # Function plotting the PDP from the data
   PlotPartialDependance<-function(pd.plot, feature.chosen.name, title = "No title assigned"){
     
@@ -15,15 +20,17 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
     # convert to long format
     library(reshape2)
     pd.plot.long <- melt(pd.plot, id=feature.chosen.name[1])  
+
     detach("package:reshape2", unload=TRUE)
     
     names(pd.plot.long)[c(2,3)] = c("Algorithm", "Probability")
-    
+
     plot.PartialDependanceData<-ggplot(data=pd.plot.long,
                                        aes_string(x=feature.chosen.name, y="Probability", colour="Algorithm")) +
       geom_line(data = pd.plot.long, aes(linetype = Algorithm) ,size=1) + 
+      scale_linetype_manual(values=c("solid", "dotted","dashed")) +
       labs(y="Probability") +
-      ylim(0,1)
+      xlim(-3,3)
   }
   
   
@@ -46,8 +53,8 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
     }
     # Model 2 is interraction
     if (dataset.number==2) {
-      Beta2=c(1,1, -1)
-      Beta2.12=3
+      Beta2=c(-6,-10, 10)
+      Beta2.12=20
       X=cbind(1,X1,X2)
       product=X%*%Beta2+Beta2.12*X1*X2
     }
@@ -65,7 +72,8 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
     # Visualization of the generated datas
     plot.data <- ggplot(data=df, aes(x=X1, y=X2, colour=Y, shape = Y))
     plot.data <- plot.data + geom_point(size=2) 
-    plot.data = plot.data + scale_colour_grey(start = 0,end = 0.6) 
+    plot.data = plot.data + scale_colour_grey(start = 0,end = 0.6)+ 
+      ylim(-4,4) + xlim(-4,4)
 
     if (visualize==TRUE) {
       print(plot.data)
@@ -99,17 +107,25 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
     fit.classif.lr = train(lrn.classif.lr, task)
     
     # Grids and generation of data for the learners already implemented in mlr
+    #pd.rf = generatePartialDependenceData(fit.classif.rf, task, feature.chosen.name[1], 
+    #                                      gridsize = gridsize, individual = individual, 
+    #                                      derivative = derivative, interaction = interaction, 
+    #                                      fun=fun, fmin = fmin, fmax=fmax)
+    
     pd.rf = generatePartialDependenceData(fit.classif.rf, task, feature.chosen.name[1], 
-                                          gridsize = gridsize, individual = individual, 
+                                          individual = individual, n=c(gridsize,200),
                                           derivative = derivative, interaction = interaction, 
-                                          fun=fun, fmin = fmin, fmax=fmax)
+                                          fun=fun)
+    
     plotPartialDependence(pd.rf)
     pd.lr = generatePartialDependenceData(fit.classif.lr, task, feature.chosen.name[1], 
-                                          gridsize = gridsize, individual = individual, 
+                                          individual = individual, n=c(gridsize,200),
                                           derivative = derivative, interaction = interaction, 
-                                          fun=fun, fmin = fmin, fmax= fmax)
+                                          fun=fun)
     
-    pd.plot<-data.frame( feature = pd.rf$data[,3], RF = pd.rf$data$Probability, LR = pd.lr$data$Probability)
+    pd.plot<-data.frame( feature = pd.rf$data[[feature.chosen.name]], 
+                         RF = pd.rf$data[["0"]], 
+                         LR = pd.lr$data[["0"]])
     names(pd.plot)[1]<-feature.chosen.name[1]
     
     
@@ -152,7 +168,7 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
       mylogit <- glm(Y ~ X1X2+X2+X1, data = df2.model, family = "binomial")
       summary(mylogit)
       mylogit.true<-mylogit
-      mylogit.true$coefficients<-c(1,3,-1,1)
+      mylogit.true$coefficients<-c(-6,20,10,-10)
       
       pred<-predict(mylogit, newdata = df2.model, type = "response")
       resolution=gridsize
@@ -246,9 +262,10 @@ PlotPartialDependanceExample<-function(visualize = FALSE, seed = 1) {
   ## launch ----
   
   # Computation of pdps
-  res.1 = PdpAnalysis(5e2, gridsize = 20, feature.chosen.name = "X1", dataset.number = 1, visualize = visualize) 
-  res.2 = PdpAnalysis(5e2, gridsize = 20, feature.chosen.name = "X1", dataset.number = 2, visualize = visualize) 
-  res.3 = PdpAnalysis(5e2, gridsize = 20, feature.chosen.name = "X1", dataset.number = 3, visualize = visualize) 
+  n = 1e3
+  res.1 = PdpAnalysis(n, gridsize = 40, feature.chosen.name = "X1", dataset.number = 1, visualize = visualize) 
+  res.2 = PdpAnalysis(n, gridsize = 40, feature.chosen.name = "X1", dataset.number = 2, visualize = visualize) 
+  res.3 = PdpAnalysis(n, gridsize = 40, feature.chosen.name = "X1", dataset.number = 3, visualize = visualize) 
   
   # Change the color and legends
   police.size = 18
