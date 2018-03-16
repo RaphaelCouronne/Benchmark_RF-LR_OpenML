@@ -45,7 +45,7 @@ lines(c(-3,5),c(6,6))
 lines(c(2,2),c(0,10))
 title("Computation time vs n*p, log scale")
 
-plot(log10(clas_time$number.of.features*clas_time$number.of.instances), clas_time$time, ylim = c(0,2000))
+plot(log10(clas_time$number.of.features*clas_time$number.of.instances), clas_time$time)
 title("Computation time vs log(n*p)")
 lines(c(0,10),c(100,100))
 lines(c(6,6),c(0,3000))

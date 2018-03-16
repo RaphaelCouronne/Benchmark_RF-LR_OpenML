@@ -119,26 +119,6 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
     # laod the file
     load(file = "Data/OpenML/df.infos.RData")
     
-    # check integrity of datasets
-    if (!identical(clas$data.id,df.infos$data.id)) {
-      print("  Difference between df.infos and clas", quote = FALSE)
-      
-      # reorganise the data.id
-      notcomputed = subset(clas, select = c("data.id", "task.id", 
-                                            "number.of.instances","number.of.features"))[which(!clas$data.id %in% df.infos$data.id),]
-      df.infos.new = data.frame(matrix(data = NA, nrow = length(df.infos$data.id) + length(notcomputed$data.id), ncol = 15))
-      names(df.infos.new) = c("index", "data.id", "task.id","n","p", "began", "done", 
-                              "loaded","converted", "target_type", "dimension", 
-                              "rf_time", "lr_time", "rf_NA", "lr_NA")
-      
-      df.infos.new[c(1:length(df.infos$data.id)),] = df.infos
-      df.infos.new[c((length(df.infos$data.id)+1):length(df.infos.new$data.id)),c(2,3,4,5)] = notcomputed
-      df.infos.new = df.infos.new[order(df.infos.new$data.id),]
-      df.infos.new = df.infos.new[order(df.infos.new$n*df.infos.new$p),]
-      df.infos.new$index = c(1:length(df.infos.new$index))
-      df.infos = df.infos.new
-    }
-    
   
   } else {
     
