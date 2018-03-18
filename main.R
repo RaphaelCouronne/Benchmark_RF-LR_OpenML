@@ -193,11 +193,42 @@ partialDependenceAnalysis_extremCases()
 
 
 ## 5 Study of biological datasets  ====================================================================
+rm(list=ls())
+library(batchtools)
+nCores = 3
+require(gdata)
 
 ## 5.1 Load the biological datasets----
+df_biological = read.xls ("data.summary.completed.xlsx", sheet = 1, header = TRUE, method = "tab")
+df_biological = na.omit(df_biological[df_biological$is_biology==1,])
+df_biological <- df_biological[order(df_biological$n*df_biological$p),] 
+
+# See the distribution of datasets
+plot(df_biological$n, df_biological$p, xlim = c(0,1e4))
+plot(df_biological$n*df_biological$p)
 
 ## 5.2 Benchmark biological datasets----
+# Batchtools implementation
+source(file = "Benchmark/benchmark_batchtools.R")
+load("Data/OpenML/clas_time.RData")
+clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+clas_used = clas_used[clas_used$data.id %in% df_biological$data.id,]
+plot(clas_used$number.of.features*clas_used$number.of.instances)
+# Problem : why do I loose 13 datasets ? 3-4 ok because too big, but then ... ?
 
+# Set up the benchmark (delete current results)
+setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used,
+                        name = "Data/Results/Batchtools/batchtool_benchmark_bio",
+                        tune = TRUE)
+regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark_bio//", writeable = TRUE)
+regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = nCores) 
+
+# Launch benchmark
+testJob(id=1)
+submitJobs(ids = 1:6, reg = regis) #small datasets# Errors ?
+getStatus()
+findErrors()
+getErrorMessages()
 ## 5.3 Show results with biological datasetss----
 
 

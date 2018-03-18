@@ -8,7 +8,8 @@ require(tuneRanger)
 
 setBatchtoolsExperiment = function(seed = 1, ncpus = 2, 
                                    clas_used,
-                                   nameExperiment =  paste("Data/Results/Batchtools/batchtool_benchmark")) {
+                                   nameExperiment =  paste("Data/Results/Batchtools/batchtool_benchmark"),
+                                   tune = FALSE) {
   
   # which subset of dataset
   omldatasets = clas_used$data.id
@@ -51,12 +52,23 @@ setBatchtoolsExperiment = function(seed = 1, ncpus = 2,
       lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE)
       lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE)
       lrn.classif.tuneranger = makeLearner("classif.tuneRanger", predict.type = "prob", fix.factors.prediction = TRUE, iters = 20, num.threads=1)
-      lrn.list = list(lrn.classif.lr,lrn.classif.rf, lrn.classif.tuneranger)
+      
+      
+      if (tune) {
+        lrn.list = list(lrn.classif.lr,lrn.classif.rf, lrn.classif.tuneranger)
+      } else {
+        lrn.list = list(lrn.classif.lr,lrn.classif.rf)
+      }
       
       # measures
       measures = list(acc, brier, auc, timetrain)
-      #rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
-      rdesc = makeResampleDesc("CV", iters = 5, stratify = TRUE)
+      
+      if (tune) {
+        rdesc = makeResampleDesc("CV", iters = 5, stratify = TRUE)
+      } else {
+        rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
+      }
+      
       configureMlr(on.learner.error = "warn", show.learner.output = TRUE)
       bmr = benchmark(lrn.list, task, rdesc, measures, keep.pred = TRUE, models = FALSE, show.info = TRUE)
       return(bmr)
