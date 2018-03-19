@@ -214,7 +214,8 @@ load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 clas_used = clas_used[clas_used$data.id %in% df_biological$data.id,]
 plot(clas_used$number.of.features*clas_used$number.of.instances)
-# Problem : why do I loose 13 datasets ? 3-4 ok because too big, but then ... ?
+
+df_biological$data.id[!(df_biological$data.id %in% clas_used$data.id)]
 
 # Set up the benchmark (delete current results)
 setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used,
@@ -222,13 +223,18 @@ setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used,
                         tune = TRUE)
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark_bio//", writeable = TRUE)
 regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = nCores) 
+regis$cluster.functions = makeClusterFunctionsInteractive()
 
 # Launch benchmark
-testJob(id=1)
-submitJobs(ids = 1:6, reg = regis) #small datasets# Errors ?
+testJob(id=2)
+submitJobs(ids = 13:50, reg = regis) #small datasets# Errors ?
 getStatus()
 findErrors()
 getErrorMessages()
+waitForJobs()
+findNotDone()
+
+
 ## 5.3 Show results with biological datasetss----
 
 
