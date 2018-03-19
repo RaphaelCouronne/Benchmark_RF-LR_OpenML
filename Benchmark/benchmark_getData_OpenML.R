@@ -220,7 +220,10 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   # Part 6 : Select the datasets
   # ============================= ----
   print("4. Remove datasets that failed", quote = FALSE)
-  clas_select = merge(clas, df.infos, by = c("data.id","task.id"))
+  
+  # Be careful, same data.id can have different task.id, 
+  # we will merge by data.id, and then remove the duplicated column task.id
+  clas_select = merge(clas, df.infos, by = c("data.id"))
   clas_select$time = clas_select$rf_time+clas_select$lr_time
   
   # remove the one with loading unsuccessfull
