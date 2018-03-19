@@ -227,13 +227,23 @@ regis$cluster.functions = makeClusterFunctionsInteractive()
 
 # Launch benchmark
 testJob(id=2)
-submitJobs(ids = 13:50, reg = regis) #small datasets# Errors ?
+submitJobs(ids = 53:60, reg = regis) #small datasets# Errors ?
+
 getStatus()
 findErrors()
 getErrorMessages()
-waitForJobs()
+waitForJobs(expire.after = 3L, stop.on.error = TRUE)
 findNotDone()
 
+# Do Expired
+submitJobs(findExpired(), reg = regis) #small datasets# Errors ?
+
+# Do Errors
+submitJobs(findErrors(), reg = regis) #small datasets# Errors ?
+
+# Kill running
+findRunning()
+killJobs(findRunning())
 
 ## 5.3 Show results with biological datasetss----
 
