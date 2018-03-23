@@ -11,6 +11,7 @@ convert_results <- function(clas_used, regis, target_path) {
   
   
   ## 1. Remove the nas in result, and create the dataframe associated with results
+  print(paste0("Reduce Results at : ",regis$file.dir))
   result = reduceResultsList(ids = 1:278, reg = regis)
   clas_used_original = clas_used
   

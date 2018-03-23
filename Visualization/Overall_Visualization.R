@@ -43,13 +43,7 @@ overall_visualization<-function(bmr) {
   
   ## 2. Plots for the difference measures, performances and ranks
   
-  # plots for the measures
-  names(perfsAggr.diff.melted)<-c("Measure","Performance")
-  p <- ggplot(perfsAggr.diff.melted[-which(perfsAggr.diff.melted$Measure %in% c("timetrain.test.mean", "logloss.test.mean", "mmce.test.mean")),], aes(Measure, Performance))
-  p <- p + geom_boxplot(aes(colour = Measure))
-  
-  
-  
+
   
   # plot of the mean of accuracy rank for one measure
   measure.chosen = acc
@@ -122,6 +116,7 @@ overall_visualization<-function(bmr) {
     perfsAggr.diff.boxplot = perfsAggr.diff
     perfsAggr.diff.boxplot$dummy = ""
     p <- ggplot(perfsAggr.diff.boxplot, aes_string( "dummy", measure, width = 0.5))
+    p = p + geom_boxplot(aes_string(fill = "dummy"), outlier.shape = 1, notch = TRUE, width = 0.5)
     p = p + geom_boxplot(aes_string(fill = "dummy"), outlier.shape = 1, notch = TRUE, width = 0.5)
     p = p + labs(y = paste((expression(paste(Delta))),measure.name))
     p = p + theme(axis.title.x=element_blank(),  text = element_text(size=police.size))

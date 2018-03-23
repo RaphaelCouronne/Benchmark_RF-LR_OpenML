@@ -213,7 +213,9 @@ source(file = "Benchmark/benchmark_batchtools.R")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 clas_used = clas_used[clas_used$data.id %in% df_biological$data.id,]
+
 plot(clas_used$number.of.features*clas_used$number.of.instances)
+plot(log(clas_used$number.of.features), log(clas_used$number.of.instances))
 
 df_biological$data.id[!(df_biological$data.id %in% clas_used$data.id)]
 
@@ -222,31 +224,28 @@ setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used,
                         name = "Data/Results/Batchtools/batchtool_benchmark_bio",
                         tune = TRUE)
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark_bio//", writeable = TRUE)
-regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = nCores) 
+regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = 2) 
 regis$cluster.functions = makeClusterFunctionsInteractive()
 
 # Launch benchmark
-testJob(id=2)
-submitJobs(ids = 53:60, reg = regis) #small datasets# Errors ?
+testJob(id=58)
+submitJobs(ids = c(66:68), reg = regis) #small datasets# Errors ?
 
-getStatus()
-findErrors()
-getErrorMessages()
-waitForJobs(expire.after = 3L, stop.on.error = TRUE)
-findNotDone()
-
-# Do Expired
-submitJobs(findExpired(), reg = regis) #small datasets# Errors ?
-
-# Do Errors
-submitJobs(findErrors(), reg = regis) #small datasets# Errors ?
-
-# Kill running
-findRunning()
-killJobs(findRunning())
 
 ## 5.3 Show results with biological datasetss----
+source(file = "Biological_datasets//benchmark_Results_Conversion_bio.R")
+convert_results(clas_used = clas_used, regis = regis, target_path = "Data/Results/df_bmr_bio.RData")
 
+
+# 2.2 Overall Visualization
+load(file = "Data/Results/df_bmr_bio.RData")
+source(file = "Biological_Datasets/Overall_Visualization_bio.R")
+overall_visualization_bio(df.bmr.diff)
+
+# 2.3 Inclusion Criteria Visualization
+load(file = "Data/Results/df_bmr_bio.RData")
+source(file = "Visualization/Inclusion_Criteria_Plots.R")
+inclusion_criteria(df.bmr.diff[df.bmr.diff$rf_type=="RF",])
 
 
 
