@@ -339,7 +339,7 @@ inclusion_criteria <- function(df.bmr.diff){
   #hist(df.bmr.diff$Cmax)
   measure.chosen = "acc.test.mean"
   feature.chosen = "Cmax"
-  feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(0.1,0.25,0.4), "Cmax")
+  feature.boxplot.oneplot(df.bmr.diff, measure.chosen, feature.chosen,c(0.55,0.65,0.8), "Cmax")
 
 
   ## Acc
@@ -377,7 +377,7 @@ inclusion_criteria <- function(df.bmr.diff){
   df.all$thresholdValue = as.factor(df.all$thresholdValue)
 
   p <- ggplot(df.all, aes_string("thresholdValue", measure))
-  p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = TRUE)
+  p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = FALSE)
   p = p + scale_y_continuous(limits = y.limits)
   p = p + labs(x = expression(t), y = bquote(paste(Delta, .(measure.name))))
   p = p + theme(legend.justification=c(1,1), legend.position=c(0.45,1), legend.title=element_blank(), text = element_text(size=police.size))
@@ -429,7 +429,7 @@ inclusion_criteria <- function(df.bmr.diff){
   df.all$thresholdValue = as.factor(df.all$thresholdValue)
 
   p <- ggplot(df.all, aes_string("thresholdValue", measure))
-  p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = TRUE)
+  p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = FALSE)
   p = p + scale_y_continuous(limits = y.limits)
   p = p + labs(x = expression(t), y = bquote(paste(Delta, .(measure.name))))
   p = p + theme(legend.justification=c(1,1), legend.position=c(0.45,1), legend.title=element_blank(), text = element_text(size=police.size))
@@ -471,7 +471,7 @@ inclusion_criteria <- function(df.bmr.diff){
   df.all$thresholdValue = as.factor(df.all$thresholdValue)
 
   p <- ggplot(df.all, aes_string("thresholdValue", measure))
-  p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = TRUE)
+  p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = FALSE)
   p = p + scale_y_continuous(limits = y.limits)
   p = p + labs(x = expression(t), y = bquote(paste(Delta, .(measure.name))))
   p = p + theme(legend.justification=c(1,1), legend.position=c(0.60,1), legend.title=element_blank(),
@@ -526,7 +526,7 @@ inclusion_criteria <- function(df.bmr.diff){
   df.all$thresholdValue = as.factor(df.all$thresholdValue)
 
   p <- ggplot(df.all, aes_string("thresholdValue", measure))
-  p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = TRUE)
+  p = p + geom_boxplot(aes_string(fill = "logical.threshold"), outlier.shape = NA, notch = FALSE)
   p = p + scale_y_continuous(limits = y.limits)
   p = p + labs(x = expression(t), y = bquote(paste(Delta, .(measure.name))))
   p = p + theme(legend.justification=c(1,1), legend.position=c(0.75,1), legend.title=element_blank(),
