@@ -122,7 +122,7 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
   ## ML Analysis ----
   # We use a random forest and assess its performance for the meta-learning task
   
-  learner.regr.rf = makeLearner("regr.randomForest")
+  learner.regr.rf = makeLearner("regr.randomForest", predict.type = "se")
   
   myvars <- c("logp", "logn", 
               "logp.dividedby.n",
@@ -147,11 +147,10 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
   fit.regr = train(learner.regr.rf, task.analysis.regr)
   
   generatePartialDependenceDataFeature = function(feature.name) {
-    pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr, feature.name,
-                                            fun = function(x) quantile(x, c(.25, .5, .75)))
+    pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr, feature.name)
     pd.regr.logp = plotPartialDependence(pd.regr) + 
-      labs(y = bquote(paste(Delta, .("acc")))) +
-      ylim(-0.01,0.11)
+      labs(y = bquote(paste(Delta, .("acc")))) #+
+      #ylim(-0.01,0.11)
     return(pd.regr.logp)
   }
   
@@ -166,7 +165,7 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
                         pd.regr.logp,
                         pd.regr.logdimension.dividedby.n,
                         pd.regr.Cmax, 
-                        ncol = 4, nrow = 1)
+                        ncol = 4, nrow = 1, align = "v")
   
   print(plot.grid)
   
@@ -176,17 +175,86 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
   
 }
 
-# # plot performance vs parameter of the dataset
-# par(mfrow=c(2,2))
-# plot(df.bmr.diff$logn, df.bmr.diff$acc.test.mean)
-# plot(df.bmr.diff$logp, df.bmr.diff$acc.test.mean)
-# plot(df.bmr.diff$logp.dividedby.n, df.bmr.diff$acc.test.mean)
-# plot(df.bmr.diff$Cmax, df.bmr.diff$acc.test.mean)
 
 
-# par(mfrow=c(2,2))
-# hist.logp = hist(df.bmr.diff$logn, xlab = "logn", main = NULL)
-# hist.logn = hist(df.bmr.diff$logp, xlab = "logp", main = NULL)
-# hist.logp.dividedby.n = hist(df.bmr.diff$logp.dividedby.n, xlab = "logp.dividedby.n", main = NULL)
-# hist.Cmax = hist(df.bmr.diff$Cmax, xlab = "Cmax", main = NULL)
 
+
+ResultsMetaLearning_bio = function(df.bmr.diff = df.bmr.diff) {
+  
+  ################################################################################################################################
+  # Meta-Learning
+  ################################################################################################################################
+  
+  
+  ## ML Analysis ----
+  # We use a random forest and assess its performance for the meta-learning task
+  
+  learner.regr.rf = makeLearner("regr.randomForest", predict.type = "se")
+  
+  myvars <- c("logp", "logn", 
+              "logp.dividedby.n",
+              "Cmax")
+  
+  
+  # RF
+  df.mlanalysis.regr.rf <- df.bmr.diff[df.bmr.diff$rf_type=="RF",c(myvars, "acc.test.mean")]
+  task.analysis.regr.rf = makeRegrTask(id = "analysis.perfs", data = df.mlanalysis.regr.rf, target = "acc.test.mean")
+  fit.regr.rf = train(learner.regr.rf, task.analysis.regr.rf)
+  
+  # TR
+  df.mlanalysis.regr.tr <- df.bmr.diff[df.bmr.diff$rf_type=="TR",c(myvars, "acc.test.mean")]
+  task.analysis.regr.tr = makeRegrTask(id = "analysis.perfs", data = df.mlanalysis.regr.tr, target = "acc.test.mean")
+  fit.regr.tr = train(learner.regr.rf, task.analysis.regr.tr)
+  
+  ## PDP Analysis ----
+  
+
+  
+  generatePartialDependenceDataFeature = function(feature.name) {
+    pd.regr.rf = generatePartialDependenceData(fit.regr.rf, task.analysis.regr.rf, feature.name)
+    pd.regr.tr = generatePartialDependenceData(fit.regr.tr, task.analysis.regr.tr, feature.name)
+    
+    df_rf = pd.regr.rf$data
+    df_tr = pd.regr.tr$data
+    
+    df_rf$method="RF"
+    df_tr$method="TR"
+    
+    df_all = rbind(df_rf, df_tr)
+    
+    p = ggplot(df_all,aes_string(x=feature.name,y="acc.test.mean",group="method", col="method",fill="method",linetype="method"))+
+      geom_point()+geom_line()+
+      # Lower
+      geom_line(mapping = aes_string(y = "lower", x = feature.name))+
+      geom_point(mapping = aes_string(y = "lower", x = feature.name))+
+      #Upper
+      geom_line(mapping = aes_string(y = "upper", x = feature.name))+
+      geom_point(mapping = aes_string(y = "upper", x = feature.name))+
+      labs(y = bquote(paste(Delta, .("acc")))) #+
+    #ylim(-0.01,0.11)
+    return(p)
+  }
+
+
+    
+  
+  apolice.size = 18
+  pd.regr.logp = generatePartialDependenceDataFeature("logp") + labs(x = bquote(log(p))) + theme(text = element_text(size=police.size))+ theme(legend.position="none")
+  pd.regr.logn = generatePartialDependenceDataFeature("logn") + labs(x = bquote(log(n)))+ theme(text = element_text(size=police.size))+ theme(legend.position="none")
+  pd.regr.logdimension.dividedby.n = generatePartialDependenceDataFeature("logp.dividedby.n") +labs(x = bquote(log(p/n)))+ theme(text = element_text(size=police.size))+ theme(legend.position="none")
+  pd.regr.Cmax = generatePartialDependenceDataFeature("Cmax") + labs(x = bquote(Cmax))+ theme(text = element_text(size=police.size))+theme(legend.position = c(0.7,0.1), legend.title = element_blank())
+  
+  
+  plot.grid = plot_grid(pd.regr.logn, 
+                        pd.regr.logp,
+                        pd.regr.logdimension.dividedby.n,
+                        pd.regr.Cmax, 
+                        ncol = 4, nrow = 1, align = "h")
+  
+  print(plot.grid)
+  
+  jpeg(filename = "Data/Pictures/Figure6_MetaLearning_bio.jpeg", width = 1000, height = 300)
+  plot(plot.grid)
+  dev.off()
+  
+}

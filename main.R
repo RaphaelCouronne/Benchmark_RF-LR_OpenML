@@ -248,6 +248,18 @@ source(file = "Visualization/Inclusion_Criteria_Plots.R")
 inclusion_criteria(df.bmr.diff[df.bmr.diff$rf_type=="RF",])
 
 
+# 3.1 Overall results
+load(file = "Data/Results/df_bmr_bio.RData")
+source(file = "Benchmark/benchmark_Results_Overview.R")
+benchmark_ResultsOverview(df.bmr.diff[df.bmr.diff$rf_type=="RF",], res.perfs.df)
+benchmark_ResultsOverview(df.bmr.diff[df.bmr.diff$rf_type=="TR",], res.perfs.df)
+
+# 3.2 Meta Learning
+load(file = "Data/Results/df_bmr_bio.RData")
+source(file = "Benchmark/benchmark_Results_MetaLearning.R")
+ResultsMetaLearning(df.bmr.diff[df.bmr.diff$rf_type=="RF",])
+ResultsMetaLearning_bio(df.bmr.diff)
+
 
 ###########################################
 ########## High Computation time ##########
