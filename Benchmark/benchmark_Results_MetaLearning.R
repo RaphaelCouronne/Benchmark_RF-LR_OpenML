@@ -238,7 +238,7 @@ ResultsMetaLearning_bio = function(df.bmr.diff = df.bmr.diff) {
 
     
   
-  apolice.size = 18
+  police.size = 18
   pd.regr.logp = generatePartialDependenceDataFeature("logp") + labs(x = bquote(log(p))) + theme(text = element_text(size=police.size))+ theme(legend.position="none")
   pd.regr.logn = generatePartialDependenceDataFeature("logn") + labs(x = bquote(log(n)))+ theme(text = element_text(size=police.size))+ theme(legend.position="none")
   pd.regr.logdimension.dividedby.n = generatePartialDependenceDataFeature("logp.dividedby.n") +labs(x = bquote(log(p/n)))+ theme(text = element_text(size=police.size))+ theme(legend.position="none")

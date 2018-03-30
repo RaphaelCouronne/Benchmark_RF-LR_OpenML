@@ -8,7 +8,7 @@ require(tuneRanger)
 
 setBatchtoolsExperiment = function(seed = 1, ncpus = 2, 
                                    clas_used,
-                                   nameExperiment =  paste("Data/Results/Batchtools/batchtool_benchmark"),
+                                   nameExperiment =  paste("Data/Results/Batchtools/batchtool_benchmark/Experiment_1"),
                                    tune = FALSE) {
   
   # which subset of dataset
@@ -19,7 +19,7 @@ setBatchtoolsExperiment = function(seed = 1, ncpus = 2,
   regis = makeExperimentRegistry(nameExperiment, seed = seed,
                                  packages = c("mlr", "OpenML", "methods"), 
                                  #source = paste0(dir, "/benchmark_defs.R"),
-                                 work.dir = paste0("Data/Results/Batchtools"),
+                                 work.dir = paste0("Data/Results/Batchtools/batchtool_benchmark/"),
                                  #conf.file = paste0("Data/Batchtools/.batchtools.conf.R")
   )
   
@@ -66,7 +66,7 @@ setBatchtoolsExperiment = function(seed = 1, ncpus = 2,
       if (tune) {
         rdesc = makeResampleDesc("CV", iters = 5, stratify = TRUE)
       } else {
-        rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
+        rdesc = makeResampleDesc("RepCV", folds = 5, reps = 1, stratify = TRUE)
       }
       
       configureMlr(on.learner.error = "warn", show.learner.output = TRUE)
