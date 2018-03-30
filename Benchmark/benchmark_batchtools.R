@@ -52,7 +52,8 @@ setBatchtoolsExperiment = function(seed = 1, ncpus = 2,
       # learners
       lrn.classif.lr = makeLearner("classif.logreg", predict.type = "prob", fix.factors.prediction = TRUE)
       lrn.classif.rf = makeLearner("classif.randomForest", predict.type = "prob", fix.factors.prediction = TRUE)
-      lrn.classif.tuneranger = makeLearner("classif.tuneRanger", predict.type = "prob", fix.factors.prediction = TRUE, num.threads=1)
+      
+      if(tune){lrn.classif.tuneranger = makeLearner("classif.tuneRanger", predict.type = "prob", fix.factors.prediction = TRUE, num.threads=1)}
       
       
       if (tune) {
