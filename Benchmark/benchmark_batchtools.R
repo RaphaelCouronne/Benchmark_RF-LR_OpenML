@@ -66,7 +66,7 @@ setBatchtoolsExperiment = function(seed = 1, ncpus = 2,
       if (tune) {
         rdesc = makeResampleDesc("CV", iters = 5, stratify = TRUE)
       } else {
-        rdesc = makeResampleDesc("RepCV", folds = 5, reps = 1, stratify = TRUE)
+        rdesc = makeResampleDesc("RepCV", folds = 5, reps = 10, stratify = TRUE)
       }
       
       configureMlr(on.learner.error = "warn", show.learner.output = TRUE)
