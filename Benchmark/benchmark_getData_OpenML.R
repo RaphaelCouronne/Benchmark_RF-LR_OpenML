@@ -40,7 +40,7 @@ get_data_OpenML <- function(target_path = "Data/Results/clas_time.RData", force 
   clas = clas[logic,]
   clas = clas[clas$name != "SEA(50000)" &
                 clas$name != "cal_housing" & 
-                las$name != "codrnaNorm",] # Hand removal from duplicated datasets
+                clas$name != "codrnaNorm",] # Hand removal from duplicated datasets
   print(paste("  Number of datasets after removing the redundacies of datasets's IDs :", dim(clas)[1]), quote = FALSE)
   
   # Friedman-, volcanoes- und trX-Datasets : 348 datasets
