@@ -95,7 +95,7 @@ convert_results <- function(clas_used, regis, target_path) {
                            logp.dividedby.n = log(clas_used$number.of.features/clas_used$number.of.instances),
                            logdimension.dividedby.n = log(clas_used$dimension/clas_used$number.of.instances),
                            lograteMajorityMinorityClass = log(clas_used$majority.class.size/clas_used$minority.class.size),
-                           pnum, psymbolic, pnumrate, Cmax
+                           pnum, psymbolic, pnumrate, Cmax, data.id = clas_used$data.id
   )
   
   

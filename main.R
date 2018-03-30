@@ -66,9 +66,10 @@ clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used)
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark/Experiment_1//", writeable = TRUE)
 regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = nCores) 
+regis$cluster.functions = makeClusterFunctionsInteractive() 
 
 # Launch benchmark
-submitJobs(ids = 1:20, reg = regis) #small datasets
+submitJobs(ids = 1:10, reg = regis) #small datasets
 submitJobs(ids = 194:231, reg = regis) #medium datasets
 submitJobs(ids = 232:278, reg = regis) #big datasets
 waitForJobs()
@@ -197,8 +198,11 @@ library(batchtools)
 nCores = 3
 require(gdata)
 
+
+
 ## 5.1 Load the biological datasets----
-df_biological = read.xls ("data.summary.completed.xlsx", sheet = 1, header = TRUE, method = "tab")
+#df_biological = read.xls ("data.summary.completed.xlsx", sheet = 1, header = TRUE, method = "tab")
+df_biological = read.csv("df_biological.csv", sep = " ")
 df_biological = na.omit(df_biological[df_biological$is_biology==1,])
 df_biological <- df_biological[order(df_biological$n*df_biological$p),] 
 
@@ -220,15 +224,16 @@ df_biological$data.id[!(df_biological$data.id %in% clas_used$data.id)]
 
 # Set up the benchmark (delete current results)
 setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used,
-                        name = "Data/Results/Batchtools/batchtool_benchmark_bio",
+                        work.dir = "Data/Results/Batchtools/batchtool_benchmark_bio",
+                        name = "Data/Results/Batchtools/batchtool_benchmark_bio/Experiment_1",
                         tune = TRUE)
-regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark_bio//", writeable = TRUE)
+regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark_bio/Experiment_1//", writeable = TRUE)
 regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = 2) 
 regis$cluster.functions = makeClusterFunctionsInteractive()
 
 # Launch benchmark
-testJob(id=58)
-submitJobs(ids = c(66:68), reg = regis) #small datasets# Errors ?
+testJob(id=1)
+submitJobs(ids = c(1:70), reg = regis) #small datasets# Errors ?
 
 
 ## 5.3 Show results with biological datasetss----
