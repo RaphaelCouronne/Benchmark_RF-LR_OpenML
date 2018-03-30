@@ -266,6 +266,26 @@ ResultsMetaLearning_bio(df.bmr.diff)
 ###########################################
 
 
+# Biological dataset simulation
 
 
+# Datasets :
+#-eeg-eye-state data.id 1471 14980 15
+#-mammography data.id 310 11183 7
+#-splice data.id 953 3190 62
 
+# Small datasets : 
+#-diabetes 37
+#-ilpd 583
+#-wdbc 1510
+
+# Load dataset
+
+data.id = 310
+clas_used[clas_used$data.id==data.id,]
+
+source("Biological_datasets/subset_analysis_bio.R")
+subset_analysis_bio(nCores=4, seed=1, data.id = 310,
+                    n.simulation = 20, n.max = 1e3,
+                    grid.n = c(5e2), grid.p = c(1,2,3,4,5,6))
+subsetAnalysis_visualization_bio()
