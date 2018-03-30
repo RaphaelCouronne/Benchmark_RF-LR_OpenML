@@ -216,6 +216,7 @@ source(file = "Benchmark/benchmark_batchtools.R")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 clas_used = clas_used[clas_used$data.id %in% df_biological$data.id,]
+clas_used <- clas_used[order(clas_used$n*clas_used$p),] 
 
 plot(clas_used$number.of.features*clas_used$number.of.instances)
 plot(log(clas_used$number.of.features), log(clas_used$number.of.instances))
