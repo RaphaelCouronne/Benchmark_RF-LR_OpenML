@@ -8,6 +8,7 @@ require(tuneRanger)
 
 setBatchtoolsExperiment = function(seed = 1, ncpus = 2, 
                                    clas_used,
+                                   work.dir = paste0("Data/Results/Batchtools/batchtool_benchmark/"),
                                    nameExperiment =  paste("Data/Results/Batchtools/batchtool_benchmark/Experiment_1"),
                                    tune = FALSE) {
   
@@ -19,7 +20,7 @@ setBatchtoolsExperiment = function(seed = 1, ncpus = 2,
   regis = makeExperimentRegistry(nameExperiment, seed = seed,
                                  packages = c("mlr", "OpenML", "methods"), 
                                  #source = paste0(dir, "/benchmark_defs.R"),
-                                 work.dir = paste0("Data/Results/Batchtools/batchtool_benchmark/"),
+                                 work.dir = work.dir,
                                  #conf.file = paste0("Data/Batchtools/.batchtools.conf.R")
   )
   
