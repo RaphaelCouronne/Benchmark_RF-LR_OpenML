@@ -5,21 +5,22 @@ rm(list = ls())
 options( java.parameters = "-Xmx8g" )
 
 # Check that all packages can be loaded
-library(mlr)
-library(OpenML)
-library(ggplot2)
-library(snowfall)
-library(cowplot)
-library(RWeka) 
-library(doParallel)
-library(batchtools)
-library(gridExtra)
-library(cowplot)
-library(doParallel)
-library(tuneRanger)
+require(mlr)
 
+require(ggplot2)
+#require(snowfall)
+require(cowplot)
+require(RWeka) 
+#require(doParallel)
+
+require(gridExtra)
+require(cowplot)
+
+require(tuneRanger)
+require(batchtools)
+require(OpenML)
 # Enter here nCores and myapikey
-nCores = 3 # number of Cpus you want to use
+nCores = 4 # number of Cpus you want to use
 myapikey = "7a4391537f767ea70db6af99497653e5" # OpenML API key
 saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
@@ -60,23 +61,31 @@ lines(c(6,6),c(0,3000))
 # Batchtools implementation
 source(file = "Benchmark/benchmark_batchtools.R")
 load("Data/OpenML/clas_time.RData")
-clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big, clas_time_toobig)
 
 # Set up the benchmark (delete current results)
 setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used)
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark/Experiment_1//", writeable = TRUE)
-regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = nCores) 
+regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = 4) 
 regis$cluster.functions = makeClusterFunctionsInteractive() 
 
 # Launch benchmark
+testJob(1)
 submitJobs(ids = 1:10, reg = regis) #small datasets
-submitJobs(ids = 194:231, reg = regis) #medium datasets
-submitJobs(ids = 232:278, reg = regis) #big datasets
-waitForJobs()
-
+submitJobs(ids = 100:273, reg = regis) #medium datasets
+submitJobs(ids = 226:250, reg = regis) #big datasets
+submitJobs(ids = 250:265, reg = regis) #big datasets
+submitJobs(ids = 265:273, reg = regis) #big datasets
+submitJobs(ids = 259:271, reg = regis) #big datasets
+submitJobs(ids = 259:271, reg = regis) #big datasets
+ waitForJobs()
+waitForJobs(expire.after = 1L, stop.on.expire = TRUE)
+findNotDone()
 # Check benchmark
 getStatus()
 
+df_chunk = data.frame(job.id = 1:273, chunk = 1:7)
+submitJobs(ids = df_chunk[findNotDone()$job.id,], reg = regis) #big datasets
 
 ## 2 Visualization  ======================================================================================
  
