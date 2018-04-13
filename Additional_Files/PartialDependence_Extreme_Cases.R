@@ -88,6 +88,7 @@ extrem_cases = function(data.id, seed = 1, path.out = "Data/Pictures/AdditionalF
   
   # load the task
   omldataset = getOMLDataSet(data.id)
+  #omldataset = getOMLDataSet(334) test
   if (identical(omldataset$target.features, character(0))) {
     omldataset$target.features="Class"
     omldataset$desc$default.target.attribute="Class"
@@ -148,17 +149,17 @@ extrem_cases = function(data.id, seed = 1, path.out = "Data/Pictures/AdditionalF
     # 
     set.seed(seed)
     pd.rf = generatePartialDependenceData(fit.classif.rf, task, 
-                                          features.list[index.temp], gridsize = gridsize)#,
+                                          features.list[index.temp])#,
                                           #fmin = fmin, fmax = fmax)
     set.seed(seed)
     pd.lr = generatePartialDependenceData(fit.classif.lr, task, 
-                                          features.list[index.temp], gridsize = gridsize)#,
+                                          features.list[index.temp])#,
                                           #fmin = fmin, fmax = fmax)
     
     library(ggplot2)
     df.plot = data.frame(grid = pd.rf$data[[feature.temp]], 
-                         rf = pd.rf$data$Probability,
-                         lr = pd.lr$data$Probability)
+                         rf = pd.rf$data[,1],
+                         lr = pd.lr$data[,1])
     
     library(reshape2)
     df.plot.reshaped = reshape2::melt(df.plot, "grid")
