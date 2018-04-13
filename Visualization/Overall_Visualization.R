@@ -168,3 +168,28 @@ dev.off()
   
 }
 
+# Compute the ranks
+convertModifiedBMRToRankMatrix <- function(bmr.all, measure = NULL, ties.method = "average") {
+  
+  measure.name = paste(measure$id,".test.mean", sep = "")
+  df = aggregate(bmr.all[[measure.name]], by = list(task.id = bmr.all$task.id,
+                                                    learner.id = bmr.all$learner.id),
+                 FUN = mean)
+  
+  # calculate ranks, rank according to minimize option of the measure
+  if (!measure$minimize)
+    df$x = -df$x
+  df = plyr::ddply(df, "task.id", function(d) {
+    d$alg.rank = rank(d$x, ties.method = ties.method)
+    return(d)
+  })
+  
+  # convert into matrix, rows = leaner, cols = tasks
+  df = reshape2::melt(df, c("task.id", "learner.id"), "alg.rank")
+  df = reshape2::dcast(df, learner.id ~ task.id )
+  task.id.names = setdiff(colnames(df), "learner.id")
+  mat = as.matrix(df[, task.id.names])
+  rownames(mat) = df$learner.id
+  colnames(mat) = task.id.names
+  return(mat)
+}

@@ -107,33 +107,9 @@ convert_results <- function(clas_used, regis, target_path) {
   measures.names = sapply(measures, function(x) paste0(x$id,".test.mean"))
   features.names = names(df.bmr.diff)[which(!(names(df.bmr.diff) %in% measures.names))]
   
-  # Compute the ranks
-  convertModifiedBMRToRankMatrix <- function(bmr.all, measure = NULL, ties.method = "average") {
-    
-    measure.name = paste(measure$id,".test.mean", sep = "")
-    df = aggregate(bmr.all[[measure.name]], by = list(task.id = bmr.all$task.id,
-                                                      learner.id = bmr.all$learner.id),
-                   FUN = mean)
-    
-    # calculate ranks, rank according to minimize option of the measure
-    if (!measure$minimize)
-      df$x = -df$x
-    df = plyr::ddply(df, "task.id", function(d) {
-      d$alg.rank = rank(d$x, ties.method = ties.method)
-      return(d)
-    })
-    
-    # convert into matrix, rows = leaner, cols = tasks
-    df = reshape2::melt(df, c("task.id", "learner.id"), "alg.rank")
-    df = reshape2::dcast(df, learner.id ~ task.id )
-    task.id.names = setdiff(colnames(df), "learner.id")
-    mat = as.matrix(df[, task.id.names])
-    rownames(mat) = df$learner.id
-    colnames(mat) = task.id.names
-    return(mat)
-  }
+
   print("Results converted")
   
   # Save it ----
-  save(df.bmr.diff, res.perfs.df, convertModifiedBMRToRankMatrix, perfsAggr.diff.melted, perfsAggr.diff, clas_used, file = target_path)
+  save(df.bmr.diff, res.perfs.df, perfsAggr.diff.melted, perfsAggr.diff, clas_used, file = target_path)
 }
