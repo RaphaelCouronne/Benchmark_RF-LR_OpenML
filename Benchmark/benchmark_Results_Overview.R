@@ -3,10 +3,13 @@ library(boot)
 
 benchmark_ResultsOverview = function(df.bmr.diff = df.bmr.diff, res.perfs.df = res.perfs.df) {
   
+  
   perfsAggr.LR = subset(res.perfs.df, learner.id == "classif.logreg")
   perfsAggr.RF = subset(res.perfs.df, learner.id == "classif.randomForest")
   
   PrintBasicStatistics <- function(x, title=NULL, R=2000) {
+    
+    set.seed(1)
     
     ## Accuracy
     print(title, quote = FALSE)
@@ -26,7 +29,7 @@ benchmark_ResultsOverview = function(df.bmr.diff = df.bmr.diff, res.perfs.df = r
     meanFunc <- function(x,i){mean(x[i])}
     boot_obj = boot(x, statistic = meanFunc, R = R)
     
-    res.boot.ci = boot.ci(boot_obj, conf = c(0.90, 0.95),
+    res.boot.ci = boot.ci(boot_obj, conf = c(0.10, 0.95),
                           type = c("norm", "basic", "perc", "bca"))
     
     print(paste0("  95% (Bca) bootstrap confidence interval for the mean is [",

@@ -169,27 +169,15 @@ ResultsMetaLearning(df.bmr.diff.bio)
 ## Part 2 : Non biological datasets vs biological datasets
 
 # Load subsets
+index_bio = c(1:243)[clas_used$data.id %in% df_biological$data.id]
 index_not.bio = c(1:243)[!(clas_used$data.id %in% df_biological$data.id)]
-df.bmr.diff.not.bio = df.bmr.diff[index_not.bio,]
-perfsAggr.diff.not.bio = perfsAggr.diff[index_not.bio,]
-res.perfs.df.not.bio = res.perfs.df[c(2*index_not.bio,2*index_not.bio-1),]
-
-# Plots
-benchmark_ResultsOverview(df.bmr.diff.not.bio, res.perfs.df.not.bio)
 
 # Analysis
-t.test(df.bmr.diff.not.bio$acc.test.mean, df.bmr.diff$acc.test.mean)
-t.test(df.bmr.diff.not.bio$auc.test.mean, df.bmr.diff$auc.test.mean)
-t.test(df.bmr.diff.not.bio$brier.test.mean, df.bmr.diff$brier.test.mean)
+source(file = "Visualization/Biological_subgroup.R")
+biological_subgroup_analysis(df.bmr.diff, index_bio, index_not.bio)
 
-df.bmr.diff$bio = "bio"
-df.bmr.diff$bio[index_not.bio] = "non-bio"
 
-data = melt(df.bmr.diff[c("acc.test.mean","auc.test.mean","brier.test.mean","bio")])
 
-p = ggplot(data = data, mapping = aes(x=bio,y=value))+
-  geom_boxplot()+facet_grid(.~variable)
-p
 
 ## Additional File 3 : Study of partial dependence plots
 
@@ -210,7 +198,7 @@ clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 # Set up the benchmark (delete current results)
 
 setBatchtoolsPDPExperiment(seed = 1, ncpus = 3, clas_used = clas_used)
-regis.pdp = loadRegistry("Data/Results/Batchtools/batchtool_PartialDependance///")
+regis.pdp = loadRegistry("Data/Results/Batchtools/batchtool_PartialDependance///", writeable = TRUE)
 
 # Launch benchmark
 submitJobs(ids = 1:193, reg = regis.pdp) #small datasets
@@ -226,7 +214,7 @@ getStatus()
 
 # requires
 load("Data/Results/df_bmr.RData")
-regis.pdp = loadRegistry("Data/Results/Batchtools/batchtool_PartialDependance///")
+regis.pdp = loadRegistry("Data/Results/Batchtools/batchtool_PartialDependance///", writeable = TRUE)
 source("Additional_Files/PartialDependence_Extreme_Cases.R")
 partialDependenceAnalysis_extremCases()
 
@@ -266,10 +254,10 @@ plot(log(clas_used$number.of.features), log(clas_used$number.of.instances))
 df_biological$data.id[!(df_biological$data.id %in% clas_used$data.id)]
 
 # Set up the benchmark (delete current results)
-setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used,
-                        work.dir = "Data/Results/Batchtools/batchtool_benchmark_bio",
-                        name = "Data/Results/Batchtools/batchtool_benchmark_bio/Experiment_1",
-                        tune = TRUE)
+# [Commented] setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used,
+#                         work.dir = "Data/Results/Batchtools/batchtool_benchmark_bio",
+#                         name = "Data/Results/Batchtools/batchtool_benchmark_bio/Experiment_1",
+#                         tune = TRUE)
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark_bio/Experiment_1//", writeable = TRUE)
 regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = 2) 
 regis$cluster.functions = makeClusterFunctionsInteractive()
