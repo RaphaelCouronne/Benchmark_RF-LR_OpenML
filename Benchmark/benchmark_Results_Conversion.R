@@ -12,8 +12,10 @@ convert_results <- function(clas_used, regis, target_path) {
   
   ## 1. Remove the nas in result, and create the dataframe associated with results
   print(paste0("Reduce Results at : ",regis$file.dir))
-  result = reduceResultsList(ids = 1:278, reg = regis, missing.val = NA)
+  result = reduceResultsList(ids = c(c(1:262),c(264:273)), reg = regis, missing.val = NA)
+  #result = reduceResultsList(ids = c(2), reg = regis, missing.val = NA)
   clas_used_original = clas_used
+  clas_used = clas_used[c(c(1:262),c(264:273)),]
   
   # Defines measures and learners id
   measures = list(acc, auc, brier, timetrain)

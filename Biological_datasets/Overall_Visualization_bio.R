@@ -23,7 +23,7 @@ overall_visualization_bio<-function(bmr) {
   colnames(matrixRanks.melted)=c("Method","Dataset","Rank")
   
   library(plyr)
-  matrixRanks.melted$Method = revalue(matrixRanks.melted$Method, c("classif.randomForest"="RF", "classif.logreg"="LR","classif.tuneRanger"="TR"))
+  matrixRanks.melted$Method = revalue(matrixRanks.melted$Method, c("classif.randomForest"="RF", "classif.logreg"="LR","classif.tuneRanger"="TRF"))
   
   p = ggplot(matrixRanks.melted, aes_string("Rank", fill = "Method"))
   p = p + geom_bar(position = "dodge")
@@ -96,7 +96,7 @@ overall_visualization_bio<-function(bmr) {
     rf.measure = perfsAggr.RF[[measure]]
     tr.measure = perfsAggr.TR[[measure]]
     df.measure = data.frame(lr.measure = lr.measure, rf.measure = rf.measure, tr.measure = tr.measure )
-    names(df.measure) = c("LR", "RF", "TR")
+    names(df.measure) = c("LR", "RF", "TRF")
     df.measure.melted = reshape2::melt(df.measure)
     names(df.measure.melted) = c("Method", measure.name)
     
@@ -110,6 +110,7 @@ overall_visualization_bio<-function(bmr) {
     res$p.measure = p
     
     ## Difference boxplot
+    perfsAggr.diff$rf_type[perfsAggr.diff$rf_type=="TR"]="TRF"
     diff.measure = perfsAggr.diff$measure
     perfsAggr.diff.boxplot = perfsAggr.diff
     perfsAggr.diff.boxplot$dummy = ""
@@ -118,7 +119,7 @@ overall_visualization_bio<-function(bmr) {
     p = p + labs(y = paste((expression(paste(Delta))),measure.name))
     p = p + theme(axis.title.x=element_blank(),  text = element_text(size=police.size))
     p = p + geom_hline(yintercept = 0, color = "red") 
-    p = p +  scale_fill_grey(start = 0.4,end = 1) + theme(legend.position="none")
+    p = p +  scale_fill_grey(start = 0.7,end = 1) + theme(legend.position="none")
     #print(p)
     
     res$p.measure.diff = p

@@ -26,6 +26,13 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
 
 
+#####################################################
+#################### Main Document ##################
+#####################################################
+
+
+
+
 ## 1 Benchmark Study ======================================================================================
 
 ## 1.1 Data Mining ----
@@ -39,18 +46,6 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 source(file = "Benchmark/benchmark_getData_OpenML.R")
 get_data_OpenML(target_path = "Data/OpenML/clas_time.RData", force = FALSE, computeTime = FALSE)
 
-## ----
-plot(log10(clas_time$time), log10(clas_time$number.of.features*clas_time$number.of.instances))
-plot(log10(clas_time$number.of.features*clas_time$number.of.instances), clas_time$time, ylim = c(0,2000))
-lines(c(-3,5),c(6,6))
-lines(c(2,2),c(0,10))
-title("Computation time vs n*p, log scale")
-
-plot(log10(clas_time$number.of.features*clas_time$number.of.instances), clas_time$time)
-title("Computation time vs log(n*p)")
-lines(c(0,10),c(100,100))
-lines(c(6,6),c(0,3000))
-
 
 ## 1.2 Benchmark computation ---
 
@@ -63,44 +58,31 @@ source(file = "Benchmark/benchmark_batchtools.R")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big, clas_time_toobig)
 
-# Set up the benchmark (delete current results)
-setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used)
+# [Commented] setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used) Set up the benchmark (delete current results, use with caution)
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark/Experiment_1//", writeable = TRUE)
-regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = 4) 
+regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = 2) 
 regis$cluster.functions = makeClusterFunctionsInteractive() 
 
 # Launch benchmark
-testJob(1)
-submitJobs(ids = 1:10, reg = regis) #small datasets
-submitJobs(ids = 100:273, reg = regis) #medium datasets
-submitJobs(ids = 226:250, reg = regis) #big datasets
-submitJobs(ids = 250:265, reg = regis) #big datasets
-submitJobs(ids = 265:273, reg = regis) #big datasets
-submitJobs(ids = 259:271, reg = regis) #big datasets
-submitJobs(ids = 259:271, reg = regis) #big datasets
- waitForJobs()
-waitForJobs(expire.after = 1L, stop.on.expire = TRUE)
-findNotDone()
-# Check benchmark
-getStatus()
+testJob(1) # Test a job
+submitJobs(ids = 1, reg = regis) # Submit one job
+submitJobs(ids = 1:273, reg = regis) # Submit all datasets
 
-df_chunk = data.frame(job.id = 1:273, chunk = 1:7)
-submitJobs(ids = df_chunk[findNotDone()$job.id,], reg = regis) #big datasets
 
 ## 2 Visualization  ======================================================================================
  
 # 2.1 Conversion of the benchmark results
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark/Experiment_1//", writeable = TRUE)
 load("Data/OpenML/clas_time.RData")
-clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
-clas_used = rbind(clas_time_small)
+clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big, clas_time_toobig)
+#clas_used = rbind(clas_time_small)
 source(file = "Benchmark/benchmark_Results_Conversion.R")
 convert_results(clas_used = clas_used, regis = regis, target_path = "Data/Results/df_bmr.RData")
 
 # 2.2 Overall Visualization
 load(file = "Data/Results/df_bmr.RData")
 source(file = "Visualization/Overall_Visualization.R")
-overall_visualization(df.bmr.diff)
+overall_visualization(res.perfs.df, perfsAggr.diff)
 
 # 2.3 Inclusion Criteria Visualization
 load(file = "Data/Results/df_bmr.RData")
@@ -127,21 +109,18 @@ ResultsMetaLearning(df.bmr.diff)
 
 # 4.1 Subset analysis on 1 dataset
 
-# 4.1.1 Computation
-
 ###########################################
 ########## High Computation time ##########
 ###########################################
 
-source("Simulations/Dataset_Subset_Analysis.R")
-load(file = "Data/OpenML/clas_time.RData")
-clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+data.id = 310 #-mammography data.id 310 11183 7
 
-subsetAnalysis_computeParallel(clas_used, nCores = nCores)
+source("Biological_datasets/subset_analysis_bio.R")
+subset_analysis_bio(nCores=4, seed=1, data.id = 310,
+                    n.simulation = 20, n.max = 1e3,
+                    grid.n = c(5e2), grid.p = c(1,2,3,4,5,6))
 
-# 4.1.2 Visualization
-
-subsetAnalysis_visualization()
+subsetAnalysis_visualization_bio() # Visualize the results
 
 
 # 4.2 Partial dependance plots simulations
@@ -152,12 +131,67 @@ PlotPartialDependanceExample(seed = 2)
 
 
 
-## ===========================
-##                           =
-## Additional files/code     =
-##                           =
-## ===========================
+#####################################################
+#################### Additional Files ###############
+#####################################################
 
+rm(list=ls())
+
+## Additional File 2 : Study of biological datasets 
+
+## Part 1 : Biological datasets
+
+# Source 
+source(file = "Visualization/Overall_Visualization.R")
+source(file = "Visualization/Inclusion_Criteria_Plots.R")
+source(file = "Benchmark/benchmark_Results_Overview.R")
+source(file = "Benchmark/benchmark_Results_MetaLearning.R")
+
+# Load results and select subset
+load(file = "Data/Results/df_bmr.RData")
+
+df_biological = read.csv("df_biological.csv", sep = " ")
+df_biological = na.omit(df_biological[df_biological$is_biology==1,])
+df_biological <- df_biological[order(df_biological$n*df_biological$p),] 
+
+index_bio = c(1:243)[clas_used$data.id %in% df_biological$data.id]
+df.bmr.diff.bio = df.bmr.diff[index_bio,]
+perfsAggr.diff.bio = perfsAggr.diff[index_bio,]
+res.perfs.df.bio = res.perfs.df[c(2*index_bio,2*index_bio-1),]
+
+# Plots
+overall_visualization(res.perfs.df.bio, perfsAggr.diff.bio)
+inclusion_criteria(df.bmr.diff.bio)
+benchmark_ResultsOverview(df.bmr.diff.bio, res.perfs.df.bio)
+ResultsMetaLearning(df.bmr.diff.bio)
+
+
+## Part 2 : Non biological datasets vs biological datasets
+
+# Load subsets
+index_not.bio = c(1:243)[!(clas_used$data.id %in% df_biological$data.id)]
+df.bmr.diff.not.bio = df.bmr.diff[index_not.bio,]
+perfsAggr.diff.not.bio = perfsAggr.diff[index_not.bio,]
+res.perfs.df.not.bio = res.perfs.df[c(2*index_not.bio,2*index_not.bio-1),]
+
+# Plots
+benchmark_ResultsOverview(df.bmr.diff.not.bio, res.perfs.df.not.bio)
+
+# Analysis
+t.test(df.bmr.diff.not.bio$acc.test.mean, df.bmr.diff$acc.test.mean)
+t.test(df.bmr.diff.not.bio$auc.test.mean, df.bmr.diff$auc.test.mean)
+t.test(df.bmr.diff.not.bio$brier.test.mean, df.bmr.diff$brier.test.mean)
+
+df.bmr.diff$bio = "bio"
+df.bmr.diff$bio[index_not.bio] = "non-bio"
+
+data = melt(df.bmr.diff[c("acc.test.mean","auc.test.mean","brier.test.mean","bio")])
+
+p = ggplot(data = data, mapping = aes(x=bio,y=value))+
+  geom_boxplot()+facet_grid(.~variable)
+p
+
+## Additional File 3 : Study of partial dependence plots
 
 ## 5 Study of partial difference plots  ======================================================================================
 
@@ -194,14 +228,13 @@ getStatus()
 load("Data/Results/df_bmr.RData")
 regis.pdp = loadRegistry("Data/Results/Batchtools/batchtool_PartialDependance///")
 source("Additional_Files/PartialDependence_Extreme_Cases.R")
-
-
 partialDependenceAnalysis_extremCases()
 
 
 
 
-## 5 Study of biological datasets  ====================================================================
+## Additional File 4 : Study of Random Forest Tuning    ====================================================================
+
 rm(list=ls())
 library(batchtools)
 nCores = 3
@@ -209,7 +242,7 @@ require(gdata)
 
 
 
-## 5.1 Load the biological datasets----
+## 1 Load the biological datasets----
 #df_biological = read.xls ("data.summary.completed.xlsx", sheet = 1, header = TRUE, method = "tab")
 df_biological = read.csv("df_biological.csv", sep = " ")
 df_biological = na.omit(df_biological[df_biological$is_biology==1,])
@@ -223,7 +256,7 @@ plot(df_biological$n*df_biological$p)
 # Batchtools implementation
 source(file = "Benchmark/benchmark_batchtools.R")
 load("Data/OpenML/clas_time.RData")
-clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big, clas_time_toobig)
 clas_used = clas_used[clas_used$data.id %in% df_biological$data.id,]
 clas_used <- clas_used[order(clas_used$n*clas_used$p),] 
 
@@ -274,32 +307,3 @@ source(file = "Benchmark/benchmark_Results_MetaLearning.R")
 ResultsMetaLearning(df.bmr.diff[df.bmr.diff$rf_type=="RF",])
 ResultsMetaLearning_bio(df.bmr.diff)
 
-
-###########################################
-########## High Computation time ##########
-###########################################
-
-
-# Biological dataset simulation
-
-
-# Datasets :
-#-eeg-eye-state data.id 1471 14980 15
-#-mammography data.id 310 11183 7
-#-splice data.id 953 3190 62
-
-# Small datasets : 
-#-diabetes 37
-#-ilpd 583
-#-wdbc 1510
-
-# Load dataset
-
-data.id = 310
-clas_used[clas_used$data.id==data.id,]
-
-source("Biological_datasets/subset_analysis_bio.R")
-subset_analysis_bio(nCores=4, seed=1, data.id = 310,
-                    n.simulation = 20, n.max = 1e3,
-                    grid.n = c(5e2), grid.p = c(1,2,3,4,5,6))
-subsetAnalysis_visualization_bio()

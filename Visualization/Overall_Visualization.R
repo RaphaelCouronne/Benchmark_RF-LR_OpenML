@@ -1,5 +1,5 @@
 
-overall_visualization<-function(bmr) {
+overall_visualization<-function(res.perfs.df, perfsAggr.diff) {
   library(ggplot2)
   library(cowplot)
   
@@ -39,6 +39,17 @@ overall_visualization<-function(bmr) {
   p = p + geom_bar(position = "dodge")
   p = p + ylab("Number")
   p.barplot = p
+  
+  
+  ## 1 bis : % of time
+  matrixRanksAcc = convertModifiedBMRToRankMatrix(res.perfs.df, measure = acc)
+  print(paste("RF is first ",mean(matrixRanksAcc[1,]>matrixRanksAcc[2,]),"of the time for acc"))
+  
+  matrixRanksAuc = convertModifiedBMRToRankMatrix(res.perfs.df, measure = auc)
+  print(paste("RF is first ",mean(matrixRanksAuc[1,]>matrixRanksAuc[2,]),"of the time for auc"))
+  
+  matrixRanksBrier = convertModifiedBMRToRankMatrix(res.perfs.df, measure = brier)
+  print(paste("RF is first ",mean(matrixRanksBrier[1,]>matrixRanksBrier[2,]),"of the time for brier"))
   
   
   ## 2. Plots for the difference measures, performances and ranks

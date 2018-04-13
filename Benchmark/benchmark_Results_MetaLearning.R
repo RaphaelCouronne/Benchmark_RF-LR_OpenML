@@ -122,7 +122,7 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
   ## ML Analysis ----
   # We use a random forest and assess its performance for the meta-learning task
   
-  learner.regr.rf = makeLearner("regr.randomForest", predict.type = "se")
+  learner.regr.rf = makeLearner("regr.randomForest")
   
   myvars <- c("logp", "logn", 
               "logp.dividedby.n",
@@ -147,11 +147,26 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
   fit.regr = train(learner.regr.rf, task.analysis.regr)
   
   generatePartialDependenceDataFeature = function(feature.name) {
-    pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr, feature.name)
-    pd.regr.logp = plotPartialDependence(pd.regr) + 
-      labs(y = bquote(paste(Delta, .("acc")))) #+
+    set.seed(1)
+    quantiles = function(x) quantile(x, c(0.25,0.5,0.75))
+    pd.regr = generatePartialDependenceData(fit.regr, task.analysis.regr, feature.name, uniform = TRUE, fun = quantiles)
+    data = pd.regr$data
+    data_reshaped = data[data$Function == "acc.test.mean.25%",]
+    data_reshaped$Function <- NULL
+    colnames(data_reshaped)[1] = "Quantile_0.25"
+    data_reshaped$Quantile_0.50 =  data$acc.test.mean[data$Function == "acc.test.mean.50%"]
+    data_reshaped$Quantile_0.75 =  data$acc.test.mean[data$Function == "acc.test.mean.75%"]
+    #pd.regr.logp = plotPartialDependence(pd.regr)  #+
+    
+    
+    p = ggplot(data_reshaped,aes_string(x=feature.name,y="Quantile_0.50"))+
+      geom_ribbon(aes(ymin = Quantile_0.25, ymax = Quantile_0.75), fill = "grey70")+
+      geom_point()+geom_line()+ 
+      labs(y = bquote(paste(Delta, .("acc")))) #+ ylim(-0.02,0.40)
+    p
+    
       #ylim(-0.01,0.11)
-    return(pd.regr.logp)
+    return(p)
   }
   
   police.size = 18
