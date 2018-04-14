@@ -271,12 +271,9 @@ subsetAnalysis_visualization_bio<-function() {
            "Difference"="Deltaacc")
   }
   res.tot$measure = factor(sapply(res.tot$algorithm,v))
-  res.tot$algorithm = factor(res.tot$algorithm, levels=c("LR","Difference","RF"))
+  res.tot$algorithm = factor(res.tot$algorithm, levels=c("RF","Difference","LR"))
   levels(res.tot$measure) = c(expression("acc"),
                               expression(paste(Delta,"acc")))
-  
-  
-  
   
   
   pp <- ggplot(res.tot, aes(factor(featureValue), acc))+
