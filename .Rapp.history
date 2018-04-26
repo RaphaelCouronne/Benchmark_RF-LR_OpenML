@@ -1,0 +1,2 @@
+load("/Users/raphael.couronne/Desktop/Munich/Benchmark_RF-LR_OpenML/df.bme.diff.RData")
+load("/Users/raphael.couronne/Desktop/Munich/Benchmark_RF-LR_OpenML/clas_used.RData")
