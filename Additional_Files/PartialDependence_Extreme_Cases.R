@@ -3,30 +3,35 @@
 
 
 
-partialDependenceAnalysis_extremCases = function(seed = 1) {
+partialDependenceAnalysis_extremCases = function(regis, seed = 1) {
   
   police.size = 18
   
   # Get the datasets without errors
   ids = 1:259
   ids = ids[-which(ids %in% c(14))] # error on dataset 14
-  result.pdp = reduceResultsList(ids = ids, reg = regis.pdp)
+  result.pdp = reduceResultsList(ids = ids, reg = regis)
   result.pdp.df = do.call("rbind", result.pdp) 
   Partiaresult.pdp = result.pdp.df
-  clas_used.pdp = clas_used[ids,]
+  #clas_used.pdp = clas_used[ids,]
   
   
   # Plot of the Partial Dependence for all datasets
   
-  df.all = data.frame(result.pdp.df, data.id = clas_used.pdp$data.id, 
-                      n = clas_used.pdp$number.of.instances,
-                      p = clas_used.pdp$number.of.features,
-                      logpn = log(clas_used.pdp$number.of.features/clas_used.pdp$number.of.instances))
+   # df.all = data.frame(result.pdp.df, data.id = clas_used.pdp$data.id, 
+   #                     n = clas_used.pdp$number.of.instances,
+   #                     p = clas_used.pdp$number.of.features,
+   #                     logpn = log(clas_used.pdp$number.of.features/clas_used.pdp$number.of.instances))
+   # 
+
+  df.all = data.frame(result.pdp.df, data.id = regis$defs$problem[ids])
+  df.all = df.all[df.all$data.id %in% clas_used$data.id,]
+  df.all$data.id = as.integer(sapply(df.all$data.id, toString))
   
   # get the extrem cases
-  data.id.highDiff = df.all$data.id[order(df.all$difference.imp.weight.all)][length(df.all$data.id)-1] # max diff model
-  data.id.lowDiff = df.all$data.id[order(df.all$difference.imp.weight.all)][1] # min diff model
-  data.id.highAcc = df.all$data.id[order(df.all$diff.acc)][length(df.all$diff.acc)-3] # max diff acc
+  data.id.highDiff = df.all$data.id[order(df.all$difference.imp.weight.all)][length(df.all$data.id)-2] # max diff model
+  data.id.lowDiff = df.all$data.id[order(df.all$difference.imp.weight.all)][2] # min diff model
+  data.id.highAcc = df.all$data.id[order(df.all$diff.acc)][length(df.all$diff.acc)-2] # max diff acc
   
   id.highDiff = which(df.all$data.id==data.id.highDiff)
   id.lowDiff = which(df.all$data.id==data.id.lowDiff)
@@ -61,8 +66,11 @@ partialDependenceAnalysis_extremCases = function(seed = 1) {
   plot(p)
   dev.off()
   
+  ## Before : 1479, 923, 1460
+  ## Now Clas Used 1443, 846, 720
+  ## Now real class
   
-  ## Extrem cases
+  print(paste(data.id.lowDiff, data.id.highDiff, data.id.highAcc))
 
   # plot the extrem cases
   # Case 1 Low difference in Partial Dependence
@@ -82,7 +90,7 @@ partialDependenceAnalysis_extremCases = function(seed = 1) {
 
 
 extrem_cases = function(data.id, seed = 1, path.out = "Data/Pictures/AdditionalFigures/AdditionalFigure2_PDP.jpeg") {
-  
+  print(data.id)
   set.seed(1)
   police.size = 18
   
@@ -136,6 +144,7 @@ extrem_cases = function(data.id, seed = 1, path.out = "Data/Pictures/AdditionalF
   fv.percentage.chosen = NULL
   
   for (i in c(1:2)) {
+    print(i)
     index.temp = feature_importance_order[i]
     feature.temp = features.list[index.temp]
     feature.chosen[i] = feature.temp
@@ -149,11 +158,11 @@ extrem_cases = function(data.id, seed = 1, path.out = "Data/Pictures/AdditionalF
     # 
     set.seed(seed)
     pd.rf = generatePartialDependenceData(fit.classif.rf, task, 
-                                          features.list[index.temp])#,
+                                          features.list[index.temp], uniform = FALSE)#,
                                           #fmin = fmin, fmax = fmax)
     set.seed(seed)
     pd.lr = generatePartialDependenceData(fit.classif.lr, task, 
-                                          features.list[index.temp])#,
+                                          features.list[index.temp], uniform = FALSE)#,
                                           #fmin = fmin, fmax = fmax)
     
     library(ggplot2)

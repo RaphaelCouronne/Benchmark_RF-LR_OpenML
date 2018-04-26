@@ -81,6 +81,10 @@ ResultsMetaLearning = function(df.bmr.diff = df.bmr.diff) {
   ## Linear models
   
   plotLinearModelandCor<-function(feature, measure, log = FALSE) {
+    
+    print("==================")
+    print(paste("Measure :", measure, "   feature :", feature))
+    
     plot(df.bmr.diff[[feature]], df.bmr.diff[[measure]], xlab = feature, ylab = measure)
     fit =lm(df.bmr.diff[[measure]]~df.bmr.diff[[feature]])
     

@@ -20,7 +20,7 @@ require(tuneRanger)
 require(batchtools)
 require(OpenML)
 # Enter here nCores and myapikey
-nCores = 4 # number of Cpus you want to use
+nCores = 2 # number of Cpus you want to use
 myapikey = "7a4391537f767ea70db6af99497653e5" # OpenML API key
 saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 
@@ -29,7 +29,6 @@ saveOMLConfig(apikey = myapikey, arff.reader = "RWeka", overwrite=TRUE)
 #####################################################
 #################### Main Document ##################
 #####################################################
-
 
 
 ## 1 Benchmark Study ======================================================================================
@@ -57,7 +56,7 @@ source(file = "Benchmark/benchmark_batchtools.R")
 load("Data/OpenML/clas_time.RData")
 clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big, clas_time_toobig)
 
-# [Commented] setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used) Set up the benchmark (delete current results, use with caution)
+# [Commented] setBatchtoolsExperiment(seed = 1, ncpus = nCores, clas_used = clas_used) #Set up the benchmark (delete current results, use with caution)
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark/Experiment_1//", writeable = TRUE)
 regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = 2) 
 regis$cluster.functions = makeClusterFunctionsInteractive() 
@@ -78,12 +77,13 @@ clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big, clas_time_to
 source(file = "Benchmark/benchmark_Results_Conversion.R")
 convert_results(clas_used = clas_used, regis = regis, target_path = "Data/Results/df_bmr.RData")
 
-# 2.2 Overall Visualization
+# 2.2 Overall Visualization (Figure 3)
+# Plot boxplots of differences in performances
 load(file = "Data/Results/df_bmr.RData")
 source(file = "Visualization/Overall_Visualization.R")
 overall_visualization(res.perfs.df, perfsAggr.diff)
 
-# 2.3 Inclusion Criteria Visualization
+# 2.3 Inclusion Criteria Visualization (Figure 5)
 load(file = "Data/Results/df_bmr.RData")
 source(file = "Visualization/Inclusion_Criteria_Plots.R")
 inclusion_criteria(df.bmr.diff)
@@ -91,12 +91,13 @@ inclusion_criteria(df.bmr.diff)
 
 ## 3. Analysis  ======================================================================================
 
-# 3.1 Overall results
+# 3.1 Overall results (Table 2)
+# Show bootstrap means, sd and confidence intervals
 load(file = "Data/Results/df_bmr.RData")
 source(file = "Benchmark/benchmark_Results_Overview.R")
 benchmark_ResultsOverview(df.bmr.diff, res.perfs.df)
 
-# 3.2 Meta Learning
+# 3.2 Meta Learning (Figure 6 + Table 3)
 load(file = "Data/Results/df_bmr.RData")
 source(file = "Benchmark/benchmark_Results_MetaLearning.R")
 ResultsMetaLearning(df.bmr.diff)
@@ -106,7 +107,7 @@ ResultsMetaLearning(df.bmr.diff)
 
 ## 4. Simulations  ======================================================================================
 
-# 4.1 Subset analysis on 1 dataset
+# 4.1 Subset analysis on 1 dataset (Figure 4)
 
 ###########################################
 ########## High Computation time ##########
@@ -122,7 +123,7 @@ subset_analysis_bio(nCores=4, seed=1, data.id = 310,
 subsetAnalysis_visualization_bio() # Visualize the results
 
 
-# 4.2 Partial dependance plots simulations
+# 4.2 Partial dependance plots simulations (Figure 1)
 source("Simulations/PDP_Example_Simulations.R")
 PlotPartialDependanceExample(seed = 2)
 
@@ -188,6 +189,7 @@ biological_subgroup_analysis(df.bmr.diff, index_bio, index_not.bio) # Boxplot of
 ## Additional File 3 : Study of partial dependence plots
 ########################################################
 
+rm(list=ls())
 
 ## 1 Computation of the difference in Partial Dependence ----
 
@@ -196,28 +198,28 @@ biological_subgroup_analysis(df.bmr.diff, index_bio, index_not.bio) # Boxplot of
 ###########################################
 
 # Batchtools implementation
-source(file = "Additional_Files/PartialDependence_Batchtools.R")
-load("Data/Results/df_bmr.RData")
-load("Data/OpenML/clas_time.RData")
-clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
+#source(file = "Additional_Files/PartialDependence_Batchtools.R")
+#load("Data/Results/df_bmr.RData")
+#load("Data/OpenML/clas_time.RData")
+#clas_used = rbind(clas_time_small, clas_time_medium, clas_time_big)
 
 # Set up the benchmark (delete current results)
 
 #[Commented] setBatchtoolsPDPExperiment(seed = 1, ncpus = 3, clas_used = clas_used)
-regis.pdp = loadRegistry("Data/Results/Batchtools/batchtool_PartialDependance///", writeable = TRUE)
+#regis.pdp = loadRegistry("Data/Results/Batchtools/batchtool_PartialDependance///", writeable = TRUE)
 
 # Launch benchmark
 #[Commented] submitJobs(ids = 1:278, reg = regis.pdp) #small datasets
 
 # Check benchmark
-getStatus()
 
 
 ## 2 Visualization of the results ----
 rm(list=ls())
+load("Data/Results/df_bmr.RData")
 regis.pdp = loadRegistry("Data/Results/Batchtools/batchtool_PartialDependance///", writeable = TRUE)
 source("Additional_Files/PartialDependence_Extreme_Cases.R")
-partialDependenceAnalysis_extremCases()
+partialDependenceAnalysis_extremCases(regis = regis.pdp)
 
 
 
@@ -263,7 +265,7 @@ clas_used <- clas_used[order(clas_used$n*clas_used$p),]
 regis = loadRegistry("Data/Results/Batchtools/batchtool_benchmark_bio/Experiment_1//", writeable = TRUE)
 regis$cluster.functions = makeClusterFunctionsMulticore(ncpus = 2) 
 regis$cluster.functions = makeClusterFunctionsInteractive()
-
+testJob(1)
 # [Commented] submitJobs(ids = c(1:70), reg = regis) #small datasets# Errors ?
 
 ## 3 Show results with biological datasetss----
