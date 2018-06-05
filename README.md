@@ -62,7 +62,7 @@ Computation of the difference in partial dependance between RF and LR for all th
 
 ## Instructions for Setting up Docker
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.804427.svg)](https://doi.org/10.5281/zenodo.804427)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1283129.svg)](https://doi.org/10.5281/zenodo.1283129)
 
 #### 1. Install Docker
 More information can be found on the [Docker Website](https://docs.docker.com/engine/installation/)
