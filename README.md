@@ -12,9 +12,10 @@ Note that files are already included in the Docker image.
 
 
 #### 2. Set up main.R
-1. Open main.R 
-2. Enter your OpenML API key at the beginning of the file so that you will be able to download data from OpenML
-3. Enter the number of cores you want to use for the benchmark experiment  
+1. Open enchmark_RF-LR_OpenML.Rproj
+2. Open main.R 
+3. Enter your OpenML API key at the beginning of the file so that you will be able to download data from OpenML
+4. Enter the number of cores you want to use for the benchmark experiment  
 
 		# Enter below nCores and myapikey  
 		nCores = ??? # number of Cpus you want to use   
@@ -24,13 +25,13 @@ Note that files are already included in the Docker image.
 #### 3. Use main.R
 
 Make sure you have all the required package if you do not use our Docker image.  
-For each of the subsections (e.g. 1.1), you have to run all the code.  
+For each of the subsections (e.g. 1.1), you may run all the code.  
 For a more practical use, the results are already present in the GitHub in the folder Data. Thus, if you want only to generate the graphics and simulations you can skip parts 1. and 2.  
 Graphics will be saved in Data/Pictures/
 
 1. Benchmark Study
 	1. Get the Data from OpenML  
-Note that a fixed list of OpenML tasks is used here, so that we work with a fixed set of datasets. We first remove all the datasets that do not fit our criteria (binary classification problem, no NAs, no High dimension, no simulated datasets, no duplicates). We then use the file "Data/OpenML/df.infos.RData" to remove the dataset which failed to load. If you want to recompute this file, you can set the option force=TRUE. Computations should then last for several hours.
+Note that a fixed list of OpenML tasks is used here, so that we work with a fixed set of datasets (October 2016). We first remove all the datasets that do not fit our criteria (binary classification problem, no NAs, no High dimension, no simulated datasets, no duplicates). We then use the file "Data/OpenML/df.infos.RData" to remove the dataset which failed to load. If you want to recompute this file, you can set the option force=TRUE. Computations should then last for several hours.
 
 	2. Launch the benchmark  
 You can here recompute the benchmark using batchtools. The function setBatchtoolsExperiment() will clear the current batchtools folder and prepare R for a new benchmark computation. You can then use the batchtools function submitJobs to compute the results for the datasets. getStatus() will help monitor the computation. For 278 datasets, it took around 8 hours with 7 i7 cores and 8go RAM.
@@ -50,7 +51,7 @@ Partial dependance plot of the model trained to predict the difference of perfor
 
 4. Simulations
 	1. Subset simulation
-Computation of the performance of LR and RF for many sub-datasets of the OpenML dataset with id 1496. Sub-datasets are randomly generated according to subset of p0<p features or n0<n observations. We then visualize the dependancy of the difference between RF and LR according to increasing values of p0 and n0.
+Computation of the performance of LR and RF for many sub-datasets of the OpenML dataset with id 310. Sub-datasets are randomly generated according to subset of p0<p features or n0<n observations. We then visualize the dependancy of the difference between RF and LR according to increasing values of p0 and n0.
 	2. Partial dependance plot simulation  
 Computation of simple examples for partial dependance.
 	3. Computation of the difference in partial dependance
@@ -78,19 +79,21 @@ You might have to change the default parameters for your docker machine, such as
 
 
 #### 3. Get the Docker image associated with the benchmark
-The Docker image can be found on [DockerHub](https://hub.docker.com/r/shadoko/docker_benchmark_RF-LR/). You can pull the image (around 2.4gb) to your system via the command line :
+The Docker image can be found on [DockerHub](https://hub.docker.com/r/shadoko/docker_benchmark_RF-LR/). You can pull the image (around 5.53gb) to your system via the command line :
 
-	> docker pull shadoko/docker_benchmark_RF-LR:version1
+	> docker pull shadoko/benchmark_rflr:version6
 
-Note that in DockerHub the Dockerbuild file was given so that the image can be recomputed. However, some dependancies may have changed since the version used for the benchmark, so we recommand using a fixed version of the image: shadoko/docker_java_packages:version3
+Note that in DockerHub the Dockerbuild file was given so that the image can be recomputed.
 
 #### 4. Generate a Rstudio instance that you can connect to
-    > docker run --rm -p 8787:8787 -v /Users/myname/myFolder:/home/rstudio/Docker-Benchmark/ shadoko/docker_benchmark_RF-LR:version1
+    > docker run --rm -p 8787:8787 shadoko/benchmark_rflr:version6
+    
+    Te option "-v /Users/myname/myFolder:/home/rstudio/Docker-Benchmark/" can be used to link a volume with the docker image.
 
     -- rm indicates that the container will be deleted when stopped
     -p 8787:8787 indicates that the Rstudio instance will be available on port 8787
     -v /myComputerPath/:/myContainerPath/ link a volume from your computer to your container VM, so that you can for example open your R project
-    shadoko/docker_benchmark_RF-LR:version1  refers to the docker image you want to create a container from
+    shadoko/benchmark_rflr:version6  refers to the docker image you want to create a container from
 
 The GitHub code is already included in the Docker image. You can also link your docker container with a folder containing the GitHub project.  
 Note : for windows OS syntax is different, and the User Public is recommended for rights issues /c/Users/Public/MyFolder:/home/rstudio/Project 
